@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$Think.config.WEB_ADMIN_TITLE}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0 , user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="__JS__/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="__CSS__/admin/index.css">
+    <script type="text/javascript" src="__JS__/common.js"></script>
+    <link type="text/css" rel="stylesheet" href="__CSS__/common.css">
+    <link rel="stylesheet" href="../../../../public/static/bootstrap/css/bootstrap.css">
+    <script type="text/javascript">
+        $(function () {
+            var current_navi_type = 1;
+            $(window).resize(function () {
+                width = $(document.body).width();
+                prompt('点击'+width,'alert-danger',1000);
+            })
+            $('.clickbtn').on('click',function () {
+                prompt('点击','alert-danger',1000);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="index_navi_box pull-left" style="background: red">
+        <ul class="list-unstyled">
+            {volist name ="funcsArray" id ="item"}
+            {if condition="count($item['children']) gt 1"}
+            <li class="">{$item.title}</li>
+            {/if}
+
+            {/volist}
+        </ul>
+    </div>
+    <div class="index_content_box pull-right" style="background: yellow;">
+    </div>
+</body>
+</html>

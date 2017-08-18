@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{$Think.config.WEB_ADMIN_TITLE.'登录'}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0,minimum-scale=1.0 , user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="__STATIC__/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="__JS__/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="__STATIC__/bootstrap/js/bootstrap.js"></script>
+    <link type="text/css" rel="stylesheet" href="__CSS__/admin/login.css">
+    <script type="text/javascript" src="__JS__/common.js"></script>
+    <link type="text/css" rel="stylesheet" href="__CSS__/common.css">
+
+    <script type="text/javascript">
+        $(function () {
+            $('.login_btn').on('click',function (e) {
+                e.preventDefault();
+                account = $('#account').val();
+                if (!account && account.length <= 0) {
+                    prompt('账号没输入','alert-danger',2000);
+                    return;
+                }
+                password = $('#password').val();
+                if (!password && password.length <= 0){
+                    prompt("密码没有输入!",'alert-danger',2000);
+                    return ;
+                }
+                sendRequest('__URL__/loginCheck',$('#login_form').serialize(),null,function (result) {
+                    console.log(result);
+                    if (result.code == 1000){
+                        window.location = '__URL__/../index/index';
+                    }else  {
+                        prompt(result['msg'],'alert-danger',2000);
+                    }
+                },function () {
+                    prompt('请求错误!!请重新尝试！','alert-danger',2000);
+                });
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="container login_view_bg bg-size">
+    <img src="__STATIC__/images/admin/logintop.png" class="img-responsive login_toptitle">
+    <p class="text-danger text-center h5">您的富裕是我们不懈的追求。</p>
+    <div class="login_input_bg col-xs-8 col-xs-push-2 bg-size">
+        <div class="col-xs-8">
+            <form class="form-horizontal" id="login_form" role="form">
+                <div class="form-group">
+                    <label for="account" class="col-xs-3 control-label">账号：</label>
+                    <div class="col-xs-9">
+                        <input type="text" id="account" class="form-control input-sm" name="account" placeholder="请输入后台账号">
+                    </div>
+                </div>
+                <div class="form-group login_psw_input_box">
+                    <label for="password" class="col-xs-3 control-label">密码：</label>
+                    <div class="col-xs-9">
+                        <input type="password" id="password" name="password" class="form-control input-sm" placeholder="请输入密码">
+                    </div>
+                </div>
+                <button class="pull-right fotgetBtn btn" type="button">忘记密码</button>
+            </form>
+        </div>
+        <div class="col-xs-2 col-xs-push-1">
+            <img src="__STATIC__/images/admin/icon.png" class=" img-circle login_icon_img img-responsive center-block">
+        </div>
+
+    </div>
+    <div class="clearfix"></div>
+    <button class="center-block login_btn " type="button">登录系统</button>
+</div>
+
+</body>
+</html>
