@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="LiaoCollectionViewCell" id="gTV-IL-0wX" customClass="LiaoCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="131" height="143"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="131" height="143"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="加载占位图" translatesAutoresizingMaskIntoConstraints="NO" id="yOH-qW-fGj">
+                        <rect key="frame" x="0.0" y="0.0" width="131" height="143"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FKG-Up-6JM">
+                        <rect key="frame" x="0.0" y="113" width="131" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="V3P-j9-ryG"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="26岁  女" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2z-eX-8eg">
+                        <rect key="frame" x="6" y="128" width="60" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="Ltf-Uj-JaJ"/>
+                            <constraint firstAttribute="height" constant="15" id="aUB-B8-roH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="阳光美好" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocg-VY-ZcX">
+                        <rect key="frame" x="6" y="113" width="119" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="GWC-ev-xbs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 厦门" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvX-aC-1NU">
+                        <rect key="frame" x="77" y="128" width="48" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="dNb-qq-9T7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.96470588239999999" green="0.19215686269999999" blue="0.40784313729999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uvX-aC-1NU" firstAttribute="leading" secondItem="A2z-eX-8eg" secondAttribute="trailing" constant="11" id="BJO-W8-D7r"/>
+                <constraint firstAttribute="bottom" secondItem="uvX-aC-1NU" secondAttribute="bottom" id="HHb-Wm-kKe"/>
+                <constraint firstAttribute="trailing" secondItem="Ocg-VY-ZcX" secondAttribute="trailing" constant="6" id="UJ0-uh-tU2"/>
+                <constraint firstItem="FKG-Up-6JM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="YaS-mP-f6X"/>
+                <constraint firstAttribute="bottom" secondItem="FKG-Up-6JM" secondAttribute="bottom" id="Za2-sb-jRB"/>
+                <constraint firstItem="yOH-qW-fGj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="cxx-Ay-tG0"/>
+                <constraint firstItem="Ocg-VY-ZcX" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="e1O-7J-Na4"/>
+                <constraint firstAttribute="bottom" secondItem="yOH-qW-fGj" secondAttribute="bottom" id="fI4-AL-cFy"/>
+                <constraint firstItem="A2z-eX-8eg" firstAttribute="top" secondItem="Ocg-VY-ZcX" secondAttribute="bottom" id="iCk-68-1UR"/>
+                <constraint firstAttribute="trailing" secondItem="yOH-qW-fGj" secondAttribute="trailing" id="ivj-wL-sXv"/>
+                <constraint firstAttribute="trailing" secondItem="uvX-aC-1NU" secondAttribute="trailing" constant="6" id="r5o-ER-5aH"/>
+                <constraint firstAttribute="trailing" secondItem="FKG-Up-6JM" secondAttribute="trailing" id="u86-1q-TVB"/>
+                <constraint firstAttribute="bottom" secondItem="A2z-eX-8eg" secondAttribute="bottom" id="vZF-ub-1oW"/>
+                <constraint firstItem="A2z-eX-8eg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="xIP-Cs-GX9"/>
+                <constraint firstItem="yOH-qW-fGj" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="yBC-Cj-qq1"/>
+            </constraints>
+            <size key="customSize" width="131" height="143"/>
+            <connections>
+                <outlet property="diquLabel" destination="uvX-aC-1NU" id="G8Z-7w-wz9"/>
+                <outlet property="namelabel" destination="Ocg-VY-ZcX" id="PHc-bK-Hpd"/>
+                <outlet property="nianLabel" destination="A2z-eX-8eg" id="OY4-6D-OeD"/>
+                <outlet property="touImageView" destination="yOH-qW-fGj" id="UCR-42-kdl"/>
+            </connections>
+            <point key="canvasLocation" x="101.5" y="201.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="加载占位图" width="374" height="374"/>
+    </resources>
+</document>

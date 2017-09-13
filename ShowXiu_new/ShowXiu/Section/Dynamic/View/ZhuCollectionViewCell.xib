@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ZhuCollectionViewCell" id="gTV-IL-0wX" customClass="ZhuCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="184" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="184" height="110"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U5t-j3-xZr">
+                        <rect key="frame" x="0.0" y="0.0" width="184" height="110"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart.png拷贝2" translatesAutoresizingMaskIntoConstraints="NO" id="UqM-KK-j9r">
+                        <rect key="frame" x="152" y="86" width="20" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Cqb-7v-acg"/>
+                            <constraint firstAttribute="height" constant="16" id="Nj4-00-7fj"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcG-4o-Ot2">
+                        <rect key="frame" x="178" y="84" width="0.0" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Klz-dY-l4i"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="U5t-j3-xZr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9WN-Jt-MSt"/>
+                <constraint firstAttribute="bottom" secondItem="PcG-4o-Ot2" secondAttribute="bottom" constant="6" id="ETr-09-2fm"/>
+                <constraint firstAttribute="trailing" secondItem="PcG-4o-Ot2" secondAttribute="trailing" constant="6" id="FTd-b8-lO8"/>
+                <constraint firstAttribute="bottom" secondItem="UqM-KK-j9r" secondAttribute="bottom" constant="8" id="Mc8-HT-VYf"/>
+                <constraint firstItem="PcG-4o-Ot2" firstAttribute="leading" secondItem="UqM-KK-j9r" secondAttribute="trailing" constant="6" id="d1L-Uo-ryC"/>
+                <constraint firstItem="U5t-j3-xZr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="gLz-Bh-Olk"/>
+                <constraint firstAttribute="bottom" secondItem="U5t-j3-xZr" secondAttribute="bottom" id="pqz-Pg-Lc8"/>
+                <constraint firstAttribute="trailing" secondItem="U5t-j3-xZr" secondAttribute="trailing" id="zGa-ci-aeK"/>
+            </constraints>
+            <size key="customSize" width="184" height="110"/>
+            <connections>
+                <outlet property="shuLabel" destination="PcG-4o-Ot2" id="cgp-4F-Awo"/>
+                <outlet property="tuiMageVIew" destination="U5t-j3-xZr" id="Mae-Ok-EDW"/>
+            </connections>
+            <point key="canvasLocation" x="8" y="114"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="heart.png拷贝2" width="20" height="16"/>
+    </resources>
+</document>

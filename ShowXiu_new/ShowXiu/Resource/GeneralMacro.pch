@@ -1,0 +1,394 @@
+//
+//  GeneralMacro.pch
+//  MicroEarn
+//
+//  Created by hxcj on 16/12/6.
+//  Copyright © 2016年 hxcj. All rights reserved.
+//
+
+//头文件
+#import "HttpUtils.h"
+#import "HelperClass.h"
+#import <UIImageView+WebCache.h>
+#import <MJRefresh.h>
+#import <SVProgressHUD.h>
+#import <Masonry.h>
+#import "MBProgressHUD.h"
+#import <ReactiveCocoa/ReactiveCocoa.h>
+
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
+
+#define SCREEN_W [UIScreen mainScreen].bounds.size.width
+#define SCREEN_H [UIScreen mainScreen].bounds.size.height
+
+#define WEAKSELF(weakSelf)  __weak __typeof(&*self)weakSelf = self;
+
+
+#define kScreen_w [UIScreen mainScreen].bounds.size.width
+#define kScreen_h [UIScreen mainScreen].bounds.size.height
+#define liKsceen_K (kScreen_w - 30)/ 5 + 32
+//红色
+#define hong [UIColor colorWithRed:255.0/255.0 green:64.0/255.0 blue:129.0/255.0 alpha:1]
+//蓝色
+#define blueC [UIColor colorWithRed:28.0/255.0 green:121.0/255.0 blue:246.0/255.0 alpha:1]
+//占位图
+#define zhanImage @"加载占位图"
+///头像占位图
+#define zhantuImage @"图层-65"
+//颜色
+#define ViewRGB [UIColor colorWithRed:240.0/255.0 green:240.0/255.0 blue:240.0/255.0 alpha:1]
+
+//经度
+#define lationString @"lationString"
+//维度
+#define longtionString @"longtionString"
+//UID
+#define uidSG @"uidSG"
+//性别
+#define sexXB @"sexXB"
+//头像
+#define avatarIMG @"avatarIMG"
+//年龄
+#define ageNL @"ageNL"
+//账号
+#define user_loginZH @"user_loginZH"
+//密码
+#define user_passMM @"user_passMM"
+//VIP
+#define user_rankVIP @"user_rank"
+//角标
+#define user_icon @"user_icon"
+//注册的标识
+#define user_bioashi @"biaoshi"
+
+//聊天接界面
+#define kContentFontSize        16.0f   //内容字体大小
+#define kPaddingL                5.0f    //控件间隙
+#define kEdgeInsetsWidth       20.0f    //内容内边距宽度
+////正式
+/************************************** 秀秀2.0 *****************************************/
+#define AppURL2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0"
+
+//打招呼接口
+#define API_sendzh @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//一键全撩
+#define API_recommendList @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/recommendList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//批量打招呼
+#define API_sendqdzh @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendqdzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//排行榜
+#define API_Charmlist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/Charmlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人主页
+#define API_showUser2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/showUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私信接口
+#define API_msglist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/msglist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//动态接口
+#define API_hot2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/hot/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//聊天窗口接口
+#define APi_wechat2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//充值中心-购买VIP接口
+#define API_Vipuser2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/Vipuser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//充值金币接口
+#define API_recharge2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/recharge/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//首页
+#define API_groomUser2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//注册
+#define API_reg2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/reg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//小秘书消息记录接口
+#define  API_miss_list2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/miss_list/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//更多私密照/视频列表接口
+#define API_photolist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/photolist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私密照/视频权限(付费查看) 待测试
+#define API_see_photo_pay2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/see_photo_pay/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//聊天窗口接口
+#define API_wechat2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//删除
+#define API_delphoto2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/delphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//未读消息统计接口
+#define API_unreadmsg2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/unreadmsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//提醒上传照片视频接口
+#define API_sendUpMsg @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendUpMsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//检测查看小视频权限接口
+#define API_showVideo2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/showVideo/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//视频认证
+#define API_videopass @"/videopass/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//视频上传
+#define API_submitpass2 @"/submitpass/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+
+
+///************************************** 秀秀2.0 *****************************************/
+////打招呼接口
+//#define API_sendzh @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/sendzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////一键全撩
+//#define API_recommendList @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/recommendList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////批量打招呼
+//#define API_sendqdzh @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/sendqdzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////排行榜
+//#define API_Charmlist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/Charmlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////个人主页
+//#define API_showUser2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/showUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////私信接口
+//#define API_msglist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/msglist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////动态接口
+//#define API_hot2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/hot/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////聊天窗口接口
+//#define APi_wechat2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////充值中心-购买VIP接口
+//#define API_Vipuser2 @"http://jy.leejia.cn/index.php?s=/Appi/Index/Vipuser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////充值金币接口
+//#define API_recharge2 @"http://jy.leejia.cn/index.php?s=/Appi/Index/recharge/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////首页
+//#define API_groomUser2 @"http://jy.leejia.cn/index.php?s=/Appi/Index/groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////注册
+//#define API_reg2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/reg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////小秘书消息记录接口
+//#define  API_miss_list2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/miss_list/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////更多私密照/视频列表接口
+//#define API_photolist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/photolist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////私密照/视频权限(付费查看) 待测试
+//#define API_see_photo_pay2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/see_photo_pay/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////聊天窗口接口
+//#define API_wechat2 @"http://jy.leejia.cn/index.php?s=/Appi/Index/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////删除
+//#define API_delphoto2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/delphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+////未读消息统计接口
+//#define API_unreadmsg2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi/unreadmsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+/*************************************** 首页 *******************************************/
+//测试接口
+//#define  AppURL @"http://jy.leejia.cn/index.php?s=/Appi/Index/"
+//正式
+#define AppURL @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/"
+//文件上传
+#define API_upload @"upload/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+//测试接口
+#define tesetURL @"test/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//登陆接口
+#define loginURL @"login/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//获取短信验证码
+#define getSmsVcodeURL @"getSmsVcode/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//注册接口
+#define registerURL @"register/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//修改密码接口
+#define resetpwdURL @"resetpwd/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//密码找回
+#define searchpwURL @"searchpw/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//完善个人资料
+#define editUserURL @"perfect/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//省份选择带出城市接口
+#define getCityURL @"getCity/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//绑定手机号
+#define bindingURL @"wxproving/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//推荐用户列表
+#define groomUserURL @"groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//附近用户列表
+#define nearbyUserURL @"nearbyUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//微信授权登录接口
+#define doappwxloginURL @"doappwxlogin/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//位置定位
+#define locationURL @"location/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//周魅力榜/周财富榜  月魅力榜/月财富榜
+#define CharmlistURL @"Charmlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//亲密榜排行
+#define degreeURL @"degree/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//图片上传
+#define uploadURL @"upload/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+//首页 推荐
+#define wxprovingURL @"groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//附近
+#define nearbyURL @"nearby/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//视频
+#define indexVideoURL @"indexVideo/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//签到显示
+#define qdshowURL @"qdshow/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//签到
+#define signURL @"sign/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//登陆
+#define register_newURL @"register_new/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//搜索接口
+#define homesearchURL @"homesearch/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//历史搜索
+#define histitleURL @"histitle/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//清空历史
+#define clearhisURL @"clearhis/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//可能喜欢
+#define lovembURL @"lovemb/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//更多--接口
+#define moreloveURL @"morelove/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+/*************************************** 私信 *******************************************/
+//关注
+#define sublistURL @"sublist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//礼物列表
+#define listgiftURL @"listgift/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//系统消息列表
+#define systemURL @"system/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私信
+#define sxlistURL @"sxlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私信窗口头部接口
+#define wechatURL @"wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私信主页面-头部
+#define wechatURLl @"sixin_header/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//发送消息接口
+#define sendmsgURL @"sendmsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私信窗口消息接口
+#define wechat_msgURL @"wechat_msg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+
+/*************************************** 动态 *******************************************/
+//动态
+#define API_Dynamic @"hot/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+
+
+/*************************************** 我的 *******************************************/
+//个人中心展示页（头部）接口
+#define API_MY_perShow @"perShow/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//完善个人资料（显示）
+#define API_MY_usershow @"usershow/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//上传头像
+#define API_MY_UpAvatar @"UpAvatar/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//修改个人资料
+#define API_MY_useredit @"useredit/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//升级VIP
+#define API_MY_Vipuser @"Vipuser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//金币
+#define API_MY_recharge @"recharge/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//支付
+#define API_MY_payApi @"payApi/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的视频
+#define API_MY_videoList @"videoList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//上传视频
+#define API_MY_UpVideo @"UpVideo/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//公开照片接口
+#define API_MY_opephoto @"opephoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私密照片接口
+#define API_MY_priphoto @"priphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//提现
+#define API_MY_userTx @"userTx/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的粉丝
+#define API_MY_Myfans @"Myfans/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的关注
+#define API_MY_MySubscribe @"MySubscribe/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的分享
+#define API_MY_share @"share/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的钱包
+#define API_MY_Money @"MyMoney/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//收入明细
+#define API_MY_MoneyLog @"MyMoneyLog/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//支付明细
+#define API_MY_MyCostLog @"MyCostLog/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//我的客服
+#define API_MY_NewbieGuide @"NewbieGuide/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//提现支付宝
+#define API_MY_tixian @"tixian/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//提现话费
+#define API_MY_tixianHUafei @"tixian/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//照片上传
+#define API_My_UpPhoto @"UpPhoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//内心独白获取
+#define API_My_mologShow @"mologShow/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//内心独白
+#define API_My_mologAdd @"mologAdd/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//获取随机独白
+#define API_My_getSjTitle @"getSjTitle/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私密照权限设置
+#define API_My_setPhotoConfig @"setPhotoConfig/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//联系方式获取
+#define API_My_lxfsshow @"lxfsshow/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//联系方式保存
+#define API_My_Mylxfs @"Mylxfs/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//联系方式状态设置
+#define API_My_Setlxfs @"Setlxfs/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//意见反馈
+#define API_My_feedback @"feedback/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//检测手机是否有绑定接口
+#define API_My_checkbind @"checkbind/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+/*************************************** 个人展示页 *******************************************/
+//个人展示页的头部
+#define API_photohead @"photohead/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页 礼物信息
+#define API_giftlist @"giftlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页————评论列表
+#define API_commentList @"commentList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页————评论照片
+#define API_comment @"comment/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页———商城礼物列表
+#define API_shopgift @"shopgift/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页--- 关注
+#define API_guanzhu @"guanzhu/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页————照片点赞
+#define API_clickzan @"clickzan/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人展示页———赠送礼物
+#define API_sendgift @"sendgift/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人主页 头部
+#define API_showpp @"showpp/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人主页 私密照
+#define API_smphoto @"smphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人公开照
+#define API_gkphoto @"gkphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人主页资料
+#define API_grdata @"grdata/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//个人主页举报
+#define API_Report @"Report/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//拉黑
+#define API_lahei @"lahei/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//私密照(付费查看)
+#define API_allowsm @"allowsm/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//视频列表
+#define API_videoList @"videoList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//评价
+#define API_comment @"comment/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//赞
+#define API_clickzan @"clickzan/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+//小视频付费
+#define API_allowsp @"allowsp/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+
+
+//微信
+#define WXAppId @"wx7c35ac6495868a48"
+//微信 商户号
+#define  WXMerchant @"1359749402"
+
+//微信商户key
+//#define WXkey @"ec9423ddc4c6ec73395f0da8de91afbd"
+#define MXWechatPartnerKey  @"641e3e03a32cfced53af2bacab970da8"
+
+//支付宝ID
+#define ZFBID @"2088911648469578"
+//支付宝账号
+#define ZFBaccount @"zfb@jnooo.cn"
+//私钥 private
+#define ZFBprivate @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAK6aWJB0K6OLsOpq K6cxtO37bWHNbslSblvJh2Eo+ifXWce+fNPZpz09Z0P+6BYgSg8eDW2IDVm9KMkW oO3hIcihotu5krv0+SKISVhGp/OZ7sDG5o/YUgBdb/MfvwIHIPGTAOMNL4jJX2ks 3JuAwBzyX2Y0OXEZh5LZSfmAJyJ5AgMBAAECgYEArL2a/V9RhT5Ay8o6YfF1dTUY pHggMSFSeZDKVT+7LguKkWlOCjH9mULUlZrtdmZ/nrE2y7ScsLnKThgLIw1m43tc ojqBpLYmcJ6dVkSYL3w+A3wxeD4U79qluG7GixtdhyHVcraawtLq5teQ3OtFIeME uoA+LMUVpblgyk/jN7kCQQDVP9qUUVh7jCjjTFe+4HCE+7lG68LeL4o5Wt+/5/zf FhAX686AnWvBNANLzOk6eiIJnpfnworTmpFUyBFV1ycXAkEA0Zsejk3wehWesfRm MQiKTjes8NudgyrpPlUSyb7NPa07pZBUC6UdaYcgOKra1r3Uh/ZIlu0/8yz3GRJ2 ngn87wJADqv3AO9b1Bw/j+vnuZU9iJi9FZkQ7jJ9IxcSf+SZLEwbTVoG+ihaio9m jqeJgGF4yAqmTua+oHJo/1lIgAxufwJBAKqO3r5NDXFKRmfnx3/+wwwCoecbzX/+ Wu0trKwdZkTZwb9nQfx3zwcfvUhfPtOehGJeNZMaWv81h5wPOhY/amECQEt8zKvQ mze685yDK/Cc54uUGEV2gH6TGnqtfG27S2iZ3MXFF756v6lFLK65LR7qDJH4p7GR dLp+i2KLc8H36gM="
+//公钥 public
+#define ZFBpublic @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCumliQdCuji7DqaiunMbTt+21hzW7JUm5byYdhKPon11nHvnzT2ac9PWdD/ugWIEoPHg1tiA1ZvSjJFqDt4SHIoaLbuZK79PkiiElYRqfzme7AxuaP2FIAXW/zH78CByDxkwDjDS+IyV9pLNybgMAc8l9mNDlxGYeS2Un5gCcieQIDAQABali publicMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCnxj/9qwVfgoUh/y2W89L6BkRAFljhNhgPdyPuBV64bfQNN1PjbCzkIM6qRdKBoLPXmKKMiFYnkd6rAoprih3/PrQEB/VsW8OoM8fxn67UDYuyBTqA23MML9q1+ilIZwBC2AQ2UBVOrFXfFl75p6/B5KsiNG9zpgmLCUYuLkxpLQIDAQAB"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

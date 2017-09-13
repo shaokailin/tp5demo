@@ -1,0 +1,31 @@
+platform :ios, '7.0'
+
+
+
+target “ShowXiu” do
+   pod 'AFNetworking'
+   pod 'SDWebImage'
+   pod 'ShareSDK3'
+   pod 'MOBFoundation'
+   pod 'ShareSDK3/ShareSDKUI'
+   pod 'ShareSDK3/ShareSDKPlatforms/QQ'
+   pod 'ShareSDK3/ShareSDKPlatforms/SinaWeibo'
+   pod 'ShareSDK3/ShareSDKPlatforms/WeChat'
+   pod 'ShareSDK3/ShareSDKConfigurationFile'
+   pod 'ShareSDK3/ShareSDKExtension'
+   pod 'UITextView+Placeholder’
+   pod 'Masonry'
+   pod 'MJRefresh'
+   pod 'SVProgressHUD'
+   pod 'JSONModel'
+   pod 'ReactiveCocoa'
+   pod 'JPush'
+   pod ‘YYKit’
+
+
+
+
+
+
+
+end
