@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>icon</key>
+		<string>dcx_ico</string>
+		<key>title</key>
+		<string>大抢单</string>
+		<key>detail</key>
+		<string>使用场景介绍</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>qfd_ico</string>
+		<key>title</key>
+		<string>抢饭点</string>
+		<key>detail</key>
+		<string>使用场景介绍</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>xsfx_ico</string>
+		<key>title</key>
+		<string>限时返现</string>
+		<key>detail</key>
+		<string>使用场景介绍</string>
+	</dict>
+	<dict>
+		<key>icon</key>
+		<string>ddhb_ico</string>
+		<key>title</key>
+		<string>到店红包</string>
+		<key>detail</key>
+		<string>使用场景介绍</string>
+	</dict>
+</array>
+</plist>
