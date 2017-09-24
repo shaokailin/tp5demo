@@ -68,48 +68,48 @@
 #define kEdgeInsetsWidth       20.0f    //内容内边距宽度
 ////正式
 /************************************** 秀秀2.0 *****************************************/
-#define AppURL2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0"
-
+//#define AppURL2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0"
+#define AppURL2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0"
 //打招呼接口
-#define API_sendzh @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_sendzh @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/sendzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //一键全撩
-#define API_recommendList @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/recommendList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_recommendList @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/recommendList/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //批量打招呼
-#define API_sendqdzh @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendqdzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_sendqdzh @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/sendqdzh/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //排行榜
-#define API_Charmlist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/Charmlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_Charmlist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/Charmlist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //个人主页
-#define API_showUser2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/showUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_showUser2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/showUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //私信接口
-#define API_msglist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/msglist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_msglist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/msglist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //动态接口
-#define API_hot2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/hot/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_hot2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/hot/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //聊天窗口接口
-#define APi_wechat2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define APi_wechat2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //充值中心-购买VIP接口
-#define API_Vipuser2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/Vipuser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_Vipuser2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/Vipuser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //充值金币接口
-#define API_recharge2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/recharge/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_recharge2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/recharge/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //首页
-#define API_groomUser2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_groomUser2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/groomUser/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //注册
-#define API_reg2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/reg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_reg2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/reg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //小秘书消息记录接口
-#define  API_miss_list2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/miss_list/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define  API_miss_list2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/miss_list/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //更多私密照/视频列表接口
-#define API_photolist2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/photolist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_photolist2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/photolist/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //私密照/视频权限(付费查看) 待测试
-#define API_see_photo_pay2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/see_photo_pay/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_see_photo_pay2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/see_photo_pay/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //聊天窗口接口
-#define API_wechat2 @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_wechat2 @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/wechat/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //删除
-#define API_delphoto2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/delphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_delphoto2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/delphoto/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //未读消息统计接口
-#define API_unreadmsg2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/unreadmsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_unreadmsg2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/unreadmsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //提醒上传照片视频接口
-#define API_sendUpMsg @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/sendUpMsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_sendUpMsg @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/sendUpMsg/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //检测查看小视频权限接口
-#define API_showVideo2 @"http://api.jnoo.com/index.php?s=/Appi/IndexApi2_0/showVideo/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
+#define API_showVideo2 @"http://jy.leejia.cn/index.php?s=/Appi/IndexApi2_0/showVideo/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //视频认证
 #define API_videopass @"/videopass/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 //视频上传
@@ -157,9 +157,9 @@
 
 /*************************************** 首页 *******************************************/
 //测试接口
-//#define  AppURL @"http://jy.leejia.cn/index.php?s=/Appi/Index/"
+#define  AppURL @"http://jy.leejia.cn/index.php?s=/Appi/Index2_0/"
 //正式
-#define AppURL @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/"
+//#define AppURL @"http://api.jnoo.com/index.php?s=/Appi/Index2_0/"
 //文件上传
 #define API_upload @"upload/key/ios/vcode/9d88a75d1bcc19eca4bcec464b603b04"
 

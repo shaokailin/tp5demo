@@ -7,7 +7,10 @@
 //
 
 #import "LSKBaseViewController.h"
-
+typedef NS_ENUM(NSInteger, CollectMoneyInType){
+    CollectMoneyInType_Input,
+    CollectMoneyInType_SaoYiSao
+};
 @interface PPSSCollectMoneyVC : LSKBaseViewController
-
+@property (nonatomic, assign) CollectMoneyInType inType;
 @end

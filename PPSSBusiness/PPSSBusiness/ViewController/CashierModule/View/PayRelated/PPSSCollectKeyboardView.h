@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void(^CollectMoneyBlock) (NSString *title);
 @interface PPSSCollectKeyboardView : UIView
-- (instancetype)initWithBtnWidth:(CGFloat)width betweenWidth:(CGFloat)betweenWidth;
 @property (nonatomic, copy) NSString *inputStr;
-- (void)changeInputType:(NSString *)title;
+@property (nonatomic, copy) CollectMoneyBlock collectBlock;
+- (instancetype)initWithBtnWidth:(CGFloat)width betweenWidth:(CGFloat)betweenWidth;
+- (NSString *)changeInputType:(NSString *)title;
 @end

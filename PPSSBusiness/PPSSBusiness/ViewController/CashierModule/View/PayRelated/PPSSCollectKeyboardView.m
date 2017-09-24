@@ -16,9 +16,6 @@
     UIColor *_nornalColor;
     UIColor *_selectColor;
 }
-//NSDecimalNumber*jianfa1 = [NSDecimalNumber decimalNumberWithString:@"55.55555"];
-//NSDecimalNumber*jiafa= [jiafa1 decimalNumberByAdding:jiafa2];
-//NSDecimalNumber*jianfa= [jianfa1 decimalNumberBySubtracting:jianfa2];
 @property (nonatomic, copy) NSString * operatorBeforeString;
 @property (nonatomic, strong) NSMutableString *inputString;
 @end
@@ -72,7 +69,8 @@
         }
     }else {//1减 2加
         if (btn.selected) {
-            [self numberOperator];
+             NSString *result = [self numberOperator];
+            self.inputStr = result;
             _currentOperation = -1;
             self.operatorBeforeString = nil;
             btn.selected = NO;
@@ -80,10 +78,11 @@
             [_collectBtn setTitle:@"收款" forState: UIControlStateNormal];
         }else {
             if (_currentOperation != -1) {
-                [self numberOperator];
+                NSString *result = [self numberOperator];
+                self.inputStr = result;
                 self.operatorBeforeString = self.inputStr;
             }else {
-                self.operatorBeforeString = self.inputString;
+                self.operatorBeforeString = self.inputStr;
               [self.inputString deleteCharactersInRange:NSMakeRange(0, self.inputString.length)];
             }
             
@@ -93,31 +92,34 @@
         }
     }
 }
-- (void)numberOperator {
+- (NSString *)numberOperator {
     BOOL isBefore = [self.operatorBeforeString isHasValue];
     BOOL isCurrent = [self.inputString isHasValue];
+    NSString *result = nil;
     if (isBefore && !isCurrent) {
-        self.inputStr = self.operatorBeforeString;
+        result = self.operatorBeforeString;
     }
     if (!isBefore && isCurrent) {
-         self.inputStr = self.inputString;
+         result = self.inputString;
     }
     if (isBefore && isCurrent) {
         NSDecimalNumber*number1 = [NSDecimalNumber decimalNumberWithString:self.operatorBeforeString];
         NSDecimalNumber*number2 = [NSDecimalNumber decimalNumberWithString:self.inputString];
         if (_currentOperation == 1) {
             NSDecimalNumber*jianfa= [number1 decimalNumberBySubtracting:number2];
-            self.inputStr = jianfa.stringValue;
+            result = jianfa.stringValue;
         }else {
             NSDecimalNumber*jiafa= [number1 decimalNumberByAdding:number2];
-            self.inputStr = jiafa.stringValue;
+            result = jiafa.stringValue;
         }
     }
     [self.inputString deleteCharactersInRange:NSMakeRange(0, self.inputString.length)];
+    return result;
 }
 - (void)collectBtnClick {
     if (_currentOperation != -1) {
-        [self numberOperator];
+        NSString *result = [self numberOperator];
+        self.inputStr = result;
         UIButton *otherBtn = [self viewWithTag:212 + _currentOperation];
         otherBtn.selected = NO;
         otherBtn.layer.borderColor = _nornalColor.CGColor;
@@ -125,21 +127,27 @@
         self.operatorBeforeString = nil;
         [_collectBtn setTitle:@"收款" forState: UIControlStateNormal];
     }else {
-        
+        if (self.collectBlock) {
+            self.collectBlock(nil);
+        }
     }
 }
-- (void)changeInputType:(NSString *)title {
-    self.operatorBeforeString = nil;
-    if (self.inputString.length > 0) {
-        [self.inputString deleteCharactersInRange:NSMakeRange(0, self.inputString.length)];
-    }
+- (NSString *)changeInputType:(NSString *)title {
+    NSString *result = nil;
     if (_currentOperation != -1) {
+        result = [self numberOperator];
         UIButton *otherBtn = [self viewWithTag:212 + _currentOperation];
         otherBtn.selected = NO;
         otherBtn.layer.borderColor = _nornalColor.CGColor;
         _currentOperation = -1;
         [_collectBtn setTitle:@"收款" forState: UIControlStateNormal];
     }
+    _inputStr = title;
+    self.operatorBeforeString = nil;
+    if (self.inputString.length > 0) {
+        [self.inputString deleteCharactersInRange:NSMakeRange(0, self.inputString.length)];
+    }
+    return result;
 }
 - (void)changeOperator:(UIButton *)btn {
     btn.selected = YES;

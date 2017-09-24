@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LSKImageManager : NSObject
++ (BOOL)isAvailableSelectAVCapture:(NSString *)type;
 /**
  生成颜色图片
 

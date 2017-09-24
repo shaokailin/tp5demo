@@ -24,4 +24,5 @@
 #import "UIBarButtonItem+Extend.h"
 #import "SKHUD.h"
 #import "LSKParamterEntity.h"
+#import "NSString+Extend.h"
 #endif /* LSKUtilsConfig_h */

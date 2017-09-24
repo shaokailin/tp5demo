@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface PPSSSaoYiSaoVC : LSKBaseViewController
-
+@property (nonatomic, copy) NSString * collectMoney;
 @end

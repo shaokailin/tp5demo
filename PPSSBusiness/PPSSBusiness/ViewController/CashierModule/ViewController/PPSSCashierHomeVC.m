@@ -16,6 +16,8 @@
 #import "PPSSIncomeHomeVC.h"
 #import "PPSSActivityListVC.h"
 #import "PPSSCollectMoneyVC.h"
+#import "LSKImageManager.h"
+#import <AVFoundation/AVFoundation.h>
 @interface PPSSCashierHomeVC ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>{
     NSArray *_dataArray;
 }
@@ -62,10 +64,16 @@
 - (void)jumpView:(CashierHomeHeaderEventType)type {
     UIViewController *controller = nil;
     if (type == CashierHomeHeaderEventType_SaoYiSao) {
-        PPSSSaoYiSaoVC *saoyisao = [[PPSSSaoYiSaoVC alloc]init];
-        controller = saoyisao;
+        BOOL isCan = [LSKImageManager isAvailableSelectAVCapture:AVMediaTypeVideo];
+        if (isCan) {
+            PPSSSaoYiSaoVC *saoyisao = [[PPSSSaoYiSaoVC alloc]init];
+            saoyisao.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:saoyisao animated:YES];
+        }
+        
     }else {
         PPSSCollectMoneyVC *collect = [[PPSSCollectMoneyVC alloc]init];
+        collect.inType = CollectMoneyInType_Input;
         controller = collect;
     }
     controller.hidesBottomBarWhenPushed = YES;

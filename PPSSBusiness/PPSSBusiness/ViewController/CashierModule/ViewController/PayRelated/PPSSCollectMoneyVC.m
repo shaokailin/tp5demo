@@ -9,6 +9,7 @@
 #import "PPSSCollectMoneyVC.h"
 #import "PPSSCollectInputView.h"
 #import "PPSSCollectKeyboardView.h"
+#import "PPSSSaoYiSaoVC.h"
 @interface PPSSCollectMoneyVC ()
 @property (nonatomic, weak) PPSSCollectInputView *inputView;
 @property (nonatomic, weak) PPSSCollectKeyboardView *keyboardView;
@@ -24,6 +25,16 @@
     [self initializeMainView];
     [self bindSignal];
 }
+- (void)collectMoney{
+    if (self.inType == CollectMoneyInType_Input) {
+        PPSSSaoYiSaoVC *saoyiVC = [[PPSSSaoYiSaoVC alloc]init];
+        saoyiVC.collectMoney = self.inputView.allMoneyField.text;
+        [self.navigationController pushViewController:saoyiVC animated:YES];
+    }else {
+        [SKHUD showMessageInView:self.view withMessage:@"输入直接购买流程"];
+    }
+    
+}
 - (void)initializeMainView {
     self.view.backgroundColor = COLOR_WHITECOLOR;
     PPSSCollectInputView *inputView = [[PPSSCollectInputView alloc]init];
@@ -38,6 +49,9 @@
     CGFloat btnWidth = (SCREEN_WIDTH - betweenWidth * 5) / 4;
     CGFloat contentHeight = btnWidth * 4 + betweenWidth * 5;
     PPSSCollectKeyboardView *keyboardView = [[PPSSCollectKeyboardView alloc]initWithBtnWidth:btnWidth betweenWidth:betweenWidth];
+    keyboardView.collectBlock = ^(NSString *title) {
+        [ws collectMoney];
+    };
     self.keyboardView = keyboardView;
     [self.view addSubview:keyboardView];
     [keyboardView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -54,11 +68,16 @@
         if ([current integerValue] != 0) {
             self.keyboardView.userInteractionEnabled = YES;
             if ([current integerValue] == 1) {
-                [self.keyboardView changeInputType:self.inputView.allMoneyField.text];
+                NSString * text = [self.keyboardView changeInputType:self.inputView.allMoneyField.text];
+                if (text) {
+                    self.inputView.discountField.text = text;
+                }
             }else {
-                [self.keyboardView changeInputType:self.inputView.discountField.text];
+               NSString * text =  [self.keyboardView changeInputType:self.inputView.discountField.text];
+                if (text) {
+                    self.inputView.allMoneyField.text = text;
+                }
             }
-            
         }
     }];
     [[RACObserve(self.keyboardView, inputStr)skip:1]subscribeNext:^(NSString *text) {

@@ -7,7 +7,7 @@
 //
 
 #import "LSKImageManager.h"
-
+#import <AVFoundation/AVFoundation.h>
 @implementation LSKImageManager
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size {
     @autoreleasepool {
@@ -53,5 +53,47 @@
     CGContextRelease(bitmapRef);
     CGImageRelease(bitmapImage);
     return [UIImage imageWithCGImage:scaledImage];
+}
+
+
++ (BOOL)isAvailableSelectAVCapture:(NSString *)type
+{
+    __block BOOL isAvalible = NO;
+    BOOL showAlertView = YES;
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:type];
+    if (status == AVAuthorizationStatusRestricted) {
+        //不允许用户访问媒体捕捉设备。
+        //            DEBUG_Log(@"Restricted");
+    }else if (status == AVAuthorizationStatusDenied)
+    {
+        //用户明确否认媒体捕捉的许可。
+        //            DEBUG_Log(@"Denied");
+    }else if (status == AVAuthorizationStatusAuthorized)
+    {
+        //用户明确同意媒体捕捉，或显式的用户权限是没有必要的问题中的媒体类型。
+        //            DEBUG_Log(@"Authorized");
+        isAvalible = YES;
+    }else if (status == AVAuthorizationStatusNotDetermined)
+    {
+        [AVCaptureDevice requestAccessForMediaType:type completionHandler:^(BOOL granted) {
+            if (granted) {
+                isAvalible = YES;
+            }else
+            {
+                isAvalible = NO;
+            }
+        }];
+        showAlertView = NO;
+    } else {
+    }
+    if ( isAvalible==NO && showAlertView ) {
+        UIAlertView *alter = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"应用尚未获取访问相机的权限,如需使用请到系统设置->隐私->相机中开启"
+                                                       delegate:self
+                                              cancelButtonTitle:@"确定"
+                                              otherButtonTitles:nil, nil];
+        [alter show];
+    }
+    return isAvalible;
 }
 @end
