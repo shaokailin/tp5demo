@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
+target 'PPSSBusiness' do 
+pod 'AFNetworking'
+pod 'ReactiveObjC'
+pod 'SDWebImage'
+pod 'Masonry'
+pod 'YYModel'
+pod 'FDFullscreenPopGesture'
+pod 'MJRefresh'
+pod 'TPKeyboardAvoiding'
+pod 'JPush'
+pod 'UMengAnalytics'
+pod 'UMengUShare/Social/ReducedWeChat'
+pod 'UMengUShare/Social/ReducedQQ'
+end

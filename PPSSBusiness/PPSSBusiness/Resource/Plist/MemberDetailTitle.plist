@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>平均消费</string>
+	<string>累计消费</string>
+	<string>最后消费</string>
+	<string>成为会员</string>
+	<string></string>
+	<string>生日</string>
+	<string>地区</string>
+	<string>备注</string>
+</array>
+</plist>
