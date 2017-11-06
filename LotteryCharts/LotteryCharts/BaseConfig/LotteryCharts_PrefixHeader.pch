@@ -1,0 +1,14 @@
+//
+//  LotteryCharts_PrefixHeader.pch
+//  LotteryCharts
+//
+//  Created by hsPlan on 2017/11/6.
+//  Copyright © 2017年 林少凯. All rights reserved.
+//
+
+#ifndef LotteryCharts_PrefixHeader_h
+#define LotteryCharts_PrefixHeader_h
+
+#import "LSKUtilsConfig.h"
+
+#endif /* LotteryCharts_PrefixHeader_h */
