@@ -2,14 +2,14 @@
 //  AppDelegate.m
 //  LotteryCharts
 //
-//  Created by hsPlan on 2017/11/6.
+//  Created by lsk on 2017/11/6.
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
 #import "AppDelegate.h"
-
+#import "LCRootTabBarVC.h"
 @interface AppDelegate ()
-
+@property (nonatomic, strong) LCRootTabBarVC *rootTabBarVC;
 @end
 
 @implementation AppDelegate
@@ -17,10 +17,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    //设置导航栏的全局样式
+    [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
+    [self windowRootController];
+    [self.window makeKeyAndVisible];
     return YES;
 }
-
-
+- (void)windowRootController {
+    self.window.rootViewController = self.rootTabBarVC;
+}
+- (LCRootTabBarVC *)rootTabBarVC {
+    if (!_rootTabBarVC) {
+        _rootTabBarVC = [[LCRootTabBarVC alloc]init];
+    }
+    return _rootTabBarVC;
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

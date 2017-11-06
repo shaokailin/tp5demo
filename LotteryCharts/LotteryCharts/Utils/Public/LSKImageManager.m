@@ -22,39 +22,6 @@
     }
 }
 
-+ (UIImage *)initializeQRCodeImage:(NSString *)qrcString size:(CGSize)size {
-    // 1. 创建一个二维码滤镜实例(CIFilter)
-    CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    // 滤镜恢复默认设置
-    [filter setDefaults];
-    // 2. 给滤镜添加数据
-    NSData *data = [qrcString dataUsingEncoding:NSUTF8StringEncoding];
-    [filter setValue:data forKeyPath:@"inputMessage"];
-    // 3. 生成二维码
-    CIImage *outputImage = [filter outputImage];
-    return [self createNonInterpolatedUIImageFormCIImage:outputImage withSize:size.width];
-}
-/** 根据CIImage生成指定大小的UIImage */
-+ (UIImage *)createNonInterpolatedUIImageFormCIImage:(CIImage *)image withSize:(CGFloat)size {
-    CGRect extent = CGRectIntegral(image.extent);
-    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
-    // 1.创建bitmap;
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    CGImageRef bitmapImage = [context createCGImage:image fromRect:extent];
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
-    // 2.保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef);
-    CGImageRelease(bitmapImage);
-    return [UIImage imageWithCGImage:scaledImage];
-}
-
 + (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)Imagesize logoImageSize:(CGFloat)waterImagesize icon:(UIImage *)image {
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
     [filter setDefaults];
@@ -89,7 +56,8 @@
     
     // 2.保存bitmap到图片
     CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef); CGImageRelease(bitmapImage);
+    CGContextRelease(bitmapRef);
+    CGImageRelease(bitmapImage);
     if (iconImage) {
         //原图
         UIImage *outputImage = [UIImage imageWithCGImage:scaledImage];
@@ -106,36 +74,6 @@
         return [UIImage imageWithCGImage:scaledImage];
     }
     
-}
-+ (UIImage *)resetSizeImage:(UIImage *)image size:(CGFloat) size {
-    CIImage *image1 = [[CIImage alloc]initWithCGImage:image.CGImage];
-    CGRect extent = CGRectIntegral(image1.extent);
-    CGFloat scale = MIN(size/CGRectGetWidth(extent), size/CGRectGetHeight(extent));
-    
-    // 1.创建bitmap;
-    size_t width = CGRectGetWidth(extent) * scale;
-    size_t height = CGRectGetHeight(extent) * scale;
-    //创建一个DeviceGray颜色空间
-    CGColorSpaceRef cs = CGColorSpaceCreateDeviceGray();
-    //CGBitmapContextCreate(void * _Nullable data, size_t width, size_t height, size_t bitsPerComponent, size_t bytesPerRow, CGColorSpaceRef  _Nullable space, uint32_t bitmapInfo)
-    //width：图片宽度像素
-    //height：图片高度像素
-    //bitsPerComponent：每个颜色的比特值，例如在rgba-32模式下为8
-    //bitmapInfo：指定的位图应该包含一个alpha通道。
-    CGContextRef bitmapRef = CGBitmapContextCreate(nil, width, height, 8, 0, cs, (CGBitmapInfo)kCGImageAlphaNone);
-    CIContext *context = [CIContext contextWithOptions:nil];
-    //创建CoreGraphics image
-    CGImageRef bitmapImage = [context createCGImage:image1 fromRect:extent];
-    
-    CGContextSetInterpolationQuality(bitmapRef, kCGInterpolationNone);
-    CGContextScaleCTM(bitmapRef, scale, scale);
-    CGContextDrawImage(bitmapRef, extent, bitmapImage);
-    
-    // 2.保存bitmap到图片
-    CGImageRef scaledImage = CGBitmapContextCreateImage(bitmapRef);
-    CGContextRelease(bitmapRef); CGImageRelease(bitmapImage);
-    UIGraphicsEndImageContext();
-    return [UIImage imageWithCGImage:scaledImage];
 }
 
 + (void)isAvailableSelectAVCapture:(NSString *)type completionHandler:(void (^)(BOOL granted))handler {

@@ -18,14 +18,15 @@
  @return 颜色图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color size:(CGSize)size;
+
 /**
  生成二维码
 
- @param qrcString 需要生成的二维码字符串
- @param size 生成图片的大小
+ @param string 生成的字符串
+ @param Imagesize 大小
+ @param waterImagesize 中间logo
+ @param image logo
  @return 二维码
  */
-+ (UIImage *)initializeQRCodeImage:(NSString *)qrcString size:(CGSize)size;
 + (UIImage *)qrImageForString:(NSString *)string imageSize:(CGFloat)Imagesize logoImageSize:(CGFloat)waterImagesize icon:(UIImage *)image;
-+ (UIImage *)resetSizeImage:(UIImage *)image size:(CGFloat) size;
 @end

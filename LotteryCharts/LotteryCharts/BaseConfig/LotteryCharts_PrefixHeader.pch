@@ -2,7 +2,7 @@
 //  LotteryCharts_PrefixHeader.pch
 //  LotteryCharts
 //
-//  Created by hsPlan on 2017/11/6.
+//  Created by lsk on 2017/11/6.
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
@@ -10,5 +10,6 @@
 #define LotteryCharts_PrefixHeader_h
 
 #import "LSKUtilsConfig.h"
-
+#import "LCUserMessageManager.h"
+#import "Config.h"
 #endif /* LotteryCharts_PrefixHeader_h */

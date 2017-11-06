@@ -46,6 +46,12 @@
 		E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6541FB0038600866D15 /* LSKWebEventHandleManager.m */; };
 		E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6561FB0038600866D15 /* LSKWebProgressView.m */; };
 		E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6581FB0038600866D15 /* LSKWebView.m */; };
+		E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6F51FB00A6D00866D15 /* LCRootTabBarVC.m */; };
+		E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6F81FB00A8D00866D15 /* LCUserMessageManager.m */; };
+		E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */; };
+		E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C6FE1FB00FDC00866D15 /* LCLoginMainVC.m */; };
+		E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C7011FB00FFE00866D15 /* LCUserMainVC.m */; };
+		E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E2C7041FB0100E00866D15 /* LCGuessMainVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +136,19 @@
 		E6E2C6571FB0038600866D15 /* LSKWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKWebView.h; sourceTree = "<group>"; };
 		E6E2C6581FB0038600866D15 /* LSKWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKWebView.m; sourceTree = "<group>"; };
 		E6E2C6591FB0038600866D15 /* LSKWebViewConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKWebViewConfig.h; sourceTree = "<group>"; };
+		E6E2C6F31FB009F300866D15 /* Config.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
+		E6E2C6F41FB00A6D00866D15 /* LCRootTabBarVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRootTabBarVC.h; sourceTree = "<group>"; };
+		E6E2C6F51FB00A6D00866D15 /* LCRootTabBarVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRootTabBarVC.m; sourceTree = "<group>"; };
+		E6E2C6F71FB00A8D00866D15 /* LCUserMessageManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageManager.h; sourceTree = "<group>"; };
+		E6E2C6F81FB00A8D00866D15 /* LCUserMessageManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageManager.m; sourceTree = "<group>"; };
+		E6E2C6FA1FB00FAB00866D15 /* LCHomeMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeMainVC.h; sourceTree = "<group>"; };
+		E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeMainVC.m; sourceTree = "<group>"; };
+		E6E2C6FD1FB00FDC00866D15 /* LCLoginMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginMainVC.h; sourceTree = "<group>"; };
+		E6E2C6FE1FB00FDC00866D15 /* LCLoginMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginMainVC.m; sourceTree = "<group>"; };
+		E6E2C7001FB00FFE00866D15 /* LCUserMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMainVC.h; sourceTree = "<group>"; };
+		E6E2C7011FB00FFE00866D15 /* LCUserMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMainVC.m; sourceTree = "<group>"; };
+		E6E2C7031FB0100E00866D15 /* LCGuessMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessMainVC.h; sourceTree = "<group>"; };
+		E6E2C7041FB0100E00866D15 /* LCGuessMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessMainVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,6 +284,8 @@
 		E6D9A7D11FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E6E2C7031FB0100E00866D15 /* LCGuessMainVC.h */,
+				E6E2C7041FB0100E00866D15 /* LCGuessMainVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -312,6 +333,8 @@
 		E6D9A7D71FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E6E2C6FA1FB00FAB00866D15 /* LCHomeMainVC.h */,
+				E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -359,6 +382,8 @@
 		E6D9A7DD1FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E6E2C6FD1FB00FDC00866D15 /* LCLoginMainVC.h */,
+				E6E2C6FE1FB00FDC00866D15 /* LCLoginMainVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -406,6 +431,8 @@
 		E6D9A7E31FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E6E2C7001FB00FFE00866D15 /* LCUserMainVC.h */,
+				E6E2C7011FB00FFE00866D15 /* LCUserMainVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -423,6 +450,11 @@
 				E6D9A80D1FAFF99C00894BB0 /* AppDelegate.h */,
 				E6D9A80C1FAFF99C00894BB0 /* AppDelegate.m */,
 				E6E2C5DC1FAFFBFC00866D15 /* LotteryCharts_PrefixHeader.pch */,
+				E6E2C6F31FB009F300866D15 /* Config.h */,
+				E6E2C6F41FB00A6D00866D15 /* LCRootTabBarVC.h */,
+				E6E2C6F51FB00A6D00866D15 /* LCRootTabBarVC.m */,
+				E6E2C6F71FB00A8D00866D15 /* LCUserMessageManager.h */,
+				E6E2C6F81FB00A8D00866D15 /* LCUserMessageManager.m */,
 			);
 			path = BaseConfig;
 			sourceTree = "<group>";
@@ -620,6 +652,7 @@
 		E6D9A5C81FAFF4A400894BB0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LC;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "林少凯";
 				TargetAttributes = {
@@ -736,12 +769,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
+				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
+				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
+				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
+				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
@@ -756,6 +793,7 @@
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
+				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
@@ -764,6 +802,7 @@
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
+				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
 				E6E2C6611FB0038600866D15 /* NSString+Extend.m in Sources */,
 				E6E2C6641FB0038600866D15 /* UISearchBar+Extend.m in Sources */,

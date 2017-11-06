@@ -2,7 +2,7 @@
 //  LSKConfig.h
 //  SingleStore
 //
-//  Created by hsPlan on 2017/9/9.
+//  Created by lsk on 2017/9/9.
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
