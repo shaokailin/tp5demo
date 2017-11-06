@@ -182,10 +182,10 @@
 		E6D9A5D21FAFF4A400894BB0 /* LotteryCharts */ = {
 			isa = PBXGroup;
 			children = (
-				E6E2C5FB1FB0038600866D15 /* Utils */,
 				E6D9A7E51FAFF97300894BB0 /* BaseConfig */,
 				E6D9A7CC1FAFF97300894BB0 /* ViewController */,
 				E6D9A7761FAFF97300894BB0 /* Resource */,
+				E6E2C5FB1FB0038600866D15 /* Utils */,
 				E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */,
 				E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */,
 				E6D9A5E11FAFF4A400894BB0 /* Info.plist */,
