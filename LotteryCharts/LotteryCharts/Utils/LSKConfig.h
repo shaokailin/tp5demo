@@ -20,18 +20,20 @@ static NSString * const kWebViewProgressStart_Color = @"0x00e9e6";
 static NSString * const kWebViewProgressEnd_Color = @"0x00e9e6";
 //navigation 颜色
 static NSString * const kNavigationBarButtonTitle_Color = @"0xffffff";
-static NSString * const kNavigationBackground_Color = @"0x3c9efa";
+static NSString * const kNavigationBackground_Color = @"0xe71828";
 static NSString * const kNavigationTitle_Color = kNavigationBarButtonTitle_Color;
 static NSString * const kNavigationLine_Color = nil;
-static const NSInteger kNavigationTitle_Font = 16;
+static const NSInteger kNavigationTitle_Font = 19;
 //tabbar 颜色
 static NSString * const kTabBarBackground_Color = kNavigationBarButtonTitle_Color;
-static NSString * const kTabBarTitleNornal_Color = @"0x888888";
-static NSString * const kTabBarTitleSelected_Color = @"0xf12e57";
+static NSString * const kTabBarTitleNornal_Color = @"0xababab";
+static NSString * const kTabBarTitleSelected_Color = kNavigationBackground_Color;
 static const NSInteger kTabBarTitle_Font = 11;
 //主要的背景色
-static const NSInteger kMainBackground_Color  = 0xf1f1f1;
-
+static const NSInteger kMainBackground_Color  = 0xf6f6f6;
+//线的颜色
+static const CGFloat kLineView_Height = 1.0;
+static const NSInteger kLineMain_Color = kMainBackground_Color;
 //baner的背景色
 static const NSInteger kBannerDotSelect_Color  = 0xf1f1f1;
 static const NSInteger kBannerDotNornal_Color  = 0xf1f1f1;

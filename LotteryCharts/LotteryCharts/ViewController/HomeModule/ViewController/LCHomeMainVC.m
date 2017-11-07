@@ -7,9 +7,11 @@
 //
 
 #import "LCHomeMainVC.h"
-
-@interface LCHomeMainVC ()
-
+#import "LCHomeHeaderView.h"
+#import "LCHomeHotPostTableViewCell.h"
+@interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource>
+@property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, weak) LCHomeHeaderView *headerView;
 @end
 
 @implementation LCHomeMainVC
@@ -17,7 +19,46 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initializeMainView];
 }
+#pragma mark private
+- (void)showMeunView {
+    
+}
+- (void)pullDownRefresh {
+    [self.mainTableView.mj_header endRefreshing];
+}
+- (void)pullUpLoadMore {
+    [self.mainTableView.mj_footer endRefreshing];
+}
+#pragma mark delegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 5;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+#pragma mark -界面初始化
+- (void)initializeMainView {
+    [self addRightNavigationButtonWithTitle:@"更多" target:self action:@selector(showMeunView)];
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
+    LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 491)];
+    self.headerView = headerView;
+    mainTableView.tableHeaderView = headerView;
+    [mainTableView registerNib:[UINib nibWithNibName:kLCHomeHotPostTableViewCell bundle:nil] forCellReuseIdentifier:kLCHomeHotPostTableViewCell];
+    mainTableView.rowHeight = 80;
+    self.mainTableView = mainTableView;
+    [self.view addSubview:mainTableView];
+    WS(ws)
+    [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.view);
+    }];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

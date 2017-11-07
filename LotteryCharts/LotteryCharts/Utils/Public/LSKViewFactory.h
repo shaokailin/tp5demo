@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @class TPKeyboardAvoidingTableView,TPKeyboardAvoidingScrollView;
 @interface LSKViewFactory : NSObject
-
++ (UIView *)initializeLineView;
 /**
  UILabel
 

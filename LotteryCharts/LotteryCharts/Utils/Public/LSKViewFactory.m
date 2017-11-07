@@ -11,7 +11,11 @@
 #import "TPKeyboardAvoidingTableView.h"
 #import "TPKeyboardAvoidingScrollView.h"
 @implementation LSKViewFactory
-
++ (UIView *)initializeLineView {
+    UIView *lineView = [[UIView alloc]init];
+    lineView.backgroundColor = ColorHexadecimal(kLineMain_Color, 1.0);
+    return lineView;
+}
 + (UILabel *)initializeLableWithText:(NSString *)text font:(CGFloat)font textColor:(UIColor *)textColor textAlignment:(NSTextAlignment)alignment backgroundColor:(UIColor *)bgColor {
     UILabel *label = [[UILabel alloc]init];
     if (bgColor) {
@@ -87,8 +91,11 @@
     tableView.dataSource = delegate;
     if (separatorColor) {
         tableView.separatorColor = separatorColor;
-        tableView.separatorInset = UIEdgeInsetsZero;
+        
+    }else {
+        tableView.separatorColor = ColorHexadecimal(kLineMain_Color, 1.0);
     }
+    tableView.separatorInset = UIEdgeInsetsZero;
     tableView.separatorStyle = separatorStyle;
     [[self class]_setupScrollViewMJRefresh:tableView target:delegate headerAction:headAction footerAction:footAction background:backgroundColor];
     return tableView ;
@@ -139,8 +146,15 @@
     }
     //添加尾部加载更多
     if (footerAction) {
-        scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:target refreshingAction:footerAction];
-        scrollView.mj_footer.hidden = YES;
+        MJRefreshAutoNormalFooter *footerView = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:target refreshingAction:footerAction];
+        footerView.automaticallyRefresh = NO;
+        [footerView setTitle:@"查看更多" forState:MJRefreshStateIdle];
+        footerView.backgroundColor = [UIColor whiteColor];
+        footerView.stateLabel.font = FontNornalInit(15);
+        footerView.stateLabel.textColor = ColorHexadecimal(0x4a4a4a, 1.0);
+        footerView.triggerAutomaticallyRefreshPercent = 200;
+//        footerView.hidden = YES;
+        scrollView.mj_footer = footerView;
     }
     //因为iOS 11 下的 刷新会出现偏移，所以适配
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 110000

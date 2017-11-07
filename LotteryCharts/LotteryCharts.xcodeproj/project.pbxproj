@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
+		95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */; };
+		95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */; };
+		95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -58,6 +61,11 @@
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5D69372B02398D1C5F1EDD65 /* Pods-LotteryCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.release.xcconfig"; sourceTree = "<group>"; };
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
+		95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderView.m; sourceTree = "<group>"; };
+		95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostTableViewCell.h; sourceTree = "<group>"; };
+		95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostTableViewCell.m; sourceTree = "<group>"; };
+		95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCHomeHotPostTableViewCell.xib; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -170,6 +178,18 @@
 				5D69372B02398D1C5F1EDD65 /* Pods-LotteryCharts.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		95DB49EF1FB1F804002D58A9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */,
+				95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */,
+				95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */,
+				95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */,
+				95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CCDB604C2C61D11EF89E35AE /* Frameworks */ = {
@@ -300,9 +320,9 @@
 		E6D9A7D31FAFF97300894BB0 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				95DB49EF1FB1F804002D58A9 /* View */,
 				E6D9A7D41FAFF97300894BB0 /* API */,
 				E6D9A7D51FAFF97300894BB0 /* Model */,
-				E6D9A7D61FAFF97300894BB0 /* View */,
 				E6D9A7D71FAFF97300894BB0 /* ViewController */,
 				E6D9A7D81FAFF97300894BB0 /* ViewModel */,
 			);
@@ -321,13 +341,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		E6D9A7D61FAFF97300894BB0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E6D9A7D71FAFF97300894BB0 /* ViewController */ = {
@@ -686,6 +699,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
+				95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
 				E6D9A7E81FAFF97300894BB0 /* TabBarSetting.plist in Resources */,
 				E6E2C67A1FB0038600866D15 /* webviewmore@2x.png in Resources */,
@@ -780,6 +794,7 @@
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
+				95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
@@ -801,6 +816,7 @@
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
+				95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */,
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
