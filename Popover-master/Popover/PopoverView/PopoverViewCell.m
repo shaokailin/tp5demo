@@ -96,5 +96,8 @@ float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
 - (void)showBottomLine:(BOOL)show {
     _bottomLine.hidden = !show;
 }
+- (void)contentHorizontalAlignment:(UIControlContentHorizontalAlignment)alignment {
+    _button.contentHorizontalAlignment = alignment;
+}
 
 @end

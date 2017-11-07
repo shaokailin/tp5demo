@@ -24,24 +24,24 @@
 
 - (NSArray<PopoverAction *> *)QQActions {
     // 发起多人聊天 action
-    PopoverAction *multichatAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_multichat"] title:@"发起多人聊天" handler:^(PopoverAction *action) {
+    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发起多人聊天" handler:^(PopoverAction *action) {
 #pragma mark - 该Block不会导致内存泄露, Block内代码无需刻意去设置弱引用.
         _noticeLabel.text = action.title;
     }];
     // 加好友 action
-    PopoverAction *addFriAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_addFri"] title:@"加好友" handler:^(PopoverAction *action) {
+    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"加好友" handler:^(PopoverAction *action) {
         _noticeLabel.text = action.title;
     }];
     // 扫一扫 action
-    PopoverAction *QRAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_QR"] title:@"扫一扫" handler:^(PopoverAction *action) {
+    PopoverAction *QRAction = [PopoverAction actionWithImage:nil title:@"扫一扫" handler:^(PopoverAction *action) {
         _noticeLabel.text = action.title;
     }];
     // 面对面快传 action
-    PopoverAction *facetofaceAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_facetoface"] title:@"面对面快传" handler:^(PopoverAction *action) {
+    PopoverAction *facetofaceAction = [PopoverAction actionWithImage:nil title:@"面对面快传" handler:^(PopoverAction *action) {
         _noticeLabel.text = action.title;
     }];
     // 付款 action
-    PopoverAction *payMoneyAction = [PopoverAction actionWithImage:[UIImage imageNamed:@"right_menu_payMoney"] title:@"付款" handler:^(PopoverAction *action) {
+    PopoverAction *payMoneyAction = [PopoverAction actionWithImage:nil title:@"付款" handler:^(PopoverAction *action) {
         _noticeLabel.text = action.title;
     }];
     
@@ -51,6 +51,7 @@
 - (IBAction)buttonAction:(UIButton *)sender {
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
+    popoverView.textAlignment = 0;
     [popoverView showToView:sender withActions:[self QQActions]];
 }
 
@@ -70,6 +71,7 @@
     
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.style = PopoverViewStyleDark;
+    
     // 在没有系统控件的情况下调用可以使用显示在指定的点坐标的方法弹出菜单控件.
     [popoverView showToPoint:CGPointMake(20, 64) withActions:@[action1, action2, action3, action4]];
 }
@@ -77,6 +79,7 @@
 - (IBAction)rightButtonAction:(UIButton *)sender {
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.showShade = YES; // 显示阴影背景
+    popoverView.textAlignment = 0;
     [popoverView showToView:sender withActions:[self QQActions]];
 }
 
@@ -103,6 +106,7 @@
     
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.style = PopoverViewStyleDark;
+    
     popoverView.hideAfterTouchOutside = YES; // 点击外部时不允许隐藏
     [popoverView showToView:sender withActions:@[action1, action2, action3, action4, action5, action6]];
 }

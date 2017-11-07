@@ -108,7 +108,7 @@ float PopoverViewDegreesToRadians(float angle)
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hide)];
     [_shadeView addGestureRecognizer:tapGesture];
     _tapGesture = tapGesture;
-    
+    _textAlignment = 1;
     // tableView
     _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _tableView.delegate = self;
@@ -428,11 +428,17 @@ float PopoverViewDegreesToRadians(float angle)
     PopoverViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kPopoverCellReuseId];
     cell.style = _style;
     [cell setAction:_actions[indexPath.row]];
+    [cell contentHorizontalAlignment:_textAlignment];
     [cell showBottomLine: indexPath.row < _actions.count - 1];
     
     return cell;
 }
-
+- (void)setTextAlignment:(UIControlContentHorizontalAlignment)textAlignment {
+    if (_textAlignment != textAlignment) {
+        [_tableView reloadData];
+    }
+    _textAlignment = textAlignment;
+}
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [UIView animateWithDuration:0.25f animations:^{

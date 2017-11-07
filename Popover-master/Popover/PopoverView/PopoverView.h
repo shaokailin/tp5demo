@@ -26,6 +26,8 @@ typedef NS_ENUM(NSUInteger, PopoverViewArrowStyle) {
  */
 @property (nonatomic, assign) PopoverViewStyle style;
 
+@property (nonatomic, assign) UIControlContentHorizontalAlignment textAlignment;
+
 /**
  箭头样式, 默认为 PopoverViewArrowStyleRound.
  如果要修改箭头的样式, 需要在显示先设置.

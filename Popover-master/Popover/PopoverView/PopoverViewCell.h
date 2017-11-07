@@ -23,4 +23,5 @@ UIKIT_EXTERN float const PopoverViewCellTitleLeftEdge; ///< 标题左边边距
 
 - (void)showBottomLine:(BOOL)show;
 
+- (void)contentHorizontalAlignment:(UIControlContentHorizontalAlignment)alignment;
 @end
