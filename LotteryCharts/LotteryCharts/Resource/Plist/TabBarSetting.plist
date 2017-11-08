@@ -8,9 +8,9 @@
 		<key>navigation_title</key>
 		<string>彩神榜</string>
 		<key>nornal_img</key>
-		<string></string>
+		<string>home_nornal</string>
 		<key>selected_img</key>
-		<string></string>
+		<string>home_select</string>
 		<key>class_name</key>
 		<string>LCHomeMainVC</string>
 	</dict>
@@ -20,9 +20,9 @@
 		<key>navigation_title</key>
 		<string>竞猜</string>
 		<key>nornal_img</key>
-		<string></string>
+		<string>jincai_nornal</string>
 		<key>selected_img</key>
-		<string></string>
+		<string>jincai_select</string>
 		<key>class_name</key>
 		<string>LCGuessMainVC</string>
 	</dict>
@@ -32,9 +32,9 @@
 		<key>navigation_title</key>
 		<string>我的</string>
 		<key>nornal_img</key>
-		<string></string>
+		<string>me_nornal</string>
 		<key>selected_img</key>
-		<string></string>
+		<string>me_select</string>
 		<key>class_name</key>
 		<string>LCUserMainVC</string>
 	</dict>

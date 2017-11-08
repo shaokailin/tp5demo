@@ -15,7 +15,7 @@
                     tabbarTitleFont:(CGFloat) font {
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:nornalColor, NSForegroundColorAttributeName,FontNornalInit(font),NSFontAttributeName, nil] forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:selectedColor, NSForegroundColorAttributeName,FontNornalInit(font),NSFontAttributeName,nil] forState:UIControlStateSelected];
-    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -5)];
+    [[UITabBarItem appearance] setTitlePositionAdjustment:UIOffsetMake(0, -2)];
 }
 - (UINavigationController *)initializeNavigationWithClass :(NSString *)className
                                                 naviTitle :(NSString *)naviTitle

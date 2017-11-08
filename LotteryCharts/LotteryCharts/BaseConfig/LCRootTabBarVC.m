@@ -9,6 +9,7 @@
 #import "LCRootTabBarVC.h"
 #import "LCUserMainVC.h"
 #import "LCLoginMainVC.h"
+#import "UITabBarController+Extend.h"
 @interface LCRootTabBarVC (){
     BOOL _currentLogin;
 }
@@ -50,10 +51,7 @@
 
 - (UINavigationController *)loginNavigation {
     if (!_loginNavigation) {
-        LCLoginMainVC *loginVC = [[LCLoginMainVC alloc]init];
-        loginVC.title = @"登录";
-        _loginNavigation = [[UINavigationController alloc]initWithRootViewController:loginVC];
-        [_loginNavigation.tabBarItem setTitle:@"我的"];
+        _loginNavigation = [self initializeNavigationWithClass:@"LCLoginMainVC" naviTitle:@"登录" tabbarTitle:@"我的" tabbarNornalImage:@"me_nornal" tabbarSeletedImage:@"me_select"];
     }
     return _loginNavigation;
 }

@@ -42,4 +42,5 @@
  @param bgColor 颜色
  */
 - (void)setupTabBarBackgroundColor:(UIColor *)bgColor;
+
 @end

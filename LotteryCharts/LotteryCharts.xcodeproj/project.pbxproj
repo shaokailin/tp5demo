@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
+		95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B151FB345E900AD7EEC /* LCSearchBarView.m */; };
 		95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */; };
 		95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */; };
 		95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */; };
@@ -61,6 +62,8 @@
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5D69372B02398D1C5F1EDD65 /* Pods-LotteryCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.release.xcconfig"; sourceTree = "<group>"; };
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95236B141FB345E900AD7EEC /* LCSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchBarView.h; sourceTree = "<group>"; };
+		95236B151FB345E900AD7EEC /* LCSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchBarView.m; sourceTree = "<group>"; };
 		95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
 		95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderView.m; sourceTree = "<group>"; };
 		95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostTableViewCell.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 				95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */,
 				95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */,
 				95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */,
+				95236B141FB345E900AD7EEC /* LCSearchBarView.h */,
+				95236B151FB345E900AD7EEC /* LCSearchBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -785,6 +790,7 @@
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
+				95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,

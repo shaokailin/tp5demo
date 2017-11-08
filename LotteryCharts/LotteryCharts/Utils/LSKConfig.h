@@ -20,15 +20,15 @@ static NSString * const kWebViewProgressStart_Color = @"0x00e9e6";
 static NSString * const kWebViewProgressEnd_Color = @"0x00e9e6";
 //navigation 颜色
 static NSString * const kNavigationBarButtonTitle_Color = @"0xffffff";
-static NSString * const kNavigationBackground_Color = @"0xe71828";
+static NSString * const kNavigationBackground_Color = @"0xe60012";
 static NSString * const kNavigationTitle_Color = kNavigationBarButtonTitle_Color;
 static NSString * const kNavigationLine_Color = nil;
 static const NSInteger kNavigationTitle_Font = 19;
 //tabbar 颜色
 static NSString * const kTabBarBackground_Color = kNavigationBarButtonTitle_Color;
-static NSString * const kTabBarTitleNornal_Color = @"0xababab";
-static NSString * const kTabBarTitleSelected_Color = @"0xe60012";
-static const NSInteger kTabBarTitle_Font = 11;
+static NSString * const kTabBarTitleNornal_Color = @"0x959595";
+static NSString * const kTabBarTitleSelected_Color = kNavigationBackground_Color;
+static const NSInteger kTabBarTitle_Font = 10;
 //主要的背景色
 static const NSInteger kMainBackground_Color  = 0xf6f6f6;
 //线的颜色

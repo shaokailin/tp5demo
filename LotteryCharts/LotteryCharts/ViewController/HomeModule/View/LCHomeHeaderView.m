@@ -7,7 +7,10 @@
 //
 
 #import "LCHomeHeaderView.h"
-
+#import "LCSearchBarView.h"
+@interface LCHomeHeaderView ()
+@property (nonatomic, weak) LCSearchBarView *searchBarView;
+@end
 @implementation LCHomeHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -17,6 +20,16 @@
     return self;
 }
 - (void)_layoutMainView {
-    self.backgroundColor = [UIColor redColor];
+    [self _layoutSearchView];
+}
+- (void)_layoutSearchView {
+    LCSearchBarView *searchView = [[LCSearchBarView alloc]init];
+    self.searchBarView = searchView;
+    [self addSubview:searchView];
+    WS(ws)
+    [searchView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.right.equalTo(ws);
+        make.height.mas_equalTo(40);
+    }];
 }
 @end
