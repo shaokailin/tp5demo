@@ -58,6 +58,13 @@
     }
     return button ;
 }
++ (UIButton *)initializeButtonWithTitle:(NSString *)title target:(id)target action:(SEL)action textfont:(CGFloat)font textColor:(UIColor *)textColor {
+    return [[self class] initializeButtonWithTitle:title nornalImage:nil selectedImage:nil target:target action:action textfont:font textColor:textColor backgroundColor:nil backgroundImage:nil];
+}
+
++ (UIButton *)initializeButtonNornalImage:(NSString *)nornalImage selectedImage:(NSString *)selectedImage target:(id)target action:(SEL)action {
+    return [[self class]initializeButtonWithTitle:nil nornalImage:nornalImage selectedImage:selectedImage target:target action:action textfont:0 textColor:nil backgroundColor:nil backgroundImage:nil];
+}
 
 + (UITextField *)initializeTextFieldWithDelegate:(id)delegate text:(NSString *)text placeholder:(NSString *)placeholder textFont:(CGFloat)font textColor:(UIColor *)color placeholderColor:(UIColor *)placeholderColor textAlignment:(NSTextAlignment)alignment borStyle:(UITextBorderStyle)style returnKey:(UIReturnKeyType)keyTyle keyBoard:(UIKeyboardType)keyBoard cleanModel:(UITextFieldViewMode)cleanMode  {
     

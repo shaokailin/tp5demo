@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^SearchViewBlock)(NSInteger type);//1.显示目录，2.搜索
 @interface LCSearchBarView : UIView
-@property (nonatomic, assign) NSInteger currentSearchType;
+@property (nonatomic, copy) NSString *searchText;
+@property (nonatomic, copy) SearchViewBlock searchBlock;
+@property (nonatomic, assign) NSInteger currentSearchType;//0:标题 1.码师id 2.帖子
 @end

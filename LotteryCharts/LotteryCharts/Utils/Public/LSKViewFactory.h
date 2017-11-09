@@ -50,6 +50,15 @@
                         backgroundColor :(UIColor *)bgColor
                         backgroundImage :(NSString *)bgImage;
 
++ (UIButton *)initializeButtonWithTitle :(NSString *)title
+                                 target :(id)target
+                                 action :(SEL)action
+                               textfont :(CGFloat)font
+                              textColor :(UIColor *)textColor;
++ (UIButton *)initializeButtonNornalImage :(NSString *)nornalImage
+                          selectedImage :(NSString *)selectedImage
+                                 target :(id)target
+                                 action :(SEL)action;
 /**
  UITextField
 

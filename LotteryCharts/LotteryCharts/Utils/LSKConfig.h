@@ -35,8 +35,8 @@ static const NSInteger kMainBackground_Color  = 0xf6f6f6;
 static const CGFloat kLineView_Height = 1.0;
 static const NSInteger kLineMain_Color = kMainBackground_Color;
 //baner的背景色
-static const NSInteger kBannerDotSelect_Color  = 0xf1f1f1;
-static const NSInteger kBannerDotNornal_Color  = 0xf1f1f1;
+static const NSInteger kBannerDotSelect_Color  = 0xff0000;
+static const NSInteger kBannerDotNornal_Color  = 0xffffff;
 static const CGFloat kBannerDotScale  = 1;
 //网络请求地址
 #ifdef DEBUG

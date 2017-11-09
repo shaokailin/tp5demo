@@ -106,6 +106,7 @@
         if (_imageUrlArray.count > 0) {
 //            PPSSBannerModel *model = [_imageUrlArray objectAtIndex:0];
 //            imageView.imageWebUrl = model.image;
+            imageView.backgroundColor = ColorRGBA((arc4random() % 256), (arc4random() % 256), (arc4random() % 256),1);
         }
         [self.bannerScrollView addSubview:imageView];
         return;
@@ -117,6 +118,7 @@
             for (int i = 0; i < count; i++) {
                 @autoreleasepool {
                     LSKBannerImageView *imageView = [[LSKBannerImageView alloc]initWithFrame:CGRectMake((bannerHasViewCount + i) * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) placeHolderImage:_placeHolderImage];
+                    imageView.backgroundColor = ColorRGBA((arc4random() % 256), (arc4random() % 256), (arc4random() % 256),1);
                     [self.bannerScrollView addSubview:imageView];
                 }
             }
@@ -139,7 +141,7 @@
 //            model = [_imageUrlArray objectAtIndex:i - 1];
         }
 //        imageView.imageWebUrl = model.image;
-        [imageView loadWebImageView];
+//        [imageView loadWebImageView];
     }
     
 }
@@ -159,6 +161,7 @@
     self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * countImages, CGRectGetHeight(self.bounds));
     if (countImages > 1) {
         self.pageControl.numberOfPages = _imageUrlArray.count;
+        [self changePageControlFrame];
         LSKBannerImageView *imageView = nil;
         self.pageControl.currentPage = 0;
         if (countImages > 1) {
@@ -271,18 +274,27 @@
 
 - (UIPageControl *)pageControl {
     if (!_pageControl) {
-        _pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 20, CGRectGetWidth(self.bounds), 20)];
+        _pageControl=[[UIPageControl alloc]initWithFrame:CGRectMake(0, CGRectGetHeight(self.bounds) - 30, CGRectGetWidth(self.bounds), 30)];
         _pageControl.pageIndicatorTintColor = ColorHexadecimal(kBannerDotNornal_Color, 1.0);
         _pageControl.currentPageIndicatorTintColor= ColorHexadecimal(kBannerDotSelect_Color,    1.0);
         if (kBannerDotScale != 1) {
             _pageControl.transform=CGAffineTransformScale(CGAffineTransformIdentity, kBannerDotScale, kBannerDotScale);
         }
+        _pageControl.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
         [_pageControl addTarget:self action:@selector(changeIndex)
                forControlEvents:UIControlEventValueChanged];
         _pageControl.userInteractionEnabled = NO;
         [self addSubview:_pageControl];
     }
     return _pageControl;
+}
+- (void)changePageControlFrame {
+    CGSize pointSize = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
+    
+    CGFloat page_x = -(_pageControl.bounds.size.width - pointSize.width) / 2  + 10;
+    
+    [_pageControl setBounds:CGRectMake(page_x, _pageControl.bounds.origin.y,
+                                       _pageControl.bounds.size.width, _pageControl.bounds.size.height)];
 }
 
 - (UIScrollView *)bannerScrollView {

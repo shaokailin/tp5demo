@@ -44,16 +44,22 @@
 }
 #pragma mark -界面初始化
 - (void)initializeMainView {
-    [self addRightNavigationButtonWithTitle:@"更多" target:self action:@selector(showMeunView)];
+    [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView)];
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
-    LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 491)];
+    LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 486)];
     self.headerView = headerView;
     mainTableView.tableHeaderView = headerView;
+    
     [mainTableView registerNib:[UINib nibWithNibName:kLCHomeHotPostTableViewCell bundle:nil] forCellReuseIdentifier:kLCHomeHotPostTableViewCell];
     mainTableView.rowHeight = 80;
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     WS(ws)
+    [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(mainTableView);
+        make.right.equalTo(ws.view);
+        make.height.mas_equalTo(486);
+    }];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);
     }];

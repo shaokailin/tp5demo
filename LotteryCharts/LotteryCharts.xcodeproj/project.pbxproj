@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
 		95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B151FB345E900AD7EEC /* LCSearchBarView.m */; };
+		95236B191FB4987100AD7EEC /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B181FB4987100AD7EEC /* LCHomeFuncView.m */; };
+		95236B1C1FB49E0900AD7EEC /* LCHomeNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */; };
+		95236B1F1FB4A30100AD7EEC /* LCLottery3DView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */; };
+		95236B211FB4A31100AD7EEC /* LCLottery3DView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */; };
+		95236B241FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */; };
 		95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */; };
 		95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */; };
 		95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */; };
@@ -64,6 +69,15 @@
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95236B141FB345E900AD7EEC /* LCSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchBarView.h; sourceTree = "<group>"; };
 		95236B151FB345E900AD7EEC /* LCSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchBarView.m; sourceTree = "<group>"; };
+		95236B171FB4987100AD7EEC /* LCHomeFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeFuncView.h; sourceTree = "<group>"; };
+		95236B181FB4987100AD7EEC /* LCHomeFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeFuncView.m; sourceTree = "<group>"; };
+		95236B1A1FB49E0900AD7EEC /* LCHomeNoticeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeNoticeView.h; sourceTree = "<group>"; };
+		95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeNoticeView.m; sourceTree = "<group>"; };
+		95236B1D1FB4A30100AD7EEC /* LCLottery3DView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLottery3DView.h; sourceTree = "<group>"; };
+		95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLottery3DView.m; sourceTree = "<group>"; };
+		95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCLottery3DView.xib; sourceTree = "<group>"; };
+		95236B221FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostHeaderView.h; sourceTree = "<group>"; };
+		95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostHeaderView.m; sourceTree = "<group>"; };
 		95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
 		95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderView.m; sourceTree = "<group>"; };
 		95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostTableViewCell.h; sourceTree = "<group>"; };
@@ -193,6 +207,15 @@
 				95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */,
 				95236B141FB345E900AD7EEC /* LCSearchBarView.h */,
 				95236B151FB345E900AD7EEC /* LCSearchBarView.m */,
+				95236B171FB4987100AD7EEC /* LCHomeFuncView.h */,
+				95236B181FB4987100AD7EEC /* LCHomeFuncView.m */,
+				95236B1A1FB49E0900AD7EEC /* LCHomeNoticeView.h */,
+				95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */,
+				95236B1D1FB4A30100AD7EEC /* LCLottery3DView.h */,
+				95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */,
+				95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */,
+				95236B221FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.h */,
+				95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -703,6 +726,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95236B211FB4A31100AD7EEC /* LCLottery3DView.xib in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
 				95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
@@ -789,6 +813,7 @@
 			files = (
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
+				95236B1C1FB49E0900AD7EEC /* LCHomeNoticeView.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
@@ -811,11 +836,13 @@
 				E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */,
 				E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */,
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
+				95236B241FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,
+				95236B191FB4987100AD7EEC /* LCHomeFuncView.m in Sources */,
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,
@@ -826,6 +853,7 @@
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
+				95236B1F1FB4A30100AD7EEC /* LCLottery3DView.m in Sources */,
 				E6E2C6611FB0038600866D15 /* NSString+Extend.m in Sources */,
 				E6E2C6641FB0038600866D15 /* UISearchBar+Extend.m in Sources */,
 				E6E2C6771FB0038600866D15 /* LSKBarnerScrollView.m in Sources */,
