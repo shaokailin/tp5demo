@@ -7,9 +7,9 @@
 //
 
 #import "LCLoginMainVC.h"
-
+#import "TPKeyboardAvoidingScrollView.h"
 @interface LCLoginMainVC ()
-
+@property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @end
 
 @implementation LCLoginMainVC
@@ -17,9 +17,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+     [self initializeMainView];
 }
-
+#pragma mark 界面初始化
+- (void)initializeMainView {
+    TPKeyboardAvoidingScrollView *mainScrollerView = [LSKViewFactory initializeTPScrollView];
+    mainScrollerView.backgroundColor = ColorHexadecimal(kMainBackground_Color, 1.0);
+    self.mainScrollerView = mainScrollerView;
+    [self.view addSubview:mainScrollerView];
+    WS(ws)
+    [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, -ws.tabbarBetweenHeight, 0));
+    }];
+//    CGFloat contentHeight = 0;
+    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

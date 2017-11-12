@@ -8,15 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
-		95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B151FB345E900AD7EEC /* LCSearchBarView.m */; };
-		95236B191FB4987100AD7EEC /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B181FB4987100AD7EEC /* LCHomeFuncView.m */; };
-		95236B1C1FB49E0900AD7EEC /* LCHomeNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */; };
-		95236B1F1FB4A30100AD7EEC /* LCLottery3DView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */; };
-		95236B211FB4A31100AD7EEC /* LCLottery3DView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */; };
-		95236B241FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */; };
-		95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */; };
-		95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */; };
-		95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */; };
+		9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */; };
+		9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FD1FB808ED00F5B0CE /* LCHomeHeaderView.m */; };
+		9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FF1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m */; };
+		9590190D1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019011FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m */; };
+		9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019021FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib */; };
+		9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019041FB808ED00F5B0CE /* LCHomeNoticeView.m */; };
+		959019101FB808ED00F5B0CE /* LCLottery3DView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019061FB808ED00F5B0CE /* LCLottery3DView.m */; };
+		959019111FB808ED00F5B0CE /* LCLottery3DView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019071FB808ED00F5B0CE /* LCLottery3DView.xib */; };
+		959019121FB808ED00F5B0CE /* LCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019091FB808ED00F5B0CE /* LCSearchBarView.m */; };
+		959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019141FB8099400F5B0CE /* LCRechargeHeaderView.m */; };
+		959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019181FB80A1700F5B0CE /* LCRechargeMainVC.m */; };
+		9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590191D1FB82D4D00F5B0CE /* LCRechargePayTypeView.m */; };
+		959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9590191F1FB82D6200F5B0CE /* LCRechargePayTypeView.xib */; };
+		959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019221FB82D7600F5B0CE /* LCRechargePaySureView.m */; };
+		959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */; };
+		959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */; };
+		959019341FB8921200F5B0CE /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */; };
+		959019351FB8921200F5B0CE /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */; };
+		959019381FB8922D00F5B0CE /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */; };
+		9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */; };
+		95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE21FB601590097B72D /* PopoverAction.m */; };
+		95AF4EE71FB601590097B72D /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE41FB601590097B72D /* PopoverView.m */; };
+		95E251E51FB709D6009688A9 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E251E41FB709D6009688A9 /* PopoverViewCell.m */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -67,22 +81,46 @@
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5D69372B02398D1C5F1EDD65 /* Pods-LotteryCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.release.xcconfig"; sourceTree = "<group>"; };
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95236B141FB345E900AD7EEC /* LCSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchBarView.h; sourceTree = "<group>"; };
-		95236B151FB345E900AD7EEC /* LCSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchBarView.m; sourceTree = "<group>"; };
-		95236B171FB4987100AD7EEC /* LCHomeFuncView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeFuncView.h; sourceTree = "<group>"; };
-		95236B181FB4987100AD7EEC /* LCHomeFuncView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeFuncView.m; sourceTree = "<group>"; };
-		95236B1A1FB49E0900AD7EEC /* LCHomeNoticeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeNoticeView.h; sourceTree = "<group>"; };
-		95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeNoticeView.m; sourceTree = "<group>"; };
-		95236B1D1FB4A30100AD7EEC /* LCLottery3DView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLottery3DView.h; sourceTree = "<group>"; };
-		95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLottery3DView.m; sourceTree = "<group>"; };
-		95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCLottery3DView.xib; sourceTree = "<group>"; };
-		95236B221FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostHeaderView.h; sourceTree = "<group>"; };
-		95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostHeaderView.m; sourceTree = "<group>"; };
-		95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
-		95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderView.m; sourceTree = "<group>"; };
-		95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostTableViewCell.h; sourceTree = "<group>"; };
-		95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostTableViewCell.m; sourceTree = "<group>"; };
-		95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCHomeHotPostTableViewCell.xib; sourceTree = "<group>"; };
+		959018FA1FB808ED00F5B0CE /* LCHomeFuncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeFuncView.h; sourceTree = "<group>"; };
+		959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeFuncView.m; sourceTree = "<group>"; };
+		959018FC1FB808ED00F5B0CE /* LCHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
+		959018FD1FB808ED00F5B0CE /* LCHomeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderView.m; sourceTree = "<group>"; };
+		959018FE1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostHeaderView.h; sourceTree = "<group>"; };
+		959018FF1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostHeaderView.m; sourceTree = "<group>"; };
+		959019001FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeHotPostTableViewCell.h; sourceTree = "<group>"; };
+		959019011FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotPostTableViewCell.m; sourceTree = "<group>"; };
+		959019021FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCHomeHotPostTableViewCell.xib; sourceTree = "<group>"; };
+		959019031FB808ED00F5B0CE /* LCHomeNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeNoticeView.h; sourceTree = "<group>"; };
+		959019041FB808ED00F5B0CE /* LCHomeNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeNoticeView.m; sourceTree = "<group>"; };
+		959019051FB808ED00F5B0CE /* LCLottery3DView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCLottery3DView.h; sourceTree = "<group>"; };
+		959019061FB808ED00F5B0CE /* LCLottery3DView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCLottery3DView.m; sourceTree = "<group>"; };
+		959019071FB808ED00F5B0CE /* LCLottery3DView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCLottery3DView.xib; sourceTree = "<group>"; };
+		959019081FB808ED00F5B0CE /* LCSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCSearchBarView.h; sourceTree = "<group>"; };
+		959019091FB808ED00F5B0CE /* LCSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCSearchBarView.m; sourceTree = "<group>"; };
+		959019131FB8099400F5B0CE /* LCRechargeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRechargeHeaderView.h; sourceTree = "<group>"; };
+		959019141FB8099400F5B0CE /* LCRechargeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargeHeaderView.m; sourceTree = "<group>"; };
+		959019171FB80A1700F5B0CE /* LCRechargeMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRechargeMainVC.h; sourceTree = "<group>"; };
+		959019181FB80A1700F5B0CE /* LCRechargeMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargeMainVC.m; sourceTree = "<group>"; };
+		9590191C1FB82D4D00F5B0CE /* LCRechargePayTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRechargePayTypeView.h; sourceTree = "<group>"; };
+		9590191D1FB82D4D00F5B0CE /* LCRechargePayTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargePayTypeView.m; sourceTree = "<group>"; };
+		9590191F1FB82D6200F5B0CE /* LCRechargePayTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCRechargePayTypeView.xib; sourceTree = "<group>"; };
+		959019211FB82D7600F5B0CE /* LCRechargePaySureView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRechargePaySureView.h; sourceTree = "<group>"; };
+		959019221FB82D7600F5B0CE /* LCRechargePaySureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargePaySureView.m; sourceTree = "<group>"; };
+		959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCRechargePaySureView.xib; sourceTree = "<group>"; };
+		959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserHomeSetting.plist; sourceTree = "<group>"; };
+		959019311FB8921200F5B0CE /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCUserHomeTableViewCell.h; path = ../../../../../../LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
+		959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCUserHomeTableViewCell.m; path = ../../../../../../LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
+		959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LCUserHomeTableViewCell.xib; path = ../../../../../../LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
+		959019361FB8922D00F5B0CE /* LCUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCUserHomeHeaderView.h; path = ../../../../../../LCUserHomeHeaderView.h; sourceTree = "<group>"; };
+		959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCUserHomeHeaderView.m; path = ../../../../../../LCUserHomeHeaderView.m; sourceTree = "<group>"; };
+		9590193B1FB8974000F5B0CE /* LCSpaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceTableViewCell.h; sourceTree = "<group>"; };
+		9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceTableViewCell.m; sourceTree = "<group>"; };
+		95AF4EE11FB601590097B72D /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
+		95AF4EE21FB601590097B72D /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
+		95AF4EE31FB601590097B72D /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		95AF4EE41FB601590097B72D /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		95AF4EE51FB601590097B72D /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		95E251E41FB709D6009688A9 /* PopoverViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PopoverViewCell.m; path = "../../../../../Popover-master/Popover/PopoverView/PopoverViewCell.m"; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -197,25 +235,93 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		959018F81FB808ED00F5B0CE /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				959019131FB8099400F5B0CE /* LCRechargeHeaderView.h */,
+				959019141FB8099400F5B0CE /* LCRechargeHeaderView.m */,
+				9590191C1FB82D4D00F5B0CE /* LCRechargePayTypeView.h */,
+				9590191D1FB82D4D00F5B0CE /* LCRechargePayTypeView.m */,
+				9590191F1FB82D6200F5B0CE /* LCRechargePayTypeView.xib */,
+				959019211FB82D7600F5B0CE /* LCRechargePaySureView.h */,
+				959019221FB82D7600F5B0CE /* LCRechargePaySureView.m */,
+				959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */,
+			);
+			path = Recharge;
+			sourceTree = "<group>";
+		};
+		959018F91FB808ED00F5B0CE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				959018FA1FB808ED00F5B0CE /* LCHomeFuncView.h */,
+				959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */,
+				959018FC1FB808ED00F5B0CE /* LCHomeHeaderView.h */,
+				959018FD1FB808ED00F5B0CE /* LCHomeHeaderView.m */,
+				959018FE1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.h */,
+				959018FF1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m */,
+				959019001FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.h */,
+				959019011FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m */,
+				959019021FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib */,
+				959019031FB808ED00F5B0CE /* LCHomeNoticeView.h */,
+				959019041FB808ED00F5B0CE /* LCHomeNoticeView.m */,
+				959019051FB808ED00F5B0CE /* LCLottery3DView.h */,
+				959019061FB808ED00F5B0CE /* LCLottery3DView.m */,
+				959019071FB808ED00F5B0CE /* LCLottery3DView.xib */,
+				959019081FB808ED00F5B0CE /* LCSearchBarView.h */,
+				959019091FB808ED00F5B0CE /* LCSearchBarView.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		959019161FB809FD00F5B0CE /* Recharge */ = {
+			isa = PBXGroup;
+			children = (
+				959019171FB80A1700F5B0CE /* LCRechargeMainVC.h */,
+				959019181FB80A1700F5B0CE /* LCRechargeMainVC.m */,
+			);
+			path = Recharge;
+			sourceTree = "<group>";
+		};
+		959019281FB88F2F00F5B0CE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				959019311FB8921200F5B0CE /* LCUserHomeTableViewCell.h */,
+				959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */,
+				959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */,
+				959019361FB8922D00F5B0CE /* LCUserHomeHeaderView.h */,
+				959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95AF4EDE1FB6011E0097B72D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95AF4EE01FB601590097B72D /* PopoverView */,
+				9590193B1FB8974000F5B0CE /* LCSpaceTableViewCell.h */,
+				9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95AF4EE01FB601590097B72D /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				95E251E41FB709D6009688A9 /* PopoverViewCell.m */,
+				95AF4EE11FB601590097B72D /* PopoverAction.h */,
+				95AF4EE21FB601590097B72D /* PopoverAction.m */,
+				95AF4EE31FB601590097B72D /* PopoverView.h */,
+				95AF4EE41FB601590097B72D /* PopoverView.m */,
+				95AF4EE51FB601590097B72D /* PopoverViewCell.h */,
+			);
+			path = PopoverView;
+			sourceTree = "<group>";
+		};
 		95DB49EF1FB1F804002D58A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				95DB49F01FB1F835002D58A9 /* LCHomeHeaderView.h */,
-				95DB49F11FB1F835002D58A9 /* LCHomeHeaderView.m */,
-				95DB49F31FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.h */,
-				95DB49F41FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m */,
-				95DB49F51FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib */,
-				95236B141FB345E900AD7EEC /* LCSearchBarView.h */,
-				95236B151FB345E900AD7EEC /* LCSearchBarView.m */,
-				95236B171FB4987100AD7EEC /* LCHomeFuncView.h */,
-				95236B181FB4987100AD7EEC /* LCHomeFuncView.m */,
-				95236B1A1FB49E0900AD7EEC /* LCHomeNoticeView.h */,
-				95236B1B1FB49E0900AD7EEC /* LCHomeNoticeView.m */,
-				95236B1D1FB4A30100AD7EEC /* LCLottery3DView.h */,
-				95236B1E1FB4A30100AD7EEC /* LCLottery3DView.m */,
-				95236B201FB4A31100AD7EEC /* LCLottery3DView.xib */,
-				95236B221FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.h */,
-				95236B231FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m */,
+				959018F91FB808ED00F5B0CE /* Home */,
+				959018F81FB808ED00F5B0CE /* Recharge */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -264,8 +370,8 @@
 		E6D9A7761FAFF97300894BB0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				95AF4EDE1FB6011E0097B72D /* View */,
 				E6D9A7771FAFF97300894BB0 /* Plist */,
-				E6D9A7791FAFF97300894BB0 /* View */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -274,15 +380,9 @@
 			isa = PBXGroup;
 			children = (
 				E6D9A7781FAFF97300894BB0 /* TabBarSetting.plist */,
+				959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */,
 			);
 			path = Plist;
-			sourceTree = "<group>";
-		};
-		E6D9A7791FAFF97300894BB0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E6D9A7CC1FAFF97300894BB0 /* ViewController */ = {
@@ -374,6 +474,7 @@
 		E6D9A7D71FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				959019161FB809FD00F5B0CE /* Recharge */,
 				E6E2C6FA1FB00FAB00866D15 /* LCHomeMainVC.h */,
 				E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */,
 			);
@@ -439,9 +540,9 @@
 		E6D9A7DF1FAFF97300894BB0 /* UserModule */ = {
 			isa = PBXGroup;
 			children = (
+				959019281FB88F2F00F5B0CE /* View */,
 				E6D9A7E01FAFF97300894BB0 /* API */,
 				E6D9A7E11FAFF97300894BB0 /* Model */,
-				E6D9A7E21FAFF97300894BB0 /* View */,
 				E6D9A7E31FAFF97300894BB0 /* ViewController */,
 				E6D9A7E41FAFF97300894BB0 /* ViewModel */,
 			);
@@ -460,13 +561,6 @@
 			children = (
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		E6D9A7E21FAFF97300894BB0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		E6D9A7E31FAFF97300894BB0 /* ViewController */ = {
@@ -726,9 +820,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95236B211FB4A31100AD7EEC /* LCLottery3DView.xib in Resources */,
+				959019111FB808ED00F5B0CE /* LCLottery3DView.xib in Resources */,
+				959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */,
+				959019351FB8921200F5B0CE /* LCUserHomeTableViewCell.xib in Resources */,
+				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
+				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
-				95DB49F71FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.xib in Resources */,
+				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
 				E6D9A7E81FAFF97300894BB0 /* TabBarSetting.plist in Resources */,
 				E6E2C67A1FB0038600866D15 /* webviewmore@2x.png in Resources */,
@@ -813,49 +911,59 @@
 			files = (
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
-				95236B1C1FB49E0900AD7EEC /* LCHomeNoticeView.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
-				95236B161FB345E900AD7EEC /* LCSearchBarView.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
+				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
+				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
+				959019381FB8922D00F5B0CE /* LCUserHomeHeaderView.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
+				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
-				95DB49F61FB1FB9D002D58A9 /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
+				95E251E51FB709D6009688A9 /* PopoverViewCell.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
+				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
+				959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */,
+				959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */,
 				E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */,
 				E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */,
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
-				95236B241FB4A49D00AD7EEC /* LCHomeHotPostHeaderView.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
+				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,
-				95236B191FB4987100AD7EEC /* LCHomeFuncView.m in Sources */,
+				959019101FB808ED00F5B0CE /* LCLottery3DView.m in Sources */,
+				9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */,
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
+				9590190D1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
+				959019341FB8921200F5B0CE /* LCUserHomeTableViewCell.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
+				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
-				95DB49F21FB1F835002D58A9 /* LCHomeHeaderView.m in Sources */,
+				9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */,
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
-				95236B1F1FB4A30100AD7EEC /* LCLottery3DView.m in Sources */,
 				E6E2C6611FB0038600866D15 /* NSString+Extend.m in Sources */,
+				959019121FB808ED00F5B0CE /* LCSearchBarView.m in Sources */,
 				E6E2C6641FB0038600866D15 /* UISearchBar+Extend.m in Sources */,
+				95AF4EE71FB601590097B72D /* PopoverView.m in Sources */,
 				E6E2C6771FB0038600866D15 /* LSKBarnerScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

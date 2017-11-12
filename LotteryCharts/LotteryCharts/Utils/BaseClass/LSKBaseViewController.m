@@ -8,8 +8,8 @@
 
 #import "LSKBaseViewController.h"
 #import "UIViewController+Extend.h"
-static const NSInteger kNavigationBarButton_Font = 14;
-static NSString * const kNavigation_BackImg = @"navigation_back";
+static const NSInteger kNavigationBarButton_Font = 15;
+static NSString * const kNavigation_BackImg = @"navi_back";
 @interface LSKBaseViewController ()
 
 @end

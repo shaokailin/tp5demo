@@ -9,12 +9,22 @@
 #import "LCHomeMainVC.h"
 #import "LCHomeHeaderView.h"
 #import "LCHomeHotPostTableViewCell.h"
-@interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource>
+#import "PopoverView.h"
+#import "LCRechargeMainVC.h"
+#import "LCLoginMainVC.h"
+@interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
+@property (nonatomic, strong) NSArray *searchArray;
 @end
 
 @implementation LCHomeMainVC
+- (void)viewDidAppear:(BOOL)animated {
+//    LCLoginMainVC *login = [[LCLoginMainVC alloc]init];
+//    login.hidesBottomBarWhenPushed = YES;
+//    [self.navigationController pushViewController:login animated:YES];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,14 +32,59 @@
     [self initializeMainView];
 }
 #pragma mark private
-- (void)showMeunView {
-    
+- (void)showMeunView:(UIButton *)sender {
+    PopoverView *popoverView = [PopoverView popoverView];
+    popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
+    popoverView.showShade = YES;
+    [popoverView showToView:sender withActions:[self neumActions]];
+}
+- (void)searchEnumClick:(NSInteger)index {
+    self.headerView.searchIndex = index;
 }
 - (void)pullDownRefresh {
     [self.mainTableView.mj_header endRefreshing];
 }
 - (void)pullUpLoadMore {
     [self.mainTableView.mj_footer endRefreshing];
+}
+- (void)headerViewActionType:(NSInteger)type actionParam:(id)actionParam {
+    [self.view endEditing:YES];
+    if (type == 1) {
+        PopoverView *popoverView = [PopoverView popoverView];
+        popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
+        popoverView.showShade = YES;
+        popoverView.selectIndex = self.headerView.searchIndex;
+        [popoverView showToView:actionParam withActions:self.searchArray];
+    }else if(type == 4) {
+        NSInteger index = [actionParam integerValue];
+        UIViewController *controller = nil;
+        switch (index) {
+            case 0:
+            {
+                break;
+            }
+            case 1:
+            {
+                break;
+            }
+            case 2:
+            {
+                break;
+            }
+            case 3:
+            {
+                LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
+                controller = recgarge;
+                break;
+            }
+            default:
+                break;
+        }
+        if (controller) {
+            controller.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+    }
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -40,14 +95,44 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark -界面初始化
+- (NSArray *)searchArray {
+    if (!_searchArray) {
+        WS(ws)
+        PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"标题" handler:^(PopoverAction *action) {
+            [ws searchEnumClick:0];
+        }];
+        PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"码师ID" handler:^(PopoverAction *action) {
+            [ws searchEnumClick:1];
+        }];
+        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"帖子ID" handler:^(PopoverAction *action) {
+            [ws searchEnumClick:2];
+        }];
+        _searchArray = [NSArray arrayWithObjects:multichatAction,addFriAction,add1FriAction, nil];
+    }
+    return _searchArray;
+}
+- (NSArray<PopoverAction *> *)neumActions {
+    @weakify(self)
+    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发帖" handler:^(PopoverAction *action) {
+
+    }];
+    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
+        @strongify(self)
+        LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
+        recgarge.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:recgarge animated:YES]; 
+    }];
+    return @[multichatAction, addFriAction];
+}
 - (void)initializeMainView {
-    [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView)];
+    [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
     LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 486)];
     self.headerView = headerView;
+    
     mainTableView.tableHeaderView = headerView;
     
     [mainTableView registerNib:[UINib nibWithNibName:kLCHomeHotPostTableViewCell bundle:nil] forCellReuseIdentifier:kLCHomeHotPostTableViewCell];
@@ -63,9 +148,14 @@
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);
     }];
+    headerView.headerBlock = ^(NSInteger type, id actionParam) {
+        [ws headerViewActionType:type actionParam:actionParam];
+    };
 }
 
-
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    [self.view endEditing:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
