@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>controller</key>
-		<string></string>
+		<string>LCUserMessageVC</string>
 		<key>icon</key>
 		<string>user_user_icon</string>
 		<key>title</key>

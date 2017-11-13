@@ -31,6 +31,7 @@
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
 		E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC711FB96F9800AE1FE2 /* PopoverViewCell.m */; };
+		E6BFCC751FB9933F00AE1FE2 /* LCUserMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC741FB9933F00AE1FE2 /* LCUserMessageVC.m */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -121,6 +122,8 @@
 		E6BFCC6E1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeHeaderView.h; sourceTree = "<group>"; };
 		E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeHeaderView.m; sourceTree = "<group>"; };
 		E6BFCC711FB96F9800AE1FE2 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
+		E6BFCC731FB9933F00AE1FE2 /* LCUserMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageVC.h; sourceTree = "<group>"; };
+		E6BFCC741FB9933F00AE1FE2 /* LCUserMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageVC.m; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -568,6 +571,8 @@
 			children = (
 				E6E2C7001FB00FFE00866D15 /* LCUserMainVC.h */,
 				E6E2C7011FB00FFE00866D15 /* LCUserMainVC.m */,
+				E6BFCC731FB9933F00AE1FE2 /* LCUserMessageVC.h */,
+				E6BFCC741FB9933F00AE1FE2 /* LCUserMessageVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -960,6 +965,7 @@
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
+				E6BFCC751FB9933F00AE1FE2 /* LCUserMessageVC.m in Sources */,
 				9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */,
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,

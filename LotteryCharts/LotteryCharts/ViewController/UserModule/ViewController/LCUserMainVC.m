@@ -13,14 +13,19 @@
 #import "LSKImageManager.h"
 #import "RSKImageCropper.h"
 #import <AVFoundation/AVFoundation.h>
+#import "LCUserMessageVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
     NSArray *_settingArray;
     NSInteger _editImageType;
+    BOOL _hasChange;
+    
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
+@property (nonatomic, strong) UIImage *homeNaviBgImage;
+@property (nonatomic, strong) UIImage *nornalNaviBgImage;
 @end
 
 @implementation LCUserMainVC
@@ -29,9 +34,22 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBackgroundImage:[LSKImageManager imageWithColor:ColorRGBA(0, 0, 0, 0.4) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)] forBarMetrics:UIBarMetricsDefault];
     [self initializeMainView];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    if (!_hasChange) {
+        self.navigationController.navigationBar.translucent = YES;
+        [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)] forBarMetrics:UIBarMetricsDefault];
+    }
+}
+- (UIImage *)homeNaviBgImage {
+    if (!_homeNaviBgImage) {
+        _homeNaviBgImage = [LSKImageManager imageWithColor:ColorRGBA(0, 0, 0, 0.4);
+    }
+    return _homeNaviBgImage;
+}
+- (void)viewDidDisappear:(BOOL)animated {
+    
 }
 - (void)loginOutClick {
     
@@ -83,6 +101,21 @@ static NSString * const kSettingName = @"UserHomeSetting";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 10) {
     }else {
+        UIViewController *controller = nil;
+        switch (indexPath.row) {
+            case 0:
+            {
+                LCUserMessageVC *messageVC = [[LCUserMessageVC alloc]init];
+                controller = messageVC;
+                break;
+            }
+            default:
+                break;
+        }
+        if (controller) {
+            controller.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
