@@ -10,6 +10,7 @@
 #import "LCUserHomeTableViewCell.h"
 #import "LCUserHomeHeaderView.h"
 #import "LCSpaceTableViewCell.h"
+#import "LSKImageManager.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource>
 {
@@ -24,6 +25,9 @@ static NSString * const kSettingName = @"UserHomeSetting";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:[LSKImageManager imageWithColor:ColorRGBA(0, 0, 0, 0.5) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)] forBarMetrics:UIBarMetricsDefault];
     [self initializeMainView];
 }
 - (void)loginOutClick {

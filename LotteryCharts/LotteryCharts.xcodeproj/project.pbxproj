@@ -24,13 +24,13 @@
 		959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019221FB82D7600F5B0CE /* LCRechargePaySureView.m */; };
 		959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */; };
 		959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */; };
-		959019341FB8921200F5B0CE /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */; };
-		959019351FB8921200F5B0CE /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */; };
-		959019381FB8922D00F5B0CE /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */; };
 		9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */; };
 		95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE21FB601590097B72D /* PopoverAction.m */; };
 		95AF4EE71FB601590097B72D /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE41FB601590097B72D /* PopoverView.m */; };
-		95E251E51FB709D6009688A9 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E251E41FB709D6009688A9 /* PopoverViewCell.m */; };
+		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
+		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
+		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
+		E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC711FB96F9800AE1FE2 /* PopoverViewCell.m */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -108,11 +108,6 @@
 		959019221FB82D7600F5B0CE /* LCRechargePaySureView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargePaySureView.m; sourceTree = "<group>"; };
 		959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCRechargePaySureView.xib; sourceTree = "<group>"; };
 		959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserHomeSetting.plist; sourceTree = "<group>"; };
-		959019311FB8921200F5B0CE /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCUserHomeTableViewCell.h; path = ../../../../../../LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
-		959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCUserHomeTableViewCell.m; path = ../../../../../../LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
-		959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = LCUserHomeTableViewCell.xib; path = ../../../../../../LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
-		959019361FB8922D00F5B0CE /* LCUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LCUserHomeHeaderView.h; path = ../../../../../../LCUserHomeHeaderView.h; sourceTree = "<group>"; };
-		959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LCUserHomeHeaderView.m; path = ../../../../../../LCUserHomeHeaderView.m; sourceTree = "<group>"; };
 		9590193B1FB8974000F5B0CE /* LCSpaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceTableViewCell.h; sourceTree = "<group>"; };
 		9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceTableViewCell.m; sourceTree = "<group>"; };
 		95AF4EE11FB601590097B72D /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
@@ -120,7 +115,12 @@
 		95AF4EE31FB601590097B72D /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		95AF4EE41FB601590097B72D /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		95AF4EE51FB601590097B72D /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
-		95E251E41FB709D6009688A9 /* PopoverViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PopoverViewCell.m; path = "../../../../../Popover-master/Popover/PopoverView/PopoverViewCell.m"; sourceTree = "<group>"; };
+		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
+		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
+		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
+		E6BFCC6E1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeHeaderView.h; sourceTree = "<group>"; };
+		E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeHeaderView.m; sourceTree = "<group>"; };
+		E6BFCC711FB96F9800AE1FE2 /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -285,11 +285,11 @@
 		959019281FB88F2F00F5B0CE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				959019311FB8921200F5B0CE /* LCUserHomeTableViewCell.h */,
-				959019321FB8921200F5B0CE /* LCUserHomeTableViewCell.m */,
-				959019331FB8921200F5B0CE /* LCUserHomeTableViewCell.xib */,
-				959019361FB8922D00F5B0CE /* LCUserHomeHeaderView.h */,
-				959019371FB8922D00F5B0CE /* LCUserHomeHeaderView.m */,
+				E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */,
+				E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */,
+				E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */,
+				E6BFCC6E1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.h */,
+				E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 		95AF4EE01FB601590097B72D /* PopoverView */ = {
 			isa = PBXGroup;
 			children = (
-				95E251E41FB709D6009688A9 /* PopoverViewCell.m */,
+				E6BFCC711FB96F9800AE1FE2 /* PopoverViewCell.m */,
 				95AF4EE11FB601590097B72D /* PopoverAction.h */,
 				95AF4EE21FB601590097B72D /* PopoverAction.m */,
 				95AF4EE31FB601590097B72D /* PopoverView.h */,
@@ -822,7 +822,7 @@
 			files = (
 				959019111FB808ED00F5B0CE /* LCLottery3DView.xib in Resources */,
 				959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */,
-				959019351FB8921200F5B0CE /* LCUserHomeTableViewCell.xib in Resources */,
+				E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */,
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
 				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
@@ -913,20 +913,21 @@
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
+				E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */,
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
-				959019381FB8922D00F5B0CE /* LCUserHomeHeaderView.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
+				E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,
+				E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
-				95E251E51FB709D6009688A9 /* PopoverViewCell.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
@@ -950,7 +951,6 @@
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
 				9590190D1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
-				959019341FB8921200F5B0CE /* LCUserHomeTableViewCell.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,

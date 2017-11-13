@@ -3,7 +3,7 @@
 #import "PopoverViewCell.h"
 
 // extern
-float const PopoverViewCellHorizontalMargin = 10.f; ///< 水平边距
+float const PopoverViewCellHorizontalMargin = 53.f; ///< 水平边距
 float const PopoverViewCellVerticalMargin = 3.f; ///< 垂直边距
 float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
 
@@ -59,7 +59,7 @@ float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
     _button.translatesAutoresizingMaskIntoConstraints = NO;
     _button.titleLabel.font = [self.class titleFont];
     _button.backgroundColor = self.contentView.backgroundColor;
-    _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
+    _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
     [_button setTitleColor:ColorHexadecimal(0x434343, 1.0) forState:UIControlStateNormal];
     [self.contentView addSubview:_button];
     // Constraint
@@ -75,18 +75,13 @@ float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bottomLine]|" options:kNilOptions metrics:nil views:NSDictionaryOfVariableBindings(bottomLine)]];
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[bottomLine(lineHeight)]|" options:kNilOptions metrics:@{@"lineHeight" : @(1/[UIScreen mainScreen].scale)} views:NSDictionaryOfVariableBindings(bottomLine)]];
 }
+
 #pragma mark - Public
 /*! @brief 标题字体 */
 + (UIFont *)titleFont {
     return [UIFont systemFontOfSize:15.f];
 }
-- (void)setupIsSelect:(BOOL)isSelect {
-    if (isSelect) {
-        [_button setTitleColor:ColorHexadecimal(0xf5a623, 1.0) forState:UIControlStateNormal];
-    }else {
-        [_button setTitleColor:ColorHexadecimal(0x434343, 1.0) forState:UIControlStateNormal];
-    }
-}
+
 /*! @brief 底部线条颜色 */
 + (UIColor *)bottomLineColorForStyle:(PopoverViewStyle)style {
     return style == PopoverViewStyleDefault ? [UIColor colorWithRed:0.75 green:0.75 blue:0.75 alpha:1.00] : [UIColor colorWithRed:0.4 green:0.4 blue:0.4 alpha:1.00];
@@ -104,5 +99,11 @@ float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
 - (void)contentHorizontalAlignment:(UIControlContentHorizontalAlignment)alignment {
     _button.contentHorizontalAlignment = alignment;
 }
-
+- (void)setupIsSelect:(BOOL)isSelect {
+    if (isSelect) {
+        [_button setTitleColor:ColorHexadecimal(0xf5a623, 1.0) forState:UIControlStateNormal];
+    }else {
+        [_button setTitleColor:ColorHexadecimal(0x434343, 1.0) forState:UIControlStateNormal];
+    }
+}
 @end

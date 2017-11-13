@@ -24,6 +24,7 @@
     // Do any additional setup after loading the view.
     _currentLogin = YES;
     [self changeLoginWithState];
+    self.selectedIndex = 2;
 }
 - (void)changeLoginWithState {
     BOOL loginState = kUserMessageManager.isLogin;
