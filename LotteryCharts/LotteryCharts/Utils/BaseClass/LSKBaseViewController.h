@@ -14,6 +14,7 @@
 @property (nonatomic, readonly,assign) CGFloat tabbarBetweenHeight;
 @property (nonatomic, readonly,assign) CGFloat navibarHeight;
 @property (nonatomic, readonly, assign) CGFloat viewMainHeight;
+- (void)backToNornalNavigationColor;
 /**
  添加返回按钮
  */

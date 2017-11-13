@@ -40,6 +40,12 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     }
     return ([self tabbarHeight] - 49.0);
 }
+- (void)backToNornalNavigationColor {
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = KColorUtilsString(kNavigationBackground_Color);
+    self.navigationController.navigationBar.tintColor = KColorUtilsString(kNavigationBackground_Color);
+    [self.navigationController.navigationBar  setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+}
 #pragma mark - 添加返回按钮
 - (void)addNavigationBackButton {
     [self addLeftNavigationButtonWithNornalImage:kNavigation_BackImg seletedImage:nil target:self action:@selector(navigationBackClick)];

@@ -98,7 +98,6 @@
     tableView.dataSource = delegate;
     if (separatorColor) {
         tableView.separatorColor = separatorColor;
-        
     }else {
         tableView.separatorColor = ColorHexadecimal(kLineMain_Color, 1.0);
     }
@@ -114,7 +113,8 @@
     tableView.dataSource = delegate;
     if (separatorColor) {
         tableView.separatorColor = separatorColor;
-        tableView.separatorInset = UIEdgeInsetsZero;
+    }else {
+        tableView.separatorColor = ColorHexadecimal(kLineMain_Color, 1.0);
     }
     tableView.separatorStyle = separatorStyle;
     [[self class]_setupScrollViewMJRefresh:tableView target:delegate headerAction:headAction footerAction:footAction background:backgroundColor];
