@@ -10,4 +10,6 @@ pod 'YYModel'
 pod 'FDFullscreenPopGesture'
 pod 'MJRefresh'
 pod 'TPKeyboardAvoiding'
+pod 'GPUImage'
+pod 'RSKImageCropper'
 end

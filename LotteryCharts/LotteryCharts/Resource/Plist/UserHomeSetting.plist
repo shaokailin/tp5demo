@@ -14,17 +14,17 @@
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>我的空间</string>
-		<key>title</key>
 		<string>user_room_icon</string>
+		<key>title</key>
+		<string>我的空间</string>
 	</dict>
 	<dict>
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>历史订单</string>
-		<key>title</key>
 		<string>user_order_icon</string>
+		<key>title</key>
+		<string>历史订单</string>
 	</dict>
 	<dict>
 		<key>controller</key>
@@ -40,9 +40,9 @@
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>钱包</string>
-		<key>title</key>
 		<string>user_wallet_icon</string>
+		<key>title</key>
+		<string>钱包</string>
 	</dict>
 	<dict>
 		<key>detail</key>
@@ -50,9 +50,9 @@
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>任务</string>
-		<key>title</key>
 		<string>user_renwu_icon</string>
+		<key>title</key>
+		<string>任务</string>
 	</dict>
 	<dict>
 		<key>detail</key>
@@ -76,17 +76,17 @@
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>关于彩神榜</string>
-		<key>title</key>
 		<string>user_about_icon</string>
+		<key>title</key>
+		<string>关于彩神榜</string>
 	</dict>
 	<dict>
 		<key>controller</key>
 		<string></string>
 		<key>icon</key>
-		<string>联系客服</string>
-		<key>title</key>
 		<string>user_service_icon</string>
+		<key>title</key>
+		<string>联系客服</string>
 	</dict>
 	<dict>
 		<key>controller</key>
