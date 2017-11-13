@@ -39,12 +39,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
 - (void)viewDidAppear:(BOOL)animated {
     if (!_hasChange) {
         self.navigationController.navigationBar.translucent = YES;
-        [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)] forBarMetrics:UIBarMetricsDefault];
+        [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage forBarMetrics:UIBarMetricsDefault];
     }
 }
 - (UIImage *)homeNaviBgImage {
     if (!_homeNaviBgImage) {
-        _homeNaviBgImage = [LSKImageManager imageWithColor:ColorRGBA(0, 0, 0, 0.4);
+        _homeNaviBgImage = [LSKImageManager imageWithColor:ColorRGBA(0, 0, 0, 0.4) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)];
     }
     return _homeNaviBgImage;
 }
