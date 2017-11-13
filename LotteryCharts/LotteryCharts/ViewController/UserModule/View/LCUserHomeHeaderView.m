@@ -54,7 +54,7 @@
 - (GPUImageGaussianBlurFilter *)customBlurFilter {
     if (!_blurFilter) {
         GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
-        blurFilter.blurRadiusInPixels = 9.0;
+        blurFilter.blurRadiusInPixels = 5.0;
         _blurFilter = blurFilter;
     }
     return _blurFilter;
