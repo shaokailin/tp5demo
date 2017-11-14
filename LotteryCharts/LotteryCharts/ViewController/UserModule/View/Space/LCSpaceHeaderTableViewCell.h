@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCSpaceHeaderTableViewCell = @"LCSpaceHeaderTableViewCell";
 @interface LCSpaceHeaderTableViewCell : UITableViewCell
-
+- (void)setupCellContentWithCount:(NSString *)count;
 @end

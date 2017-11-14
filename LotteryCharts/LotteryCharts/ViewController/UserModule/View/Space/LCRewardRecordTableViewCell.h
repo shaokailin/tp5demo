@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCRewardRecordTableViewCell = @"LCRewardRecordTableViewCell";
 @interface LCRewardRecordTableViewCell : UITableViewCell
-
+- (void)setupContentWithId:(NSString *)postId time:(NSString *)time count:(NSString *)count money:(NSString *)money;
 @end

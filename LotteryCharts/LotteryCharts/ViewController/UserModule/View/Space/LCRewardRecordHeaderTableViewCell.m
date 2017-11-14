@@ -7,12 +7,40 @@
 //
 
 #import "LCRewardRecordHeaderTableViewCell.h"
+@interface LCRewardRecordHeaderTableViewCell ()
+@property (weak, nonatomic) IBOutlet UIButton *orderBtn;
+@property (weak, nonatomic) IBOutlet UIButton *recordBtn;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
+@property (weak, nonatomic) IBOutlet UILabel *countLbl;
 
+@end
 @implementation LCRewardRecordHeaderTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+}
+- (void)setupCellContentWithMoney:(NSString *)money count:(NSString *)count {
+    self.moneyLbl.text = money;
+    self.countLbl.text = NSStringFormat(@"全部帖子(共%@则)",count);
+}
+- (IBAction)clickEvent:(id)sender {
+    UIButton *senerBtn = (UIButton *)sender;
+    if (!senerBtn.selected) {
+        NSInteger type = 0;
+        if (senerBtn == _orderBtn) {
+            self.recordBtn.selected = NO;
+            type = 0;
+        }else {
+            self.orderBtn.selected = NO;
+            type = 1;
+        }
+        if (self.headerBlock) {
+            self.headerBlock(type);
+        }
+        senerBtn.selected = YES;
+    }
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

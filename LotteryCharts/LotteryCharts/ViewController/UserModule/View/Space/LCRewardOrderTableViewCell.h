@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCRewardOrderTableViewCell = @"LCRewardOrderTableViewCell";
 @interface LCRewardOrderTableViewCell : UITableViewCell
-
+- (void)setupContentWithName:(NSString *)name userId:(NSString *)userId index:(NSInteger)index photo:(NSString *)photo;
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^RewardOrderHeaderBlock)(NSInteger type);
 static NSString * const kLCRewardOrderHeaderTableViewCell = @"LCRewardOrderHeaderTableViewCell";
 @interface LCRewardOrderHeaderTableViewCell : UITableViewCell
-
+@property (nonatomic, copy) RewardOrderHeaderBlock headerBlock;
+- (void)setupCellContentWithCount:(NSString *)count;
 @end

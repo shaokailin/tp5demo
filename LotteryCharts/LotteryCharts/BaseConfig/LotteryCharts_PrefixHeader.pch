@@ -12,4 +12,5 @@
 #import "LSKUtilsConfig.h"
 #import "LCUserMessageManager.h"
 #import "Config.h"
+#import "UIImageView+WebCache.h"
 #endif /* LotteryCharts_PrefixHeader_h */

@@ -27,6 +27,12 @@
 		9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */; };
 		95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE21FB601590097B72D /* PopoverAction.m */; };
 		95AF4EE71FB601590097B72D /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE41FB601590097B72D /* PopoverView.m */; };
+		95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDA6841FBB294700686504 /* LCSpacePostVoiceTableViewCell.m */; };
+		95DDA6871FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA6851FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib */; };
+		95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDA6891FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m */; };
+		95DDA68C1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA68A1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib */; };
+		95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDA68E1FBB307100686504 /* LCSpacePostTitleTableViewCell.m */; };
+		95DDA6911FBB307100686504 /* LCSpacePostTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA68F1FBB307100686504 /* LCSpacePostTitleTableViewCell.xib */; };
 		E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */; };
 		E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */; };
 		E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAF1FBAC151002005E3 /* LCNameInputTableViewCell.m */; };
@@ -143,6 +149,15 @@
 		95AF4EE31FB601590097B72D /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
 		95AF4EE41FB601590097B72D /* PopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		95AF4EE51FB601590097B72D /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		95DDA6831FBB294700686504 /* LCSpacePostVoiceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpacePostVoiceTableViewCell.h; sourceTree = "<group>"; };
+		95DDA6841FBB294700686504 /* LCSpacePostVoiceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpacePostVoiceTableViewCell.m; sourceTree = "<group>"; };
+		95DDA6851FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpacePostVoiceTableViewCell.xib; sourceTree = "<group>"; };
+		95DDA6881FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpacePostVoiceImageTableViewCell.h; sourceTree = "<group>"; };
+		95DDA6891FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpacePostVoiceImageTableViewCell.m; sourceTree = "<group>"; };
+		95DDA68A1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpacePostVoiceImageTableViewCell.xib; sourceTree = "<group>"; };
+		95DDA68D1FBB307100686504 /* LCSpacePostTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpacePostTitleTableViewCell.h; sourceTree = "<group>"; };
+		95DDA68E1FBB307100686504 /* LCSpacePostTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpacePostTitleTableViewCell.m; sourceTree = "<group>"; };
+		95DDA68F1FBB307100686504 /* LCSpacePostTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpacePostTitleTableViewCell.xib; sourceTree = "<group>"; };
 		E61D2EA91FBAC13D002005E3 /* LCPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPhotoTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPhotoTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -460,9 +475,6 @@
 				E61D2EE01FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.h */,
 				E61D2EE11FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.m */,
 				E61D2EE21FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib */,
-				E61D2EE51FBAF3CE002005E3 /* LCSpacePostTableViewCell.h */,
-				E61D2EE61FBAF3CE002005E3 /* LCSpacePostTableViewCell.m */,
-				E61D2EE71FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib */,
 				E61D2EEA1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.h */,
 				E61D2EEB1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.m */,
 				E61D2EEC1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.xib */,
@@ -472,6 +484,18 @@
 				E61D2EF71FBAF429002005E3 /* LCSpaceGuessTableViewCell.h */,
 				E61D2EF81FBAF429002005E3 /* LCSpaceGuessTableViewCell.m */,
 				E61D2EF91FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib */,
+				E61D2EE51FBAF3CE002005E3 /* LCSpacePostTableViewCell.h */,
+				E61D2EE61FBAF3CE002005E3 /* LCSpacePostTableViewCell.m */,
+				E61D2EE71FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib */,
+				95DDA6831FBB294700686504 /* LCSpacePostVoiceTableViewCell.h */,
+				95DDA6851FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib */,
+				95DDA6881FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.h */,
+				95DDA6891FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m */,
+				95DDA68A1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib */,
+				95DDA68D1FBB307100686504 /* LCSpacePostTitleTableViewCell.h */,
+				95DDA68E1FBB307100686504 /* LCSpacePostTitleTableViewCell.m */,
+				95DDA68F1FBB307100686504 /* LCSpacePostTitleTableViewCell.xib */,
+				95DDA6841FBB294700686504 /* LCSpacePostVoiceTableViewCell.m */,
 			);
 			path = Space;
 			sourceTree = "<group>";
@@ -972,17 +996,20 @@
 				E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */,
 				959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */,
 				E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */,
+				95DDA6871FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib in Resources */,
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
 				E61D2EE91FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib in Resources */,
 				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
 				E61D2EC11FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
+				95DDA6911FBB307100686504 /* LCSpacePostTitleTableViewCell.xib in Resources */,
 				E61D2EB71FBAC3C3002005E3 /* LCSexTableViewCell.xib in Resources */,
 				E61D2EF61FBAF400002005E3 /* LCRewardRecordTableViewCell.xib in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
 				E61D2EE41FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib in Resources */,
 				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E61D2ECD1FBAD6A2002005E3 /* LCAboutUsVC.xib in Resources */,
+				95DDA68C1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
 				E61D2EDF1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.xib in Resources */,
 				E61D2EDA1FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.xib in Resources */,
@@ -1081,6 +1108,7 @@
 				E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */,
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
+				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
@@ -1096,6 +1124,8 @@
 				E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
 				E61D2ECC1FBAD6A2002005E3 /* LCAboutUsVC.m in Sources */,
+				95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */,
+				95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */,
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,

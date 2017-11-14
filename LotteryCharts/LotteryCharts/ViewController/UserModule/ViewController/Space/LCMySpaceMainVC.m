@@ -17,6 +17,9 @@
 #import "LCSpacePostTableViewCell.h"
 #import "LCSpaceGuessTableViewCell.h"
 #import "LCSpaceHeaderTableViewCell.h"
+#import "LCSpacePostVoiceTableViewCell.h"
+#import "LCSpacePostVoiceImageTableViewCell.h"
+#import "LCSpacePostTitleTableViewCell.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
@@ -74,7 +77,46 @@
     return 10 + 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
+        if (_showType == 0 || _showType == 1) {
+            LCSpaceHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceHeaderTableViewCell];
+            return cell;
+        }else if (_showType == 2 && _orderType == 0) {
+            LCRewardRecordHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordHeaderTableViewCell];
+            return cell;
+        }else {
+            LCRewardOrderHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderHeaderTableViewCell];
+            return cell;
+        }
+    }else {
+        if (_showType == 0) {
+            NSInteger type = indexPath.row % 4;
+            if (type == 0) {
+                LCSpacePostTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTitleTableViewCell];
+                return cell;
+            }else if (type == 1) {//图片
+                LCSpacePostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTableViewCell];
+                return cell;
+            }else if (type == 2) {//只要语言
+                LCSpacePostVoiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceTableViewCell];
+                return cell;
+            }else {//语言+图片
+                LCSpacePostVoiceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceImageTableViewCell];
+                return cell;
+            }
+        }else if (_showType == 5) {
+            LCSpaceGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceGuessTableViewCell];
+            return cell;
+        }else {
+            if (_orderType == 0) {
+                LCRewardRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordTableViewCell];
+                return cell;
+            }else {
+                LCRewardOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderTableViewCell];
+                return cell;
+            }
+        }
+    }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath == 0) {
@@ -85,7 +127,16 @@
         }
     }else {
         if (_showType == 0) {
-            return 183;
+            NSInteger type = indexPath.row % 4;
+            if (type == 0) {
+                return 133;
+            }else if (type == 1) {
+                return 183;
+            }else if (type == 2){
+                return 173;
+            }else {
+                return 227;
+            }
         }else if (_showType == 1) {
             return 80;
         }else {
@@ -104,7 +155,6 @@
     _orderType = 0;
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
-    tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
     [tableView registerNib:[UINib nibWithNibName:kLCRewardOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardOrderTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardRecordTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardRecordTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardOrderHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardOrderHeaderTableViewCell];
@@ -112,6 +162,9 @@
     [tableView registerNib:[UINib nibWithNibName:kLCSpacePostTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpacePostTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCSpaceGuessTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpaceGuessTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCSpaceHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpaceHeaderTableViewCell];
+    [tableView registerNib:[UINib nibWithNibName:kLCSpacePostVoiceTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpacePostVoiceTableViewCell];
+    [tableView registerNib:[UINib nibWithNibName:kLCSpacePostVoiceImageTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpacePostVoiceImageTableViewCell];
+    [tableView registerNib:[UINib nibWithNibName:kLCSpacePostTitleTableViewCell bundle:nil] forCellReuseIdentifier:kLCSpacePostTitleTableViewCell];
     
     UIView *headerMainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 335)];
     headerMainView.backgroundColor = [UIColor whiteColor];

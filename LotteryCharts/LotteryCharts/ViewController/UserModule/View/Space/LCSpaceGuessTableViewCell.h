@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCSpaceGuessTableViewCell = @"LCSpaceGuessTableViewCell";
 @interface LCSpaceGuessTableViewCell : UITableViewCell
-
+- (void)setupCellContentWithId:(NSString *)postId time:(NSString *)time title:(NSString *)title;
 @end

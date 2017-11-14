@@ -7,14 +7,19 @@
 //
 
 #import "LCSpaceHeaderTableViewCell.h"
+@interface LCSpaceHeaderTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *countLbl;
 
+@end
 @implementation LCSpaceHeaderTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
 }
-
+- (void)setupCellContentWithCount:(NSString *)count {
+    self.countLbl.text = NSStringFormat(@"全部帖子(共%@则)",count);
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

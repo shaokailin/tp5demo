@@ -7,7 +7,6 @@
 //
 
 #import "LCPhotoTableViewCell.h"
-#import "UIImageView+WebCache.h"
 @interface LCPhotoTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *userPhotoImage;
 
