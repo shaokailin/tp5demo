@@ -74,7 +74,7 @@
 	</dict>
 	<dict>
 		<key>controller</key>
-		<string></string>
+		<string>LCAboutUsVC</string>
 		<key>icon</key>
 		<string>user_about_icon</string>
 		<key>title</key>

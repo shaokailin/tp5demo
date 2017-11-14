@@ -17,6 +17,7 @@
     UILabel *_userIdLbl;
     UILabel *_attentionLbl;
     UILabel *_teamLbl;
+    UIButton *_punchBtn;
     GPUImageGaussianBlurFilter * _blurFilter;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -48,8 +49,13 @@
     }
 }
 - (void)setupBgImage:(UIImage *)image {
-    [self customBlurFilter];
-    _bgImageView.image = [_blurFilter imageByFilteringImage:image];
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        [self customBlurFilter];
+        UIImage *image1 = [_blurFilter imageByFilteringImage:image];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            _bgImageView.image = image1;
+        });
+    });
 }
 - (GPUImageGaussianBlurFilter *)customBlurFilter {
     if (!_blurFilter) {
@@ -64,6 +70,9 @@
     _userIdLbl.text = NSStringFormat(@"我的ID:%@",userId);
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
+}
+- (void)isShowPunchCard:(BOOL)isShow {
+    _punchBtn.hidden = !isShow;
 }
 - (void)punchCardAction {
     if (self.punchBlock) {
@@ -123,6 +132,7 @@
     }];
     
     UIButton *punchBtn = [LSKViewFactory initializeButtonNornalImage:@"punchcard" selectedImage:@"punchcard" target:self action:@selector(punchCardAction)];
+    _punchBtn = punchBtn;
     [self addSubview:punchBtn];
     [punchBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(ws).with.offset(-10);
@@ -147,6 +157,10 @@
     UIView *view = [[UIView alloc]init];
     view.backgroundColor = ColorRGBA(255, 255, 255, 0.9);
     ViewRadius(view, 5.0);
+    view.layer.shadowColor=[[UIColor grayColor] colorWithAlphaComponent:0.8].CGColor;
+    view.layer.shadowOffset=CGSizeMake(2,2);
+    view.layer.shadowOpacity=0.5;
+    view.layer.shadowRadius=5;
     [self addSubview:view];
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws).with.offset(10);

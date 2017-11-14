@@ -14,6 +14,8 @@
 #import "RSKImageCropper.h"
 #import <AVFoundation/AVFoundation.h>
 #import "LCUserMessageVC.h"
+#import "LCAboutUsVC.h"
+#import "LCMySpaceMainVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
@@ -102,6 +104,18 @@ static NSString * const kSettingName = @"UserHomeSetting";
             {
                 LCUserMessageVC *messageVC = [[LCUserMessageVC alloc]init];
                 controller = messageVC;
+                break;
+            }
+            case 1:
+            {
+                LCMySpaceMainVC *spaceVC = [[LCMySpaceMainVC alloc]init];
+                controller = spaceVC;
+                break;
+            }
+            case 8:
+            {
+                LCAboutUsVC *aboutVC = [[LCAboutUsVC alloc]init];
+                controller = aboutVC;
                 break;
             }
             default:
