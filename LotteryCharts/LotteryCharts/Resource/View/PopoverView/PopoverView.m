@@ -3,7 +3,7 @@
 #import "PopoverView.h"
 #import "PopoverViewCell.h"
 
-static CGFloat const kPopoverViewMargin = 8.f;        ///< 边距
+static CGFloat const kPopoverViewMargin = 5.f;        ///< 边距
 static CGFloat const kPopoverViewCellHeight = 44.f;   ///< cell指定高度
 static CGFloat const kPopoverViewArrowHeight = 8.f;  ///< 箭头高度
 
@@ -137,7 +137,7 @@ float PopoverViewDegreesToRadians(float angle)
     
     // 如果是菱角箭头的话, 箭头宽度需要小点.
     if (_arrowStyle == PopoverViewArrowStyleTriangle) {
-        arrowWidth = 22.0;
+        arrowWidth = 18.0;
     }
     
     // 如果箭头指向的点过于偏左或者过于偏右则需要重新调整箭头 x 轴的坐标

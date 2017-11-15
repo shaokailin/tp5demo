@@ -3,7 +3,7 @@
 #import "PopoverViewCell.h"
 
 // extern
-float const PopoverViewCellHorizontalMargin = 53.f; ///< 水平边距
+float const PopoverViewCellHorizontalMargin = 0.0f; ///< 水平边距
 float const PopoverViewCellVerticalMargin = 3.f; ///< 垂直边距
 float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
 
@@ -59,7 +59,7 @@ float const PopoverViewCellTitleLeftEdge = 8.f; ///< 标题左边边距
     _button.translatesAutoresizingMaskIntoConstraints = NO;
     _button.titleLabel.font = [self.class titleFont];
     _button.backgroundColor = self.contentView.backgroundColor;
-    _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    _button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
     [_button setTitleColor:ColorHexadecimal(0x434343, 1.0) forState:UIControlStateNormal];
     [self.contentView addSubview:_button];
     // Constraint

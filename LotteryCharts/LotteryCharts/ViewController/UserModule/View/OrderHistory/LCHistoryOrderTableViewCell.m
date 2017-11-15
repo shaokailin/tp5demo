@@ -23,6 +23,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    ViewBoundsRadius(self.photoImageView, 15);
 }
 - (void)setupContentWithPostId:(NSString *)postId pushTime:(NSString *)pushTime photoImage:(NSString *)photoImage name:(NSString *)name userId:(NSString *)userId detail:(NSString *)detail money:(NSString *)money {
     self.postIdLbl.text = postId;

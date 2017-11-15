@@ -17,6 +17,7 @@
 #import "LCAboutUsVC.h"
 #import "LCMySpaceMainVC.h"
 #import "LCOrderHistoryVC.h"
+#import "LCWalletMainVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
@@ -27,7 +28,6 @@ static NSString * const kSettingName = @"UserHomeSetting";
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
-@property (nonatomic, strong) UIImage *nornalNaviBgImage;
 @end
 
 @implementation LCUserMainVC
@@ -116,6 +116,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
             case 2:
             {
                 LCOrderHistoryVC *historyVC = [[LCOrderHistoryVC alloc]init];
+                controller = historyVC;
+                break;
+            }
+            case 4:
+            {
+                LCWalletMainVC *historyVC = [[LCWalletMainVC alloc]init];
                 controller = historyVC;
                 break;
             }
