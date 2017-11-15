@@ -12,4 +12,5 @@ static NSString * const kLCRewardOrderHeaderTableViewCell = @"LCRewardOrderHeade
 @interface LCRewardOrderHeaderTableViewCell : UITableViewCell
 @property (nonatomic, copy) RewardOrderHeaderBlock headerBlock;
 - (void)setupCellContentWithCount:(NSString *)count;
+- (void)setupState:(NSInteger)type;
 @end

@@ -20,6 +20,7 @@
 #import "LCSpacePostVoiceTableViewCell.h"
 #import "LCSpacePostVoiceImageTableViewCell.h"
 #import "LCSpacePostTitleTableViewCell.h"
+#import "LCSpaceMyOrderView.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
@@ -30,6 +31,7 @@
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, strong) UIImage *nornalNaviBgImage;
+@property (nonatomic, strong) LCSpaceMyOrderView *orderView;
 @end
 
 @implementation LCMySpaceMainVC
@@ -70,7 +72,29 @@
     
 }
 - (void)changeShowClick:(NSInteger)type {
-    
+    _showType = type;
+    [self.mainTableView reloadData];
+    [self showMyOrderMessage];
+}
+- (void)changeRewardShow:(NSInteger)type {
+    _orderType = type;
+    [self.mainTableView reloadData];
+    [self showMyOrderMessage];
+}
+- (void)showMyOrderMessage {
+    if (_orderType == 1 && _showType == 2) {
+        self.orderView.hidden = NO;
+        WS(ws)
+        [self.mainTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight - 49);
+        }];
+    }else if (_orderView && !_orderView.hidden) {
+        _orderView.hidden = YES;
+        WS(ws)
+        [self.mainTableView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
+        }];
+    }
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -80,46 +104,72 @@
     if (indexPath.row == 0) {
         if (_showType == 0 || _showType == 1) {
             LCSpaceHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceHeaderTableViewCell];
+            [cell setupCellContentWithCount:@"200"];
             return cell;
         }else if (_showType == 2 && _orderType == 0) {
             LCRewardRecordHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordHeaderTableViewCell];
+            WS(ws)
+            cell.headerBlock = ^(NSInteger type) {
+                [ws changeRewardShow:type];
+                [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            };
+            [cell setupState:_orderType];
+            [cell setupCellContentWithMoney:@"300,2000" count:@"200"];
+            
             return cell;
         }else {
             LCRewardOrderHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderHeaderTableViewCell];
+            WS(ws)
+            cell.headerBlock = ^(NSInteger type) {
+                [ws changeRewardShow:type];
+                [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            };
+            [cell setupState:_orderType];
+            [cell setupCellContentWithCount:@"200"];
             return cell;
         }
     }else {
         if (_showType == 0) {
-            NSInteger type = indexPath.row % 4;
+            NSInteger type = (indexPath.row - 1) % 7;
             if (type == 0) {
                 LCSpacePostTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTitleTableViewCell];
+                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:@"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容" commment:@"200" rewardCount:@"200" money:@"200"];
                 return cell;
-            }else if (type == 1) {//图片
+            }else if (type == 1 || type == 2) {//图片
                 LCSpacePostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTableViewCell];
+                NSString *contentText = type == 1 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@""]];
                 return cell;
-            }else if (type == 2) {//只要语言
+            }else if (type == 3 || type == 4) {//只要语言
                 LCSpacePostVoiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceTableViewCell];
+                NSString *contentText = type == 3 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" voiceSecond:@"50"];
                 return cell;
             }else {//语言+图片
                 LCSpacePostVoiceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceImageTableViewCell];
+                NSString *contentText = type == 5 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@"",@""] voiceSecond:@"51"];
                 return cell;
             }
-        }else if (_showType == 5) {
+        }else if (_showType == 1) {
             LCSpaceGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceGuessTableViewCell];
+            [cell setupCellContentWithId:@"码师ID:123456" time:@"10月10日   12:34发布" title:@"标题标题标题"];
             return cell;
         }else {
             if (_orderType == 0) {
                 LCRewardRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordTableViewCell];
+                [cell setupContentWithId:@"码师ID:123456" time:@"10月10日   12:34发布" count:@"200" money:@"123435"];
                 return cell;
             }else {
                 LCRewardOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderTableViewCell];
+                [cell setupContentWithName:@"凯先生" userId:@"码师ID:123456" index:indexPath.row photo:nil];
                 return cell;
             }
         }
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath == 0) {
+    if (indexPath.row == 0) {
         if (_showType == 2 && _orderType == 0) {
             return 90 + 60;
         }else {
@@ -127,15 +177,21 @@
         }
     }else {
         if (_showType == 0) {
-            NSInteger type = indexPath.row % 4;
+            NSInteger type = (indexPath.row - 1) % 7;
             if (type == 0) {
-                return 133;
+                return 123;
             }else if (type == 1) {
                 return 183;
-            }else if (type == 2){
+            }else if (type == 2) {
+                return 183 - 36 - 10;
+            }else if (type == 3) {
                 return 173;
-            }else {
+            } else if (type == 4){
+                return 173 - 36 - 13;
+            }else if (type == 5) {
                 return 227;
+            }else {
+                return 227 - 36 - 10;
             }
         }else if (_showType == 1) {
             return 80;
@@ -150,6 +206,21 @@
 }
 
 #pragma mark view
+- (LCSpaceMyOrderView *)orderView {
+    if (!_orderView) {
+        LCSpaceMyOrderView *orderView = [[LCSpaceMyOrderView alloc]init];
+        _orderView = orderView;
+        [self.view addSubview:orderView];
+        WS(ws)
+        [orderView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.right.equalTo(ws.view);
+            make.height.mas_equalTo(49);
+            make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
+        }];
+        [_orderView setupContentWithIndex:@"20" photo:nil money:@"500"];
+    }
+    return _orderView;
+}
 - (void)initializeMainView {
     _showType = 0;
     _orderType = 0;
@@ -182,7 +253,8 @@
     [self.view addSubview:tableView];
     WS(ws)
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.view);
+        make.left.top.right.equalTo(ws.view);
+        make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
     }];
     tabView.tabbarBlock = ^(NSInteger type) {
         [ws changeShowClick:type];

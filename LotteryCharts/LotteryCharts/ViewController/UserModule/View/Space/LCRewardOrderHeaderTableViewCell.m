@@ -22,16 +22,25 @@
 - (void)setupCellContentWithCount:(NSString *)count {
     self.countLbl.text = NSStringFormat(@"全部帖子(共%@则)",count);
 }
+- (void)setupState:(NSInteger)type {
+    if (type == 0) {
+        self.recordBtn.selected = YES;
+        self.orderBtn.selected = NO;
+    }else {
+        self.recordBtn.selected = NO;
+        self.orderBtn.selected = YES;
+    }
+}
 - (IBAction)clickEvent:(id)sender {
     UIButton *senerBtn = (UIButton *)sender;
     if (!senerBtn.selected) {
         NSInteger type = 0;
         if (senerBtn == _orderBtn) {
             self.recordBtn.selected = NO;
-            type = 0;
+            type = 1;
         }else {
             self.orderBtn.selected = NO;
-            type = 1;
+            type = 0;
         }
         if (self.headerBlock) {
             self.headerBlock(type);

@@ -27,7 +27,7 @@
     [self.view addSubview:mainScrollerView];
     WS(ws)
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, -ws.tabbarBetweenHeight, 0));
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
 //    CGFloat contentHeight = 0;
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);

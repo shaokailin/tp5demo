@@ -11,5 +11,6 @@ typedef void (^RewardRecordHeaderBlock)(NSInteger type);
 static NSString * const kLCRewardRecordHeaderTableViewCell = @"LCRewardRecordHeaderTableViewCell";
 @interface LCRewardRecordHeaderTableViewCell : UITableViewCell
 @property (nonatomic, copy) RewardRecordHeaderBlock headerBlock;
+- (void)setupState:(NSInteger)type;
 - (void)setupCellContentWithMoney:(NSString *)money count:(NSString *)count;
 @end

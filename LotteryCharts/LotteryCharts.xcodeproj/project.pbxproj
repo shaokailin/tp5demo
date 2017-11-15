@@ -60,6 +60,11 @@
 		E61D2EF61FBAF400002005E3 /* LCRewardRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EF41FBAF400002005E3 /* LCRewardRecordTableViewCell.xib */; };
 		E61D2EFA1FBAF429002005E3 /* LCSpaceGuessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EF81FBAF429002005E3 /* LCSpaceGuessTableViewCell.m */; };
 		E61D2EFB1FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EF91FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib */; };
+		E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EFD1FBC239B002005E3 /* LCSpaceMyOrderView.m */; };
+		E61D2F031FBC37ED002005E3 /* LCOrderHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F021FBC37ED002005E3 /* LCOrderHistoryVC.m */; };
+		E61D2F061FBC3957002005E3 /* LCSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F051FBC3957002005E3 /* LCSearchBarView.m */; };
+		E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F081FBC3970002005E3 /* LCHistoryOrderTableViewCell.m */; };
+		E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2F091FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -200,6 +205,15 @@
 		E61D2EF71FBAF429002005E3 /* LCSpaceGuessTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceGuessTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EF81FBAF429002005E3 /* LCSpaceGuessTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceGuessTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EF91FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpaceGuessTableViewCell.xib; sourceTree = "<group>"; };
+		E61D2EFC1FBC239B002005E3 /* LCSpaceMyOrderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceMyOrderView.h; sourceTree = "<group>"; };
+		E61D2EFD1FBC239B002005E3 /* LCSpaceMyOrderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceMyOrderView.m; sourceTree = "<group>"; };
+		E61D2F011FBC37ED002005E3 /* LCOrderHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCOrderHistoryVC.h; sourceTree = "<group>"; };
+		E61D2F021FBC37ED002005E3 /* LCOrderHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCOrderHistoryVC.m; sourceTree = "<group>"; };
+		E61D2F041FBC3957002005E3 /* LCSearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchBarView.h; sourceTree = "<group>"; };
+		E61D2F051FBC3957002005E3 /* LCSearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchBarView.m; sourceTree = "<group>"; };
+		E61D2F071FBC3970002005E3 /* LCHistoryOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderTableViewCell.h; sourceTree = "<group>"; };
+		E61D2F081FBC3970002005E3 /* LCHistoryOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryOrderTableViewCell.m; sourceTree = "<group>"; };
+		E61D2F091FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCHistoryOrderTableViewCell.xib; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -372,6 +386,7 @@
 		959019281FB88F2F00F5B0CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E61D2F001FBC37DC002005E3 /* OrderHistory */,
 				E61D2ECF1FBADFC5002005E3 /* Space */,
 				E61D2EA81FBAC11D002005E3 /* Message */,
 				E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */,
@@ -488,6 +503,7 @@
 				E61D2EE61FBAF3CE002005E3 /* LCSpacePostTableViewCell.m */,
 				E61D2EE71FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib */,
 				95DDA6831FBB294700686504 /* LCSpacePostVoiceTableViewCell.h */,
+				95DDA6841FBB294700686504 /* LCSpacePostVoiceTableViewCell.m */,
 				95DDA6851FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib */,
 				95DDA6881FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.h */,
 				95DDA6891FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m */,
@@ -495,9 +511,31 @@
 				95DDA68D1FBB307100686504 /* LCSpacePostTitleTableViewCell.h */,
 				95DDA68E1FBB307100686504 /* LCSpacePostTitleTableViewCell.m */,
 				95DDA68F1FBB307100686504 /* LCSpacePostTitleTableViewCell.xib */,
-				95DDA6841FBB294700686504 /* LCSpacePostVoiceTableViewCell.m */,
+				E61D2EFC1FBC239B002005E3 /* LCSpaceMyOrderView.h */,
+				E61D2EFD1FBC239B002005E3 /* LCSpaceMyOrderView.m */,
 			);
 			path = Space;
+			sourceTree = "<group>";
+		};
+		E61D2EFF1FBC37D2002005E3 /* OrderHistory */ = {
+			isa = PBXGroup;
+			children = (
+				E61D2F011FBC37ED002005E3 /* LCOrderHistoryVC.h */,
+				E61D2F021FBC37ED002005E3 /* LCOrderHistoryVC.m */,
+			);
+			path = OrderHistory;
+			sourceTree = "<group>";
+		};
+		E61D2F001FBC37DC002005E3 /* OrderHistory */ = {
+			isa = PBXGroup;
+			children = (
+				E61D2F041FBC3957002005E3 /* LCSearchBarView.h */,
+				E61D2F051FBC3957002005E3 /* LCSearchBarView.m */,
+				E61D2F071FBC3970002005E3 /* LCHistoryOrderTableViewCell.h */,
+				E61D2F081FBC3970002005E3 /* LCHistoryOrderTableViewCell.m */,
+				E61D2F091FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib */,
+			);
+			path = OrderHistory;
 			sourceTree = "<group>";
 		};
 		E6D9A5C71FAFF4A400894BB0 = {
@@ -732,6 +770,7 @@
 		E6D9A7E31FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E61D2EFF1FBC37D2002005E3 /* OrderHistory */,
 				E61D2ECE1FBADFBF002005E3 /* Space */,
 				E6E2C7001FB00FFE00866D15 /* LCUserMainVC.h */,
 				E6E2C7011FB00FFE00866D15 /* LCUserMainVC.m */,
@@ -1006,6 +1045,7 @@
 				E61D2EB71FBAC3C3002005E3 /* LCSexTableViewCell.xib in Resources */,
 				E61D2EF61FBAF400002005E3 /* LCRewardRecordTableViewCell.xib in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
+				E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */,
 				E61D2EE41FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib in Resources */,
 				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E61D2ECD1FBAD6A2002005E3 /* LCAboutUsVC.xib in Resources */,
@@ -1103,6 +1143,7 @@
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E61D2EE31FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.m in Sources */,
+				E61D2F061FBC3957002005E3 /* LCSearchBarView.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
 				E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */,
@@ -1115,6 +1156,7 @@
 				E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */,
 				E61D2ED21FBADFF3002005E3 /* LCMySpaceMainVC.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
+				E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
@@ -1137,6 +1179,7 @@
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
+				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
 				959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */,
 				959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */,
@@ -1155,6 +1198,7 @@
 				E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */,
 				9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */,
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
+				E61D2F031FBC37ED002005E3 /* LCOrderHistoryVC.m in Sources */,
 				9590190D1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,

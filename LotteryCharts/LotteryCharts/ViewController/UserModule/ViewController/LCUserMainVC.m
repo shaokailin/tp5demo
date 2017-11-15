@@ -16,6 +16,7 @@
 #import "LCUserMessageVC.h"
 #import "LCAboutUsVC.h"
 #import "LCMySpaceMainVC.h"
+#import "LCOrderHistoryVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
@@ -110,6 +111,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
             {
                 LCMySpaceMainVC *spaceVC = [[LCMySpaceMainVC alloc]init];
                 controller = spaceVC;
+                break;
+            }
+            case 2:
+            {
+                LCOrderHistoryVC *historyVC = [[LCOrderHistoryVC alloc]init];
+                controller = historyVC;
                 break;
             }
             case 8:
