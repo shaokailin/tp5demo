@@ -28,6 +28,12 @@
     [self addRightNavigationButtonWithTitle:@"充值记录" target:self action:@selector(rechargeRecord)];
     [self initializeMainView];
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (self.isChangeNavi) {
+        [self backToNornalNavigationColor];
+    }
+}
 - (void)rechargeRecord {
     
 }

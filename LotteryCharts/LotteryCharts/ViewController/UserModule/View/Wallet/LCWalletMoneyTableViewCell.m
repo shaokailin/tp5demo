@@ -7,7 +7,11 @@
 //
 
 #import "LCWalletMoneyTableViewCell.h"
+@interface LCWalletMoneyTableViewCell ()
+@property (weak, nonatomic) IBOutlet UILabel *leftLbl;
+@property (weak, nonatomic) IBOutlet UILabel *rightLbl;
 
+@end
 @implementation LCWalletMoneyTableViewCell
 
 - (void)awakeFromNib {
@@ -15,7 +19,8 @@
     // Initialization code
 }
 - (void)setupCellContentWithTitle:(NSString *)title money:(NSString *)money {
-    
+    self.leftLbl.text = title;
+    self.rightLbl.text = money;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

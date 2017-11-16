@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCRechargeMainVC : LSKBaseViewController
-
+@property (nonatomic, assign) BOOL isChangeNavi;
 @end

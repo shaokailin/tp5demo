@@ -13,6 +13,9 @@
 #import "LCWalletMoneyTableViewCell.h"
 #import "LCWalletTitleTableViewCell.h"
 #import "LCSpaceTableViewCell.h"
+#import "LCRechargeMainVC.h"
+#import "LCExchangeMainVC.h"
+#import "LCWithdrawMainVC.h"
 @interface LCWalletMainVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) LCWalletHeaderView *headerView;
 @property (nonatomic, weak) UITableView *mainTableView;
@@ -59,7 +62,7 @@
         LCWalletMoneyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCWalletMoneyTableViewCell];
         NSString *title = indexPath.row == 2? @"我的金币" : @"我的银币";
         NSString *detail = indexPath.row == 2? @"12,234.00" : @"234,222.00";
-        [cell setupCellContentWithTitle:title money:money];
+        [cell setupCellContentWithTitle:title money:detail];
         return cell;
     }
 }
@@ -69,6 +72,22 @@
     }else {
         return 44;
     }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0 || indexPath.row == 5) {
+        if (indexPath.row == 0) {
+            LCRechargeMainVC *rechargeVC = [[LCRechargeMainVC alloc]init];
+            rechargeVC.isChangeNavi = YES;
+            [self.navigationController pushViewController:rechargeVC animated:YES];
+        }else {
+            LCExchangeMainVC *exchangeVC = [[LCExchangeMainVC alloc]init];
+            [self.navigationController pushViewController:exchangeVC animated:YES];
+        }
+    }
+}
+- (void)jumpWithdrawVC {
+    LCWithdrawMainVC *withdrawVC = [[LCWithdrawMainVC alloc]init];
+    [self.navigationController pushViewController:withdrawVC animated:YES];
 }
 #pragma makr -view
 - (void)initializeMainView {
@@ -86,6 +105,9 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
+    header.headerBlock = ^(NSInteger type) {
+        [ws jumpWithdrawVC];
+    };
 }
 
 

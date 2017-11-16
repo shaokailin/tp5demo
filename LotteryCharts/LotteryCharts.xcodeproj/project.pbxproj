@@ -73,6 +73,15 @@
 		E61D2F031FBC37ED002005E3 /* LCOrderHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F021FBC37ED002005E3 /* LCOrderHistoryVC.m */; };
 		E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F081FBC3970002005E3 /* LCHistoryOrderTableViewCell.m */; };
 		E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2F091FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib */; };
+		E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F0F1FBD3E51002005E3 /* LCExchangeMainVC.m */; };
+		E61D2F121FBD3E51002005E3 /* LCExchangeMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2F101FBD3E51002005E3 /* LCExchangeMainVC.xib */; };
+		E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F151FBD3EC0002005E3 /* LCWithdrawMainVC.m */; };
+		E61D2F181FBD3EC0002005E3 /* LCWithdrawMainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2F161FBD3EC0002005E3 /* LCWithdrawMainVC.xib */; };
+		E61D2F1B1FBD3ED5002005E3 /* LCWithdrawRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F1A1FBD3ED5002005E3 /* LCWithdrawRecordVC.m */; };
+		E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F1E1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m */; };
+		E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F211FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m */; };
+		E61D2F241FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2F221FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib */; };
+		E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2F251FBD8926002005E3 /* HSPDefineDatePickView.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -235,6 +244,21 @@
 		E61D2F071FBC3970002005E3 /* LCHistoryOrderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderTableViewCell.h; sourceTree = "<group>"; };
 		E61D2F081FBC3970002005E3 /* LCHistoryOrderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryOrderTableViewCell.m; sourceTree = "<group>"; };
 		E61D2F091FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCHistoryOrderTableViewCell.xib; sourceTree = "<group>"; };
+		E61D2F0E1FBD3E51002005E3 /* LCExchangeMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCExchangeMainVC.h; sourceTree = "<group>"; };
+		E61D2F0F1FBD3E51002005E3 /* LCExchangeMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCExchangeMainVC.m; sourceTree = "<group>"; };
+		E61D2F101FBD3E51002005E3 /* LCExchangeMainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCExchangeMainVC.xib; sourceTree = "<group>"; };
+		E61D2F141FBD3EC0002005E3 /* LCWithdrawMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWithdrawMainVC.h; sourceTree = "<group>"; };
+		E61D2F151FBD3EC0002005E3 /* LCWithdrawMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWithdrawMainVC.m; sourceTree = "<group>"; };
+		E61D2F161FBD3EC0002005E3 /* LCWithdrawMainVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCWithdrawMainVC.xib; sourceTree = "<group>"; };
+		E61D2F191FBD3ED5002005E3 /* LCWithdrawRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWithdrawRecordVC.h; sourceTree = "<group>"; };
+		E61D2F1A1FBD3ED5002005E3 /* LCWithdrawRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWithdrawRecordVC.m; sourceTree = "<group>"; };
+		E61D2F1D1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWithdrawRecordHeaderView.h; sourceTree = "<group>"; };
+		E61D2F1E1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWithdrawRecordHeaderView.m; sourceTree = "<group>"; };
+		E61D2F201FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWithdrawRecordTableViewCell.h; sourceTree = "<group>"; };
+		E61D2F211FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWithdrawRecordTableViewCell.m; sourceTree = "<group>"; };
+		E61D2F221FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCWithdrawRecordTableViewCell.xib; sourceTree = "<group>"; };
+		E61D2F251FBD8926002005E3 /* HSPDefineDatePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPDefineDatePickView.m; sourceTree = "<group>"; };
+		E61D2F261FBD8927002005E3 /* HSPDefineDatePickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSPDefineDatePickView.h; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -407,6 +431,7 @@
 		959019281FB88F2F00F5B0CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E61D2F1C1FBD40B0002005E3 /* Withdraw */,
 				95DDA6951FBC889000686504 /* Wallet */,
 				E61D2F001FBC37DC002005E3 /* OrderHistory */,
 				E61D2ECF1FBADFC5002005E3 /* Space */,
@@ -501,6 +526,8 @@
 		E61D2EC21FBAD132002005E3 /* DatePick */ = {
 			isa = PBXGroup;
 			children = (
+				E61D2F261FBD8927002005E3 /* HSPDefineDatePickView.h */,
+				E61D2F251FBD8926002005E3 /* HSPDefineDatePickView.m */,
 				E61D2EC41FBAD132002005E3 /* HSPDatePickView.h */,
 				E61D2EC61FBAD132002005E3 /* HSPDatePickView.m */,
 			);
@@ -576,6 +603,30 @@
 				95DDA6931FBC6EE500686504 /* LCOderSearchBarView.m */,
 			);
 			path = OrderHistory;
+			sourceTree = "<group>";
+		};
+		E61D2F131FBD3E8F002005E3 /* Withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				E61D2F141FBD3EC0002005E3 /* LCWithdrawMainVC.h */,
+				E61D2F151FBD3EC0002005E3 /* LCWithdrawMainVC.m */,
+				E61D2F161FBD3EC0002005E3 /* LCWithdrawMainVC.xib */,
+				E61D2F191FBD3ED5002005E3 /* LCWithdrawRecordVC.h */,
+				E61D2F1A1FBD3ED5002005E3 /* LCWithdrawRecordVC.m */,
+			);
+			path = Withdraw;
+			sourceTree = "<group>";
+		};
+		E61D2F1C1FBD40B0002005E3 /* Withdraw */ = {
+			isa = PBXGroup;
+			children = (
+				E61D2F1D1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.h */,
+				E61D2F1E1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m */,
+				E61D2F201FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.h */,
+				E61D2F211FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m */,
+				E61D2F221FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib */,
+			);
+			path = Withdraw;
 			sourceTree = "<group>";
 		};
 		E6D9A5C71FAFF4A400894BB0 = {
@@ -810,6 +861,7 @@
 		E6D9A7E31FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E61D2F131FBD3E8F002005E3 /* Withdraw */,
 				E61D2EFF1FBC37D2002005E3 /* OrderHistory */,
 				E61D2ECE1FBADFBF002005E3 /* Space */,
 				E6E2C7001FB00FFE00866D15 /* LCUserMainVC.h */,
@@ -821,6 +873,9 @@
 				E61D2ECB1FBAD6A2002005E3 /* LCAboutUsVC.xib */,
 				95DDA6961FBC88B400686504 /* LCWalletMainVC.h */,
 				95DDA6971FBC88B400686504 /* LCWalletMainVC.m */,
+				E61D2F0E1FBD3E51002005E3 /* LCExchangeMainVC.h */,
+				E61D2F0F1FBD3E51002005E3 /* LCExchangeMainVC.m */,
+				E61D2F101FBD3E51002005E3 /* LCExchangeMainVC.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1080,6 +1135,7 @@
 				95DDA6871FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib in Resources */,
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
 				95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */,
+				E61D2F121FBD3E51002005E3 /* LCExchangeMainVC.xib in Resources */,
 				E61D2EE91FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib in Resources */,
 				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
 				E61D2EC11FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib in Resources */,
@@ -1087,6 +1143,7 @@
 				95DDA6911FBB307100686504 /* LCSpacePostTitleTableViewCell.xib in Resources */,
 				E61D2EB71FBAC3C3002005E3 /* LCSexTableViewCell.xib in Resources */,
 				E61D2EF61FBAF400002005E3 /* LCRewardRecordTableViewCell.xib in Resources */,
+				E61D2F241FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
 				95DDA6A01FBC894F00686504 /* LCWalletIconTableViewCell.xib in Resources */,
 				E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */,
@@ -1100,6 +1157,7 @@
 				E6D9A7E81FAFF97300894BB0 /* TabBarSetting.plist in Resources */,
 				E6E2C67A1FB0038600866D15 /* webviewmore@2x.png in Resources */,
 				E61D2EFB1FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib in Resources */,
+				E61D2F181FBD3EC0002005E3 /* LCWithdrawMainVC.xib in Resources */,
 				E61D2EEE1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.xib in Resources */,
 				95DDA6A51FBC895D00686504 /* LCWalletMoneyTableViewCell.xib in Resources */,
 				E6E2C67B1FB0038600866D15 /* webviewmore@3x.png in Resources */,
@@ -1188,6 +1246,8 @@
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E61D2EE31FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.m in Sources */,
+				E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */,
+				E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				95DDA6A91FBC89A200686504 /* LCWalletTitleTableViewCell.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
@@ -1207,6 +1267,7 @@
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
+				E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
 				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,
 				E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */,
@@ -1228,12 +1289,14 @@
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
 				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
+				E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */,
 				959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */,
 				959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */,
 				E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */,
 				E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */,
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
+				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
@@ -1261,6 +1324,7 @@
 				9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */,
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
+				E61D2F1B1FBD3ED5002005E3 /* LCWithdrawRecordVC.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
 				E6E2C6611FB0038600866D15 /* NSString+Extend.m in Sources */,
 				959019121FB808ED00F5B0CE /* LCSearchBarView.m in Sources */,
