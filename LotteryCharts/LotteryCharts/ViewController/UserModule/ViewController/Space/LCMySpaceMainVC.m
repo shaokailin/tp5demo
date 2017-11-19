@@ -30,7 +30,6 @@
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
-@property (nonatomic, strong) UIImage *nornalNaviBgImage;
 @property (nonatomic, strong) LCSpaceMyOrderView *orderView;
 @end
 

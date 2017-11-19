@@ -12,6 +12,8 @@
 #import "PopoverView.h"
 #import "LCRechargeMainVC.h"
 #import "LCLoginMainVC.h"
+#import "LCRankingMainVC.h"
+#import "LCHistoryLotteryVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -61,6 +63,8 @@
         switch (index) {
             case 0:
             {
+                LCRankingMainVC *ranking = [[LCRankingMainVC alloc]init];
+                controller = ranking;
                 break;
             }
             case 1:
@@ -69,6 +73,8 @@
             }
             case 2:
             {
+                LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
+                controller = lottery;
                 break;
             }
             case 3:
@@ -95,6 +101,8 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"支付金币查看内容" message:@"\n\n\n是否支付10金币查看该帖\n" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"支付", nil];
+    [alterView show];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark -界面初始化

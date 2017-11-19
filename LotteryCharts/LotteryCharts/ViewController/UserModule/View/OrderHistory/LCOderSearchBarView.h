@@ -12,4 +12,5 @@ typedef void (^SearchEventBlock)(NSInteger type,id param);
 @property (nonatomic, copy) SearchEventBlock searchBlock;
 @property (nonatomic, copy) NSString *searchText;
 - (void)setupContent:(NSString *)title;
+- (void)setupSearchType:(NSInteger)type;
 @end

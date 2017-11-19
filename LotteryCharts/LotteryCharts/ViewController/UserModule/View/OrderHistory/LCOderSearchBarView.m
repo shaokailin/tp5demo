@@ -97,5 +97,9 @@
     [self searchClick];
     return YES;
 }
-
+- (void)setupSearchType:(NSInteger)type {
+    if (type == 1) {
+        self.searchField.placeholder = @"请输入查询单号";
+    }
+}
 @end

@@ -210,16 +210,18 @@
     CGFloat width = CGRectGetWidth(self.bounds);
     //当手指滑动scrollview，而scrollview减速停止的时候 开始计算当前的图片的位置
     int currentPage = self.bannerScrollView.contentOffset.x/width;
-    if (currentPage == _imageUrlArray.count + 1) {
-        [self.bannerScrollView setContentOffset:CGPointMake(width, 0) animated:NO];
-        self.pageControl.currentPage = 0;
-    }else if (self.bannerScrollView.contentOffset.x < 10)
-    {
-        [self.bannerScrollView setContentOffset:CGPointMake(width * (_imageUrlArray.count ), 0) animated:NO];
-        self.pageControl.currentPage = _imageUrlArray.count;
-    }else
-    {
-        self.pageControl.currentPage = currentPage - 1;
+    if (_imageUrlArray.count > 1) {
+        if (currentPage == _imageUrlArray.count + 1) {
+            [self.bannerScrollView setContentOffset:CGPointMake(width, 0) animated:NO];
+            self.pageControl.currentPage = 0;
+        }else if (self.bannerScrollView.contentOffset.x < 10)
+        {
+            [self.bannerScrollView setContentOffset:CGPointMake(width * (_imageUrlArray.count ), 0) animated:NO];
+            self.pageControl.currentPage = _imageUrlArray.count;
+        }else
+        {
+            self.pageControl.currentPage = currentPage - 1;
+        }
     }
     LSKBannerImageView *imageView = (LSKBannerImageView *)[self.bannerScrollView.subviews objectAtIndex:currentPage];
     [imageView loadWebImageView];

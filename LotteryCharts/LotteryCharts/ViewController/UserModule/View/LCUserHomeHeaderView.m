@@ -89,6 +89,16 @@
         self.punchBlock(2);
     }
 }
+- (void)careClick {
+    if (self.punchBlock) {
+        self.punchBlock(4);
+    }
+}
+- (void)teamClick {
+    if (self.punchBlock) {
+        self.punchBlock(5);
+    }
+}
 - (void)_layoutMainView {
     UIImageView *bgImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250)];
     bgImageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -175,7 +185,6 @@
         make.size.mas_equalTo(CGSizeMake(kLineView_Height, 25));
         make.center.equalTo(view);
     }];
-    
     UILabel *atentionTitleLbl = [LSKViewFactory initializeLableWithText:@"关注" font:12 textColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:1 backgroundColor:nil];
     [view addSubview:atentionTitleLbl];
     [atentionTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -205,6 +214,24 @@
     [teemLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(teemTitleLbl);
         make.top.equalTo(teemTitleLbl.mas_bottom).with.offset(6);
+    }];
+    UIButton *careBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [careBtn setBackgroundColor:[UIColor clearColor]];
+    [careBtn addTarget:self action:@selector(careClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:careBtn];
+    [careBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(view);
+        make.left.equalTo(view).with.offset(5);
+        make.right.equalTo(lineView.mas_left).with.offset(-5);
+    }];
+    UIButton *teamBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [teamBtn setBackgroundColor:[UIColor clearColor]];
+    [teamBtn addTarget:self action:@selector(teamClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:teamBtn];
+    [teamBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(view);
+        make.left.equalTo(lineView.mas_right).with.offset(5);
+        make.right.equalTo(view).with.offset(-5);
     }];
 }
 @end

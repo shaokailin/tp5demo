@@ -1,44 +1,33 @@
 //
-//  LCOrderHistoryVC.m
+//  LCHistoryLotteryVC.m
 //  LotteryCharts
 //
-//  Created by hsPlan on 2017/11/15.
+//  Created by hsPlan on 2017/11/19.
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LCOrderHistoryVC.h"
-#import "LCHistoryOrderTableViewCell.h"
+#import "LCHistoryLotteryVC.h"
+#import "LCHistoryLotteryTableViewCell.h"
 #import "LCOderSearchBarView.h"
 #import "PopoverView.h"
-@interface LCOrderHistoryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
+@interface LCHistoryLotteryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
 {
     NSInteger _searchType;
-    BOOL _isChange;
 }
 @property (nonatomic, strong) NSArray *menuArray;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCOderSearchBarView *searchView;
+
 @end
 
-@implementation LCOrderHistoryVC
+@implementation LCHistoryLotteryVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view from its nib.
     self.title = @"历史订单";
     [self addNavigationBackButton];
     [self initializeMainView];
-    [self backToNornalNavigationColor];
-}
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    if (_isChange) {
-        [self backToNornalNavigationColor];
-    }
-}
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    _isChange = YES;
 }
 - (void)searchClick {
     [self.view endEditing:YES];
@@ -71,9 +60,12 @@
     return 10;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
-    [cell setupContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日发布" photoImage:nil name:@"凯先生" userId:@"码师ID:123456" detail:@"详情摘要详情摘要" money:@"100"];
+    LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
+    [cell setupContentWithTime:@"2017年10月23日  星期日" issue:@"20171023" testRun:@"312" number1:@"3" number2:@"1" number3:@"2"];
     return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.view endEditing:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
@@ -85,26 +77,21 @@
         PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"全部" handler:^(PopoverAction *action) {
             [ws searchEnumClick:0 title:action.title];
         }];
-        PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"打赏记录" handler:^(PopoverAction *action) {
+        PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"近5期" handler:^(PopoverAction *action) {
             [ws searchEnumClick:1 title:action.title];
         }];
-        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"竞猜参与记录" handler:^(PopoverAction *action) {
-            [ws searchEnumClick:2 title:action.title];
-        }];
-        PopoverAction *add2FriAction = [PopoverAction actionWithImage:nil title:@"VIP订单" handler:^(PopoverAction *action) {
-            [ws searchEnumClick:3 title:action.title];
-        }];
-        _menuArray = [NSArray arrayWithObjects:multichatAction,addFriAction,add1FriAction,add2FriAction, nil];
+        _menuArray = [NSArray arrayWithObjects:multichatAction,addFriAction, nil];
     }
     return _menuArray;
 }
 - (void)initializeMainView {
     _searchType = 0;
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
-    [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryOrderTableViewCell];
-    mainTableView.rowHeight = 100;
-    LCOderSearchBarView *searchView = [[LCOderSearchBarView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryLotteryTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryLotteryTableViewCell];
+    mainTableView.rowHeight = 75;
+    LCOderSearchBarView *searchView = [[LCOderSearchBarView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     self.searchView = searchView;
+    [searchView setupSearchType:1];
     [searchView setupContent:@"全部"];
     mainTableView.tableHeaderView = searchView;
     self.mainTableView = mainTableView;
@@ -119,7 +106,6 @@
     };
     
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

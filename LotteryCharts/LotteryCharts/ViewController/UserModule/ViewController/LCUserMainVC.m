@@ -18,6 +18,10 @@
 #import "LCMySpaceMainVC.h"
 #import "LCOrderHistoryVC.h"
 #import "LCWalletMainVC.h"
+#import "LCTaskMainVC.h"
+#import "LCTeamMainVC.h"
+#import "LCContactMainVC.h"
+#import "LCAttentionMainVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
@@ -53,7 +57,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     
 }
 - (void)headerViewClickEvent:(NSInteger)type {
-    if (type != 3) {
+    if (type < 3) {
         _editImageType = type;
         UIActionSheet *sheetView = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"手机相册", nil];
         @weakify(self)
@@ -67,8 +71,16 @@ static NSString * const kSettingName = @"UserHomeSetting";
         }];
         [sheetView showInView:self.view];
         
-    }else {
+    }else if(type == 3) {
         [SKHUD showMessageInView:self.view withMessage:@"打卡"];
+    }else if (type == 4){
+        LCAttentionMainVC *attentionVC = [[LCAttentionMainVC alloc]init];
+        attentionVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:attentionVC animated:YES];
+    }else if (type == 5) {
+        LCTeamMainVC *teamVC = [[LCTeamMainVC alloc]init];
+        teamVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:teamVC animated:YES];
     }
 }
 - (void)pullDownRefresh {
@@ -125,10 +137,27 @@ static NSString * const kSettingName = @"UserHomeSetting";
                 controller = historyVC;
                 break;
             }
+            case 5:
+            {
+                LCTaskMainVC *taskVC = [[LCTaskMainVC alloc]init];
+                controller = taskVC;
+                break;
+            }
+            case 6:
+            {
+                [self headerViewClickEvent:5];
+                break;
+            }
             case 8:
             {
                 LCAboutUsVC *aboutVC = [[LCAboutUsVC alloc]init];
                 controller = aboutVC;
+                break;
+            }
+            case 9:
+            {
+                LCContactMainVC *attentionVC = [[LCContactMainVC alloc]init];
+                controller = attentionVC;
                 break;
             }
             default:
