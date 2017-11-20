@@ -9,6 +9,8 @@
 #import "LCLoginMainVC.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "LCLoginMainView.h"
+#import "LCForgetPWDVC.h"
+#import "LCRegisterMainVC.h"
 @interface LCLoginMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCLoginMainView *loginView;
@@ -24,6 +26,24 @@
 - (BOOL)fd_prefersNavigationBarHidden {
     return self.isHidenNavi;
 }
+- (void)loginActionWithType:(NSInteger)type {
+    if (type == 1 || type == 3) {
+        [self navigationBackClick];
+    }else if (type == 2 || type == 4) {
+        UIViewController *controller = nil;
+        if (type == 2) {
+            LCForgetPWDVC *forget = [[LCForgetPWDVC alloc]init];
+            controller = forget;
+        }else {
+            LCRegisterMainVC *registerVC = [[LCRegisterMainVC alloc]init];
+            controller = registerVC;
+        }
+        if (!_isHidenNavi) {
+            controller.hidesBottomBarWhenPushed = YES;
+        }
+        [self.navigationController pushViewController:controller animated:YES];
+    }
+}
 #pragma mark 界面初始化
 - (void)initializeMainView {
     TPKeyboardAvoidingScrollView *mainScrollerView = [LSKViewFactory initializeTPScrollView];
@@ -36,6 +56,9 @@
     }];
     CGFloat contentHeight = 635 > SCREEN_HEIGHT ? 635 : SCREEN_HEIGHT;
     LCLoginMainView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"LCLoginMainView" owner:self options:nil] lastObject];
+    loginView.loginBlock = ^(NSInteger type) {
+        [ws loginActionWithType:type];
+    };
     self.loginView = loginView;
     [mainScrollerView addSubview:loginView];
     [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -44,6 +67,7 @@
         make.height.mas_equalTo(contentHeight);
     }];
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

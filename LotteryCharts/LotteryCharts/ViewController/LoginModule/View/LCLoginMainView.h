@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^LoginActionBlock)(NSInteger type);//1.返回、2忘记密码 3.登录 4.注册 5，微信 6.qq
 @interface LCLoginMainView : UIView
-
+@property (weak, nonatomic) IBOutlet UITextField *accountField;
+@property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (nonatomic, copy) LoginActionBlock loginBlock;
 @end

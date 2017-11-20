@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^RegisterMainBlock)(NSInteger type);
 @interface LCRegisterMainView : UIView
+@property (nonatomic, copy) RegisterMainBlock registerBlock;
+@property (weak, nonatomic) IBOutlet UITextField *accountField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdField;
+@property (weak, nonatomic) IBOutlet UITextField *inviteField;
+@property (weak, nonatomic) IBOutlet UITextField *codeField;
 
 @end

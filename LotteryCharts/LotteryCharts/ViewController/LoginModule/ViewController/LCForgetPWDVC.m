@@ -7,9 +7,11 @@
 //
 
 #import "LCForgetPWDVC.h"
-
+#import "TPKeyboardAvoidingScrollView.h"
+#import "LCForgetPWDView.h"
 @interface LCForgetPWDVC ()
-
+@property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
+@property (nonatomic, weak) LCForgetPWDView *forgetView;
 @end
 
 @implementation LCForgetPWDVC
@@ -17,8 +19,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self initializeMainView];
 }
-
+- (void)forgetActionWithType:(NSInteger)type {
+    if (type == 1) {
+        [self navigationBackClick];
+    }
+}
+#pragma mark 界面初始化
+- (void)initializeMainView {
+    TPKeyboardAvoidingScrollView *mainScrollerView = [LSKViewFactory initializeTPScrollView];
+    mainScrollerView.backgroundColor = ColorHexadecimal(kMainBackground_Color, 1.0);
+    self.mainScrollerView = mainScrollerView;
+    [self.view addSubview:mainScrollerView];
+    WS(ws)
+    [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight , 0));
+    }];
+    CGFloat contentHeight = 635 > SCREEN_HEIGHT ? 635 : SCREEN_HEIGHT;
+    LCForgetPWDView *forgetView = [[[NSBundle mainBundle] loadNibNamed:@"LCForgetPWDView" owner:self options:nil] lastObject];
+    forgetView.forgetBlock = ^(NSInteger type) {
+        [ws forgetActionWithType:type];
+    };
+    self.forgetView = forgetView;
+    [mainScrollerView addSubview:forgetView];
+    [forgetView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(mainScrollerView);
+        make.right.equalTo(ws.view);
+        make.height.mas_equalTo(contentHeight);
+    }];
+    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

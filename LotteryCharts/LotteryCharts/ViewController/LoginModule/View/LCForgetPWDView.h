@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^ForgetPwdBlock) (NSInteger type);
 @interface LCForgetPWDView : UIView
-
+@property (nonatomic, copy) ForgetPwdBlock forgetBlock;
 @end
