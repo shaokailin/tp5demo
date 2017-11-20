@@ -24,7 +24,7 @@
     // Do any additional setup after loading the view.
     _currentLogin = YES;
     [self changeLoginWithState];
-    self.selectedIndex = 1;
+    self.selectedIndex = 0;
 }
 - (void)changeLoginWithState {
     BOOL loginState = kUserMessageManager.isLogin;
@@ -53,6 +53,7 @@
 - (UINavigationController *)loginNavigation {
     if (!_loginNavigation) {
         _loginNavigation = [self initializeNavigationWithClass:@"LCLoginMainVC" naviTitle:@"登录" tabbarTitle:@"我的" tabbarNornalImage:@"me_nornal" tabbarSeletedImage:@"me_select"];
+        
     }
     return _loginNavigation;
 }

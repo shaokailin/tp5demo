@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCLoginMainVC : LSKBaseViewController
-
+@property (nonatomic, assign) BOOL isHidenNavi;
 @end

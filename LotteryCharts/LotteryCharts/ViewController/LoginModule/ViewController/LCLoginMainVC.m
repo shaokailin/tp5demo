@@ -8,8 +8,10 @@
 
 #import "LCLoginMainVC.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "LCLoginMainView.h"
 @interface LCLoginMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
+@property (nonatomic, weak) LCLoginMainView *loginView;
 @end
 
 @implementation LCLoginMainVC
@@ -19,6 +21,9 @@
     // Do any additional setup after loading the view.
      [self initializeMainView];
 }
+- (BOOL)fd_prefersNavigationBarHidden {
+    return self.isHidenNavi;
+}
 #pragma mark 界面初始化
 - (void)initializeMainView {
     TPKeyboardAvoidingScrollView *mainScrollerView = [LSKViewFactory initializeTPScrollView];
@@ -27,10 +32,18 @@
     [self.view addSubview:mainScrollerView];
     WS(ws)
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0,ws.isHidenNavi? ws.tabbarBetweenHeight : 0, 0));
     }];
-//    CGFloat contentHeight = 0;
-    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
+    CGFloat contentHeight = 635 > SCREEN_HEIGHT ? 635 : SCREEN_HEIGHT;
+    LCLoginMainView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"LCLoginMainView" owner:self options:nil] lastObject];
+    self.loginView = loginView;
+    [mainScrollerView addSubview:loginView];
+    [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(mainScrollerView);
+        make.right.equalTo(ws.view);
+        make.height.mas_equalTo(contentHeight);
+    }];
+    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

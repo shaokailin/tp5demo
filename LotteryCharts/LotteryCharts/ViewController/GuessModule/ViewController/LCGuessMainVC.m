@@ -9,7 +9,9 @@
 #import "LCGuessMainVC.h"
 #import "PopoverView.h"
 #import "LCRechargeMainVC.h"
-@interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+#import "LCGuessMainHeaderView.h"
+#import "LCGuessMainTableViewCell.h"
+@interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
 
 @end
@@ -27,17 +29,58 @@
     popoverView.showShade = YES;
     [popoverView showToView:btn withActions:[self neumActions]];
 }
-
+- (void)cellClick:(id)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LSKLog(@"%zd",indexPath.row);
+}
+- (void)moreClick:(NSInteger)index {
+    LSKLog(@"%zd",index);
+}
+- (void)pullUpLoadMore {
+    [self.mainTableView.mj_footer endRefreshing];
+}
+- (void)pullDownRefresh {
+    [self.mainTableView.mj_header endRefreshing];
+}
 #pragma mark delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
-//    return cell;
+    LCGuessMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCGuessMainTableViewCell];
+    [cell setupContentWithPhoto:nil name:@"凯先生" userId:@"码师ID:123456" postId:@"帖子ID:123456" pushTime:@"1小时前发布" money:@"100" count:@"8" openTime:@"2017年10月12日  20:40"];
+    WS(ws)
+    cell.cellBlock = ^(id clickCell) {
+        [ws cellClick:clickCell];
+    };
+    return cell;
 }
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 40;
+    }else {
+        return 50;
+    }
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    LCGuessMainHeaderView *headerView = [[LCGuessMainHeaderView alloc]init];
+    WS(ws)
+    headerView.moreBlock = ^(NSInteger index) {
+        [ws moreClick:index];
+    };
+    [headerView setupContentWithTime:@"2017年10月21日   星期一" count:@"211条新竞争"];
+    headerView.tag = 200 + section;
+    return headerView;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0.0001f;;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return [UIView new];
+}
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
     PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发帖" handler:^(PopoverAction *action) {
@@ -53,10 +96,10 @@
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
-   
-//    [mainTableView registerNib:[UINib nibWithNibName:kLCHomeHotPostTableViewCell bundle:nil] forCellReuseIdentifier:kLCHomeHotPostTableViewCell];
-    mainTableView.rowHeight = 80;
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCGuessMainTableViewCell bundle:nil] forCellReuseIdentifier:kLCGuessMainTableViewCell];
+    mainTableView.rowHeight = 100;
+    mainTableView.tableFooterView = [UIView new];
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     WS(ws)

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^GuessMoreBlock) (NSInteger index);
 @interface LCGuessMainHeaderView : UIView
-
+@property (nonatomic, copy) GuessMoreBlock moreBlock;
+- (void)setupContentWithTime:(NSString *)time count:(NSString *)count;
 @end

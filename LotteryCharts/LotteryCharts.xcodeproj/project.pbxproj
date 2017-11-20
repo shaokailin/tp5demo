@@ -117,6 +117,14 @@
 		E6C3F40B1FC18B340077D670 /* LCGuessMainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4091FC18B340077D670 /* LCGuessMainTableViewCell.m */; };
 		E6C3F40C1FC18B340077D670 /* LCGuessMainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F40A1FC18B340077D670 /* LCGuessMainTableViewCell.xib */; };
 		E6C3F4121FC18BAF0077D670 /* LCGuessMainHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4111FC18BAF0077D670 /* LCGuessMainHeaderView.m */; };
+		E6C3F4161FC2C5A30077D670 /* LCRegisterMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4141FC2C5A30077D670 /* LCRegisterMainVC.m */; };
+		E6C3F41A1FC2C5CA0077D670 /* LCForgetPWDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4191FC2C5CA0077D670 /* LCForgetPWDVC.m */; };
+		E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F41C1FC2C5DD0077D670 /* LCLoginMainView.m */; };
+		E6C3F41F1FC2C5ED0077D670 /* LCLoginMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F41E1FC2C5ED0077D670 /* LCLoginMainView.xib */; };
+		E6C3F4241FC2C6060077D670 /* LCRegisterMainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F4231FC2C6060077D670 /* LCRegisterMainView.xib */; };
+		E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4261FC2C61C0077D670 /* LCRegisterMainView.m */; };
+		E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */; };
+		E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -347,6 +355,19 @@
 		E6C3F40A1FC18B340077D670 /* LCGuessMainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCGuessMainTableViewCell.xib; sourceTree = "<group>"; };
 		E6C3F4101FC18BAF0077D670 /* LCGuessMainHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessMainHeaderView.h; sourceTree = "<group>"; };
 		E6C3F4111FC18BAF0077D670 /* LCGuessMainHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessMainHeaderView.m; sourceTree = "<group>"; };
+		E6C3F4131FC2C5A30077D670 /* LCRegisterMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRegisterMainVC.h; sourceTree = "<group>"; };
+		E6C3F4141FC2C5A30077D670 /* LCRegisterMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRegisterMainVC.m; sourceTree = "<group>"; };
+		E6C3F4181FC2C5CA0077D670 /* LCForgetPWDVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCForgetPWDVC.h; sourceTree = "<group>"; };
+		E6C3F4191FC2C5CA0077D670 /* LCForgetPWDVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCForgetPWDVC.m; sourceTree = "<group>"; };
+		E6C3F41B1FC2C5DD0077D670 /* LCLoginMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginMainView.h; sourceTree = "<group>"; };
+		E6C3F41C1FC2C5DD0077D670 /* LCLoginMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginMainView.m; sourceTree = "<group>"; };
+		E6C3F41E1FC2C5ED0077D670 /* LCLoginMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCLoginMainView.xib; sourceTree = "<group>"; };
+		E6C3F4231FC2C6060077D670 /* LCRegisterMainView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCRegisterMainView.xib; sourceTree = "<group>"; };
+		E6C3F4251FC2C61C0077D670 /* LCRegisterMainView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRegisterMainView.h; sourceTree = "<group>"; };
+		E6C3F4261FC2C61C0077D670 /* LCRegisterMainView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRegisterMainView.m; sourceTree = "<group>"; };
+		E6C3F4281FC2C62F0077D670 /* LCForgetPWDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCForgetPWDView.h; sourceTree = "<group>"; };
+		E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCForgetPWDView.m; sourceTree = "<group>"; };
+		E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCForgetPWDView.xib; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1008,6 +1029,15 @@
 		E6D9A7DC1FAFF97300894BB0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E6C3F41B1FC2C5DD0077D670 /* LCLoginMainView.h */,
+				E6C3F41C1FC2C5DD0077D670 /* LCLoginMainView.m */,
+				E6C3F41E1FC2C5ED0077D670 /* LCLoginMainView.xib */,
+				E6C3F4251FC2C61C0077D670 /* LCRegisterMainView.h */,
+				E6C3F4261FC2C61C0077D670 /* LCRegisterMainView.m */,
+				E6C3F4231FC2C6060077D670 /* LCRegisterMainView.xib */,
+				E6C3F4281FC2C62F0077D670 /* LCForgetPWDView.h */,
+				E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */,
+				E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1017,6 +1047,10 @@
 			children = (
 				E6E2C6FD1FB00FDC00866D15 /* LCLoginMainVC.h */,
 				E6E2C6FE1FB00FDC00866D15 /* LCLoginMainVC.m */,
+				E6C3F4131FC2C5A30077D670 /* LCRegisterMainVC.h */,
+				E6C3F4141FC2C5A30077D670 /* LCRegisterMainVC.m */,
+				E6C3F4181FC2C5CA0077D670 /* LCForgetPWDVC.h */,
+				E6C3F4191FC2C5CA0077D670 /* LCForgetPWDVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1330,6 +1364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6C3F41F1FC2C5ED0077D670 /* LCLoginMainView.xib in Resources */,
 				959019111FB808ED00F5B0CE /* LCLottery3DView.xib in Resources */,
 				E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */,
 				959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */,
@@ -1339,9 +1374,11 @@
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
 				E6C3F3F21FC155420077D670 /* LCHistoryLotteryTableViewCell.xib in Resources */,
 				95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */,
+				E6C3F4241FC2C6060077D670 /* LCRegisterMainView.xib in Resources */,
 				E61D2F121FBD3E51002005E3 /* LCExchangeMainVC.xib in Resources */,
 				E61D2EE91FBAF3CE002005E3 /* LCSpacePostTableViewCell.xib in Resources */,
 				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
+				E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */,
 				E61D2EC11FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
 				E61D2F491FBEBB67002005E3 /* LCTeamTableViewCell.xib in Resources */,
@@ -1467,6 +1504,7 @@
 				E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */,
 				95DDA69F1FBC894F00686504 /* LCWalletIconTableViewCell.m in Sources */,
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
+				E6C3F4161FC2C5A30077D670 /* LCRegisterMainVC.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
@@ -1489,7 +1527,9 @@
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
 				E61D2ECC1FBAD6A2002005E3 /* LCAboutUsVC.m in Sources */,
 				95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */,
+				E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */,
 				95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */,
+				E6C3F41A1FC2C5CA0077D670 /* LCForgetPWDVC.m in Sources */,
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E6C3F3F11FC155420077D670 /* LCHistoryLotteryTableViewCell.m in Sources */,
@@ -1517,6 +1557,8 @@
 				E6C3F3E51FC12CCE0077D670 /* LCRankingGoldTableViewCell.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
+				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,
+				E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,

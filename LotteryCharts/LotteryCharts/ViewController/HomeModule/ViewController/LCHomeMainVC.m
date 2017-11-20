@@ -14,6 +14,7 @@
 #import "LCLoginMainVC.h"
 #import "LCRankingMainVC.h"
 #import "LCHistoryLotteryVC.h"
+#import "LCLoginMainVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -22,9 +23,10 @@
 
 @implementation LCHomeMainVC
 - (void)viewDidAppear:(BOOL)animated {
-//    LCLoginMainVC *login = [[LCLoginMainVC alloc]init];
-//    login.hidesBottomBarWhenPushed = YES;
-//    [self.navigationController pushViewController:login animated:YES];
+    LCLoginMainVC *login = [[LCLoginMainVC alloc]init];
+    login.isHidenNavi = YES;
+    login.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:login animated:YES];
 }
 
 
