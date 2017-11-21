@@ -62,7 +62,7 @@
             title = @"团队签到";
             break;
         case 4:
-            title = @"要求好友";
+            title = @"邀请好友";
             break;
             
         default:

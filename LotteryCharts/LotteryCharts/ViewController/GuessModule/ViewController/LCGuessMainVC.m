@@ -11,6 +11,7 @@
 #import "LCRechargeMainVC.h"
 #import "LCGuessMainHeaderView.h"
 #import "LCGuessMainTableViewCell.h"
+#import "LCPushGuessMainVC.h"
 @interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
 
@@ -22,6 +23,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
+    postMainVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:postMainVC animated:YES];
 }
 - (void)showMeunView:(UIButton *)btn {
     PopoverView *popoverView = [PopoverView popoverView];

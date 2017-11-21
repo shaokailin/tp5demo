@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"忘记密码";
+    [self addNavigationBackButton];
     [self initializeMainView];
 }
 - (void)forgetActionWithType:(NSInteger)type {
@@ -36,7 +38,7 @@
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight , 0));
     }];
-    CGFloat contentHeight = 635 > SCREEN_HEIGHT ? 635 : SCREEN_HEIGHT;
+    CGFloat contentHeight = 400 > self.viewMainHeight ? 400 : self.viewMainHeight;
     LCForgetPWDView *forgetView = [[[NSBundle mainBundle] loadNibNamed:@"LCForgetPWDView" owner:self options:nil] lastObject];
     forgetView.forgetBlock = ^(NSInteger type) {
         [ws forgetActionWithType:type];

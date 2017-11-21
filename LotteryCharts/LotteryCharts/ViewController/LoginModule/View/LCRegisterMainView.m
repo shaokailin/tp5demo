@@ -17,7 +17,7 @@
     [super awakeFromNib];
     ViewRadius(self.sureBtn, 5.0);
     ViewRadius(self.codeBtn, 5.0);
-    UIButton *eyeBtn = [LSKViewFactory initializeButtonNornalImage:@"login_show" selectedImage:@"loginnoshow" target:self action:@selector(changeEyeType:)];
+    UIButton *eyeBtn = [LSKViewFactory initializeButtonNornalImage:@"login_show" selectedImage:@"pwdnoshow" target:self action:@selector(changeEyeType:)];
     eyeBtn.frame = CGRectMake(0, (45 - 30) / 2.0, 30, 30);
     self.pwdField.rightViewMode = UITextFieldViewModeAlways;
     self.pwdField.rightView = eyeBtn;
