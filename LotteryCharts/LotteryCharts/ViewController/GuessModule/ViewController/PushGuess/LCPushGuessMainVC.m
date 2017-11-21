@@ -44,8 +44,15 @@
         make.height.mas_equalTo(163);
     }];
     
-    LCGuessSelectView *selectView = [[LCGuessSelectView alloc]initWithFrame:CGRectMake(0, 173, SCREEN_WIDTH, 397)];
+    LCGuessSelectView *selectView = [[LCGuessSelectView alloc]initWithFrame:CGRectMake(0, 173, SCREEN_WIDTH, 417)];
     self.selectView = selectView;
+    selectView.selectBlock = ^(NSInteger type) {
+        if (type == 0) {
+         ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 417 + 20);
+        }else if (type == 1) {
+            ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 369 + 20);
+        }
+    };
     [mainScrollerView addSubview:selectView];
     
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
