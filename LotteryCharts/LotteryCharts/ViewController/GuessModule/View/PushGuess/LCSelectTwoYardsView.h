@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface LCSelectTwoYardsView : UIView
-
+@property (weak, nonatomic) IBOutlet UITextField *payField;
+@property (weak, nonatomic) IBOutlet UITextField *countField;
 @end

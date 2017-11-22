@@ -7,15 +7,31 @@
 //
 
 #import "LCSelectSizeView.h"
+@interface LCSelectSizeView ()
+@property (weak, nonatomic) IBOutlet UIView *bgView1;
+@property (weak, nonatomic) IBOutlet UIView *bgView2;
 
+@end
 @implementation LCSelectSizeView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    _currentType = 0;
+    self.bgView1.layer.borderWidth = 1.0;
+    self.bgView1.layer.borderColor = ColorHexadecimal(0xc9c9c9, 1.0).CGColor;
+    self.bgView2.layer.borderWidth = 1.0;
+    self.bgView2.layer.borderColor = ColorHexadecimal(0xc9c9c9, 1.0).CGColor;
+    
 }
-*/
+
+- (IBAction)changeType:(id)sender {
+    UIButton *btn = (UIButton *)sender;
+    if (!btn.selected) {
+        UIButton *otherBtn = [self viewWithTag:300 + _currentType];
+        otherBtn.selected = NO;
+        _currentType = btn.tag - 300;
+        btn.selected = YES;
+    }
+}
 
 @end

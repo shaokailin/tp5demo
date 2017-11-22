@@ -103,6 +103,26 @@
 		E636A7E31FC4472A00C9460F /* LCSelectTwoYardsView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7E21FC4472A00C9460F /* LCSelectTwoYardsView.m */; };
 		E636A7E51FC4474800C9460F /* LCSelectSizeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7E41FC4474800C9460F /* LCSelectSizeView.xib */; };
 		E636A7E71FC4475300C9460F /* LCSelectTwoYardsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7E61FC4475300C9460F /* LCSelectTwoYardsView.xib */; };
+		E636A7EA1FC5551D00C9460F /* LCPostContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7E91FC5551D00C9460F /* LCPostContentView.m */; };
+		E636A7ED1FC5553000C9460F /* LCPostShowTypeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7EC1FC5553000C9460F /* LCPostShowTypeView.m */; };
+		E636A7F01FC5554A00C9460F /* LCPostTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7EF1FC5554A00C9460F /* LCPostTopView.m */; };
+		E636A7F21FC5557900C9460F /* LCPostTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7F11FC5557900C9460F /* LCPostTopView.xib */; };
+		E636A7F41FC5559300C9460F /* LCPostShowTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7F31FC5559300C9460F /* LCPostShowTypeView.xib */; };
+		E636A7F71FC5930200C9460F /* LCPostAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7F61FC5930200C9460F /* LCPostAlertView.m */; };
+		E636A7F91FC5931200C9460F /* LCPostAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7F81FC5931200C9460F /* LCPostAlertView.xib */; };
+		E636A7FC1FC593BD00C9460F /* LCPostVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7FB1FC593BD00C9460F /* LCPostVoiceView.m */; };
+		E636A7FE1FC593CB00C9460F /* LCPostVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A7FD1FC593CB00C9460F /* LCPostVoiceView.xib */; };
+		E636A8031FC5A01200C9460F /* LCPostDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8021FC5A01200C9460F /* LCPostDetailVC.m */; };
+		E636A8081FC5A04600C9460F /* LCGuessDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8071FC5A04600C9460F /* LCGuessDetailVC.m */; };
+		E636A80B1FC5A5F800C9460F /* LCGuessHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A80A1FC5A5F800C9460F /* LCGuessHeaderView.m */; };
+		E636A80D1FC5A60800C9460F /* LCGuessHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A80C1FC5A60800C9460F /* LCGuessHeaderView.xib */; };
+		E636A8161FC5A65800C9460F /* LCPostCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8141FC5A65800C9460F /* LCPostCommentTableViewCell.m */; };
+		E636A8171FC5A65800C9460F /* LCPostCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A8151FC5A65800C9460F /* LCPostCommentTableViewCell.xib */; };
+		E636A81A1FC5A67400C9460F /* LCPostDetailHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8191FC5A67400C9460F /* LCPostDetailHeaderView.m */; };
+		E636A81C1FC5A67D00C9460F /* LCPostDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A81B1FC5A67D00C9460F /* LCPostDetailHeaderView.xib */; };
+		E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A81E1FC5A71100C9460F /* LCPostHeaderTableViewCell.m */; };
+		E636A8211FC5A71200C9460F /* LCPostHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */; };
+		E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8231FC5A87A00C9460F /* LCCommentInputView.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -342,6 +362,38 @@
 		E636A7E21FC4472A00C9460F /* LCSelectTwoYardsView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSelectTwoYardsView.m; sourceTree = "<group>"; };
 		E636A7E41FC4474800C9460F /* LCSelectSizeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSelectSizeView.xib; sourceTree = "<group>"; };
 		E636A7E61FC4475300C9460F /* LCSelectTwoYardsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSelectTwoYardsView.xib; sourceTree = "<group>"; };
+		E636A7E81FC5551D00C9460F /* LCPostContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostContentView.h; sourceTree = "<group>"; };
+		E636A7E91FC5551D00C9460F /* LCPostContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostContentView.m; sourceTree = "<group>"; };
+		E636A7EB1FC5553000C9460F /* LCPostShowTypeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostShowTypeView.h; sourceTree = "<group>"; };
+		E636A7EC1FC5553000C9460F /* LCPostShowTypeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostShowTypeView.m; sourceTree = "<group>"; };
+		E636A7EE1FC5554A00C9460F /* LCPostTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostTopView.h; sourceTree = "<group>"; };
+		E636A7EF1FC5554A00C9460F /* LCPostTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostTopView.m; sourceTree = "<group>"; };
+		E636A7F11FC5557900C9460F /* LCPostTopView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostTopView.xib; sourceTree = "<group>"; };
+		E636A7F31FC5559300C9460F /* LCPostShowTypeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostShowTypeView.xib; sourceTree = "<group>"; };
+		E636A7F51FC5930200C9460F /* LCPostAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostAlertView.h; sourceTree = "<group>"; };
+		E636A7F61FC5930200C9460F /* LCPostAlertView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostAlertView.m; sourceTree = "<group>"; };
+		E636A7F81FC5931200C9460F /* LCPostAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostAlertView.xib; sourceTree = "<group>"; };
+		E636A7FA1FC593BD00C9460F /* LCPostVoiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostVoiceView.h; sourceTree = "<group>"; };
+		E636A7FB1FC593BD00C9460F /* LCPostVoiceView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostVoiceView.m; sourceTree = "<group>"; };
+		E636A7FD1FC593CB00C9460F /* LCPostVoiceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostVoiceView.xib; sourceTree = "<group>"; };
+		E636A8011FC5A01200C9460F /* LCPostDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostDetailVC.h; sourceTree = "<group>"; };
+		E636A8021FC5A01200C9460F /* LCPostDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostDetailVC.m; sourceTree = "<group>"; };
+		E636A8061FC5A04600C9460F /* LCGuessDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessDetailVC.h; sourceTree = "<group>"; };
+		E636A8071FC5A04600C9460F /* LCGuessDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessDetailVC.m; sourceTree = "<group>"; };
+		E636A8091FC5A5F800C9460F /* LCGuessHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessHeaderView.h; sourceTree = "<group>"; };
+		E636A80A1FC5A5F800C9460F /* LCGuessHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessHeaderView.m; sourceTree = "<group>"; };
+		E636A80C1FC5A60800C9460F /* LCGuessHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCGuessHeaderView.xib; sourceTree = "<group>"; };
+		E636A8131FC5A65800C9460F /* LCPostCommentTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostCommentTableViewCell.h; sourceTree = "<group>"; };
+		E636A8141FC5A65800C9460F /* LCPostCommentTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostCommentTableViewCell.m; sourceTree = "<group>"; };
+		E636A8151FC5A65800C9460F /* LCPostCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostCommentTableViewCell.xib; sourceTree = "<group>"; };
+		E636A8181FC5A67400C9460F /* LCPostDetailHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostDetailHeaderView.h; sourceTree = "<group>"; };
+		E636A8191FC5A67400C9460F /* LCPostDetailHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostDetailHeaderView.m; sourceTree = "<group>"; };
+		E636A81B1FC5A67D00C9460F /* LCPostDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostDetailHeaderView.xib; sourceTree = "<group>"; };
+		E636A81D1FC5A71100C9460F /* LCPostHeaderTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPostHeaderTableViewCell.h; sourceTree = "<group>"; };
+		E636A81E1FC5A71100C9460F /* LCPostHeaderTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPostHeaderTableViewCell.m; sourceTree = "<group>"; };
+		E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		E636A8221FC5A87A00C9460F /* LCCommentInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCCommentInputView.h; sourceTree = "<group>"; };
+		E636A8231FC5A87A00C9460F /* LCCommentInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCCommentInputView.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -605,6 +657,7 @@
 		95DB49EF1FB1F804002D58A9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E636A8001FC59FBD00C9460F /* PostDetail */,
 				E636A7C71FC40D1F00C9460F /* PushPost */,
 				E6C3F3E71FC154BD0077D670 /* History */,
 				E6C3F3CC1FC04CA60077D670 /* Ranking */,
@@ -810,6 +863,20 @@
 		E636A7C71FC40D1F00C9460F /* PushPost */ = {
 			isa = PBXGroup;
 			children = (
+				E636A7E81FC5551D00C9460F /* LCPostContentView.h */,
+				E636A7E91FC5551D00C9460F /* LCPostContentView.m */,
+				E636A7EB1FC5553000C9460F /* LCPostShowTypeView.h */,
+				E636A7EC1FC5553000C9460F /* LCPostShowTypeView.m */,
+				E636A7F31FC5559300C9460F /* LCPostShowTypeView.xib */,
+				E636A7EE1FC5554A00C9460F /* LCPostTopView.h */,
+				E636A7EF1FC5554A00C9460F /* LCPostTopView.m */,
+				E636A7F11FC5557900C9460F /* LCPostTopView.xib */,
+				E636A7F51FC5930200C9460F /* LCPostAlertView.h */,
+				E636A7F61FC5930200C9460F /* LCPostAlertView.m */,
+				E636A7F81FC5931200C9460F /* LCPostAlertView.xib */,
+				E636A7FA1FC593BD00C9460F /* LCPostVoiceView.h */,
+				E636A7FB1FC593BD00C9460F /* LCPostVoiceView.m */,
+				E636A7FD1FC593CB00C9460F /* LCPostVoiceView.xib */,
 			);
 			path = PushPost;
 			sourceTree = "<group>";
@@ -848,6 +915,52 @@
 				E636A7E61FC4475300C9460F /* LCSelectTwoYardsView.xib */,
 			);
 			path = PushGuess;
+			sourceTree = "<group>";
+		};
+		E636A7FF1FC59FB500C9460F /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E636A8011FC5A01200C9460F /* LCPostDetailVC.h */,
+				E636A8021FC5A01200C9460F /* LCPostDetailVC.m */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		E636A8001FC59FBD00C9460F /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E636A8131FC5A65800C9460F /* LCPostCommentTableViewCell.h */,
+				E636A8141FC5A65800C9460F /* LCPostCommentTableViewCell.m */,
+				E636A8151FC5A65800C9460F /* LCPostCommentTableViewCell.xib */,
+				E636A8181FC5A67400C9460F /* LCPostDetailHeaderView.h */,
+				E636A8191FC5A67400C9460F /* LCPostDetailHeaderView.m */,
+				E636A81B1FC5A67D00C9460F /* LCPostDetailHeaderView.xib */,
+				E636A81D1FC5A71100C9460F /* LCPostHeaderTableViewCell.h */,
+				E636A81E1FC5A71100C9460F /* LCPostHeaderTableViewCell.m */,
+				E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */,
+				E636A8221FC5A87A00C9460F /* LCCommentInputView.h */,
+				E636A8231FC5A87A00C9460F /* LCCommentInputView.m */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
+		E636A8041FC5A02D00C9460F /* GuessDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E636A8091FC5A5F800C9460F /* LCGuessHeaderView.h */,
+				E636A80A1FC5A5F800C9460F /* LCGuessHeaderView.m */,
+				E636A80C1FC5A60800C9460F /* LCGuessHeaderView.xib */,
+			);
+			path = GuessDetail;
+			sourceTree = "<group>";
+		};
+		E636A8051FC5A03400C9460F /* GuessDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E636A8061FC5A04600C9460F /* LCGuessDetailVC.h */,
+				E636A8071FC5A04600C9460F /* LCGuessDetailVC.m */,
+			);
+			path = GuessDetail;
 			sourceTree = "<group>";
 		};
 		E6C3F3CB1FC04C950077D670 /* Ranking */ = {
@@ -1002,6 +1115,7 @@
 		E6D9A7D01FAFF97300894BB0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E636A8041FC5A02D00C9460F /* GuessDetail */,
 				E636A7CA1FC40D3B00C9460F /* PushGuess */,
 				E6C3F4071FC18A350077D670 /* Home */,
 			);
@@ -1011,6 +1125,7 @@
 		E6D9A7D11FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E636A8051FC5A03400C9460F /* GuessDetail */,
 				E636A7C91FC40D3000C9460F /* PushGuess */,
 				E6E2C7031FB0100E00866D15 /* LCGuessMainVC.h */,
 				E6E2C7041FB0100E00866D15 /* LCGuessMainVC.m */,
@@ -1054,6 +1169,7 @@
 		E6D9A7D71FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				E636A7FF1FC59FB500C9460F /* PostDetail */,
 				E636A7C81FC40D2700C9460F /* PushPost */,
 				E6C3F3E81FC154C90077D670 /* History */,
 				E6C3F3CB1FC04C950077D670 /* Ranking */,
@@ -1443,6 +1559,8 @@
 				E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */,
 				95DDA6871FBB294700686504 /* LCSpacePostVoiceTableViewCell.xib in Resources */,
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
+				E636A7FE1FC593CB00C9460F /* LCPostVoiceView.xib in Resources */,
+				E636A7F91FC5931200C9460F /* LCPostAlertView.xib in Resources */,
 				E6C3F3F21FC155420077D670 /* LCHistoryLotteryTableViewCell.xib in Resources */,
 				95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */,
 				E6C3F4241FC2C6060077D670 /* LCRegisterMainView.xib in Resources */,
@@ -1451,6 +1569,7 @@
 				959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */,
 				E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */,
 				E61D2EC11FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib in Resources */,
+				E636A81C1FC5A67D00C9460F /* LCPostDetailHeaderView.xib in Resources */,
 				E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */,
 				E61D2F491FBEBB67002005E3 /* LCTeamTableViewCell.xib in Resources */,
 				E61D2F521FC01C4E002005E3 /* LCAttentionTableViewCell.xib in Resources */,
@@ -1460,18 +1579,23 @@
 				E61D2F241FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib in Resources */,
 				E6C3F3DC1FC05A030077D670 /* LCVipTableViewCell.xib in Resources */,
 				E636A7DB1FC42D3800C9460F /* LCGuessInputView.xib in Resources */,
+				E636A7F21FC5557900C9460F /* LCPostTopView.xib in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
 				E6C3F3CA1FC0350C0077D670 /* LCContactServiceTableViewCell.xib in Resources */,
+				E636A8211FC5A71200C9460F /* LCPostHeaderTableViewCell.xib in Resources */,
 				95DDA6A01FBC894F00686504 /* LCWalletIconTableViewCell.xib in Resources */,
 				E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */,
 				E636A7E71FC4475300C9460F /* LCSelectTwoYardsView.xib in Resources */,
 				E61D2EE41FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib in Resources */,
+				E636A7F41FC5559300C9460F /* LCPostShowTypeView.xib in Resources */,
 				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
 				E61D2ECD1FBAD6A2002005E3 /* LCAboutUsVC.xib in Resources */,
 				95DDA68C1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
 				E61D2EDF1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.xib in Resources */,
+				E636A80D1FC5A60800C9460F /* LCGuessHeaderView.xib in Resources */,
 				E6C3F40C1FC18B340077D670 /* LCGuessMainTableViewCell.xib in Resources */,
+				E636A8171FC5A65800C9460F /* LCPostCommentTableViewCell.xib in Resources */,
 				E61D2EDA1FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.xib in Resources */,
 				E6D9A7E81FAFF97300894BB0 /* TabBarSetting.plist in Resources */,
 				E6E2C67A1FB0038600866D15 /* webviewmore@2x.png in Resources */,
@@ -1569,6 +1693,7 @@
 				E61D2F531FC01C4E002005E3 /* LCAttentionTableViewCell.m in Sources */,
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
+				E636A8031FC5A01200C9460F /* LCPostDetailVC.m in Sources */,
 				E61D2EE31FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.m in Sources */,
 				E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */,
 				E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */,
@@ -1579,17 +1704,20 @@
 				95DDA69F1FBC894F00686504 /* LCWalletIconTableViewCell.m in Sources */,
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
 				E6C3F4161FC2C5A30077D670 /* LCRegisterMainVC.m in Sources */,
+				E636A7ED1FC5553000C9460F /* LCPostShowTypeView.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
 				E61D2F481FBEBB67002005E3 /* LCTeamTableViewCell.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
+				E636A8161FC5A65800C9460F /* LCPostCommentTableViewCell.m in Sources */,
 				E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */,
 				E61D2ED21FBADFF3002005E3 /* LCMySpaceMainVC.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E61D2F2F1FBE87BD002005E3 /* LCTaskHeaderView.m in Sources */,
 				E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */,
+				E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
@@ -1607,8 +1735,10 @@
 				95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */,
 				E6C3F41A1FC2C5CA0077D670 /* LCForgetPWDVC.m in Sources */,
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
+				E636A7FC1FC593BD00C9460F /* LCPostVoiceView.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E6C3F3F11FC155420077D670 /* LCHistoryLotteryTableViewCell.m in Sources */,
+				E636A8081FC5A04600C9460F /* LCGuessDetailVC.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6C3F4121FC18BAF0077D670 /* LCGuessMainHeaderView.m in Sources */,
 				E61D2EC01FBAC3FF002005E3 /* LCUserMessageTableViewCell.m in Sources */,
@@ -1616,6 +1746,7 @@
 				E61D2EFA1FBAF429002005E3 /* LCSpaceGuessTableViewCell.m in Sources */,
 				E6C3F3D21FC04EB00077D670 /* LCRankingHeaderView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
+				E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */,
 				95DDA6981FBC88B400686504 /* LCWalletMainVC.m in Sources */,
 				E61D2ED51FBAE50D002005E3 /* LCMySpaceTabView.m in Sources */,
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
@@ -1626,14 +1757,17 @@
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
 				E636A7E01FC446BD00C9460F /* LCSelectSizeView.m in Sources */,
 				E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */,
+				E636A7F01FC5554A00C9460F /* LCPostTopView.m in Sources */,
 				959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */,
 				959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */,
 				E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */,
 				E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */,
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
 				E6C3F3E51FC12CCE0077D670 /* LCRankingGoldTableViewCell.m in Sources */,
+				E636A80B1FC5A5F800C9460F /* LCGuessHeaderView.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
+				E636A7F71FC5930200C9460F /* LCPostAlertView.m in Sources */,
 				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,
 				E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
@@ -1668,7 +1802,9 @@
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E61D2EED1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.m in Sources */,
 				E6C3F3D61FC059F60077D670 /* LCVipRankingTableViewCell.m in Sources */,
+				E636A81A1FC5A67400C9460F /* LCPostDetailHeaderView.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
+				E636A7EA1FC5551D00C9460F /* LCPostContentView.m in Sources */,
 				E61D2EDE1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.m in Sources */,
 				E6BFCC751FB9933F00AE1FE2 /* LCUserMessageVC.m in Sources */,
 				9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */,
@@ -1814,12 +1950,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8NZ6HF8AH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LotteryCharts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1831,12 +1968,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W8NZ6HF8AH;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.LotteryCharts;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

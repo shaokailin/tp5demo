@@ -15,6 +15,7 @@
 #import "LCRankingMainVC.h"
 #import "LCHistoryLotteryVC.h"
 #import "LCPushPostMainVC.h"
+#import "LCPostDetailVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -22,12 +23,6 @@
 @end
 
 @implementation LCHomeMainVC
-- (void)viewDidAppear:(BOOL)animated {
-    LCPushPostMainVC *postMainVcC = [[LCPushPostMainVC alloc]init];
-    postMainVcC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:postMainVcC animated:YES];
-}
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,6 +98,15 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"支付金币查看内容" message:@"\n\n\n是否支付10金币查看该帖\n" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"支付", nil];
+    @weakify(self)
+    [alterView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        if ([x integerValue] == 0) {
+            @strongify(self)
+            LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
+            detail.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detail animated:YES];
+        }
+    }];
     [alterView show];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -126,7 +130,10 @@
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
     PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发帖" handler:^(PopoverAction *action) {
-
+        @strongify(self)
+        LCPushPostMainVC *postMainVcC = [[LCPushPostMainVC alloc]init];
+        postMainVcC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:postMainVcC animated:YES];
     }];
     PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
         @strongify(self)

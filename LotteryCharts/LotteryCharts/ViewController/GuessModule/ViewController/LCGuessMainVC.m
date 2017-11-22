@@ -12,6 +12,7 @@
 #import "LCGuessMainHeaderView.h"
 #import "LCGuessMainTableViewCell.h"
 #import "LCPushGuessMainVC.h"
+#import "LCGuessDetailVC.h"
 @interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
 
@@ -24,11 +25,7 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
 }
-- (void)viewDidAppear:(BOOL)animated {
-    LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
-    postMainVC.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:postMainVC animated:YES];
-}
+
 - (void)showMeunView:(UIButton *)btn {
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
@@ -87,10 +84,18 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return [UIView new];
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+    detail.type = indexPath.row % 2;
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
+}
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
-    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发帖" handler:^(PopoverAction *action) {
-        
+    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发布竞猜" handler:^(PopoverAction *action) {
+        LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
+        postMainVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:postMainVC animated:YES];
     }];
     PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
         @strongify(self)

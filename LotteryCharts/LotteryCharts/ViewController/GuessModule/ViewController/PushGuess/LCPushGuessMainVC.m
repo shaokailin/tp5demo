@@ -51,6 +51,8 @@
          ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 417 + 20);
         }else if (type == 1) {
             ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 369 + 20);
+        }else {
+            [ws navigationBackClick];
         }
     };
     [mainScrollerView addSubview:selectView];

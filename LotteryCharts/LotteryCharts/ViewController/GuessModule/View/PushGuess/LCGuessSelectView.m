@@ -92,11 +92,6 @@
     arrowImage.frame = CGRectMake(62.5, 84, 15, 10);
     self.topArrowImage = arrowImage;
     [self addSubview:arrowImage];
-//    [arrowImage mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.size.mas_equalTo(CGSizeMake(15, 10));
-//        make.top.equalTo(twoBtn.mas_bottom).with.offset(3);
-//        make.centerX.equalTo(twoBtn);
-//    }];
     
     UIButton *sureBtn = [LSKViewFactory initializeButtonWithTitle:nil nornalImage:nil selectedImage:nil target:self action:@selector(sureClick) textfont:0 textColor:nil backgroundColor:nil backgroundImage:@"guessbtn"];
     [self addSubview:sureBtn];
