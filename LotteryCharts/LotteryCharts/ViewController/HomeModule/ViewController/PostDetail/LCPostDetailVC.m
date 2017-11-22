@@ -80,7 +80,7 @@
     }];
     
     mainTableView.tableHeaderView = headerBgView;
-    
+    [headerView setupContentWithPhoto:nil name:@"凯先生" userId:@"码师ID:123456" money:@"10" title:@"帖子主题" content:@"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容" postId:@"帖子ID:123456" time:@"1小时前发布" count:@"30" type:self.type];
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {

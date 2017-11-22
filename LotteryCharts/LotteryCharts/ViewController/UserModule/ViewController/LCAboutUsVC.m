@@ -9,15 +9,25 @@
 #import "LCAboutUsVC.h"
 
 @interface LCAboutUsVC ()
+{
+    BOOL _isChange;
+}
 @property (weak, nonatomic) IBOutlet UILabel *version;
 @property (weak, nonatomic) IBOutlet UILabel *contentLbl;
 
 @end
 
 @implementation LCAboutUsVC
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self backToNornalNavigationColor];
+    if (_isChange) {
+        [self backToNornalNavigationColor];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _isChange = YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

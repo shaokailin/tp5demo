@@ -15,6 +15,9 @@
 #import "LCSpaceTableViewCell.h"
 #import "HSPDatePickView.h"
 @interface LCUserMessageVC ()<UITableViewDelegate, UITableViewDataSource>
+{
+    BOOL _isChange;
+}
 @property (nonatomic, weak) TPKeyboardAvoidingTableView *mainTableView;
 @property (nonatomic, strong) HSPDatePickView *datePickView;
 @property (nonatomic, copy) NSString *userName;
@@ -28,13 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addNavigationBackButton];
+    [self backToNornalNavigationColor];
     self.title = @"个人信息";
     [self addRightNavigationButtonWithTitle:@"完成" target:self action:@selector(completeEdit)];
     [self initializeMainView];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self backToNornalNavigationColor];
+    if (_isChange) {
+        [self backToNornalNavigationColor];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _isChange = YES;
 }
 - (void)completeEdit {
     [self.view endEditing:YES];

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LCPostDetailHeaderView : UIView
-
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type;
 @end

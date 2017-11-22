@@ -9,6 +9,9 @@
 #import "LCExchangeMainVC.h"
 
 @interface LCExchangeMainVC ()<UITextFieldDelegate>
+{
+    BOOL _isChange;
+}
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UILabel *yinbiLbl;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
@@ -21,12 +24,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"金币兑换";
+    [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self initializeMainView];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self backToNornalNavigationColor];
+    if (_isChange) {
+        [self backToNornalNavigationColor];
+    }
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _isChange = YES;
 }
 - (void)initializeMainView {
     ViewRadius(self.sureBtn, 5.0);

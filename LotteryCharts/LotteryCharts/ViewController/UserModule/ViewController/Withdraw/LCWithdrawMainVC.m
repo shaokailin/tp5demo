@@ -9,6 +9,9 @@
 #import "LCWithdrawMainVC.h"
 #import "LCWithdrawRecordVC.h"
 @interface LCWithdrawMainVC ()<UITextFieldDelegate>
+{
+    BOOL _isChange;
+}
 @property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
@@ -21,14 +24,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"赏金提现";
+    [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self addRightNavigationButtonWithTitle:@"记录" target:self action:@selector(showRecordVC)];
     [self initializeMainView];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    _isChange = YES;
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    [self backToNornalNavigationColor];
+    if (_isChange) {
+        [self backToNornalNavigationColor];
+    }
 }
+
 - (IBAction)surePayClick:(id)sender {
     [self.moneyField resignFirstResponder];
 }
