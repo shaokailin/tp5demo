@@ -11,9 +11,11 @@
 #import "LCLoginMainView.h"
 #import "LCForgetPWDVC.h"
 #import "LCRegisterMainVC.h"
+#import "LCLoginViewModel.h"
 @interface LCLoginMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCLoginMainView *loginView;
+@property (nonatomic, strong) LCLoginViewModel *viewModel;
 @end
 
 @implementation LCLoginMainVC
@@ -21,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     [self initializeMainView];
+    [self initializeMainView];
+    [self bindSignal];
 }
 - (BOOL)fd_prefersNavigationBarHidden {
     return self.isHidenNavi;
@@ -43,6 +46,12 @@
         }
         [self.navigationController pushViewController:controller animated:YES];
     }
+}
+- (void)bindSignal {
+    _viewModel = [[LCLoginViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        
+    } failure:nil];
+    
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {

@@ -65,6 +65,9 @@
             }
             case 1:
             {
+                if ([self isCanJumpViewForLogin:YES]) {
+                    
+                }
                 break;
             }
             case 2:

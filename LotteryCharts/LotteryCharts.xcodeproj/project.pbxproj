@@ -123,6 +123,12 @@
 		E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A81E1FC5A71100C9460F /* LCPostHeaderTableViewCell.m */; };
 		E636A8211FC5A71200C9460F /* LCPostHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */; };
 		E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A8231FC5A87A00C9460F /* LCCommentInputView.m */; };
+		E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */; };
+		E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */; };
+		E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */; };
+		E66BA5301FC6CDFC00FE4FCF /* LCUserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */; };
+		E66BA5331FC6D2E700FE4FCF /* LCRegisterViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5321FC6D2E700FE4FCF /* LCRegisterViewModel.m */; };
+		E66BA5361FC6D30200FE4FCF /* LCForgetPwdViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5351FC6D30200FE4FCF /* LCForgetPwdViewModel.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -394,6 +400,18 @@
 		E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPostHeaderTableViewCell.xib; sourceTree = "<group>"; };
 		E636A8221FC5A87A00C9460F /* LCCommentInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCCommentInputView.h; sourceTree = "<group>"; };
 		E636A8231FC5A87A00C9460F /* LCCommentInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCCommentInputView.m; sourceTree = "<group>"; };
+		E66BA5251FC6A90100FE4FCF /* LCLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewModel.h; sourceTree = "<group>"; };
+		E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewModel.m; sourceTree = "<group>"; };
+		E66BA5281FC6A91E00FE4FCF /* LCLoginModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginModuleAPI.h; sourceTree = "<group>"; };
+		E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginModuleAPI.m; sourceTree = "<group>"; };
+		E66BA52B1FC6ABC700FE4FCF /* LCLoginMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginMainModel.h; sourceTree = "<group>"; };
+		E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginMainModel.m; sourceTree = "<group>"; };
+		E66BA52E1FC6CDFC00FE4FCF /* LCUserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageModel.h; sourceTree = "<group>"; };
+		E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageModel.m; sourceTree = "<group>"; };
+		E66BA5311FC6D2E700FE4FCF /* LCRegisterViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRegisterViewModel.h; sourceTree = "<group>"; };
+		E66BA5321FC6D2E700FE4FCF /* LCRegisterViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRegisterViewModel.m; sourceTree = "<group>"; };
+		E66BA5341FC6D30200FE4FCF /* LCForgetPwdViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCForgetPwdViewModel.h; sourceTree = "<group>"; };
+		E66BA5351FC6D30200FE4FCF /* LCForgetPwdViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCForgetPwdViewModel.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1202,6 +1220,8 @@
 		E6D9A7DA1FAFF97300894BB0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E66BA5281FC6A91E00FE4FCF /* LCLoginModuleAPI.h */,
+				E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1209,6 +1229,10 @@
 		E6D9A7DB1FAFF97300894BB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E66BA52B1FC6ABC700FE4FCF /* LCLoginMainModel.h */,
+				E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */,
+				E66BA52E1FC6CDFC00FE4FCF /* LCUserMessageModel.h */,
+				E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1245,6 +1269,12 @@
 		E6D9A7DE1FAFF97300894BB0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E66BA5251FC6A90100FE4FCF /* LCLoginViewModel.h */,
+				E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */,
+				E66BA5311FC6D2E700FE4FCF /* LCRegisterViewModel.h */,
+				E66BA5321FC6D2E700FE4FCF /* LCRegisterViewModel.m */,
+				E66BA5341FC6D30200FE4FCF /* LCForgetPwdViewModel.h */,
+				E66BA5351FC6D30200FE4FCF /* LCForgetPwdViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1705,15 +1735,18 @@
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
 				E6C3F4161FC2C5A30077D670 /* LCRegisterMainVC.m in Sources */,
 				E636A7ED1FC5553000C9460F /* LCPostShowTypeView.m in Sources */,
+				E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
+				E66BA5301FC6CDFC00FE4FCF /* LCUserMessageModel.m in Sources */,
 				E61D2F481FBEBB67002005E3 /* LCTeamTableViewCell.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
 				E636A8161FC5A65800C9460F /* LCPostCommentTableViewCell.m in Sources */,
 				E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */,
 				E61D2ED21FBADFF3002005E3 /* LCMySpaceMainVC.m in Sources */,
+				E66BA5331FC6D2E700FE4FCF /* LCRegisterViewModel.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E61D2F2F1FBE87BD002005E3 /* LCTaskHeaderView.m in Sources */,
 				E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */,
@@ -1748,6 +1781,7 @@
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
 				E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */,
 				95DDA6981FBC88B400686504 /* LCWalletMainVC.m in Sources */,
+				E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */,
 				E61D2ED51FBAE50D002005E3 /* LCMySpaceTabView.m in Sources */,
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
@@ -1755,6 +1789,7 @@
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
 				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
+				E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */,
 				E636A7E01FC446BD00C9460F /* LCSelectSizeView.m in Sources */,
 				E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */,
 				E636A7F01FC5554A00C9460F /* LCPostTopView.m in Sources */,
@@ -1821,6 +1856,7 @@
 				E6C3F3E01FC1232B0077D670 /* LCRankingPushTableViewCell.m in Sources */,
 				E61D2F331FBE87D4002005E3 /* LCTaskTableViewCell.m in Sources */,
 				E6C3F3C91FC0350C0077D670 /* LCContactServiceTableViewCell.m in Sources */,
+				E66BA5361FC6D30200FE4FCF /* LCForgetPwdViewModel.m in Sources */,
 				95AF4EE71FB601590097B72D /* PopoverView.m in Sources */,
 				E6E2C6771FB0038600866D15 /* LSKBarnerScrollView.m in Sources */,
 			);

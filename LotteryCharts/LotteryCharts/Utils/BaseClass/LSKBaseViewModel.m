@@ -37,9 +37,6 @@
     return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         @strongify(self)
         NSInteger taskIdentifier = [LSKHttpManager httpReuquestWithEntity:entity success:^(NSUInteger identifier, id model) {
-            if (self.isShowAlertAndHiden) {
-                [SKHUD dismiss];
-            }
             LSKLog("api=%@---class=%@---%@",entity.requestApi,NSStringFromClass(entity.responseObject),model);
             [self removeLoadingIdentifier:identifier];
             LSKBaseResponseModel *object = [entity.responseObject yy_modelWithJSON:model];

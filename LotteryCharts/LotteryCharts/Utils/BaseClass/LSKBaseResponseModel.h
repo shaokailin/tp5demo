@@ -10,5 +10,5 @@
 
 @interface LSKBaseResponseModel : NSObject
 @property (nonatomic ,assign)   NSInteger code;
-@property (nonatomic ,copy)     NSString *msg;
+@property (nonatomic ,copy)     NSString *message;
 @end

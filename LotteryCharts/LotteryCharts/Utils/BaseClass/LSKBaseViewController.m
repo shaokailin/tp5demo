@@ -8,6 +8,7 @@
 
 #import "LSKBaseViewController.h"
 #import "UIViewController+Extend.h"
+#import "LCLoginMainVC.h"
 static const NSInteger kNavigationBarButton_Font = 15;
 static NSString * const kNavigation_BackImg = @"navi_back";
 @interface LSKBaseViewController ()
@@ -24,7 +25,16 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     self.view.backgroundColor = ColorHexadecimal(kMainBackground_Color, 1.0);
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
 }
-
+- (BOOL)isCanJumpViewForLogin:(BOOL)isNeedHiden {
+    if (!kUserMessageManager.isLogin) {
+        LCLoginMainVC *loginVC = [[LCLoginMainVC alloc]init];
+        loginVC.isHidenNavi = YES;
+        loginVC.hidesBottomBarWhenPushed = isNeedHiden;
+        [self.navigationController pushViewController:loginVC animated:YES];
+        return NO;
+    }
+    return YES;
+}
 - (CGFloat)viewMainHeight {
     return SCREEN_HEIGHT - STATUSBAR_HEIGHT - [self navibarHeight];
 }

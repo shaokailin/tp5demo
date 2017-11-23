@@ -32,7 +32,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     
 }
 - (BOOL)isLogin {
-    return YES;
+    return NO;
 }
 
 #pragma mark 定时器

@@ -40,13 +40,11 @@ static const NSInteger kBannerDotNornal_Color  = 0xffffff;
 static const CGFloat kBannerDotScale  = 1;
 //网络请求地址
 #ifdef DEBUG
-//https://testapp.huashengplan.com/
-//http://192.168.0.98:8080/
-static NSString * const SERVER_URL = @"https://testapp.huashengplan.com/";
+static NSString * const SERVER_URL = @"http://scb.czsen.com/api.php/";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #else
-static NSString * const SERVER_URL = @"https://testapp.huashengplan.com/";
+static NSString * const SERVER_URL = @"http://scb.czsen.com/api.php/";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #endif

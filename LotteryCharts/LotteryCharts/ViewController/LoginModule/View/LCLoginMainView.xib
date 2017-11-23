@@ -79,9 +79,9 @@
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码/QQ/微信" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-QQ-7mK">
-                    <rect key="frame" x="53" y="173" width="302" height="45"/>
+                    <rect key="frame" x="53" y="178" width="302" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="45" id="g3B-y0-GVq"/>
+                        <constraint firstAttribute="height" constant="40" id="g3B-y0-GVq"/>
                     </constraints>
                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>

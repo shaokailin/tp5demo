@@ -11,8 +11,6 @@
 @interface LSKParamterEntity : NSObject
 @property (nonatomic ,copy) NSString *requestApi;
 @property (nonatomic ,assign) Class responseObject;
-@property (nonatomic ,strong) NSMutableDictionary *params;
+@property (nonatomic ,strong) NSDictionary *params;
 @property (nonatomic ,assign) HTTPRequestType requestType;
-@property (nonatomic ,copy) NSString *timestamp;
-- (void)initializeSignWithParams:(NSString *)param, ... NS_REQUIRES_NIL_TERMINATION;
 @end
