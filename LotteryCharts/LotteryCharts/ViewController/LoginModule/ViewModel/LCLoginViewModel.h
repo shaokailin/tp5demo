@@ -13,4 +13,10 @@
 @property (nonatomic, strong) RACSignal *pwdSignal;
 - (void)bindLoginSignal;
 - (void)loginEventClick;
+
+@property (nonatomic, strong) RACSignal *codeSignal;
+@property (nonatomic, strong) RACSignal *mchidSignal;
+- (void)bindRegisterSignal;
+
+- (void)bindForgetSignal;
 @end

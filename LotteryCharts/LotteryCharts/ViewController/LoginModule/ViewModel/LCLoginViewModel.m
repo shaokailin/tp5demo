@@ -15,28 +15,37 @@
 @property (nonatomic, strong) RACCommand *getUserMessageCommand;
 @property (nonatomic, copy) NSString *phoneString;
 @property (nonatomic, copy) NSString *passwordString;
+@property (nonatomic, copy) NSString *codeString;
+@property (nonatomic, copy) NSString *mchidString;
+@property (nonatomic, copy) NSString *authString;
 @property (nonatomic, copy) NSString *userToken;
 @end
 @implementation LCLoginViewModel
 - (void)loginEventClick {
-    if (!KJudgeIsNullData(self.phoneString)) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"请输入手机号"];
-        return;
-    }
-    if (!KJudgeIsNullData(self.passwordString)) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"请输入密码"];
-        return;
-    }
-    if (![self.phoneString validateMobilePhone]) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"请输入正确的手机号"];
-        return;
-    }
-    if (self.passwordString.length < 6) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"请输入至少6位密码"];
+    if (![self verifyPhoneAndPwd]) {
         return;
     }
     [SKHUD showLoadingDotInView:self.currentView];
     [self.loginCommand execute:nil];
+}
+- (BOOL)verifyPhoneAndPwd {
+    if (!KJudgeIsNullData(self.phoneString)) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入手机号"];
+        return NO;
+    }
+    if (!KJudgeIsNullData(self.passwordString)) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入密码"];
+        return NO;
+    }
+    if (![self.phoneString validateMobilePhone]) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入正确的手机号"];
+        return NO;
+    }
+    if (self.passwordString.length < 6) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入至少6位密码"];
+        return NO;
+    }
+    return YES;
 }
 - (void)bindLoginSignal {
     @weakify(self)
@@ -97,4 +106,16 @@
     }
     return _getUserMessageCommand;
 }
+
+#pragma mark 注册
+- (void)bindRegisterSignal {
+    [self bindLoginSignal];
+    [self.codeSignal subscribeNext:^(id  _Nullable x) {
+        
+    }];
+    [self.mchidSignal subscribeNext:^(id  _Nullable x) {
+        
+    }];
+}
+
 @end
