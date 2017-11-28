@@ -159,9 +159,6 @@
                             <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="dsg-Er-5EB"/>
-                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ea1-fg-YbL">
                     <rect key="frame" x="55" y="233" width="300" height="45"/>
@@ -176,9 +173,6 @@
                             <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="Ojg-O4-cYR"/>
-                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入码师ID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1s-aS-O1X">
                     <rect key="frame" x="55" y="290" width="300" height="45"/>
@@ -187,15 +181,12 @@
                     </constraints>
                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="namePhonePad" returnKeyType="done"/>
+                    <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
                             <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="BnF-kv-ElS"/>
-                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bge-1f-PBX">
                     <rect key="frame" x="275" y="357" width="80" height="25"/>
@@ -225,9 +216,6 @@
                             <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="dIJ-Yl-ikH"/>
-                    </connections>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

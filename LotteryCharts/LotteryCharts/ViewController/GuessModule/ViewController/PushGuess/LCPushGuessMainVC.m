@@ -10,10 +10,12 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "LCGuessInputView.h"
 #import "LCGuessSelectView.h"
+#import "LCPushGuessViewModel.h"
 @interface LCPushGuessMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCGuessInputView *inputView;
 @property (nonatomic, weak) LCGuessSelectView *selectView;
+@property (nonatomic, strong) LCPushGuessViewModel *viewModel;
 @end
 
 @implementation LCPushGuessMainVC
@@ -24,9 +26,25 @@
     self.title = @"发布竞猜";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)showRule {
-    
+    [self.view endEditing:YES];
+}
+- (void)bindSignal {
+    _viewModel = [[LCPushGuessViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        
+    } failure:nil];
+    _viewModel.type = 2;
+    _viewModel.titleSignal = self.inputView.titleField.rac_textSignal;
+    _viewModel.contentSignal = self.inputView.contentField.rac_textSignal;
+    [_viewModel bindInputSignal];
+}
+- (void)pushGuessAction {
+    [self.view endEditing:YES];
+    self.viewModel.money = [self.selectView getMoneyData];
+    self.viewModel.number = [self.selectView getNumberData];
+    [self.viewModel pushGuessEvent:[self.selectView getSelectData]];
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"规则" target:self action:@selector(showRule)];
@@ -47,12 +65,15 @@
     LCGuessSelectView *selectView = [[LCGuessSelectView alloc]initWithFrame:CGRectMake(0, 173, SCREEN_WIDTH, 417)];
     self.selectView = selectView;
     selectView.selectBlock = ^(NSInteger type) {
-        if (type == 0) {
+        [ws.view endEditing:YES];
+        if (type == 2) {
          ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 417 + 20);
-        }else if (type == 1) {
+         ws.viewModel.type = 2;
+        }else if (type == 3) {
             ws.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 173 + 369 + 20);
+            ws.viewModel.type = 3;
         }else {
-            [ws navigationBackClick];
+            [ws pushGuessAction];
         }
     };
     [mainScrollerView addSubview:selectView];

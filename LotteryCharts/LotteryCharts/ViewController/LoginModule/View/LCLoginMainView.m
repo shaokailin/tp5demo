@@ -10,6 +10,7 @@
 @interface LCLoginMainView ()<UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
+@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 
 @end
 @implementation LCLoginMainView
@@ -17,6 +18,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     ViewRadius(self.sureBtn, 5.0);
+    self.accountField.delegate = self;
+    self.passwordField.delegate = self;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
@@ -27,6 +30,9 @@
     if (self.loginBlock) {
         self.loginBlock(type);
     }
+}
+- (void)hidenBackBtn:(BOOL)isHiden {
+    self.backBtn.hidden = !isHiden;
 }
 - (IBAction)backClick:(id)sender {
     [self eventClickWithType:1];

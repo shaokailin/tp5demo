@@ -9,5 +9,5 @@
 #import "LSKBaseTabBarController.h"
 
 @interface LCRootTabBarVC : LSKBaseTabBarController
-
+- (void)changeLoginWithState;
 @end

@@ -7,11 +7,14 @@
 //
 
 #import "LSKMessageManage.h"
-
+@class LCUserMessageModel;
 @interface LCUserMessageManager : LSKMessageManage
 + (LCUserMessageManager *)sharedLCUserMessageManager;
 
 @property (nonatomic, assign, readonly, getter=isLogin) BOOL login;
+@property (nonatomic, copy) NSString *token;
+- (void)removeUserMessage;
+- (void)saveUserMessage:(LCUserMessageModel *)model;
 
 // 短信倒计时
 @property(nonatomic, assign) NSInteger loginCodeTime;

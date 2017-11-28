@@ -30,8 +30,10 @@
     return self.isHidenNavi;
 }
 - (void)loginActionWithType:(NSInteger)type {
-    if (type == 1 || type == 3) {
+    if (type == 1) {
         [self navigationBackClick];
+    }else if (type == 3){
+        [self.viewModel loginEventClick];
     }else if (type == 2 || type == 4) {
         UIViewController *controller = nil;
         if (type == 2) {
@@ -48,10 +50,14 @@
     }
 }
 - (void)bindSignal {
+    @weakify(self)
     _viewModel = [[LCLoginViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        
+        @strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
     } failure:nil];
-    
+    _viewModel.phoneSignal = self.loginView.accountField.rac_textSignal;
+    _viewModel.pwdSignal = self.loginView.passwordField.rac_textSignal;
+    [_viewModel bindLoginSignal];
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {
@@ -76,7 +82,7 @@
         make.height.mas_equalTo(contentHeight);
     }];
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
-    
+    [loginView hidenBackBtn:_isHidenNavi];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

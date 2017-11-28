@@ -7,11 +7,8 @@
 //
 
 #import "LCForgetPWDView.h"
-@interface LCForgetPWDView ()
-@property (weak, nonatomic) IBOutlet UITextField *accountField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordFild;
-@property (weak, nonatomic) IBOutlet UITextField *againPwdField;
-@property (weak, nonatomic) IBOutlet UITextField *codeField;
+@interface LCForgetPWDView ()<UITextFieldDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *codeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 
@@ -25,6 +22,25 @@
     eyeBtn.frame = CGRectMake(0, (45 - 30) / 2.0, 30, 30);
     self.passwordFild.rightViewMode = UITextFieldViewModeAlways;
     self.passwordFild.rightView = eyeBtn;
+    self.passwordFild.delegate = self;
+    self.codeField.delegate = self;
+    self.accountField.delegate = self;
+    @weakify(self)
+    [RACObserve(kUserMessageManager, forgetCodeTime) subscribeNext:^(id x) {
+        @strongify(self)
+        NSInteger second = [x integerValue];
+        [self changeBtnTitle:second];
+    }];
+}
+- (void)changeBtnTitle:(NSInteger)second {
+    if (second <= 0) {
+        _codeBtn.userInteractionEnabled = YES;
+        [_codeBtn setTitle:@"发送验证码" forState:UIControlStateNormal];
+    }else
+    {
+        _codeBtn.userInteractionEnabled = NO;
+        [_codeBtn setTitle:[NSString stringWithFormat:@"%lds后可重发",(long)second] forState:UIControlStateNormal];
+    }
 }
 - (void)changeEyeType:(UIButton *)btn {
     if (!btn.selected) {
@@ -46,6 +62,30 @@
     if (self.forgetBlock) {
         self.forgetBlock(type);
     }
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string isEqualToString:@""]) {
+        return YES;
+    }
+    if ([string isEqualToString:@" "]) {
+        return NO;
+    }
+    if (range.length != 1) {
+        if (textField == self.passwordFild || textField == self.againPwdField) {
+            if (range.location > 23) {
+                return NO;
+            }
+        }else if(textField == self.accountField) {
+            if (range.location > 10) {
+                return NO;
+            }
+        }else if (textField == self.codeField){
+            if (range.location > 5) {
+                return NO;
+            }
+        }
+    }
+    return YES;
 }
 - (IBAction)getCodeClick:(id)sender {
     [self eventActionClick:2];

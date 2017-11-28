@@ -10,7 +10,7 @@
 @interface LCSelectSizeView ()
 @property (weak, nonatomic) IBOutlet UIView *bgView1;
 @property (weak, nonatomic) IBOutlet UIView *bgView2;
-
+@property (nonatomic, assign) NSInteger currentType;
 @end
 @implementation LCSelectSizeView
 
@@ -33,5 +33,7 @@
         btn.selected = YES;
     }
 }
-
+- (NSString *)getSelect {
+    return _currentType == 0 ? @"大":@"小";
+}
 @end

@@ -28,7 +28,7 @@ static NSString * const kGetUserMessage = @"User/getUserInfo.html";
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kRegisterUserApi;
     entity.responseObject = [LCLoginMainModel class];
-    entity.params = @{@"mobile":phone,@"pwd":pwd,@"mchid":msid,@"code":code};
+    entity.params = @{@"mobile":phone,@"password":pwd,@"mchid":msid,@"code":code};
     return entity;
 }
 
@@ -36,7 +36,7 @@ static NSString * const kGetUserMessage = @"User/getUserInfo.html";
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kLoginUserApi;
     entity.responseObject = [LCLoginMainModel class];
-    entity.params = @{@"mobile":phone,@"pwd":pwd};
+    entity.params = @{@"mobile":phone,@"password":pwd};
     return entity;
 }
 + (LSKParamterEntity *)loginOutEvent:(NSString *)token {
@@ -49,7 +49,7 @@ static NSString * const kGetUserMessage = @"User/getUserInfo.html";
 + (LSKParamterEntity *)forgetPassword:(NSString *)phone code:(NSString *)code {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kForgetPwd;
-    entity.responseObject = [LSKBaseResponseModel class];
+    entity.responseObject = [LCLoginMainModel class];
     entity.params = @{@"mobile":phone,@"code":code};
     return entity;
 }

@@ -10,4 +10,7 @@
 typedef void (^SelectTypeBlock)(NSInteger type);
 @interface LCGuessSelectView : UIView
 @property (nonatomic, copy) SelectTypeBlock selectBlock;
+- (NSString *)getMoneyData;
+- (NSString *)getNumberData;
+- (NSString *)getSelectData;
 @end

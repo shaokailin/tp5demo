@@ -27,7 +27,7 @@
                     <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="200" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU6-Vt-hqX">
+                <button opaque="NO" tag="300" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gU6-Vt-hqX">
                     <rect key="frame" x="10" y="44" width="100" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="X9B-tc-l2i"/>
@@ -43,7 +43,7 @@
                         <action selector="changeType:" destination="iN0-l3-epB" eventType="touchUpInside" id="mIM-yQ-wBK"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtB-So-gjR">
+                <button opaque="NO" tag="301" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OtB-So-gjR">
                     <rect key="frame" x="120" y="44" width="100" height="35"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="CTV-8x-pMP"/>

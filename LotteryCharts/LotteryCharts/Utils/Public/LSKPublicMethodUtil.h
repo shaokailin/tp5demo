@@ -58,7 +58,7 @@ typedef NS_ENUM(NSInteger , LSKiOSiPhoneType) {
  @return 字符串
  */
 + (NSString *)dictionaryTransformToJson:(NSDictionary *)dic;
-
++ (NSString *)arrayTransformToJson:(NSArray *)array;
 /**
  data 转 dictionary
 

@@ -11,4 +11,5 @@
 @interface LCSelectTwoYardsView : UIView
 @property (weak, nonatomic) IBOutlet UITextField *payField;
 @property (weak, nonatomic) IBOutlet UITextField *countField;
+- (NSString *)getSelect;
 @end

@@ -9,5 +9,15 @@
 #import "LCUserMessageModel.h"
 
 @implementation LCUserMessageModel
-
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"birthday" : @"response.birthday",
+             @"sex" : @"response.sex",
+             @"mchid" : @"response.mchid",
+             @"mobile" : @"response.mobile",
+             @"money" : @"response.money",
+             @"nickname" : @"response.nickname",
+             @"userId" : @"response.uid"
+             };
+}
 @end

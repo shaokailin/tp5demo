@@ -17,6 +17,10 @@
 @property (nonatomic, strong) RACSignal *codeSignal;
 @property (nonatomic, strong) RACSignal *mchidSignal;
 - (void)bindRegisterSignal;
+- (void)registerActionEvent;
 
 - (void)bindForgetSignal;
+- (void)forgetActionEvent;
+
+- (void)getCodeEvent;
 @end

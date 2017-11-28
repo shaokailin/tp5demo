@@ -91,9 +91,6 @@
                             <color key="value" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="wgg-q4-XDi"/>
-                    </connections>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xzt-Jc-iz0">
                     <rect key="frame" x="54" y="230" width="301" height="45"/>
@@ -108,9 +105,6 @@
                             <color key="value" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="3CN-RI-phP"/>
-                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lmf-tz-YHk">
                     <rect key="frame" x="297" y="291" width="56" height="27"/>
@@ -230,6 +224,7 @@
             </constraints>
             <connections>
                 <outlet property="accountField" destination="IKv-QQ-7mK" id="cxa-zE-gbV"/>
+                <outlet property="backBtn" destination="4yd-hT-Dlh" id="Y69-gb-csD"/>
                 <outlet property="passwordField" destination="Xzt-Jc-iz0" id="geC-4l-qYA"/>
                 <outlet property="sureBtn" destination="2uC-Le-9Gm" id="wfT-Bo-aZQ"/>
             </connections>

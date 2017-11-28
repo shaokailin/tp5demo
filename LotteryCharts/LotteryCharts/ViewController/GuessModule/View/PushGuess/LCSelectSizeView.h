@@ -11,5 +11,5 @@
 @interface LCSelectSizeView : UIView
 @property (weak, nonatomic) IBOutlet UITextField *payField;
 @property (weak, nonatomic) IBOutlet UITextField *countField;
-@property (nonatomic, assign) NSInteger currentType;
+- (NSString *)getSelect;
 @end

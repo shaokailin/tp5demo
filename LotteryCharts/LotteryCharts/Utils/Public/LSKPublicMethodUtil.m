@@ -49,6 +49,12 @@
     if (parseError != nil) return @"";
     else return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
++ (NSString *)arrayTransformToJson:(NSArray *)array {
+    NSError *parseError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array options:NSJSONWritingPrettyPrinted error:&parseError];
+    if (parseError != nil) return @"";
+    else return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+}
 
 //NSData 转 字典
 + (id)jsonDataTransformToDictionary :(NSData *)data {

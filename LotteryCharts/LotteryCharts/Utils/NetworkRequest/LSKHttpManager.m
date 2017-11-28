@@ -184,7 +184,7 @@ SYNTHESIZE_SINGLETON_CLASS(LSKHttpManager);
         //设置回传接受类型
         _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         //设置服务器响应头可接手的样式
-        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain",@"text/html",nil];
+        _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",nil];
         //设置https的证书
         if (KJudgeIsNullData(HTTPS_CA_NAME)) {
             _sessionManager.securityPolicy = [self _setupHttpsSecurityPolicy];

@@ -27,6 +27,10 @@
 - (void)windowRootController {
     self.window.rootViewController = self.rootTabBarVC;
 }
+- (void)changeLoginState {
+    [self.rootTabBarVC changeLoginWithState];
+    self.rootTabBarVC.selectedIndex = 0;
+}
 - (LCRootTabBarVC *)rootTabBarVC {
     if (!_rootTabBarVC) {
         _rootTabBarVC = [[LCRootTabBarVC alloc]init];

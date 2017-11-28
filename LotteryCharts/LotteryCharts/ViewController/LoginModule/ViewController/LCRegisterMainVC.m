@@ -9,9 +9,11 @@
 #import "LCRegisterMainVC.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "LCRegisterMainView.h"
+#import "LCLoginViewModel.h"
 @interface LCRegisterMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCRegisterMainView *registerView;
+@property (nonatomic, strong) LCLoginViewModel *viewModel;
 @end
 
 @implementation LCRegisterMainVC
@@ -20,6 +22,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self initializeMainView];
+    [self bindSignal];
 }
 - (BOOL)fd_prefersNavigationBarHidden {
     return YES;
@@ -27,7 +30,27 @@
 - (void)registerActionWithType:(NSInteger)type {
     if (type == 1) {
         [self navigationBackClick];
+    }else if(type == 2) {
+        [self.viewModel getCodeEvent];
+    }else {
+        [self.viewModel registerActionEvent];
     }
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCLoginViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 2) {
+             [kUserMessageManager startLoginTimer];
+        }else {
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } failure:nil];
+    _viewModel.phoneSignal = self.registerView.accountField.rac_textSignal;
+    _viewModel.pwdSignal = self.registerView.pwdField.rac_textSignal;
+    _viewModel.codeSignal = self.registerView.codeField.rac_textSignal;
+    _viewModel.mchidSignal = self.registerView.inviteField.rac_textSignal;
+    [_viewModel bindRegisterSignal];
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {

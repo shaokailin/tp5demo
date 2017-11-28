@@ -38,6 +38,13 @@
         btn.layer.cornerRadius = 35 / 2.0;
     }
 }
+- (NSString *)getSelect {
+    if (_select_1 == -1 || _select_2 == -1) {
+        return nil;
+    }else {
+        return [LSKPublicMethodUtil arrayTransformToJson:@[@(_select_1),@(_select_2)]];
+    }
+}
 - (IBAction)selectBtnClick:(id)sender {
     UIButton *btn = (UIButton *)sender;
     if (!btn.selected) {

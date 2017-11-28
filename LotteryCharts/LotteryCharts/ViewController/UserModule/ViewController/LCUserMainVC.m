@@ -22,6 +22,7 @@
 #import "LCTeamMainVC.h"
 #import "LCContactMainVC.h"
 #import "LCAttentionMainVC.h"
+#import "LCUserMianViewModel.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
 {
@@ -32,6 +33,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
+@property (nonatomic, strong) LCUserMianViewModel *viewModel;
 @end
 
 @implementation LCUserMainVC
@@ -41,6 +43,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     // Do any additional setup after loading the view.
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -54,7 +57,20 @@ static NSString * const kSettingName = @"UserHomeSetting";
     return _homeNaviBgImage;
 }
 - (void)loginOutClick {
-    
+    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"提示" message:@"是否要退出当前的用户" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    @weakify(self)
+    [alter.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        if ([x integerValue] == 1) {
+            @strongify(self)
+            [self.viewModel loginOutClickEvent];
+        }
+    }];
+    [alter show];
+}
+- (void)bindSignal {
+    _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        
+    } failure:nil];
 }
 - (void)headerViewClickEvent:(NSInteger)type {
     if (type < 3) {

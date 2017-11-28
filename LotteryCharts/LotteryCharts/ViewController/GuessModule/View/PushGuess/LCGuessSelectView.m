@@ -26,6 +26,27 @@
     }
     return self;
 }
+- (NSString *)getSelectData {
+    if (_currentType == 2) {
+        return [self.twoView getSelect];
+    }else {
+        return [self.sizeView getSelect];
+    }
+}
+- (NSString *)getMoneyData {
+    if (_currentType == 2) {
+        return self.twoView.payField.text;
+    }else {
+        return self.sizeView.payField.text;
+    }
+}
+- (NSString *)getNumberData {
+    if (_currentType == 2) {
+        return self.twoView.countField.text;
+    }else {
+        return self.sizeView.countField.text;
+    }
+}
 - (void)changeType:(UIButton *)btn {
     if (!btn.selected) {
         UIButton *otherBtn = [self viewWithTag:300 + _currentType];
@@ -33,14 +54,13 @@
         _currentType = btn.tag - 300;
         btn.selected = YES;
         CGRect frame = self.topArrowImage.frame;
-        LSKLog(@"%f",CGRectGetMidX(btn.frame));
         frame.origin.x = CGRectGetMidX(btn.frame) - frame.size.width / 2.0;
         self.topArrowImage.frame = frame;
         if (self.selectBlock) {
             self.selectBlock(_currentType);
         }
         CGRect selfFrame = self.frame;
-        if (_currentType == 1) {
+        if (_currentType == 3) {
             self.twoView.hidden = YES;
             self.sizeView.hidden = NO;
             selfFrame.size.height = 369;
@@ -53,10 +73,12 @@
     }
 }
 - (void)sureClick {
-    
+    if (self.selectBlock) {
+        self.selectBlock(5);
+    }
 }
 - (void)_layoutMainView {
-    _currentType = 0;
+    _currentType = 2;
    
     UILabel *titleLbl = [LSKViewFactory initializeLableWithText:@"竞猜类型" font:15 textColor: ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
     [self addSubview:titleLbl];
@@ -67,7 +89,7 @@
     }];
     
     UIButton * twoBtn = [LSKViewFactory initializeButtonWithTitle:@"杀两码" nornalImage:nil selectedImage:nil target:self action:@selector(changeType:) textfont:15 textColor:ColorHexadecimal(0x4a4a4a, 1.0) backgroundColor:nil backgroundImage:@"gradrect"];
-    twoBtn.tag = 300;
+    twoBtn.tag = 302;
     [twoBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [twoBtn setBackgroundImage:ImageNameInit(@"redrect") forState:UIControlStateSelected];
     twoBtn.selected = YES;
@@ -79,7 +101,7 @@
     }];
     
     UIButton * sizeBtn = [LSKViewFactory initializeButtonWithTitle:@"猜大小" nornalImage:nil selectedImage:nil target:self action:@selector(changeType:) textfont:15 textColor:ColorHexadecimal(0x4a4a4a, 1.0) backgroundColor:nil backgroundImage:@"gradrect"];
-    sizeBtn.tag = 301;
+    sizeBtn.tag = 303;
     [sizeBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [sizeBtn setBackgroundImage:ImageNameInit(@"redrect") forState:UIControlStateSelected];
     [self addSubview:sizeBtn];

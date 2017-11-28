@@ -6,8 +6,8 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LSKBaseViewController.h"
+#import "LSKBaseWebViewController.h"
 
-@interface LCAboutUsVC : LSKBaseViewController
+@interface LCAboutUsVC : LSKBaseWebViewController
 
 @end

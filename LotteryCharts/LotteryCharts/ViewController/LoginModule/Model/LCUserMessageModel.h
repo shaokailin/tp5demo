@@ -9,5 +9,12 @@
 #import "LSKBaseResponseModel.h"
 
 @interface LCUserMessageModel : LSKBaseResponseModel
-
+@property (nonatomic, copy) NSString *mobile;
+@property (nonatomic, copy) NSString *mchid;
+@property (nonatomic, copy) NSString *token;
+@property (nonatomic, copy) NSString *money;
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, copy) NSString *sex;
+@property (nonatomic, copy) NSString *birthday;
+@property (nonatomic, copy) NSString *userId;
 @end

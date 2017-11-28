@@ -33,11 +33,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"关于彩神榜";
+    [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:@"share_icon" target:self action:@selector(shareClick)];
     [self initializeMainView];
 }
 - (void)initializeMainView {
+    [self changeWebFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.viewMainHeight - self.tabbarBetweenHeight)];
+    self.isShowBack = YES;
+    self.isGetJsBrirge = NO;
+    self.isShowProgress = YES;
+    [self loadMainWebViewUrl: NSStringFormat(@"%@Public/about.html",SERVER_URL)];
     NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.contentLbl.text];
     NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
     [paragraphStyle1 setLineSpacing:8];

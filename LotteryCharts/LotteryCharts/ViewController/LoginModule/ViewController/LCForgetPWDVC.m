@@ -9,9 +9,11 @@
 #import "LCForgetPWDVC.h"
 #import "TPKeyboardAvoidingScrollView.h"
 #import "LCForgetPWDView.h"
+#import "LCLoginViewModel.h"
 @interface LCForgetPWDVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCForgetPWDView *forgetView;
+@property (nonatomic, strong) LCLoginViewModel *viewModel;
 @end
 
 @implementation LCForgetPWDVC
@@ -22,11 +24,33 @@
     self.title = @"忘记密码";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)forgetActionWithType:(NSInteger)type {
     if (type == 1) {
         [self navigationBackClick];
+    }else if (type == 2){
+        [self.viewModel getCodeEvent];
+    }else {
+        [self.viewModel forgetActionEvent];
     }
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCLoginViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 2) {
+            [kUserMessageManager startForgetTimer];
+        }else {
+            [SKHUD showMessageInView:self.view withMessage:@"修改成功~!"];
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    } failure:nil];
+    _viewModel.phoneSignal = self.forgetView.accountField.rac_textSignal;
+    _viewModel.pwdSignal = self.forgetView.passwordFild.rac_textSignal;
+    _viewModel.codeSignal = self.forgetView.codeField.rac_textSignal;
+    _viewModel.mchidSignal = self.forgetView.againPwdField.rac_textSignal;
+    [_viewModel bindForgetSignal];
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {
