@@ -14,15 +14,15 @@
 #import "LCUserMessageTableViewCell.h"
 #import "LCSpaceTableViewCell.h"
 #import "HSPDatePickView.h"
-@interface LCUserMessageVC ()<UITableViewDelegate, UITableViewDataSource>
+#import "RSKImageCropper.h"
+#import "LCUserMessageViewModel.h"
+@interface LCUserMessageVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
     BOOL _isChange;
 }
 @property (nonatomic, weak) TPKeyboardAvoidingTableView *mainTableView;
 @property (nonatomic, strong) HSPDatePickView *datePickView;
-@property (nonatomic, copy) NSString *userName;
-@property (nonatomic, assign) NSInteger sexState;
-@property (nonatomic, copy) NSString *dateString;
+@property (nonatomic, strong) LCUserMessageViewModel *viewModel;
 @end
 
 @implementation LCUserMessageVC
@@ -34,6 +34,7 @@
     [self backToNornalNavigationColor];
     self.title = @"个人信息";
     [self addRightNavigationButtonWithTitle:@"完成" target:self action:@selector(completeEdit)];
+    [self bindSignal];
     [self initializeMainView];
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,9 +47,46 @@
     [super viewDidAppear:animated];
     _isChange = YES;
 }
+- (void)bindSignal {
+    _viewModel = [[LCUserMessageViewModel alloc]init];
+}
 - (void)completeEdit {
     [self.view endEditing:YES];
+    [self.viewModel updateUserMessage];
 }
+#pragma mark 拍照
+- (void)selectImage:(UIImage *)image {
+    RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:image cropMode:RSKImageCropModeSquare];
+    imageCropVC.delegate = self;
+    imageCropVC.portraitSquareMaskRectInnerEdgeInset = (SCREEN_WIDTH - 260) / 2.0;
+    imageCropVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:imageCropVC animated:NO];
+}
+#pragma mark - RSKImageCropViewControllerDelegate
+
+- (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
+    self.viewModel.photoImage = croppedImage;
+    [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+- (void)changePhoto {
+    UIActionSheet *sheetView = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"手机相册", nil];
+    @weakify(self)
+    [sheetView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        @strongify(self)
+        if ([x integerValue] == 0) {
+            [self takeCameraPhoto];
+        }else if ([x integerValue] == 1){
+            [self takeLocationImage];
+        }
+    }];
+    [sheetView showInView:self.view];
+}
+
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 7;
@@ -56,25 +94,29 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         LCPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPhotoTableViewCell];
-        [cell setupUserPhoto:nil];
+        [cell setupUserPhoto:(_viewModel && _viewModel.photoImage) ? _viewModel.photoImage : kUserMessageManager.logo ];
+        WS(ws)
+        cell.block = ^(BOOL isPhoto) {
+            [ws changePhoto];
+        };
         return cell;
     }else if (indexPath.row == 4){
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
     }else if(indexPath.row == 5) {
         LCSexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSexTableViewCell];
-        [cell setupCurrentSex:self.sexState];
+        [cell setupCurrentSex:self.viewModel.sexString];
         WS(ws)
         cell.sexBlock = ^(NSInteger type) {
-            ws.sexState = type;
+            ws.viewModel.sexString = type;
         };
         return cell;
     }else if (indexPath.row == 1) {
         LCNameInputTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCNameInputTableViewCell];
-        [cell setupCellContentWithName:self.userName];
+        [cell setupCellContentWithName:self.viewModel.nameString];
         WS(ws)
         cell.nameBlock = ^(NSString *name) {
-            ws.userName = name;
+            ws.viewModel.nameString = name;
         };
         return cell;
     }else {
@@ -104,13 +146,13 @@
     NSString *title = nil;
     switch (index) {
         case 2:
-            title = @"CSB22440";
+            title = kUserMessageManager.userId;
             break;
         case 3:
-            title = @"18800000000";
+            title = [kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Mobile];
             break;
         case 6:
-            title = self.dateString;
+            title = self.viewModel.birthday;
             break;
         default:
             break;
@@ -137,7 +179,7 @@
         datePick.datePickerMode = UIDatePickerModeDate;
         WS(ws)
         datePick.dateBlock = ^(NSDate *date) {
-            ws.dateString = [date dateTransformToString:@"yyyy/MM/dd"];
+            ws.viewModel.birthday = [date dateTransformToString:@"yyyy/MM/dd"];
             [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:6 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         };
         _datePickView = datePick;
@@ -148,9 +190,6 @@
 }
 #pragma mark - init view
 - (void)initializeMainView {
-    self.userName = @"凯先生";
-    self.sexState = 1;
-    self.dateString = [[NSDate date]dateTransformToString:@"yyyy/MM/dd"];
     TPKeyboardAvoidingTableView *tableview = [LSKViewFactory initializeTPTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
      tableview.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
     [tableview registerNib:[UINib nibWithNibName:kLCPhotoTableViewCell bundle:nil] forCellReuseIdentifier:kLCPhotoTableViewCell];

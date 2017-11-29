@@ -17,7 +17,9 @@
              @"mobile" : @"response.mobile",
              @"money" : @"response.money",
              @"nickname" : @"response.nickname",
-             @"userId" : @"response.uid"
+             @"userId" : @"response.uid",
+             @"logo" : @"response.logo",
+             @"ymoney" : @"response.ymoney"
              };
 }
 @end

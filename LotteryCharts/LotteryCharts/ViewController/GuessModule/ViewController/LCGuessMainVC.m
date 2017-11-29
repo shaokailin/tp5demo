@@ -93,15 +93,20 @@
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
     PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发布竞猜" handler:^(PopoverAction *action) {
-        LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
-        postMainVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:postMainVC animated:YES];
+        @strongify(self)
+        if ([self isCanJumpViewForLogin:YES]) {
+            LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
+            postMainVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:postMainVC animated:YES];
+        }
     }];
     PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
         @strongify(self)
-        LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
-        recgarge.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:recgarge animated:YES];
+        if ([self isCanJumpViewForLogin:YES]) {
+            LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
+            recgarge.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:recgarge animated:YES];
+        }
     }];
     return @[multichatAction, addFriAction];
 }

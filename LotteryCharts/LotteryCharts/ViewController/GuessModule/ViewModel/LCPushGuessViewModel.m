@@ -17,7 +17,6 @@
 @end
 @implementation LCPushGuessViewModel
 - (void)pushGuessEvent:(NSString *)answer {
-    
     if (!KJudgeIsNullData(self.title)) {
         [SKHUD showMessageInView:self.currentView withMessage:@"请输入标题"];
         return;

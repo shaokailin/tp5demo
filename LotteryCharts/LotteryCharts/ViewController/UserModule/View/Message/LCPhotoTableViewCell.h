@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^PhotoBlock)(BOOL isPhoto);
 static NSString * const kLCPhotoTableViewCell = @"LCPhotoTableViewCell";
 @interface LCPhotoTableViewCell : UITableViewCell
-- (void)setupUserPhoto:(NSString *)photoString;
+@property (nonatomic, copy) PhotoBlock block;
+- (void)setupUserPhoto:(id)photoString;
 @end

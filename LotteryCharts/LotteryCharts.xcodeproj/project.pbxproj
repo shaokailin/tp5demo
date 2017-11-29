@@ -131,6 +131,10 @@
 		E67FFBD21FCD36350045E5DF /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBD11FCD36350045E5DF /* LCWebViewController.m */; };
 		E67FFBD51FCD4D910045E5DF /* LCPushGuessViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBD41FCD4D910045E5DF /* LCPushGuessViewModel.m */; };
 		E67FFBD81FCD4FA00045E5DF /* LCGuessModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBD71FCD4FA00045E5DF /* LCGuessModuleAPI.m */; };
+		E67FFBDB1FCE62770045E5DF /* LCUserModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBDA1FCE62770045E5DF /* LCUserModuleAPI.m */; };
+		E67FFBDE1FCE63DB0045E5DF /* LCBaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBDD1FCE63DB0045E5DF /* LCBaseResponseModel.m */; };
+		E67FFBE31FCE98AF0045E5DF /* LCBaseMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */; };
+		E67FFBE61FCEA81B0045E5DF /* LCUserMessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -418,6 +422,14 @@
 		E67FFBD41FCD4D910045E5DF /* LCPushGuessViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPushGuessViewModel.m; sourceTree = "<group>"; };
 		E67FFBD61FCD4FA00045E5DF /* LCGuessModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessModuleAPI.h; sourceTree = "<group>"; };
 		E67FFBD71FCD4FA00045E5DF /* LCGuessModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessModuleAPI.m; sourceTree = "<group>"; };
+		E67FFBD91FCE62770045E5DF /* LCUserModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserModuleAPI.h; sourceTree = "<group>"; };
+		E67FFBDA1FCE62770045E5DF /* LCUserModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserModuleAPI.m; sourceTree = "<group>"; };
+		E67FFBDC1FCE63DB0045E5DF /* LCBaseResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCBaseResponseModel.h; sourceTree = "<group>"; };
+		E67FFBDD1FCE63DB0045E5DF /* LCBaseResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseResponseModel.m; sourceTree = "<group>"; };
+		E67FFBE11FCE98AF0045E5DF /* LCBaseMediaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCBaseMediaViewController.h; sourceTree = "<group>"; };
+		E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseMediaViewController.m; sourceTree = "<group>"; };
+		E67FFBE41FCEA81B0045E5DF /* LCUserMessageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageViewModel.h; sourceTree = "<group>"; };
+		E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageViewModel.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -992,6 +1004,10 @@
 			children = (
 				E67FFBD01FCD36350045E5DF /* LCWebViewController.h */,
 				E67FFBD11FCD36350045E5DF /* LCWebViewController.m */,
+				E67FFBDC1FCE63DB0045E5DF /* LCBaseResponseModel.h */,
+				E67FFBDD1FCE63DB0045E5DF /* LCBaseResponseModel.m */,
+				E67FFBE11FCE98AF0045E5DF /* LCBaseMediaViewController.h */,
+				E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1310,6 +1326,8 @@
 		E6D9A7E01FAFF97300894BB0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E67FFBD91FCE62770045E5DF /* LCUserModuleAPI.h */,
+				E67FFBDA1FCE62770045E5DF /* LCUserModuleAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1354,6 +1372,8 @@
 			children = (
 				E67FFBCC1FCCFAB70045E5DF /* LCUserMianViewModel.h */,
 				E67FFBCD1FCCFAB70045E5DF /* LCUserMianViewModel.m */,
+				E67FFBE41FCEA81B0045E5DF /* LCUserMessageViewModel.h */,
+				E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1672,8 +1692,10 @@
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
 				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
+				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/Qiniu/Qiniu.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
@@ -1685,8 +1707,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Qiniu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
@@ -1789,8 +1813,10 @@
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
 				E636A7FC1FC593BD00C9460F /* LCPostVoiceView.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
+				E67FFBDE1FCE63DB0045E5DF /* LCBaseResponseModel.m in Sources */,
 				E6C3F3F11FC155420077D670 /* LCHistoryLotteryTableViewCell.m in Sources */,
 				E636A8081FC5A04600C9460F /* LCGuessDetailVC.m in Sources */,
+				E67FFBE61FCEA81B0045E5DF /* LCUserMessageViewModel.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6C3F4121FC18BAF0077D670 /* LCGuessMainHeaderView.m in Sources */,
 				E61D2EC01FBAC3FF002005E3 /* LCUserMessageTableViewCell.m in Sources */,
@@ -1874,11 +1900,13 @@
 				E61D2EE81FBAF3CE002005E3 /* LCSpacePostTableViewCell.m in Sources */,
 				E6E2C6641FB0038600866D15 /* UISearchBar+Extend.m in Sources */,
 				95DDA69B1FBC892200686504 /* LCWalletHeaderView.m in Sources */,
+				E67FFBDB1FCE62770045E5DF /* LCUserModuleAPI.m in Sources */,
 				E6C3F3E01FC1232B0077D670 /* LCRankingPushTableViewCell.m in Sources */,
 				E61D2F331FBE87D4002005E3 /* LCTaskTableViewCell.m in Sources */,
 				E6C3F3C91FC0350C0077D670 /* LCContactServiceTableViewCell.m in Sources */,
 				95AF4EE71FB601590097B72D /* PopoverView.m in Sources */,
 				E6E2C6771FB0038600866D15 /* LSKBarnerScrollView.m in Sources */,
+				E67FFBE31FCE98AF0045E5DF /* LCBaseMediaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,5 +25,5 @@ View.layer.borderWidth = (Width);\
 View.layer.borderColor = (Color).CGColor\
 
 #define kUserMessageManager [LCUserMessageManager sharedLCUserMessageManager]
-
+static NSString * const kUserModule_HomeChangeMessageNotice = @"HomeChangeMessageNotice";
 #endif /* Config_h */

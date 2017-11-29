@@ -10,4 +10,6 @@
 
 @interface LCUserMianViewModel : LSKBaseViewModel
 - (void)loginOutClickEvent;
+@property (nonatomic, strong) UIImage *photoImage;
+- (void)updateUserPhoto;
 @end

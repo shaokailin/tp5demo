@@ -12,4 +12,5 @@ pod 'MJRefresh'
 pod 'TPKeyboardAvoiding'
 pod 'GPUImage'
 pod 'RSKImageCropper'
+pod 'Qiniu'
 end

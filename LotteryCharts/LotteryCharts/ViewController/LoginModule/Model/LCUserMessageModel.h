@@ -17,4 +17,6 @@
 @property (nonatomic, copy) NSString *sex;
 @property (nonatomic, copy) NSString *birthday;
 @property (nonatomic, copy) NSString *userId;
+@property (nonatomic, copy) NSString *logo;
+@property (nonatomic, copy) NSString *ymoney;
 @end

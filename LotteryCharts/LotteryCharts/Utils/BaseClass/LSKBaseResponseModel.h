@@ -12,3 +12,4 @@
 @property (nonatomic ,assign)   NSInteger code;
 @property (nonatomic ,copy)     NSString *message;
 @end
+

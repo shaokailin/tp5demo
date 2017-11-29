@@ -67,9 +67,18 @@
 }
 - (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem {
     _nameLbl.text = name;
-    _userIdLbl.text = NSStringFormat(@"我的ID:%@",userId);
+    _userIdLbl.text = NSStringFormat(@"他的ID:%@",userId);
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
+}
+- (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem {
+    _attentionLbl.text = attention;
+    _teamLbl.text = teem;
+}
+- (void)updateUserMessage {
+    _nameLbl.text = kUserMessageManager.nickName;
+    _userIdLbl.text = NSStringFormat(@"我的ID:%@",kUserMessageManager.userId);
+    [self changeUserPhoto:kUserMessageManager.logo];
 }
 - (void)isShowPunchCard:(BOOL)isShow {
     _punchBtn.hidden = !isShow;
@@ -200,7 +209,7 @@
         make.right.equalTo(view).with.offset(-5);
         make.left.equalTo(lineView.mas_right).with.offset(5);
     }];
-    UILabel *atentionLbl = [LSKViewFactory initializeLableWithText:nil font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
+    UILabel *atentionLbl = [LSKViewFactory initializeLableWithText:@"0" font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
     _attentionLbl = atentionLbl;
     [view addSubview:atentionLbl];
     [atentionLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -208,7 +217,7 @@
         make.top.equalTo(atentionTitleLbl.mas_bottom).with.offset(6);
     }];
     
-    UILabel *teemLbl = [LSKViewFactory initializeLableWithText:nil font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
+    UILabel *teemLbl = [LSKViewFactory initializeLableWithText:@"0" font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
     _teamLbl = teemLbl;
     [view addSubview:teemLbl];
     [teemLbl mas_makeConstraints:^(MASConstraintMaker *make) {

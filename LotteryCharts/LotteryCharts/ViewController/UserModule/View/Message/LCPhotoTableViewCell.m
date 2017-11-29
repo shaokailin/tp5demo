@@ -17,10 +17,22 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.userPhotoImage, 25);
+    self.userPhotoImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(changePhotoClick)];
+    [self.userPhotoImage addGestureRecognizer:tap];
 }
-- (void)setupUserPhoto:(NSString *)photoString {
-    if (KJudgeIsNullData(photoString)) {
-        [self.userPhotoImage sd_setImageWithURL:[NSURL URLWithString:photoString] placeholderImage:nil];
+- (void)changePhotoClick {
+    if (self.block) {
+        self.block(YES);
+    }
+}
+- (void)setupUserPhoto:(id)photoString {
+    if ([photoString isKindOfClass:[UIImage class]]) {
+        self.userPhotoImage.image = photoString;
+    }else {
+        if (KJudgeIsNullData(photoString)) {
+            [self.userPhotoImage sd_setImageWithURL:[NSURL URLWithString:photoString] placeholderImage:nil];
+        }
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

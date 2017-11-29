@@ -6,8 +6,8 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LSKBaseViewController.h"
+#import "LCBaseMediaViewController.h"
 
-@interface LCUserMainVC : LSKBaseViewController
+@interface LCUserMainVC : LCBaseMediaViewController
 
 @end

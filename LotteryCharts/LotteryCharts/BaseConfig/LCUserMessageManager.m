@@ -9,15 +9,13 @@
 #import "LCUserMessageManager.h"
 #import "SynthesizeSingleton.h"
 #import "LCUserMessageModel.h"
-static NSString * const kUserMessage_Token = @"user_token";
-static NSString * const kUserMessage_NickName = @"user_NickName";
-static NSString * const kUserMessage_Mchid = @"user_Mchid";
-static NSString * const kUserMessage_Money = @"user_Money";
+static NSString * const kUserMessage_Token = @"User_TOKENToken2";
+static NSString * const kUserMessage_Mchid = @"user_Mchid2";
 static NSString * const kUserMessage_Uid = @"user_Uid";
-static NSString * const kUserMessage_Mobile = @"user_Mobile";
-static NSString * const kUserMessage_Birthday = @"user_Birthday";
-static NSString * const kUserMessage_Sex = @"user_Sex";
-
+static NSString * const kUserMessage_Photo = @"user_Photo";
+static NSString * const kUserMessage_NickName = @"user_NickName2";
+static NSString * const kUserMessage_Money = @"user_Money2";
+static NSString * const kUserMessage_YMoney = @"user_YMoney2";
 @interface LCUserMessageManager ()
 {
     NSTimer *_codeTimer;
@@ -40,13 +38,40 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
 }
 - (void)getUserMessage {
     _token = [self getMessageManagerForObjectWithKey:kUserMessage_Token];
+    if ([self isLogin]) {
+        _logo = [self getMessageManagerForObjectWithKey:kUserMessage_Photo];
+        _userId = [self getMessageManagerForObjectWithKey:kUserMessage_Uid];
+        _nickName = [self getMessageManagerForObjectWithKey:kUserMessage_NickName];
+        _money = [self getMessageManagerForObjectWithKey:kUserMessage_Money];
+        
+    }
 }
-
+- (void)setMoney:(NSString *)money {
+    _money = money;
+    [self setMessageManagerForObjectWithKey:kUserMessage_Money value:money];
+}
+- (void)setYMoney:(NSString *)yMoney {
+    _yMoney = yMoney;
+    [self setMessageManagerForObjectWithKey:kUserMessage_YMoney value:yMoney];
+}
+- (void)setLogo:(NSString *)logo {
+    _logo = logo;
+    [self setMessageManagerForObjectWithKey:kUserMessage_Photo value:logo];
+}
+- (void)setNickName:(NSString *)nickName {
+    _nickName = nickName;
+    [self setMessageManagerForObjectWithKey:kUserMessage_NickName value:nickName];
+}
 - (BOOL)isLogin {
     return KJudgeIsNullData(self.token);
 }
 - (void)saveUserMessage:(LCUserMessageModel *)model {
     _token = model.token;
+    _userId = model.userId;
+    _logo = model.logo;
+    _nickName = model.nickname;
+    _money = model.money;
+    _yMoney = model.ymoney;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults setObject:model.token forKey:kUserMessage_Token];
     [userDefaults setObject:model.sex forKey:kUserMessage_Sex];
@@ -56,11 +81,18 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults setObject:model.money forKey:kUserMessage_Money];
     [userDefaults setObject:model.userId forKey:kUserMessage_Uid];
     [userDefaults setObject:model.mchid forKey:kUserMessage_Mchid];
+    [userDefaults setObject:model.logo forKey:kUserMessage_Photo];
+    [userDefaults setObject:model.ymoney forKey:kUserMessage_YMoney];
     [userDefaults synchronize];
     
 }
 - (void)removeUserMessage {
     _token = nil;
+    _userId = nil;
+    _logo = nil;
+    _nickName = nil;
+    _yMoney = nil;
+    _money = nil;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults removeObjectForKey:kUserMessage_Token];
     [userDefaults removeObjectForKey:kUserMessage_Sex];
@@ -70,6 +102,8 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults removeObjectForKey:kUserMessage_Money];
     [userDefaults removeObjectForKey:kUserMessage_Uid];
     [userDefaults removeObjectForKey:kUserMessage_Mchid];
+    [userDefaults removeObjectForKey:kUserMessage_Photo];
+    [userDefaults removeObjectForKey:kUserMessage_YMoney];
     [userDefaults synchronize];
 }
 #pragma mark 定时器

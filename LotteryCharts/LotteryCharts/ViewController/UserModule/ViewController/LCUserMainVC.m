@@ -24,7 +24,7 @@
 #import "LCAttentionMainVC.h"
 #import "LCUserMianViewModel.h"
 static NSString * const kSettingName = @"UserHomeSetting";
-@interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
+@interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
     NSArray *_settingArray;
     NSInteger _editImageType;
@@ -44,6 +44,10 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self initializeMainView];
     [self bindSignal];
+    [self addNotificationWithSelector:@selector(updateUserMessage) name:kUserModule_HomeChangeMessageNotice];
+}
+- (void)updateUserMessage {
+    [self.headerView updateUserMessage];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -68,8 +72,16 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [alter show];
 }
 - (void)bindSignal {
+    @weakify(self)
     _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        
+        @strongify(self)
+        if (identifier == 1) {
+            if (_editImageType == 1) {
+                [self.headerView changeBgImage:self.viewModel.photoImage];
+            }else if (_editImageType == 2) {
+                [self.headerView changeUserPhoto:self.viewModel.photoImage];
+            }
+        }
     } failure:nil];
 }
 - (void)headerViewClickEvent:(NSInteger)type {
@@ -202,7 +214,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     headerView.punchBlock = ^(NSInteger type) {
         [ws headerViewClickEvent:type];
     };
-    [headerView setupContentWithName:@"凯先生" userid:@"123456" attention:@"123" teem:@"123"];
+    [headerView updateUserMessage];
     UIView *footView = [[UIView alloc]init];
     footView.backgroundColor = ColorHexadecimal(kMainBackground_Color, 1.0);
     footView.frame = CGRectMake(0, 0, SCREEN_WIDTH, 88);
@@ -220,60 +232,17 @@ static NSString * const kSettingName = @"UserHomeSetting";
 }
 
 #pragma mark 拍照
-- (void)takeCameraPhoto {
-    [LSKImageManager isAvailableSelectAVCapture:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-        if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-            UIImagePickerController *imagePick = [[UIImagePickerController alloc]init];
-            imagePick.delegate = self;
-            imagePick.allowsEditing = YES;
-            imagePick.sourceType = sourceType;
-            [self presentViewController:imagePick animated:YES completion:^{
-                
-            }];
-        }
-    }];
-}
-
-- (void)takeLocationImage {
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        UIImagePickerController *imagePick = [[UIImagePickerController alloc]init];
-        imagePick.delegate = self;
-        imagePick.sourceType = sourceType;
-        [self presentViewController:imagePick animated:YES completion:^{
-            
-        }];
+- (void)selectImage:(UIImage *)image {
+    RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:image cropMode:RSKImageCropModeSquare];
+    imageCropVC.delegate = self;
+    if (_editImageType == 1) {
+        imageCropVC.portraitSquareMaskRectInnerEdgeInset = 0;
+    }else {
+        imageCropVC.portraitSquareMaskRectInnerEdgeInset = (SCREEN_WIDTH - 260) / 2.0;
     }
+    imageCropVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:imageCropVC animated:NO];
 }
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
-    if ( [type isEqualToString:@"public.image"] )
-    {
-        __strong UIImage *image=nil;
-        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-        {
-            image=[info objectForKey:UIImagePickerControllerEditedImage];
-        }else
-        {
-            image=[info objectForKey:UIImagePickerControllerOriginalImage];
-        }
-        [picker dismissViewControllerAnimated:NO completion:^{
-        }];
-        RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:image cropMode:RSKImageCropModeSquare];
-        imageCropVC.delegate = self;
-        if (_editImageType == 1) {
-            imageCropVC.portraitSquareMaskRectInnerEdgeInset = 0;
-        }else {
-            imageCropVC.portraitSquareMaskRectInnerEdgeInset = (SCREEN_WIDTH - 260) / 2.0;
-        }
-        imageCropVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:imageCropVC animated:NO];
-    }
-}
-
-
 #pragma mark - RSKImageCropViewControllerDelegate
 
 - (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller
@@ -281,21 +250,13 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
-    if (_editImageType == 1) {
-        [self.headerView changeBgImage:croppedImage];
-    }else if (_editImageType == 2) {
-        [self.headerView changeUserPhoto:croppedImage];
-    }
+    self.viewModel.photoImage = croppedImage;
+    [self.viewModel updateUserPhoto];
     [self.navigationController popViewControllerAnimated:YES];
 
 }
 
 
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:^{
-    }];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
