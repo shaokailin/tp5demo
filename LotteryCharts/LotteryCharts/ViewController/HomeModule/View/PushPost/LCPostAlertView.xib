@@ -110,6 +110,7 @@
                 <constraint firstItem="vYb-Gz-WIN" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="fuT-Dl-klD"/>
             </constraints>
             <connections>
+                <outlet property="alertBtn" destination="KMg-xd-2TE" id="cGB-B0-c20"/>
                 <outlet property="bgView" destination="vYb-Gz-WIN" id="VH7-Ct-Wf9"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="101.5"/>

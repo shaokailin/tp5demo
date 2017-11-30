@@ -9,6 +9,7 @@
 #import "LCPostAlertView.h"
 @interface LCPostAlertView ()
 @property (weak, nonatomic) IBOutlet UIView *bgView;
+@property (weak, nonatomic) IBOutlet UIButton *alertBtn;
 
 @end
 @implementation LCPostAlertView
@@ -26,9 +27,16 @@
 }
 - (IBAction)buttonClick:(id)sender {
     UIButton *btn = (UIButton *)sender;
-    if (self.alertBlock) {
-        self.alertBlock(btn.tag - 300);
+    NSInteger tag = btn.tag - 300;
+    if (tag == 1) {
+        if (self.alertBlock) {
+            if (self.alertBtn.selected) {
+                [kUserMessageManager setMessageManagerForBoolWithKey:kPushPost_Alter value:YES];
+            }
+            self.alertBlock(tag);
+        }
     }
+    
     [self removeFromSuperview];
 }
 

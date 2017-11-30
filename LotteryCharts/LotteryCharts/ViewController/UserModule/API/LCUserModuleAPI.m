@@ -8,9 +8,12 @@
 
 #import "LCUserModuleAPI.h"
 #import "LCBaseResponseModel.h"
+#import "LCUserHomeMessageModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
+static NSString * const kUserMessage = @"User/getMy.html";
+static NSString * const kUserSign = @"User/sign.html";
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -30,6 +33,20 @@ static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kUpdateMessage;
     entity.params = @{@"token":kUserMessageManager.token,@"logo":photoUrl,@"sex":sex,@"nickname":nickname,@"birthday":birthday};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getUsermModuleMessage {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUserMessage;
+    entity.params = @{@"token":kUserMessageManager.token};
+    entity.responseObject = [LCUserHomeMessageModel class];
+    return entity;
+}
++ (LSKParamterEntity *)userSignEvent {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUserSign;
+    entity.params = @{@"token":kUserMessageManager.token};
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }

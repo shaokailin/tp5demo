@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 typedef void (^ShowTypeBlock)(NSInteger type);
 @interface LCPostShowTypeView : UIView
+@property (nonatomic, assign) NSInteger currentShow;
 @property (nonatomic, copy) ShowTypeBlock typeBlock;
 @property (weak, nonatomic) IBOutlet UITextField *moneyFied;
 @end

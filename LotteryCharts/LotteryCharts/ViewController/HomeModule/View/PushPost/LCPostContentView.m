@@ -7,14 +7,15 @@
 //
 
 #import "LCPostContentView.h"
+#import <AVFoundation/AVFoundation.h>
+#import "LCPublicMethod.h"
 @interface LCPostContentView ()
-@property (nonatomic, strong) NSMutableArray *photoArray;
 @property (nonatomic, weak) UILabel *placeHoldLbl;
 @property (nonatomic, weak) UIButton *takeImageBtn;
 @property (nonatomic, weak) UIButton *takeVoiceBtn;
 @property (nonatomic, weak) UILabel *timeLbl;
 @property (nonatomic, weak) UIButton *delectVoiceBtn;
-@property (nonatomic, assign) BOOL isVoice;
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @end
 @implementation LCPostContentView
 
@@ -45,7 +46,22 @@
         if (self.mediaBlock) {
             self.mediaBlock(1);
         }
+    }else {
+        if (_audioPlayer && [_audioPlayer isPlaying]) {
+            return;
+        }
+        [self.audioPlayer play];
     }
+}
+- (AVAudioPlayer *)audioPlayer {
+    if (!_audioPlayer) {
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+        NSError *error;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[LCPublicMethod getRecordUrl] error:&error];
+        _audioPlayer.numberOfLoops = 0;
+    }
+    return _audioPlayer;
 }
 - (void)addImage:(UIImage *)image {
     if (self.frame.size.height != 276 && self.isVoice) {
@@ -114,7 +130,9 @@
     NSInteger tag = btn.tag - 400;
     [self.photoArray removeObjectAtIndex:tag];
     [self setupImageView];
-    
+    if (self.mediaDelectBlock) {
+        self.mediaDelectBlock(0, tag);
+    }
     if (self.photoArray.count == 0) {
         self.takeImageBtn.hidden = NO;
         if (self.frame.size.height != 230) {
@@ -138,10 +156,11 @@
     }
 }
 
-- (void)addVoice:(id)voice {
+- (void)addVoice:(NSInteger)time {
     self.isVoice = YES;
     self.delectVoiceBtn.hidden = NO;
-    self.timeLbl.text = @"45'";
+    self.timeString = time;
+    self.timeLbl.text = NSStringFormat(@"%zd'",time);
     [self.takeVoiceBtn setImage:ImageNameInit(@"voice_icon") forState:UIControlStateNormal];
     if (self.frame.size.height != 276 && self.isVoice && self.photoArray.count > 0) {
         if (self.frameBlock) {
@@ -171,6 +190,9 @@
     self.isVoice = NO;
     self.delectVoiceBtn.hidden = YES;
     self.timeLbl.text = nil;
+    if (self.mediaDelectBlock) {
+        self.mediaDelectBlock(1, 0);
+    }
     [self.takeVoiceBtn setImage:ImageNameInit(@"takeVoice") forState:UIControlStateNormal];
     if (self.frame.size.height != 230 ) {
         if (self.frameBlock) {
@@ -299,5 +321,10 @@
     delectBtn.tag = 400 + flag;
     [imageView addSubview:delectBtn];
     return imageView;
+}
+- (void)dealloc {
+    if (_audioPlayer && [_audioPlayer isPlaying]) {
+        [_audioPlayer stop];
+    }
 }
 @end

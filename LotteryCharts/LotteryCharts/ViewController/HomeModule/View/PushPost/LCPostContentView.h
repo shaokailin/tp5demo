@@ -9,12 +9,17 @@
 #import <UIKit/UIKit.h>
 typedef void (^ContentFrameBlock)(CGFloat height);
 typedef void (^ContentMediaBlock)(NSInteger type);
+typedef void (^ContentMediaDelectBlock)(NSInteger type,NSInteger index);
 @interface LCPostContentView : UIView
+@property (nonatomic, strong) NSMutableArray *photoArray;
+@property (nonatomic, assign) BOOL isVoice;
+@property (nonatomic, assign) NSInteger timeString;
 @property (nonatomic, copy) ContentFrameBlock frameBlock;
 @property (nonatomic, copy) ContentMediaBlock mediaBlock;
+@property (nonatomic, copy) ContentMediaDelectBlock mediaDelectBlock;
 @property (nonatomic, assign, getter=isCanTakePhoto) BOOL canTakePhoto;
 @property (nonatomic, weak) UITextField *titleField;
 @property (nonatomic, weak) UITextView *contentTextView;
 - (void)addImage:(UIImage *)image;
-- (void)addVoice:(id)voice;
+- (void)addVoice:(NSInteger)time;
 @end

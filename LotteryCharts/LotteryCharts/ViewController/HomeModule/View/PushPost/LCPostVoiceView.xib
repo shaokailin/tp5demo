@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m9a-LI-ddO">
-                    <rect key="frame" x="150.5" y="296" width="75" height="75"/>
+                    <rect key="frame" x="150.5" y="266" width="75" height="75"/>
                     <color key="backgroundColor" red="0.36078431372549019" green="0.36078431372549019" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="75" id="XLn-bf-fbx"/>
@@ -25,7 +25,7 @@
                     <state key="normal" image="white_voice"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按录音，松开停止" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yq-V7-VKh">
-                    <rect key="frame" x="133" y="381" width="110.5" height="14.5"/>
+                    <rect key="frame" x="133" y="351" width="110.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -33,7 +33,7 @@
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="m9a-LI-ddO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Q1O-Ih-qGj"/>
+                <constraint firstItem="m9a-LI-ddO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-30" id="Q1O-Ih-qGj"/>
                 <constraint firstItem="m9a-LI-ddO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z1o-6X-tzd"/>
                 <constraint firstItem="7yq-V7-VKh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z89-H3-xcC"/>
                 <constraint firstItem="7yq-V7-VKh" firstAttribute="top" secondItem="m9a-LI-ddO" secondAttribute="bottom" constant="10" id="ueJ-0z-pLE"/>

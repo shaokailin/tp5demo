@@ -126,7 +126,6 @@
 		E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */; };
 		E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */; };
 		E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */; };
-		E66BA5301FC6CDFC00FE4FCF /* LCUserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */; };
 		E67FFBCE1FCCFAB70045E5DF /* LCUserMianViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBCD1FCCFAB70045E5DF /* LCUserMianViewModel.m */; };
 		E67FFBD21FCD36350045E5DF /* LCWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBD11FCD36350045E5DF /* LCWebViewController.m */; };
 		E67FFBD51FCD4D910045E5DF /* LCPushGuessViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBD41FCD4D910045E5DF /* LCPushGuessViewModel.m */; };
@@ -135,6 +134,12 @@
 		E67FFBDE1FCE63DB0045E5DF /* LCBaseResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBDD1FCE63DB0045E5DF /* LCBaseResponseModel.m */; };
 		E67FFBE31FCE98AF0045E5DF /* LCBaseMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */; };
 		E67FFBE61FCEA81B0045E5DF /* LCUserMessageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */; };
+		E67FFBE91FCF9FC30045E5DF /* LCPublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBE81FCF9FC30045E5DF /* LCPublicMethod.m */; };
+		E67FFBEC1FCFDC180045E5DF /* LCPushPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBEB1FCFDC180045E5DF /* LCPushPostViewModel.m */; };
+		E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBEE1FCFEFD60045E5DF /* LCHomeModuleAPI.m */; };
+		E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF11FD002F00045E5DF /* LCUserHomeMessageModel.m */; };
+		E67FFBF51FD0030D0045E5DF /* LCUserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */; };
+		E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF71FD003B50045E5DF /* LCUserLoginMessageModel.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -412,8 +417,6 @@
 		E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginModuleAPI.m; sourceTree = "<group>"; };
 		E66BA52B1FC6ABC700FE4FCF /* LCLoginMainModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginMainModel.h; sourceTree = "<group>"; };
 		E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginMainModel.m; sourceTree = "<group>"; };
-		E66BA52E1FC6CDFC00FE4FCF /* LCUserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageModel.h; sourceTree = "<group>"; };
-		E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageModel.m; sourceTree = "<group>"; };
 		E67FFBCC1FCCFAB70045E5DF /* LCUserMianViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMianViewModel.h; sourceTree = "<group>"; };
 		E67FFBCD1FCCFAB70045E5DF /* LCUserMianViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMianViewModel.m; sourceTree = "<group>"; };
 		E67FFBD01FCD36350045E5DF /* LCWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWebViewController.h; sourceTree = "<group>"; };
@@ -430,6 +433,18 @@
 		E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCBaseMediaViewController.m; sourceTree = "<group>"; };
 		E67FFBE41FCEA81B0045E5DF /* LCUserMessageViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageViewModel.h; sourceTree = "<group>"; };
 		E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageViewModel.m; sourceTree = "<group>"; };
+		E67FFBE71FCF9FC30045E5DF /* LCPublicMethod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicMethod.h; sourceTree = "<group>"; };
+		E67FFBE81FCF9FC30045E5DF /* LCPublicMethod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicMethod.m; sourceTree = "<group>"; };
+		E67FFBEA1FCFDC180045E5DF /* LCPushPostViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPushPostViewModel.h; sourceTree = "<group>"; };
+		E67FFBEB1FCFDC180045E5DF /* LCPushPostViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPushPostViewModel.m; sourceTree = "<group>"; };
+		E67FFBED1FCFEFD60045E5DF /* LCHomeModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeModuleAPI.h; sourceTree = "<group>"; };
+		E67FFBEE1FCFEFD60045E5DF /* LCHomeModuleAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeModuleAPI.m; sourceTree = "<group>"; };
+		E67FFBF01FD002F00045E5DF /* LCUserHomeMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeMessageModel.h; sourceTree = "<group>"; };
+		E67FFBF11FD002F00045E5DF /* LCUserHomeMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeMessageModel.m; sourceTree = "<group>"; };
+		E67FFBF31FD0030D0045E5DF /* LCUserMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageModel.h; sourceTree = "<group>"; };
+		E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageModel.m; sourceTree = "<group>"; };
+		E67FFBF61FD003B50045E5DF /* LCUserLoginMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserLoginMessageModel.h; sourceTree = "<group>"; };
+		E67FFBF71FD003B50045E5DF /* LCUserLoginMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserLoginMessageModel.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1008,6 +1023,8 @@
 				E67FFBDD1FCE63DB0045E5DF /* LCBaseResponseModel.m */,
 				E67FFBE11FCE98AF0045E5DF /* LCBaseMediaViewController.h */,
 				E67FFBE21FCE98AF0045E5DF /* LCBaseMediaViewController.m */,
+				E67FFBE71FCF9FC30045E5DF /* LCPublicMethod.h */,
+				E67FFBE81FCF9FC30045E5DF /* LCPublicMethod.m */,
 			);
 			path = Public;
 			sourceTree = "<group>";
@@ -1209,6 +1226,8 @@
 		E6D9A7D41FAFF97300894BB0 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E67FFBED1FCFEFD60045E5DF /* LCHomeModuleAPI.h */,
+				E67FFBEE1FCFEFD60045E5DF /* LCHomeModuleAPI.m */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -1237,6 +1256,8 @@
 		E6D9A7D81FAFF97300894BB0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E67FFBEA1FCFDC180045E5DF /* LCPushPostViewModel.h */,
+				E67FFBEB1FCFDC180045E5DF /* LCPushPostViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1267,8 +1288,8 @@
 			children = (
 				E66BA52B1FC6ABC700FE4FCF /* LCLoginMainModel.h */,
 				E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */,
-				E66BA52E1FC6CDFC00FE4FCF /* LCUserMessageModel.h */,
-				E66BA52F1FC6CDFC00FE4FCF /* LCUserMessageModel.m */,
+				E67FFBF61FD003B50045E5DF /* LCUserLoginMessageModel.h */,
+				E67FFBF71FD003B50045E5DF /* LCUserLoginMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1335,6 +1356,10 @@
 		E6D9A7E11FAFF97300894BB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E67FFBF01FD002F00045E5DF /* LCUserHomeMessageModel.h */,
+				E67FFBF11FD002F00045E5DF /* LCUserHomeMessageModel.m */,
+				E67FFBF31FD0030D0045E5DF /* LCUserMessageModel.h */,
+				E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1781,9 +1806,9 @@
 				E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
+				E67FFBF51FD0030D0045E5DF /* LCUserMessageModel.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
-				E66BA5301FC6CDFC00FE4FCF /* LCUserMessageModel.m in Sources */,
 				E61D2F481FBEBB67002005E3 /* LCTeamTableViewCell.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
 				E636A8161FC5A65800C9460F /* LCPostCommentTableViewCell.m in Sources */,
@@ -1799,15 +1824,18 @@
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */,
 				E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */,
+				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
 				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,
 				E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
+				E67FFBE91FCF9FC30045E5DF /* LCPublicMethod.m in Sources */,
 				E61D2ECC1FBAD6A2002005E3 /* LCAboutUsVC.m in Sources */,
 				95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */,
 				E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */,
 				E67FFBD81FCD4FA00045E5DF /* LCGuessModuleAPI.m in Sources */,
+				E67FFBEC1FCFDC180045E5DF /* LCPushPostViewModel.m in Sources */,
 				95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */,
 				E6C3F41A1FC2C5CA0077D670 /* LCForgetPWDVC.m in Sources */,
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
@@ -1854,8 +1882,10 @@
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
+				E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */,
 				E6C3F3CF1FC04CD10077D670 /* LCRankingMainVC.m in Sources */,
 				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
+				E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */,
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E61D2F401FBEB97D002005E3 /* LCTeamMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,

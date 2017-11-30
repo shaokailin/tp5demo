@@ -9,7 +9,7 @@
 #import "LCLoginViewModel.h"
 #import "LCLoginModuleAPI.h"
 #import "LCLoginMainModel.h"
-#import "LCUserMessageModel.h"
+#import "LCUserLoginMessageModel.h"
 #import "AppDelegate.h"
 @interface LCLoginViewModel ()
 @property (nonatomic, strong) RACCommand *loginCommand;
@@ -103,13 +103,13 @@
             @strongify(self)
             return [self requestWithPropertyEntity:[LCLoginModuleAPI getUserMessageForLogin:self.userToken]];
         }];
-        [_getUserMessageCommand.executionSignals.flatten subscribeNext:^(LCUserMessageModel *model) {
+        [_getUserMessageCommand.executionSignals.flatten subscribeNext:^(LCUserLoginMessageModel *model) {
             @strongify(self)
             
             if (model.code == 200) {
                 [SKHUD dismiss];
-                model.token = self.userToken;
-                [kUserMessageManager saveUserMessage:model];
+                model.response.token = self.userToken;
+                [kUserMessageManager saveUserMessage:model.response];
                 [self sendSuccessResult:0 model:nil];
                 [((AppDelegate *)[UIApplication sharedApplication].delegate) changeLoginState];
             }else {

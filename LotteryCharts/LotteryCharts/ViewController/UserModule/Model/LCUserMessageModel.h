@@ -2,13 +2,13 @@
 //  LCUserMessageModel.h
 //  LotteryCharts
 //
-//  Created by hsPlan on 2017/11/23.
+//  Created by hsPlan on 2017/11/30.
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LSKBaseResponseModel.h"
+#import <Foundation/Foundation.h>
 
-@interface LCUserMessageModel : LSKBaseResponseModel
+@interface LCUserMessageModel : NSObject
 @property (nonatomic, copy) NSString *mobile;
 @property (nonatomic, copy) NSString *mchid;
 @property (nonatomic, copy) NSString *token;
@@ -19,4 +19,5 @@
 @property (nonatomic, copy) NSString *userId;
 @property (nonatomic, copy) NSString *logo;
 @property (nonatomic, copy) NSString *ymoney;
+@property (nonatomic, copy) NSString *smoney;
 @end

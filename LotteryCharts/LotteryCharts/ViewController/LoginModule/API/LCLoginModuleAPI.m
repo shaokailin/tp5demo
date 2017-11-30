@@ -8,7 +8,7 @@
 
 #import "LCLoginModuleAPI.h"
 #import "LCLoginMainModel.h"
-#import "LCUserMessageModel.h"
+#import "LCUserLoginMessageModel.h"
 static NSString * const kSendCodeApi = @"Public/sendCode.html";
 static NSString * const kRegisterUserApi = @"Public/reg.html";
 static NSString * const kLoginUserApi = @"Public/login.html";
@@ -63,7 +63,7 @@ static NSString * const kGetUserMessage = @"User/getUserInfo.html";
 + (LSKParamterEntity *)getUserMessageForLogin:(NSString *)token {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kGetUserMessage;
-    entity.responseObject = [LCUserMessageModel class];
+    entity.responseObject = [LCUserLoginMessageModel class];
     entity.params = @{@"token":token};
     return entity;
 }

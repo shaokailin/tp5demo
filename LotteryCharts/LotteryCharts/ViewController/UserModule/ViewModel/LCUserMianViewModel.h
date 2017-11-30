@@ -7,8 +7,11 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCUserHomeMessageModel.h"
 @interface LCUserMianViewModel : LSKBaseViewModel
+@property (nonatomic, strong) LCUserHomeMessageModel *messageModel;
+- (void)getUserMessage;
+- (void)userSignClickEvent;
 - (void)loginOutClickEvent;
 @property (nonatomic, strong) UIImage *photoImage;
 - (void)updateUserPhoto;

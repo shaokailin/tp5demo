@@ -17,6 +17,11 @@
     self.bgView.layer.borderWidth = 1.0;
     self.bgView.layer.borderColor = ColorHexadecimal(0xc9c9c9, 1.0).CGColor;
 }
+- (IBAction)pushClick:(id)sender {
+    if (self.pushBlock) {
+        self.pushBlock(YES);
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

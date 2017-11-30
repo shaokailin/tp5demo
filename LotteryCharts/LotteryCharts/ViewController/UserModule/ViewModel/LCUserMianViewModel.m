@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "LCBaseResponseModel.h"
 #import "QiniuSDK.h"
+#import "LCUserHomeMessageModel.h"
 @interface LCUserMianViewModel()
 @property (nonatomic, strong) RACCommand *loginOutCommand;
 @property (nonatomic, strong) RACCommand *mediaTokenCommand;
@@ -20,8 +21,59 @@
 @property (nonatomic, strong) QNUploadManager *upManager;
 @property (nonatomic, strong) RACCommand *updatePhotoCommand;
 @property (nonatomic, copy) NSString *mediaUrl;
+@property (nonatomic, strong) RACCommand *userMessageCommand;
+@property (nonatomic, strong) RACCommand *signCommand;
 @end
 @implementation LCUserMianViewModel
+- (void)getUserMessage {
+    [SKHUD showLoadingDotInWindow];
+    [self.userMessageCommand execute:nil];
+}
+- (RACCommand *)userMessageCommand {
+    if (!_userMessageCommand) {
+        @weakify(self)
+        _userMessageCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getUsermModuleMessage]];
+        }];
+        [_userMessageCommand.executionSignals.flatten subscribeNext:^(LCUserHomeMessageModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                model.user_info.token = kUserMessageManager.token;
+                [kUserMessageManager saveUserMessage:model.user_info];
+                self.messageModel = model;
+                [self sendSuccessResult:0 model:nil];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _userMessageCommand;
+}
+- (void)userSignClickEvent {
+    [SKHUD showLoadingDotInWindow];
+    [self.signCommand execute:nil];
+}
+- (RACCommand *)signCommand {
+    if (!_signCommand) {
+        @weakify(self)
+        _signCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI userSignEvent]];
+        }];
+        [_signCommand.executionSignals.flatten subscribeNext:^(LCUserHomeMessageModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD showMessageInView:self.currentView withMessage:@"签到成功"];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _signCommand;
+}
+#pragma mark 退出登录
 - (void)loginOutClickEvent {
     [SKHUD showLoadingDotInWindow];
     [self.loginOutCommand execute:nil];
@@ -47,7 +99,7 @@
     return _loginOutCommand;
 }
 
-
+#pragma mark - 更新头像
 - (void)updateUserPhoto {
     [SKHUD showLoadingDotInWindow];
     [self.mediaTokenCommand execute:nil];
@@ -109,4 +161,7 @@
     }
     return _updatePhotoCommand;
 }
+
+
+
 @end

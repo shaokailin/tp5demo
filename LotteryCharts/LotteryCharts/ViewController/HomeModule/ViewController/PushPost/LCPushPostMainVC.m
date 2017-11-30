@@ -11,16 +11,17 @@
 #import "LCPostShowTypeView.h"
 #import "LCPostContentView.h"
 #import "TPKeyboardAvoidingScrollView.h"
-#import "LSKImageManager.h"
-#import "RSKImageCropper.h"
 #import <AVFoundation/AVFoundation.h>
 #import "LCPostVoiceView.h"
 #import "LCPostAlertView.h"
-@interface LCPushPostMainVC ()<UIImagePickerControllerDelegate,UINavigationControllerDelegate,RSKImageCropViewControllerDelegate>
+#import "LCPushPostViewModel.h"
+@interface LCPushPostMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCPostContentView *contentView;
 @property (nonatomic, weak) LCPostShowTypeView *typeView;
 @property (nonatomic, weak) LCPostTopView *bottonView;
+@property (nonatomic, strong) LCPostVoiceView *voiceView;
+@property (nonatomic, strong) LCPushPostViewModel *viewModel;
 @end
 
 @implementation LCPushPostMainVC
@@ -34,20 +35,40 @@
     [self bindSignal];
 }
 - (void)pushPost {
-    LCPostAlertView *alertView = [[[NSBundle mainBundle] loadNibNamed:@"LCPostAlertView" owner:self options:nil] lastObject];
-    alertView.alertBlock = ^(NSInteger clickIndex) {
-        if (clickIndex == 1) {
-            [self navigationBackClick];
-        }
-    };
-    UIWindow *window = [UIApplication sharedApplication].keyWindow;
-    [window addSubview:alertView];
-    [alertView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(window);
-    }];
+    BOOL isAlert = [kUserMessageManager getMessageManagerForBoolWithKey:kPushPost_Alter];
+    if (!isAlert) {
+        @weakify(self)
+        LCPostAlertView *alertView = [[[NSBundle mainBundle] loadNibNamed:@"LCPostAlertView" owner:self options:nil] lastObject];
+        alertView.alertBlock = ^(NSInteger clickIndex) {
+            if (clickIndex == 1) {
+                @strongify(self)
+                [self pushPostClick];
+            }
+        };
+        UIWindow *window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:alertView];
+        [alertView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(window);
+        }];
+    }else {
+        [self pushPostClick];
+    }
+}
+- (void)pushPostClick {
+    self.viewModel.showType = self.typeView.currentShow;
+    self.viewModel.showMoney = self.typeView.moneyFied.text;
+    self.viewModel.isVoice = self.contentView.isVoice;
+    self.viewModel.imageArray = self.contentView.photoArray;
+    self.viewModel.time = self.contentView.timeString;
+    [self.viewModel pushPostActionEvent];
 }
 - (void)bindSignal {
     @weakify(self)
+    _viewModel = [[LCPushPostViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.navigationController popViewControllerAnimated:YES];
+    } failure:nil];
+    
     self.typeView.typeBlock = ^(NSInteger type) {
         @strongify(self)
         [self.view endEditing:YES];
@@ -64,11 +85,14 @@
             [self.typeView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(height);
             }];
+             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, height + 184 + CGRectGetHeight(self.contentView.frame) + 30);
         }
     };
     self.contentView.frameBlock = ^(CGFloat height) {
+        @strongify(self)
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(height);
+             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetHeight(self.typeView.frame) + 184 + height + 30);
         }];
     };
     self.contentView.mediaBlock = ^(NSInteger type) {
@@ -79,26 +103,64 @@
             [sheetView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
                 @strongify(self)
                 if ([x integerValue] == 0) {
-//                    [self takeCameraPhoto];
-                    [self.contentView addImage:ImageNameInit(@"takeImage")];
+                    [self takeCameraPhoto];
                 }else if ([x integerValue] == 1){
-//                    [self takeLocationImage];
-                     [self.contentView addImage:ImageNameInit(@"takeImage")];
+                    [self takeLocationImage];
                 }
             }];
             [sheetView showInView:self.view];
         }else {
-            LCPostVoiceView *voiceView = [[[NSBundle mainBundle] loadNibNamed:@"LCPostVoiceView" owner:self options:nil] lastObject];
-            voiceView.voiceBlock = ^(NSString *time) {
-                @strongify(self)
-                [self.contentView addVoice:nil];
-            };
-             [self.view addSubview:voiceView];
-            [voiceView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self.view);
-            }];
+            AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+            [audioSession setCategory:AVAudioSessionCategoryPlayAndRecord error:nil];
+            [audioSession setActive:YES error:nil];
+            if ([audioSession respondsToSelector:@selector(requestRecordPermission:)]) {
+                [audioSession performSelector:@selector(requestRecordPermission:) withObject:^(BOOL granted) {
+                    if (granted) {
+                        // Microphone enabled code
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            self.voiceView.hidden = NO;
+                        });
+                    }
+                    else {
+                        UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"提示" message:@"应用尚未获取访问麦克风的权限,如需使用请到系统设置->隐私->麦克风中开启" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+                        [alter show];
+                    }
+                }];
+            }
         }
     };
+    
+    self.contentView.mediaDelectBlock = ^(NSInteger type, NSInteger index) {
+        @strongify(self)
+        [self.viewModel delectMedia:type index:index];
+    };
+    _viewModel.titleSignal = self.contentView.titleField.rac_textSignal;
+    _viewModel.contentSignal = self.contentView.contentTextView.rac_textSignal;
+    _viewModel.vipSignal = self.bottonView.moneyFied.rac_textSignal;
+    [_viewModel bindPushPostSignal];
+    self.bottonView.pushBlock = ^(BOOL isPush) {
+        @strongify(self)
+        [self pushPost];
+    };
+}
+- (void)selectImage:(UIImage *)image {
+    [self.contentView addImage:image];
+}
+- (LCPostVoiceView *)voiceView {
+    if (!_voiceView) {
+        _voiceView = [[[NSBundle mainBundle] loadNibNamed:@"LCPostVoiceView" owner:self options:nil] lastObject];
+        @weakify(self)
+        _voiceView.voiceBlock = ^(NSInteger time) {
+            @strongify(self)
+            [self.contentView addVoice:time];
+        };
+        [self.view addSubview:_voiceView];
+        WS(ws)
+        [_voiceView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(ws.view);
+        }];
+    }
+    return _voiceView;
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"发布" target:self action:@selector(pushPost)];
@@ -142,74 +204,7 @@
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 107 + 184 + 230 + 30);
 }
 
-#pragma mark 拍照
-- (void)takeCameraPhoto {
-    [LSKImageManager isAvailableSelectAVCapture:AVMediaTypeVideo completionHandler:^(BOOL granted) {
-        UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
-        if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-            UIImagePickerController *imagePick = [[UIImagePickerController alloc]init];
-            imagePick.delegate = self;
-            imagePick.allowsEditing = YES;
-            imagePick.sourceType = sourceType;
-            [self presentViewController:imagePick animated:YES completion:^{
-                
-            }];
-        }
-    }];
-}
 
-- (void)takeLocationImage {
-    UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
-        UIImagePickerController *imagePick = [[UIImagePickerController alloc]init];
-        imagePick.delegate = self;
-        imagePick.sourceType = sourceType;
-        [self presentViewController:imagePick animated:YES completion:^{
-            
-        }];
-    }
-}
--(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
-    if ( [type isEqualToString:@"public.image"] )
-    {
-        __strong UIImage *image=nil;
-        if (picker.sourceType == UIImagePickerControllerSourceTypeCamera)
-        {
-            image=[info objectForKey:UIImagePickerControllerEditedImage];
-        }else
-        {
-            image=[info objectForKey:UIImagePickerControllerOriginalImage];
-        }
-        [picker dismissViewControllerAnimated:NO completion:^{
-        }];
-        RSKImageCropViewController *imageCropVC = [[RSKImageCropViewController alloc] initWithImage:image cropMode:RSKImageCropModeCustom];
-        imageCropVC.delegate = self;
-        imageCropVC.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:imageCropVC animated:NO];
-    }
-}
-
-
-#pragma mark - RSKImageCropViewControllerDelegate
-
-- (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
-- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
-    [self.contentView addImage:croppedImage];
-    [self.navigationController popViewControllerAnimated:YES];
-    
-}
-
-
--(void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
-{
-    [picker dismissViewControllerAnimated:YES completion:^{
-    }];
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

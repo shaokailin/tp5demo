@@ -13,4 +13,8 @@
 + (LSKParamterEntity *)updateUserPhoto:(NSString *)url;
 
 + (LSKParamterEntity *)updateUserMessage:(NSString *)photoUrl sex:(NSString *)sex nickname:(NSString *)nickname birthday:(NSString *)birthday;
+
++ (LSKParamterEntity *)getUsermModuleMessage;
+
++ (LSKParamterEntity *)userSignEvent;
 @end

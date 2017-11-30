@@ -23,11 +23,13 @@
 #import "LCContactMainVC.h"
 #import "LCAttentionMainVC.h"
 #import "LCUserMianViewModel.h"
+
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
     NSArray *_settingArray;
     NSInteger _editImageType;
+    NSInteger _jumpViewType;
     
 }
 @property (nonatomic, weak) UITableView *mainTableView;
@@ -41,10 +43,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _jumpViewType = -1;
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self initializeMainView];
     [self bindSignal];
     [self addNotificationWithSelector:@selector(updateUserMessage) name:kUserModule_HomeChangeMessageNotice];
+    
 }
 - (void)updateUserMessage {
     [self.headerView updateUserMessage];
@@ -73,7 +77,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 }
 - (void)bindSignal {
     @weakify(self)
-    _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+    _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, LCUserHomeMessageModel *model) {
         @strongify(self)
         if (identifier == 1) {
             if (_editImageType == 1) {
@@ -81,8 +85,18 @@ static NSString * const kSettingName = @"UserHomeSetting";
             }else if (_editImageType == 2) {
                 [self.headerView changeUserPhoto:self.viewModel.photoImage];
             }
+        }else {
+            [self.headerView setupContentWithAttention:model.follow_count teem:model.team_count];
+            [self updateUserMessage];
+            if (_jumpViewType != -1) {
+                [self jumpEvent];
+            }
         }
     } failure:nil];
+    [self.viewModel getUserMessage];
+}
+- (void)jumpEvent {
+    
 }
 - (void)headerViewClickEvent:(NSInteger)type {
     if (type < 3) {
@@ -100,7 +114,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
         [sheetView showInView:self.view];
         
     }else if(type == 3) {
-        [SKHUD showMessageInView:self.view withMessage:@"打卡"];
+        [self.viewModel userSignClickEvent];
     }else if (type == 4){
         LCAttentionMainVC *attentionVC = [[LCAttentionMainVC alloc]init];
         attentionVC.hidesBottomBarWhenPushed = YES;

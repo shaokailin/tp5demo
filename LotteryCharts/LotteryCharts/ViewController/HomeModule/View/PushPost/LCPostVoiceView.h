@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^VoiceBlock)(NSString *time);
+typedef void (^VoiceBlock)(NSInteger time);
 @interface LCPostVoiceView : UIView
 @property (nonatomic, copy) VoiceBlock voiceBlock;
 @end

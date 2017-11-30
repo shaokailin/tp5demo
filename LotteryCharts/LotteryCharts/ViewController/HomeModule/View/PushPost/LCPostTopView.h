@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^PushBlock)(BOOL isPush);
 @interface LCPostTopView : UIView
+@property (nonatomic, copy) PushBlock pushBlock;
 @property (weak, nonatomic) IBOutlet UITextField *moneyFied;
 
 @end

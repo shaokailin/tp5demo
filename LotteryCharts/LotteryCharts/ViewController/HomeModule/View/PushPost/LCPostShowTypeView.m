@@ -8,9 +8,7 @@
 
 #import "LCPostShowTypeView.h"
 @interface LCPostShowTypeView ()
-{
-    NSInteger _currentShow;
-}
+
 @property (weak, nonatomic) IBOutlet UIView *bgView;
 @property (weak, nonatomic) IBOutlet UILabel *alertLbl;
 @end
