@@ -7,7 +7,6 @@
 //
 
 #import "LSKBannerImageView.h"
-#import "UIImageView+WebCache.h"
 @interface LSKBannerImageView ()
 {
     UIImage *_placeHolderImage;

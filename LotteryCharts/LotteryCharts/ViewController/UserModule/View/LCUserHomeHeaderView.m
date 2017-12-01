@@ -8,7 +8,6 @@
 
 #import "LCUserHomeHeaderView.h"
 #import "GPUImage.h"
-#import "UIImageView+WebCache.h"
 @implementation LCUserHomeHeaderView
 {
     UIImageView *_userPhotoImageView;

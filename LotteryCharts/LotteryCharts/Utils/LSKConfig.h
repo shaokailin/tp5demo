@@ -9,7 +9,7 @@
 #ifndef LSKConfig_h
 #define LSKConfig_h
 //分页大小
-static const NSInteger PAGE_SIZE_NUMBER = 15;
+static const NSInteger PAGE_SIZE_NUMBER = 10;
 //支持 @“0x888888,1.0” 前面颜色，后面透明度
 //LSKActionSheet的字体颜色
 static NSString * const kActionSheetText_Color = @"0x333333";

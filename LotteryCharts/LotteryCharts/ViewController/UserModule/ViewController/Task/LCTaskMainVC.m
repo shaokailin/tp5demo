@@ -10,10 +10,12 @@
 #import "LCTaskHeaderView.h"
 #import "LCTaskTableViewCell.h"
 #import "LSKImageManager.h"
+#import "LCTaskViewModel.h"
 @interface LCTaskMainVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) LCTaskHeaderView *headerView;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
+@property (nonatomic, strong) LCTaskViewModel *viewModel;
 @end
 
 @implementation LCTaskMainVC
@@ -25,6 +27,7 @@
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -36,6 +39,15 @@
         _homeNaviBgImage = [LSKImageManager imageWithColor:ColorHexadecimal(0xeeeeee, 0.1) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)];
     }
     return _homeNaviBgImage;
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCTaskViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.headerView setupMoney:self.viewModel.taskModel.all_money];
+        [self.mainTableView reloadData];
+        
+    } failure:nil];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,9 +84,12 @@
 }
 - (NSString *)returnRightTitle:(NSInteger)index {
     NSString *title = nil;
+    if (!self.viewModel.taskModel) {
+        return nil;
+    }
     switch (index) {
         case 0:
-            title = @"已完成100%";
+            title = NSStringFormat(@"已完成%@%%",self.viewModel.taskModel.fish_ing);
             break;
         case 1:
         case 2:
@@ -105,7 +120,7 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
-    [header setupMoney:@"500001"];
+    [header setupMoney:@"0"];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

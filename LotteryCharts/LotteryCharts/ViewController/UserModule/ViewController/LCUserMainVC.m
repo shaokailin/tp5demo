@@ -86,7 +86,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
                 [self.headerView changeUserPhoto:self.viewModel.photoImage];
             }
         }else {
-            [self.headerView setupContentWithAttention:model.follow_count teem:model.team_count];
+            [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count];
             [self updateUserMessage];
             if (_jumpViewType != -1) {
                 [self jumpEvent];
@@ -97,6 +97,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 }
 - (void)jumpEvent {
     
+    _jumpViewType = -1;
 }
 - (void)headerViewClickEvent:(NSInteger)type {
     if (type < 3) {

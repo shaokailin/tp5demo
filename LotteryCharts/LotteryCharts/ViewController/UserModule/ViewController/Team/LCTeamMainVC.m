@@ -10,6 +10,7 @@
 #import "LCTeamHeaderView.h"
 #import "LCTeamTableViewCell.h"
 #import "LSKImageManager.h"
+#import "LCTeamViewModel.h"
 @interface LCTeamMainVC ()
 {
     NSInteger _showType;
@@ -18,6 +19,7 @@
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, weak) LCTeamHeaderView *headerView;
+@property (nonatomic, strong) LCTeamViewModel *viewModel;
 @end
 
 @implementation LCTeamMainVC
@@ -29,6 +31,7 @@
     self.title = @"我的团队";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
     
 }
 - (void)viewWillAppear:(BOOL)animated {
@@ -49,20 +52,66 @@
     }
     return _homeNaviBgImage;
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCTeamViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 0) {
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.teamArray.count];
+        }else if (identifier == 1){
+            LCTeamCountModel *model1 = (LCTeamCountModel *)model;
+            [self.headerView setupContentWithLineCount:model1.onlinecount allCount:model1.teamcount];
+        }else {
+            [self.headerView setupContentWithLineCount:@"0" allCount:model];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (identifier == 0) {
+            if (self.viewModel.page == 0) {
+                [self.mainTableView reloadData];
+            }
+            [self endRefreshing];
+        }else {
+            [self.headerView setupContentWithLineCount:@"0" allCount:@"0"];
+        }
+    }];
+    [_viewModel bindSinal];
+    [self getMessage];
+}
+- (void)getMessage {
+    _viewModel.page = 0;
+    _viewModel.showType = _showType;
+    [_viewModel getTeamList:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    _viewModel.page = 0;
+    [_viewModel getTeamList:YES];
 }
 - (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    _viewModel.page += 1;
+    [_viewModel getTeamList:YES];
 }
 - (void)changeShowClick:(NSInteger)type {
-    _showType = type;
-    [self.headerView setupContentWithLineCount:@"12" allCount:@"30"];
-    [self.mainTableView reloadData];
+    if (_showType != type) {
+        _showType = type;
+        [self getMessage];
+    }
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel) {
+        return _viewModel.teamArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCTeamTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCTeamTableViewCell];

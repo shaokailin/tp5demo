@@ -140,6 +140,13 @@
 		E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF11FD002F00045E5DF /* LCUserHomeMessageModel.m */; };
 		E67FFBF51FD0030D0045E5DF /* LCUserMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */; };
 		E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67FFBF71FD003B50045E5DF /* LCUserLoginMessageModel.m */; };
+		E694502A1FD0F55C00605793 /* LCUserAttentionViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450291FD0F55C00605793 /* LCUserAttentionViewModel.m */; };
+		E694502D1FD0F96800605793 /* LCAttentionListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E694502C1FD0F96800605793 /* LCAttentionListModel.m */; };
+		E69450301FD1337700605793 /* LCTeamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E694502F1FD1337700605793 /* LCTeamViewModel.m */; };
+		E69450361FD13D4000605793 /* LCTeamListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450351FD13D4000605793 /* LCTeamListModel.m */; };
+		E69450391FD1422D00605793 /* LCTeamCountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450381FD1422D00605793 /* LCTeamCountModel.m */; };
+		E694503C1FD14F9500605793 /* LCTaskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E694503B1FD14F9500605793 /* LCTaskViewModel.m */; };
+		E69450421FD1502300605793 /* LCTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450411FD1502300605793 /* LCTaskModel.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -445,6 +452,20 @@
 		E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageModel.m; sourceTree = "<group>"; };
 		E67FFBF61FD003B50045E5DF /* LCUserLoginMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserLoginMessageModel.h; sourceTree = "<group>"; };
 		E67FFBF71FD003B50045E5DF /* LCUserLoginMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserLoginMessageModel.m; sourceTree = "<group>"; };
+		E69450281FD0F55C00605793 /* LCUserAttentionViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserAttentionViewModel.h; sourceTree = "<group>"; };
+		E69450291FD0F55C00605793 /* LCUserAttentionViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserAttentionViewModel.m; sourceTree = "<group>"; };
+		E694502B1FD0F96800605793 /* LCAttentionListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAttentionListModel.h; sourceTree = "<group>"; };
+		E694502C1FD0F96800605793 /* LCAttentionListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAttentionListModel.m; sourceTree = "<group>"; };
+		E694502E1FD1337700605793 /* LCTeamViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTeamViewModel.h; sourceTree = "<group>"; };
+		E694502F1FD1337700605793 /* LCTeamViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTeamViewModel.m; sourceTree = "<group>"; };
+		E69450341FD13D4000605793 /* LCTeamListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTeamListModel.h; sourceTree = "<group>"; };
+		E69450351FD13D4000605793 /* LCTeamListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTeamListModel.m; sourceTree = "<group>"; };
+		E69450371FD1422D00605793 /* LCTeamCountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTeamCountModel.h; sourceTree = "<group>"; };
+		E69450381FD1422D00605793 /* LCTeamCountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTeamCountModel.m; sourceTree = "<group>"; };
+		E694503A1FD14F9500605793 /* LCTaskViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTaskViewModel.h; sourceTree = "<group>"; };
+		E694503B1FD14F9500605793 /* LCTaskViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTaskViewModel.m; sourceTree = "<group>"; };
+		E69450401FD1502300605793 /* LCTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTaskModel.h; sourceTree = "<group>"; };
+		E69450411FD1502300605793 /* LCTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTaskModel.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1360,6 +1381,14 @@
 				E67FFBF11FD002F00045E5DF /* LCUserHomeMessageModel.m */,
 				E67FFBF31FD0030D0045E5DF /* LCUserMessageModel.h */,
 				E67FFBF41FD0030D0045E5DF /* LCUserMessageModel.m */,
+				E694502B1FD0F96800605793 /* LCAttentionListModel.h */,
+				E694502C1FD0F96800605793 /* LCAttentionListModel.m */,
+				E69450341FD13D4000605793 /* LCTeamListModel.h */,
+				E69450351FD13D4000605793 /* LCTeamListModel.m */,
+				E69450371FD1422D00605793 /* LCTeamCountModel.h */,
+				E69450381FD1422D00605793 /* LCTeamCountModel.m */,
+				E69450401FD1502300605793 /* LCTaskModel.h */,
+				E69450411FD1502300605793 /* LCTaskModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1399,6 +1428,12 @@
 				E67FFBCD1FCCFAB70045E5DF /* LCUserMianViewModel.m */,
 				E67FFBE41FCEA81B0045E5DF /* LCUserMessageViewModel.h */,
 				E67FFBE51FCEA81B0045E5DF /* LCUserMessageViewModel.m */,
+				E69450281FD0F55C00605793 /* LCUserAttentionViewModel.h */,
+				E69450291FD0F55C00605793 /* LCUserAttentionViewModel.m */,
+				E694502E1FD1337700605793 /* LCTeamViewModel.h */,
+				E694502F1FD1337700605793 /* LCTeamViewModel.m */,
+				E694503A1FD14F9500605793 /* LCTaskViewModel.h */,
+				E694503B1FD14F9500605793 /* LCTaskViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1794,6 +1829,7 @@
 				E61D2EE31FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.m in Sources */,
 				E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */,
 				E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */,
+				E69450391FD1422D00605793 /* LCTeamCountModel.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				E67FFBD21FCD36350045E5DF /* LCWebViewController.m in Sources */,
 				95DDA6A91FBC89A200686504 /* LCWalletTitleTableViewCell.m in Sources */,
@@ -1812,6 +1848,7 @@
 				E61D2F481FBEBB67002005E3 /* LCTeamTableViewCell.m in Sources */,
 				E6E2C66D1FB0038600866D15 /* LSKPublicMethodUtil.m in Sources */,
 				E636A8161FC5A65800C9460F /* LCPostCommentTableViewCell.m in Sources */,
+				E69450421FD1502300605793 /* LCTaskModel.m in Sources */,
 				E6BFCC721FB96F9800AE1FE2 /* PopoverViewCell.m in Sources */,
 				E61D2ED21FBADFF3002005E3 /* LCMySpaceMainVC.m in Sources */,
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
@@ -1832,6 +1869,7 @@
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
 				E67FFBE91FCF9FC30045E5DF /* LCPublicMethod.m in Sources */,
 				E61D2ECC1FBAD6A2002005E3 /* LCAboutUsVC.m in Sources */,
+				E69450361FD13D4000605793 /* LCTeamListModel.m in Sources */,
 				95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */,
 				E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */,
 				E67FFBD81FCD4FA00045E5DF /* LCGuessModuleAPI.m in Sources */,
@@ -1843,6 +1881,7 @@
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
 				E67FFBDE1FCE63DB0045E5DF /* LCBaseResponseModel.m in Sources */,
 				E6C3F3F11FC155420077D670 /* LCHistoryLotteryTableViewCell.m in Sources */,
+				E694503C1FD14F9500605793 /* LCTaskViewModel.m in Sources */,
 				E636A8081FC5A04600C9460F /* LCGuessDetailVC.m in Sources */,
 				E67FFBE61FCEA81B0045E5DF /* LCUserMessageViewModel.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
@@ -1886,6 +1925,7 @@
 				E6C3F3CF1FC04CD10077D670 /* LCRankingMainVC.m in Sources */,
 				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
 				E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */,
+				E694502D1FD0F96800605793 /* LCAttentionListModel.m in Sources */,
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E61D2F401FBEB97D002005E3 /* LCTeamMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,
@@ -1912,6 +1952,8 @@
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E61D2EED1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.m in Sources */,
+				E694502A1FD0F55C00605793 /* LCUserAttentionViewModel.m in Sources */,
+				E69450301FD1337700605793 /* LCTeamViewModel.m in Sources */,
 				E6C3F3D61FC059F60077D670 /* LCVipRankingTableViewCell.m in Sources */,
 				E636A81A1FC5A67400C9460F /* LCPostDetailHeaderView.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,

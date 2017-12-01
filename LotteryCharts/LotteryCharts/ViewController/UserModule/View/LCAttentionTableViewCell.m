@@ -24,10 +24,13 @@
     ViewBoundsRadius(self.photoImageView, 20);
 }
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount{
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo]];
+    }
     self.nameLbl.text = name;
-    self.userIdLbl.text = userId;
-    self.glodLbl.text = glodCount;
-    self.yinbiLbl.text = ybcount;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
+    self.glodLbl.text = NSStringFormat(@"金币:%@",glodCount);
+    self.yinbiLbl.text = NSStringFormat(@"银币:%@",ybcount);;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
