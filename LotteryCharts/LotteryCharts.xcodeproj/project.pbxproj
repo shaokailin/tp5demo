@@ -147,6 +147,7 @@
 		E69450391FD1422D00605793 /* LCTeamCountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450381FD1422D00605793 /* LCTeamCountModel.m */; };
 		E694503C1FD14F9500605793 /* LCTaskViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E694503B1FD14F9500605793 /* LCTaskViewModel.m */; };
 		E69450421FD1502300605793 /* LCTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450411FD1502300605793 /* LCTaskModel.m */; };
+		E69450451FD2487100605793 /* LCExchangeMoneyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E69450441FD2487100605793 /* LCExchangeMoneyViewModel.m */; };
 		E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */; };
 		E6BFCC6D1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */; };
 		E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6BFCC6F1FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m */; };
@@ -466,6 +467,8 @@
 		E694503B1FD14F9500605793 /* LCTaskViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTaskViewModel.m; sourceTree = "<group>"; };
 		E69450401FD1502300605793 /* LCTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCTaskModel.h; sourceTree = "<group>"; };
 		E69450411FD1502300605793 /* LCTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCTaskModel.m; sourceTree = "<group>"; };
+		E69450431FD2487100605793 /* LCExchangeMoneyViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCExchangeMoneyViewModel.h; sourceTree = "<group>"; };
+		E69450441FD2487100605793 /* LCExchangeMoneyViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCExchangeMoneyViewModel.m; sourceTree = "<group>"; };
 		E6BFCC691FB96EC100AE1FE2 /* LCUserHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserHomeTableViewCell.h; sourceTree = "<group>"; };
 		E6BFCC6A1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserHomeTableViewCell.m; sourceTree = "<group>"; };
 		E6BFCC6B1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCUserHomeTableViewCell.xib; sourceTree = "<group>"; };
@@ -1434,6 +1437,8 @@
 				E694502F1FD1337700605793 /* LCTeamViewModel.m */,
 				E694503A1FD14F9500605793 /* LCTaskViewModel.h */,
 				E694503B1FD14F9500605793 /* LCTaskViewModel.m */,
+				E69450431FD2487100605793 /* LCExchangeMoneyViewModel.h */,
+				E69450441FD2487100605793 /* LCExchangeMoneyViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1919,6 +1924,7 @@
 				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,
 				E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
+				E69450451FD2487100605793 /* LCExchangeMoneyViewModel.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
 				E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */,

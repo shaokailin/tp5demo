@@ -22,6 +22,7 @@ static NSString * const kUserMessage_Mobile = @"user_Mobile";
 @property (nonatomic, copy) NSString *nickName;
 @property (nonatomic, copy) NSString *money;
 @property (nonatomic, copy) NSString *yMoney;
+@property (nonatomic, copy) NSString *sMoney;
 - (void)removeUserMessage;
 - (void)saveUserMessage:(LCUserMessageModel *)model;
 

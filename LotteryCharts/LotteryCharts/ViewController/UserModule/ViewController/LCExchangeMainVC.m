@@ -7,7 +7,7 @@
 //
 
 #import "LCExchangeMainVC.h"
-
+#import "LCExchangeMoneyViewModel.h"
 @interface LCExchangeMainVC ()<UITextFieldDelegate>
 {
     BOOL _isChange;
@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UILabel *yinbiLbl;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
-
+@property (nonatomic, strong) LCExchangeMoneyViewModel *viewModel;
 @end
 
 @implementation LCExchangeMainVC
@@ -27,6 +27,7 @@
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -38,20 +39,28 @@
     [super viewDidAppear:animated];
     _isChange = YES;
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCExchangeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        
+    } failure:nil];
+    
+    [[self.moneyField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {
+        @strongify(self)
+        self.viewModel.glodMoney = x;
+        NSInteger number = [x integerValue];
+        self.yinbiLbl.text = NSStringFormat(@"%zd银币",number * 100);
+    }];
+}
 - (void)initializeMainView {
     ViewRadius(self.sureBtn, 5.0);
-    @weakify(self)
-    [[self.moneyField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {
-        NSInteger number = [x integerValue];
-        @strongify(self)
-        self.yinbiLbl.text = NSStringFormat(@"%zd银币",number * 1000);
-    }];
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
 }
 - (IBAction)sureClick:(id)sender {
     [self.view endEditing:YES];
+    [self.viewModel glodExchangeSilverEvent];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

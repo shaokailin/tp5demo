@@ -33,6 +33,10 @@
     [self initializeMainView];
     
 }
+- (void)updateUserMessage {
+    [self.headerView setupMoney:kUserMessageManager.sMoney];
+    [self.mainTableView reloadData];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
@@ -61,7 +65,7 @@
     }else {
         LCWalletMoneyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCWalletMoneyTableViewCell];
         NSString *title = indexPath.row == 2? @"我的金币" : @"我的银币";
-        NSString *detail = indexPath.row == 2? @"12,234.00" : @"234,222.00";
+        NSString *detail = indexPath.row == 2? kUserMessageManager.money : kUserMessageManager.yMoney;
         [cell setupCellContentWithTitle:title money:detail];
         return cell;
     }
@@ -108,6 +112,7 @@
     header.headerBlock = ^(NSInteger type) {
         [ws jumpWithdrawVC];
     };
+     [self.headerView setupMoney:kUserMessageManager.sMoney];
 }
 
 

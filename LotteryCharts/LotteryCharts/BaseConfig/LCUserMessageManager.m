@@ -16,6 +16,7 @@ static NSString * const kUserMessage_Photo = @"user_Photo";
 static NSString * const kUserMessage_NickName = @"user_NickName2";
 static NSString * const kUserMessage_Money = @"user_Money2";
 static NSString * const kUserMessage_YMoney = @"user_YMoney2";
+static NSString * const kUserMessage_SMoney = @"user_SMoney2";
 @interface LCUserMessageManager ()
 {
     NSTimer *_codeTimer;
@@ -43,6 +44,8 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _userId = [self getMessageManagerForObjectWithKey:kUserMessage_Uid];
         _nickName = [self getMessageManagerForObjectWithKey:kUserMessage_NickName];
         _money = [self getMessageManagerForObjectWithKey:kUserMessage_Money];
+        _yMoney = [self getMessageManagerForObjectWithKey:kUserMessage_YMoney];
+        _sMoney = [self getMessageManagerForObjectWithKey:kUserMessage_SMoney];
         
     }
 }
@@ -53,6 +56,10 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
 - (void)setYMoney:(NSString *)yMoney {
     _yMoney = yMoney;
     [self setMessageManagerForObjectWithKey:kUserMessage_YMoney value:yMoney];
+}
+- (void)setSMoney:(NSString *)sMoney {
+    _sMoney = sMoney;
+    [self setMessageManagerForObjectWithKey:kUserMessage_SMoney value:sMoney];
 }
 - (void)setLogo:(NSString *)logo {
     _logo = logo;
@@ -72,6 +79,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _nickName = model.nickname;
     _money = model.money;
     _yMoney = model.ymoney;
+    _sMoney = model.smoney;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults setObject:model.token forKey:kUserMessage_Token];
     [userDefaults setObject:model.sex forKey:kUserMessage_Sex];
@@ -83,6 +91,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults setObject:model.mchid forKey:kUserMessage_Mchid];
     [userDefaults setObject:model.logo forKey:kUserMessage_Photo];
     [userDefaults setObject:model.ymoney forKey:kUserMessage_YMoney];
+    [userDefaults setObject:model.smoney forKey:kUserMessage_SMoney];
     [userDefaults synchronize];
     
 }
@@ -93,6 +102,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _nickName = nil;
     _yMoney = nil;
     _money = nil;
+    _sMoney = nil;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults removeObjectForKey:kUserMessage_Token];
     [userDefaults removeObjectForKey:kUserMessage_Sex];

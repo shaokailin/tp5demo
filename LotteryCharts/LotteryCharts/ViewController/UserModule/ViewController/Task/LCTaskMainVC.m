@@ -48,6 +48,7 @@
         [self.mainTableView reloadData];
         
     } failure:nil];
+    [_viewModel getTaskMessage];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -92,8 +93,14 @@
             title = NSStringFormat(@"已完成%@%%",self.viewModel.taskModel.fish_ing);
             break;
         case 1:
+            title = self.viewModel.taskModel.is_share == 1? @"已回帖":@"未回帖";
+            break;
         case 2:
+            title = self.viewModel.taskModel.is_sign == 1? @"已签到":@"未签到";
+            break;
         case 3:
+            title = NSStringFormat(@"已签到%zd人",self.viewModel.taskModel.all_sign);
+            break;
         case 4:
             title = @"获取1银币";
             break;

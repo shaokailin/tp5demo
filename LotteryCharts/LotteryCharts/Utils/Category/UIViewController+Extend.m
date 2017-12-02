@@ -23,11 +23,7 @@
     
 }
 - (void)addNavigationRightButton:(UIBarButtonItem *)tRightButton {
-    if ([LSKPublicMethodUtil getiOSSystemVersion] >= 11) {
-        self.navigationItem.rightBarButtonItem = tRightButton;
-    }else {
-        self.navigationItem.rightBarButtonItems = @[[UIBarButtonItem initBarButtonItemSpace],tRightButton];
-    }
+    self.navigationItem.rightBarButtonItem = tRightButton;
 }
 - (void)addNavigationLeftButtons:(NSArray<UIBarButtonItem *> *)leftButtons {
     if (leftButtons && leftButtons.count > 0) {
@@ -41,12 +37,7 @@
 }
 - (void)addNavigationRightButtons:(NSArray<UIBarButtonItem *> *)rightButtons {
     if (rightButtons && rightButtons.count > 0) {
-        NSMutableArray *buttons = [rightButtons mutableCopy];
-        if ([LSKPublicMethodUtil getiOSSystemVersion] >= 11) {
-        }else {
-            [buttons insertObject:[UIBarButtonItem initBarButtonItemSpace] atIndex:0];
-        }
-        self.navigationItem.rightBarButtonItems = buttons;
+        self.navigationItem.rightBarButtonItems = rightButtons;
     }
 }
 @end
