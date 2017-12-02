@@ -9,6 +9,6 @@
 #import "LSKBaseViewModel.h"
 
 @interface LCExchangeMoneyViewModel : LSKBaseViewModel
-@property (nonatomic, copy) NSString *glodMoney;
+@property (nonatomic, assign) NSInteger glodMoney;
 - (void)glodExchangeSilverEvent;
 @end

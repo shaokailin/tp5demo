@@ -25,4 +25,6 @@
 + (LSKParamterEntity *)getUserSignCount;
 
 + (LSKParamterEntity *)getTaskMessage;
+
++ (LSKParamterEntity *)glodExchangeSilver:(NSInteger)money;
 @end

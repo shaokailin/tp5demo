@@ -24,6 +24,7 @@ static NSString * const kSignList = @"User/myTeamSign.html";
 static NSString * const kTeamLineCount = @"User/getOnlineTeamCount.html";
 static NSString * const kSignCount = @"User/getMyTeamSignCount.html";
 static NSString * const kTaskMessage = @"User/myTask.html";
+static NSString * const kExchangeSilver = @"User/jinChangeYin.html";
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -98,6 +99,13 @@ static NSString * const kTaskMessage = @"User/myTask.html";
     entity.requestApi = kTaskMessage;
     entity.params = @{@"token":kUserMessageManager.token};
     entity.responseObject = [LCTaskModel class];
+    return entity;
+}
++ (LSKParamterEntity *)glodExchangeSilver:(NSInteger)money {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kExchangeSilver;
+    entity.params = @{@"token":kUserMessageManager.token,@"jinbinum":@(money)};
+    entity.responseObject = [LCBaseResponseModel class];
     return entity;
 }
 @end

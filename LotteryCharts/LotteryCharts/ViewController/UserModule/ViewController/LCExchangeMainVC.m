@@ -47,8 +47,8 @@
     
     [[self.moneyField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {
         @strongify(self)
-        self.viewModel.glodMoney = x;
         NSInteger number = [x integerValue];
+        self.viewModel.glodMoney = number;
         self.yinbiLbl.text = NSStringFormat(@"%zd银币",number * 100);
     }];
 }
