@@ -16,6 +16,9 @@
 #import "LCSpacePostListModel.h"
 #import "LCSpacePostModel.h"
 #import "LCSpaceGuessListModel.h"
+#import "LCSpaceSendRecordListModel.h"
+#import "LCSpaceSendRankingListModel.h"
+#import "LCSpaceSendRecrdMoreListModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
@@ -156,14 +159,14 @@ static NSString * const kSendRankingList = @"Mch/getSmoneyPaiHang.html";
     }else if (showType == 2) {
         if (page == 0) {
             entity.requestApi = kSendRecordFirstList;
-            entity.responseObject = [LCSpacePostListModel class];
+            entity.responseObject = [LCSpaceSendRecordListModel class];
         }else {
             entity.requestApi = kSendRecordList;
-            entity.responseObject = [LCSpacePostModel class];
+            entity.responseObject = [LCSpaceSendRecrdMoreListModel class];
         }
     }else {
         entity.requestApi = kSendRankingList;
-        entity.responseObject = [LCSpaceGuessListModel class];
+        entity.responseObject = [LCSpaceSendRankingListModel class];
     }
     entity.params = @{@"mchid":userId,@"p":@(page),@"token":kUserMessageManager.token};
     return entity;
