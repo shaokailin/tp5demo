@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="moneyField" destination="dNY-or-seQ" id="cek-Ob-vJX"/>
                 <outlet property="moneyLbl" destination="7Ht-2C-K6F" id="xPq-If-FIF"/>
+                <outlet property="payTypeBgView" destination="fde-0u-iBE" id="XiZ-5O-JnA"/>
                 <outlet property="sureBtn" destination="ZYq-fZ-OtS" id="SXT-EG-rAw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -138,7 +139,7 @@
                         <constraint firstAttribute="height" constant="45" id="Vpp-TD-Oz2"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                    <state key="normal" title="立即支付">
+                    <state key="normal" title="立即提现">
                         <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                     <connections>
@@ -180,6 +181,7 @@
                 <constraint firstItem="fde-0u-iBE" firstAttribute="top" secondItem="kK5-IJ-hCZ" secondAttribute="bottom" constant="10" id="zJq-R5-4uO"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+            <point key="canvasLocation" x="104.5" y="131.5"/>
         </view>
     </objects>
     <resources>

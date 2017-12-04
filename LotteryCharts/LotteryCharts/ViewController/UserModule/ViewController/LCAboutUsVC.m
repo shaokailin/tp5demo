@@ -35,7 +35,7 @@
     self.title = @"关于彩神榜";
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
-    [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:@"share_icon" target:self action:@selector(shareClick)];
+//    [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:@"share_icon" target:self action:@selector(shareClick)];
     [self initializeMainView];
 }
 - (void)initializeMainView {

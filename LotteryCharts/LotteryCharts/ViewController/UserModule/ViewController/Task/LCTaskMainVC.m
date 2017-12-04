@@ -11,6 +11,9 @@
 #import "LCTaskTableViewCell.h"
 #import "LSKImageManager.h"
 #import "LCTaskViewModel.h"
+#import "LCUserMessageVC.h"
+#import "LCRankingMainVC.h"
+#import "LCTeamMainVC.h"
 @interface LCTaskMainVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) LCTaskHeaderView *headerView;
 @property (nonatomic, weak) UITableView *mainTableView;
@@ -52,7 +55,7 @@
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 4;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCTaskTableViewCell];
@@ -111,7 +114,21 @@
     return title;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+    if (indexPath.row == 0) {
+        LCUserMessageVC *message = [[LCUserMessageVC alloc]init];
+        [self.navigationController pushViewController:message animated:YES];
+    }else if (indexPath.row == 1) {
+        LCRankingMainVC *ranking = [[LCRankingMainVC alloc]init];
+        ranking.isChangeNavi = YES;
+        [self.navigationController pushViewController:ranking animated:YES];
+    }else if (indexPath.row == 2){
+#warning 跳转签到
+        LCUserMessageVC *message = [[LCUserMessageVC alloc]init];
+        [self.navigationController pushViewController:message animated:YES];
+    }else {
+        LCTeamMainVC *team = [[LCTeamMainVC alloc]init];
+        [self.navigationController pushViewController:team animated:YES];
+    }
 }
 #pragma makr -view
 - (void)initializeMainView {

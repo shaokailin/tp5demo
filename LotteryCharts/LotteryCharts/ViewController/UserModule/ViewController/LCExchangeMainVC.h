@@ -7,7 +7,5 @@
 //
 
 #import "LSKBaseViewController.h"
-typedef void (^ExchangeSuccess)(BOOL isSuccess);
 @interface LCExchangeMainVC : LSKBaseViewController
-@property (nonatomic, copy) ExchangeSuccess success;
 @end

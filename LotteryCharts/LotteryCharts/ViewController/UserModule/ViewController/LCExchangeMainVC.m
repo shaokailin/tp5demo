@@ -42,7 +42,7 @@
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCExchangeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kWallet_Change_Notice object:nil];
     } failure:nil];
     
     [[self.moneyField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {

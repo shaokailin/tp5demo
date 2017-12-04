@@ -8,6 +8,8 @@
 
 #import "LCWithdrawMainVC.h"
 #import "LCWithdrawRecordVC.h"
+#import "LCContactMainVC.h"
+#import "LCWithdrawViewModel.h"
 @interface LCWithdrawMainVC ()<UITextFieldDelegate>
 {
     BOOL _isChange;
@@ -15,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
-
+@property (weak, nonatomic) IBOutlet UIView *payTypeBgView;
+@property (strong, nonatomic) LCWithdrawViewModel *viewModel;
 @end
 
 @implementation LCWithdrawMainVC
@@ -28,6 +31,19 @@
     [self addNavigationBackButton];
     [self addRightNavigationButtonWithTitle:@"记录" target:self action:@selector(showRecordVC)];
     [self initializeMainView];
+    self.payTypeBgView.hidden = YES;
+    [self updateMessage];
+    [self bindSignal];
+}
+- (void)bindSignal {
+    _viewModel = [[LCWithdrawViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        
+    } failure:nil];
+    _viewModel.moneySignal = self.moneyField.rac_textSignal;
+    [_viewModel bindSignal];
+}
+- (void)updateMessage {
+    self.moneyLbl.text = NSStringFormat(@"￥%@",kUserMessageManager.sMoney);
 }
 - (void)viewDidAppear:(BOOL)animated {
     _isChange = YES;
@@ -41,9 +57,12 @@
 
 - (IBAction)surePayClick:(id)sender {
     [self.moneyField resignFirstResponder];
+    [self.viewModel widthdrawActionEvent];
 }
 - (IBAction)contactServiceClick:(id)sender {
     [self.moneyField resignFirstResponder];
+    LCContactMainVC *contact = [[LCContactMainVC alloc]init];
+    [self.navigationController pushViewController:contact animated:YES];
 }
 
 - (void)showRecordVC {

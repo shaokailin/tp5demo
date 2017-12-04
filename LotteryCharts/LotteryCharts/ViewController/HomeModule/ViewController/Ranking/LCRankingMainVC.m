@@ -26,6 +26,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"彩神榜";
+    if (self.isChangeNavi) {
+        [self backToNornalNavigationColor];
+    }
     [self addNavigationBackButton];
     [self initializeMainView];
 }

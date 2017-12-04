@@ -31,6 +31,7 @@
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self addNotificationWithSelector:@selector(updateUserMessage) name:kWallet_Change_Notice];
     
 }
 - (void)updateUserMessage {

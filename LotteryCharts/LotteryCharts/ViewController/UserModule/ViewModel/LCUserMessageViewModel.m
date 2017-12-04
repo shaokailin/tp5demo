@@ -24,7 +24,7 @@
         _mediaUrl = kUserMessageManager.logo;
         _nameString = kUserMessageManager.nickName;
         _sexString = [[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Sex] isEqualToString:@"男"] == YES ? 0:1;
-        _birthday = [kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Birthday];
+        _birthday = [[NSDate dateWithTimeIntervalSince1970:[[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Birthday]floatValue]]dateTransformToString:@"yyyy/MM/dd"];
     }
     return self;
 }
@@ -97,7 +97,7 @@
         @weakify(self)
         _updateMessageCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCUserModuleAPI updateUserMessage:self.mediaUrl sex:self.sexString == 1?@"女":@"男" nickname:self.nameString birthday:self.birthday]];
+            return [self requestWithPropertyEntity:[LCUserModuleAPI updateUserMessage:self.mediaUrl sex:self.sexString == 1?@"女":@"男" nickname:self.nameString birthday:[[NSDate stringTransToDate:self.birthday withFormat:@"yyyy/MM/dd"]timeIntervalSince1970]]];
         }];
         [_updateMessageCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             if (model.code == 200) {

@@ -12,7 +12,7 @@
 + (LSKParamterEntity *)getMediaToken;
 + (LSKParamterEntity *)updateUserPhoto:(NSString *)url;
 
-+ (LSKParamterEntity *)updateUserMessage:(NSString *)photoUrl sex:(NSString *)sex nickname:(NSString *)nickname birthday:(NSString *)birthday;
++ (LSKParamterEntity *)updateUserMessage:(NSString *)photoUrl sex:(NSString *)sex nickname:(NSString *)nickname birthday:(NSInteger)birthday;
 
 + (LSKParamterEntity *)getUsermModuleMessage;
 
@@ -27,4 +27,7 @@
 + (LSKParamterEntity *)getTaskMessage;
 
 + (LSKParamterEntity *)glodExchangeSilver:(NSInteger)money;
+
++ (LSKParamterEntity *)attentionUser:(NSString *)userId;
++ (LSKParamterEntity *)getOtherAttention:(NSInteger)page userId:(NSString *)userId;
 @end
