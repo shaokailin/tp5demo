@@ -21,6 +21,7 @@
 #import "LCSpacePostVoiceImageTableViewCell.h"
 #import "LCSpacePostTitleTableViewCell.h"
 #import "LCSpaceMyOrderView.h"
+#import "LCSpaceViewModel.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
@@ -31,6 +32,7 @@
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, strong) LCSpaceMyOrderView *orderView;
+@property (nonatomic, strong) LCSpaceViewModel *viewModel;
 @end
 
 @implementation LCMySpaceMainVC
@@ -42,6 +44,7 @@
     self.title = @"码师空间";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -61,11 +64,43 @@
     [super viewWillDisappear:animated];
     _isChange = YES;
 }
+
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCSpaceViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 100) {
+            
+        }else {
+            
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.dataArray.count];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (identifier == 0) {
+            if (self.viewModel.page == 0) {
+                [self.mainTableView reloadData];
+            }
+            [self endRefreshing];
+        }
+    }];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    self.viewModel.page = 0;
+    [self.viewModel getSpaceData:YES];
 }
 - (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    self.viewModel.page += 1;
+    [self.viewModel getSpaceData:YES];
 }
 - (void)showMeunView:(UIButton *)sender {
     

@@ -6,8 +6,8 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LCBaseResponseModel.h"
-
-@interface LCSpaceSendRecordListModel : LCBaseResponseModel
-
+#import "LCSpaceModel.h"
+#import "LCSendRecordModel.h"
+@interface LCSpaceSendRecordListModel : LCSpaceModel
+@property(nonatomic, copy) NSString *all_money;
 @end

@@ -6,8 +6,7 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LSKBaseResponseModel.h"
+#import "LCSpaceModel.h"
 #import "LCPostModel.h"
-@interface LCSpacePostModel : LSKBaseResponseModel
-@property (nonatomic, strong) NSArray *post_list;
+@interface LCSpacePostModel : LCSpaceModel
 @end

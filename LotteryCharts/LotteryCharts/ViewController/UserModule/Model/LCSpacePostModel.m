@@ -10,12 +10,12 @@
 
 @implementation LCSpacePostModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{ @"post_list" : [LCPostModel class]
+    return @{ @"data" : [LCPostModel class]
              };
 }
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{
-             @"post_list" : @"response",
+             @"data" : @"response",
              };
 }
 @end

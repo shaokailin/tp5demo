@@ -30,4 +30,5 @@
 
 + (LSKParamterEntity *)attentionUser:(NSString *)userId;
 + (LSKParamterEntity *)getOtherAttention:(NSInteger)page userId:(NSString *)userId;
++ (LSKParamterEntity *)spaceMessageDataWith:(NSString *)userId page:(NSInteger)page showType:(NSInteger)showType;
 @end

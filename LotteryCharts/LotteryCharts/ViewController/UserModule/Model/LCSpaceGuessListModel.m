@@ -10,7 +10,12 @@
 
 @implementation LCSpaceGuessListModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"response" : [LCGuessModel class],
+    return @{@"data" : [LCGuessModel class],
+             };
+}
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"data" : @"response",
              };
 }
 @end

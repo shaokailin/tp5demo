@@ -6,8 +6,7 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LCBaseResponseModel.h"
+#import "LCSpaceModel.h"
 #import "LCGuessModel.h"
-@interface LCSpaceGuessListModel : LCBaseResponseModel
-@property (nonatomic, strong) NSArray *response;
+@interface LCSpaceGuessListModel : LCSpaceModel
 @end

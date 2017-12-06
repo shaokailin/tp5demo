@@ -9,5 +9,13 @@
 #import "LCSpaceSendRankingListModel.h"
 
 @implementation LCSpaceSendRankingListModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{ @"data" : [LCSendRecordModel class]
+              };
+}
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"data" : @"response",
+             };
+}
 @end

@@ -51,7 +51,7 @@
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.teamArray addObjectsFromArray:model.response];
                 }
-                [self sendSuccessResult:0 model:nil];
+                [self sendSuccessResult:0 model:model];
             }else {
                 [self loadError];
                 [self sendFailureResult:0 error:nil];

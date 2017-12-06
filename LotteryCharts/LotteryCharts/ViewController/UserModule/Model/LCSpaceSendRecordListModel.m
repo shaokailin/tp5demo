@@ -9,5 +9,14 @@
 #import "LCSpaceSendRecordListModel.h"
 
 @implementation LCSpaceSendRecordListModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"data" : [LCSendRecordModel class]
+             };
+}
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"data" : @"response.data",
+             @"all_money" : @"response.all_money"
+             };
+}
 @end

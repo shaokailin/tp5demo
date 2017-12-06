@@ -9,5 +9,13 @@
 #import "LCSpaceSendRecrdMoreListModel.h"
 
 @implementation LCSpaceSendRecrdMoreListModel
-
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{ @"data" : [LCSendRecordModel class]
+              };
+}
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{
+             @"data" : @"response",
+             };
+}
 @end

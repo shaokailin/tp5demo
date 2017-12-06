@@ -11,7 +11,7 @@
 @implementation LCSpacePostListModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{@"user_info" : [LCUserMessageModel class],
-             @"post_list" : [LCPostModel class]
+             @"data" : [LCPostModel class]
              };
 }
 + (NSDictionary *)modelCustomPropertyMapper {
@@ -19,7 +19,7 @@
              @"user_info" : @"response.user_info",
              @"follow_count" : @"response.follow_count",
              @"team_count" : @"response.team_count",
-             @"post_list" : @"response.post_list",
+             @"data" : @"response.data",
              };
 }
 @end

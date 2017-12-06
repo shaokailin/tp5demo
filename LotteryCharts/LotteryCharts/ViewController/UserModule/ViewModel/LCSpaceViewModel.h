@@ -7,11 +7,14 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCSpacePostListModel.h"
+#import "LCSpaceGuessListModel.h"
+#import "LCSpaceSendRecordListModel.h"
 @interface LCSpaceViewModel : LSKBaseViewModel
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, assign) NSInteger showType;
 @property (nonatomic, assign) NSInteger page;
+@property (nonatomic, strong) NSMutableArray *dataArray;
 - (void)attentionUserClick;
 - (void)getSpaceData:(BOOL)isPull;
 @end

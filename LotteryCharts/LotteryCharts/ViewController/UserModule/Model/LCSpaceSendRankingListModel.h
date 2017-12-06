@@ -6,8 +6,7 @@
 //  Copyright © 2017年 林少凯. All rights reserved.
 //
 
-#import "LCBaseResponseModel.h"
-
-@interface LCSpaceSendRankingListModel : LCBaseResponseModel
-
+#import "LCSpaceModel.h"
+#import "LCSendRecordModel.h"
+@interface LCSpaceSendRankingListModel : LCSpaceModel
 @end

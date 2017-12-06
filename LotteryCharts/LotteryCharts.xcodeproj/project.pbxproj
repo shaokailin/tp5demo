@@ -105,7 +105,6 @@
 		E61EA1D41FD5525800737327 /* LCSpaceSendRecrdMoreListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E61EA1D31FD5525800737327 /* LCSpaceSendRecrdMoreListModel.m */; };
 		E61EA1D71FD5527C00737327 /* LCSpaceSendRankingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E61EA1D61FD5527C00737327 /* LCSpaceSendRankingListModel.m */; };
 		E61EA1DA1FD5528E00737327 /* LCSendRecordModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E61EA1D91FD5528E00737327 /* LCSendRecordModel.m */; };
-		E61EA1DD1FD5529C00737327 /* LCSendRankingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E61EA1DC1FD5529C00737327 /* LCSendRankingModel.m */; };
 		E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7CC1FC40D6200C9460F /* LCPushPostMainVC.m */; };
 		E636A7D31FC41F0800C9460F /* LCPushGuessMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7D11FC41F0800C9460F /* LCPushGuessMainVC.m */; };
 		E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E636A7D51FC4246D00C9460F /* LCGuessInputView.m */; };
@@ -191,6 +190,7 @@
 		E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4261FC2C61C0077D670 /* LCRegisterMainView.m */; };
 		E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */; };
 		E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */; };
+		E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -406,8 +406,6 @@
 		E61EA1D61FD5527C00737327 /* LCSpaceSendRankingListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceSendRankingListModel.m; sourceTree = "<group>"; };
 		E61EA1D81FD5528E00737327 /* LCSendRecordModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSendRecordModel.h; sourceTree = "<group>"; };
 		E61EA1D91FD5528E00737327 /* LCSendRecordModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSendRecordModel.m; sourceTree = "<group>"; };
-		E61EA1DB1FD5529C00737327 /* LCSendRankingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSendRankingModel.h; sourceTree = "<group>"; };
-		E61EA1DC1FD5529C00737327 /* LCSendRankingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSendRankingModel.m; sourceTree = "<group>"; };
 		E636A7CB1FC40D6200C9460F /* LCPushPostMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPushPostMainVC.h; sourceTree = "<group>"; };
 		E636A7CC1FC40D6200C9460F /* LCPushPostMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPushPostMainVC.m; sourceTree = "<group>"; };
 		E636A7D11FC41F0800C9460F /* LCPushGuessMainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCPushGuessMainVC.m; sourceTree = "<group>"; };
@@ -555,6 +553,8 @@
 		E6C3F4281FC2C62F0077D670 /* LCForgetPWDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCForgetPWDView.h; sourceTree = "<group>"; };
 		E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCForgetPWDView.m; sourceTree = "<group>"; };
 		E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCForgetPWDView.xib; sourceTree = "<group>"; };
+		E6D33C791FD798250036AE54 /* LCSpaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceModel.h; sourceTree = "<group>"; };
+		E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceModel.m; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1446,8 +1446,8 @@
 				E61EA1D61FD5527C00737327 /* LCSpaceSendRankingListModel.m */,
 				E61EA1D81FD5528E00737327 /* LCSendRecordModel.h */,
 				E61EA1D91FD5528E00737327 /* LCSendRecordModel.m */,
-				E61EA1DB1FD5529C00737327 /* LCSendRankingModel.h */,
-				E61EA1DC1FD5529C00737327 /* LCSendRankingModel.m */,
+				E6D33C791FD798250036AE54 /* LCSpaceModel.h */,
+				E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1934,6 +1934,7 @@
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
+				E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */,
 				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,
 				E6BFCC6C1FB96EC100AE1FE2 /* LCUserHomeTableViewCell.m in Sources */,
 				E6E2C6751FB0038600866D15 /* LSKActionSheetView.m in Sources */,
@@ -1960,7 +1961,6 @@
 				E6C3F4121FC18BAF0077D670 /* LCGuessMainHeaderView.m in Sources */,
 				E61D2EC01FBAC3FF002005E3 /* LCUserMessageTableViewCell.m in Sources */,
 				E61D2F2B1FBE86F5002005E3 /* LCTaskMainVC.m in Sources */,
-				E61EA1DD1FD5529C00737327 /* LCSendRankingModel.m in Sources */,
 				E61D2EFA1FBAF429002005E3 /* LCSpaceGuessTableViewCell.m in Sources */,
 				E6C3F3D21FC04EB00077D670 /* LCRankingHeaderView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
