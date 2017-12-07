@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCMySpaceMainVC : LSKBaseViewController
-
+@property (nonatomic, copy) NSString *userId;
 @end

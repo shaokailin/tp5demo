@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCAttentionMainVC : LSKBaseViewController
-
+@property (nonatomic, copy) NSString *userId;
 @end

@@ -13,9 +13,10 @@
 #import "LCGuessMainTableViewCell.h"
 #import "LCPushGuessMainVC.h"
 #import "LCGuessDetailVC.h"
+#import "LCGuessMainViewModel.h"
 @interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
-
+@property (nonatomic, strong) LCGuessMainViewModel *viewModel;
 @end
 
 @implementation LCGuessMainVC
@@ -24,8 +25,37 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+    [self bindSignal];
 }
-
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCGuessMainViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.guessArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        if (self.viewModel.page == 0) {
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
+- (void)pullDownRefresh {
+    _viewModel.page = 0;
+    [_viewModel getGuessMianList:YES];
+}
+- (void)pullUpLoadMore {
+    _viewModel.page += 1;
+    [_viewModel getGuessMianList:YES];
+}
 - (void)showMeunView:(UIButton *)btn {
     PopoverView *popoverView = [PopoverView popoverView];
     popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
@@ -38,12 +68,6 @@
 }
 - (void)moreClick:(NSInteger)index {
     LSKLog(@"%zd",index);
-}
-- (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
-}
-- (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
 }
 #pragma mark delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

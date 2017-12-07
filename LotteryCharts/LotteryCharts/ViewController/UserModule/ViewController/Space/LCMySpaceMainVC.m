@@ -22,17 +22,19 @@
 #import "LCSpacePostTitleTableViewCell.h"
 #import "LCSpaceMyOrderView.h"
 #import "LCSpaceViewModel.h"
+#import "LCAttentionMainVC.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
     NSInteger _showType;
-    NSInteger _orderType;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, strong) LCSpaceMyOrderView *orderView;
 @property (nonatomic, strong) LCSpaceViewModel *viewModel;
+@property (nonatomic, copy) NSString *moneyString;
+@property (nonatomic, copy) NSString *countString;
 @end
 
 @implementation LCMySpaceMainVC
@@ -43,6 +45,8 @@
     [self setEdgesForExtendedLayout:UIRectEdgeAll];
     self.title = @"码师空间";
     [self addNavigationBackButton];
+    self.moneyString = @"0.00";
+    self.countString = @"0";
     [self initializeMainView];
     [self bindSignal];
 }
@@ -72,9 +76,16 @@
         if (identifier == 100) {
             
         }else {
-            
-            [self endRefreshing];
+            if (_showType == 0 && self.viewModel.page == 0) {
+                LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
+                [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mchid attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
+            }else if (_showType == 2 && self.viewModel.page == 0){
+                LCSpaceSendRecordListModel *dataModel = (LCSpaceSendRecordListModel *)model;
+                self.moneyString = dataModel.all_money;
+            }
             [self.mainTableView reloadData];
+            [self endRefreshing];
+            [self showMyOrderMessage];
             [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.dataArray.count];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
@@ -86,6 +97,10 @@
             [self endRefreshing];
         }
     }];
+    self.viewModel.uid = self.userId;
+    self.viewModel.page = 0;
+    self.viewModel.showType = _showType;
+    [self.viewModel getSpaceData:NO];
 }
 - (void)endRefreshing {
     if (_viewModel.page == 0) {
@@ -102,21 +117,38 @@
     self.viewModel.page += 1;
     [self.viewModel getSpaceData:YES];
 }
+- (void)headerViewClickEvent:(NSInteger)type {
+    if (type == 4) {
+        LCAttentionMainVC *attentionVC = [[LCAttentionMainVC alloc]init];
+        attentionVC.userId = self.userId;
+        [self.navigationController pushViewController:attentionVC animated:YES];
+    }
+}
 - (void)showMeunView:(UIButton *)sender {
     
 }
 - (void)changeShowClick:(NSInteger)type {
     _showType = type;
-    [self.mainTableView reloadData];
-    [self showMyOrderMessage];
+    [self getDataMessage];
 }
 - (void)changeRewardShow:(NSInteger)type {
-    _orderType = type;
+    if (type == 0) {
+        _showType = 2;
+    }else {
+        _showType = 3;
+    }
+    [self getDataMessage];
+}
+- (void)getDataMessage {
+    [self.viewModel.dataArray removeAllObjects];
+    self.countString = @"0";
     [self.mainTableView reloadData];
-    [self showMyOrderMessage];
+    self.viewModel.page = 0;
+    self.viewModel.showType = _showType;
+    [self.viewModel getSpaceData:NO];
 }
 - (void)showMyOrderMessage {
-    if (_orderType == 1 && _showType == 2) {
+    if (_showType == 2 && ![kUserMessageManager.userId isEqualToString:self.userId]) {
         self.orderView.hidden = NO;
         WS(ws)
         [self.mainTableView mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -132,24 +164,26 @@
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10 + 1;
+    if (_viewModel && _viewModel.dataArray.count > 0) {
+        return _viewModel.dataArray.count + 1;
+    }
+    return  1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         if (_showType == 0 || _showType == 1) {
             LCSpaceHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceHeaderTableViewCell];
-            [cell setupCellContentWithCount:@"200"];
+            [cell setupCellContentWithCount:self.countString];
             return cell;
-        }else if (_showType == 2 && _orderType == 0) {
+        }else if (_showType == 2) {
             LCRewardRecordHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordHeaderTableViewCell];
             WS(ws)
             cell.headerBlock = ^(NSInteger type) {
                 [ws changeRewardShow:type];
                 [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
             };
-            [cell setupState:_orderType];
-            [cell setupCellContentWithMoney:@"300,2000" count:@"200"];
-            
+            [cell setupState:_showType == 2?0:1];
+            [cell setupCellContentWithMoney:self.moneyString count:self.countString];
             return cell;
         }else {
             LCRewardOrderHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderHeaderTableViewCell];
@@ -158,45 +192,49 @@
                 [ws changeRewardShow:type];
                 [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
             };
-            [cell setupState:_orderType];
-            [cell setupCellContentWithCount:@"200"];
+            [cell setupState:_showType == 2?0:1];
+            [cell setupCellContentWithCount:self.countString];
             return cell;
         }
     }else {
         if (_showType == 0) {
-            NSInteger type = (indexPath.row - 1) % 7;
-            if (type == 0) {
+//            NSInteger type = (indexPath.row - 1) % 7;
+//            if (type == 0) {
                 LCSpacePostTitleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTitleTableViewCell];
-                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:@"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容" commment:@"200" rewardCount:@"200" money:@"200"];
+                LCPostModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+                [cell setupCellContentWithPostId:model.postId pushTime:model.create_time postContent:model.post_title commment:model.reply_count rewardCount:model.reward_count money:model.post_money];
                 return cell;
-            }else if (type == 1 || type == 2) {//图片
-                LCSpacePostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTableViewCell];
-                NSString *contentText = type == 1 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
-                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@""]];
-                return cell;
-            }else if (type == 3 || type == 4) {//只要语言
-                LCSpacePostVoiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceTableViewCell];
-                NSString *contentText = type == 3 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
-                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" voiceSecond:@"50"];
-                return cell;
-            }else {//语言+图片
-                LCSpacePostVoiceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceImageTableViewCell];
-                NSString *contentText = type == 5 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
-                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@"",@""] voiceSecond:@"51"];
-                return cell;
-            }
+//            }else if (type == 1 || type == 2) {//图片
+//                LCSpacePostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostTableViewCell];
+//                NSString *contentText = type == 1 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+//                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@""]];
+//                return cell;
+//            }else if (type == 3 || type == 4) {//只要语言
+//                LCSpacePostVoiceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceTableViewCell];
+//                NSString *contentText = type == 3 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+//                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" voiceSecond:@"50"];
+//                return cell;
+//            }else {//语言+图片
+//                LCSpacePostVoiceImageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpacePostVoiceImageTableViewCell];
+//                NSString *contentText = type == 5 ? @"帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容帖子内容":nil;
+//                [cell setupCellContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日   12:35发布" postContent:contentText commment:@"200" rewardCount:@"300" money:@"10" images:@[@"",@"",@""] voiceSecond:@"51"];
+//                return cell;
+//            }
         }else if (_showType == 1) {
             LCSpaceGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceGuessTableViewCell];
-            [cell setupCellContentWithId:@"码师ID:123456" time:@"10月10日   12:34发布" title:@"标题标题标题"];
+            LCGuessModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+            [cell setupCellContentWithId:model.user_id time:model.create_time title:model.quiz_title];
             return cell;
         }else {
-            if (_orderType == 0) {
+            if (_showType == 2) {
                 LCRewardRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordTableViewCell];
-                [cell setupContentWithId:@"码师ID:123456" time:@"10月10日   12:34发布" count:@"200" money:@"123435"];
+                LCSendRecordModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+                [cell setupContentWithId:model.post_id time:model.add_time count:@"15" money:model.money];
                 return cell;
             }else {
                 LCRewardOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderTableViewCell];
-                [cell setupContentWithName:@"凯先生" userId:@"码师ID:123456" index:indexPath.row photo:nil];
+                LCSendRecordModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+                [cell setupContentWithName:model.nickname userId:model.user_id index:indexPath.row photo:model.logo];
                 return cell;
             }
         }
@@ -204,29 +242,29 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        if (_showType == 2 && _orderType == 0) {
+        if (_showType == 2) {
             return 90 + 60;
         }else {
             return 30;
         }
     }else {
         if (_showType == 0) {
-            NSInteger type = (indexPath.row - 1) % 7;
-            if (type == 0) {
+//            NSInteger type = (indexPath.row - 1) % 7;
+//            if (type == 0) {
                 return 123;
-            }else if (type == 1) {
-                return 183;
-            }else if (type == 2) {
-                return 183 - 36 - 10;
-            }else if (type == 3) {
-                return 173;
-            } else if (type == 4){
-                return 173 - 36 - 13;
-            }else if (type == 5) {
-                return 227;
-            }else {
-                return 227 - 36 - 10;
-            }
+//            }else if (type == 1) {
+//                return 183;
+//            }else if (type == 2) {
+//                return 183 - 36 - 10;
+//            }else if (type == 3) {
+//                return 173;
+//            } else if (type == 4){
+//                return 173 - 36 - 13;
+//            }else if (type == 5) {
+//                return 227;
+//            }else {
+//                return 227 - 36 - 10;
+//            }
         }else if (_showType == 1) {
             return 80;
         }else {
@@ -257,8 +295,9 @@
 }
 - (void)initializeMainView {
     _showType = 0;
-    _orderType = 0;
-    [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
+    if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+        [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
+    }
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardOrderTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardRecordTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardRecordTableViewCell];
@@ -282,7 +321,6 @@
     [headerMainView addSubview:tabView];
     [headerMainView addSubview:headerView];
     tableView.tableHeaderView = headerMainView;
-    [headerView setupContentWithName:@"凯先生" userid:@"123456" attention:@"123" teem:@"123"];
     self.mainTableView = tableView;
     [self.view addSubview:tableView];
     WS(ws)
@@ -292,6 +330,9 @@
     }];
     tabView.tabbarBlock = ^(NSInteger type) {
         [ws changeShowClick:type];
+    };
+    headerView.punchBlock = ^(NSInteger type) {
+        [ws headerViewClickEvent:type];
     };
 }
 

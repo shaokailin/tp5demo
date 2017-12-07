@@ -10,4 +10,5 @@
 
 @interface LCGuessModuleAPI : NSObject
 + (LSKParamterEntity *)pushGuessEvent:(NSInteger)type content:(NSString *)content answer:(NSString *)answer money:(NSString *)money number:(NSString *)number title:(NSString *)title;
++ (LSKParamterEntity *)guessMainList:(NSInteger)page;
 @end

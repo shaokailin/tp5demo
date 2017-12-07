@@ -19,7 +19,7 @@
              @"user_info" : @"response.user_info",
              @"follow_count" : @"response.follow_count",
              @"team_count" : @"response.team_count",
-             @"data" : @"response.data",
+             @"data" : @"response.post_list",
              };
 }
 @end

@@ -10,7 +10,7 @@
 typedef void (^UserHomeHeaderBlock)(NSInteger type);//1:更背景 2：更换头像 3.打卡
 @interface LCUserHomeHeaderView : UIView
 @property (nonatomic, copy) UserHomeHeaderBlock punchBlock;
-- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem;
+- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo;
 - (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem;
 - (void)updateUserMessage;
 - (void)isShowPunchCard:(BOOL)isShow;

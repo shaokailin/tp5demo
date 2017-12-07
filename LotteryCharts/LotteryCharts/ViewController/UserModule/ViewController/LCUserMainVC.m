@@ -165,6 +165,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
             case 1:
             {
                 LCMySpaceMainVC *spaceVC = [[LCMySpaceMainVC alloc]init];
+                spaceVC.userId = kUserMessageManager.userId;
                 controller = spaceVC;
                 break;
             }

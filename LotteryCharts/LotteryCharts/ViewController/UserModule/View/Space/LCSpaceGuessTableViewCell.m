@@ -20,7 +20,7 @@
     // Initialization code
 }
 - (void)setupCellContentWithId:(NSString *)postId time:(NSString *)time title:(NSString *)title {
-    self.postIdLbl.text = postId;
+    self.postIdLbl.text = NSStringFormat(@"码师ID:%@",postId);
     self.timeLbl.text = time;
     self.titleLbl.text = title;
 }

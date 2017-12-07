@@ -9,5 +9,22 @@
 #import "LCPostModel.h"
 
 @implementation LCPostModel
-
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+    NSNumber *createTime = dic[@"create_time"];
+    BOOL isStartTime = [createTime isKindOfClass:[NSNumber class]];
+    if (isStartTime) {
+        NSString *formar = @"yyyy-MM-dd HH:mm:ss";
+        BOOL result = NO;;
+        if (isStartTime) {
+            _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:formar];
+            result = YES;
+        }
+        return result;
+    }
+    return NO;
+}
+- (void)setPost_id:(NSString *)post_id {
+    _post_id = post_id;
+    _postId = NSStringFormat(@"帖子ID:%@",post_id);
+}
 @end

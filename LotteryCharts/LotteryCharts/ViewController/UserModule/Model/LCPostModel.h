@@ -20,4 +20,5 @@
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, copy) NSString *reply_count;
 @property (nonatomic, copy) NSString *reward_count;
+@property (nonatomic, copy) NSString *postId;
 @end

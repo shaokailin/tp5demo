@@ -22,7 +22,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"我的关注";
+    if (KJudgeIsNullData(self.userId)) {
+        if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+            self.title = @"他的关注";
+        }else {
+            self.title = @"我的关注";
+        }
+    }else{
+        self.title = @"我的关注";
+    }
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self initializeMainView];

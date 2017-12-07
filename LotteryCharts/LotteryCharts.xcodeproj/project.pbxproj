@@ -191,6 +191,8 @@
 		E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */; };
 		E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */; };
 		E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */; };
+		E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C941FD9301F0036AE54 /* LCGuessMainViewModel.m */; };
+		E6D33C981FD944850036AE54 /* LCGuessMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C971FD944850036AE54 /* LCGuessMainListModel.m */; };
 		E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */; };
 		E6D9A5E01FAFF4A400894BB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6D9A5DE1FAFF4A400894BB0 /* LaunchScreen.storyboard */; };
 		E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D9A5E21FAFF4A400894BB0 /* main.m */; };
@@ -555,6 +557,10 @@
 		E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCForgetPWDView.xib; sourceTree = "<group>"; };
 		E6D33C791FD798250036AE54 /* LCSpaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceModel.h; sourceTree = "<group>"; };
 		E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceModel.m; sourceTree = "<group>"; };
+		E6D33C931FD9301F0036AE54 /* LCGuessMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessMainViewModel.h; sourceTree = "<group>"; };
+		E6D33C941FD9301F0036AE54 /* LCGuessMainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessMainViewModel.m; sourceTree = "<group>"; };
+		E6D33C961FD944850036AE54 /* LCGuessMainListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessMainListModel.h; sourceTree = "<group>"; };
+		E6D33C971FD944850036AE54 /* LCGuessMainListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessMainListModel.m; sourceTree = "<group>"; };
 		E6D9A5D01FAFF4A400894BB0 /* LotteryCharts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LotteryCharts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6D9A5DC1FAFF4A400894BB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6D9A5DF1FAFF4A400894BB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1237,6 +1243,8 @@
 		E6D9A7CF1FAFF97300894BB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E6D33C961FD944850036AE54 /* LCGuessMainListModel.h */,
+				E6D33C971FD944850036AE54 /* LCGuessMainListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1267,6 +1275,8 @@
 			children = (
 				E67FFBD31FCD4D910045E5DF /* LCPushGuessViewModel.h */,
 				E67FFBD41FCD4D910045E5DF /* LCPushGuessViewModel.m */,
+				E6D33C931FD9301F0036AE54 /* LCGuessMainViewModel.h */,
+				E6D33C941FD9301F0036AE54 /* LCGuessMainViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1928,6 +1938,7 @@
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
+				E6D33C981FD944850036AE54 /* LCGuessMainListModel.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */,
 				E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */,
@@ -1997,6 +2008,7 @@
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
 				E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */,
+				E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */,
 				E6C3F3CF1FC04CD10077D670 /* LCRankingMainVC.m in Sources */,
 				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
 				E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */,

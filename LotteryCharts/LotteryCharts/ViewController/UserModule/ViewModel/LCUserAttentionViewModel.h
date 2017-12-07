@@ -9,6 +9,7 @@
 #import "LSKBaseViewModel.h"
 #import "LCAttentionListModel.h"
 @interface LCUserAttentionViewModel : LSKBaseViewModel
+@property (nonatomic, copy) NSString *userId;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *attentionArray;
 - (void)getUserAttentionList:(BOOL)isPull;

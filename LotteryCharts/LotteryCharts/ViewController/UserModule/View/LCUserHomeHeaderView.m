@@ -64,9 +64,12 @@
     }
     return _blurFilter;
 }
-- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem {
+- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo {
+    if (KJudgeIsNullData(photo)){
+        [_userPhotoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     _nameLbl.text = name;
-    _userIdLbl.text = NSStringFormat(@"他的ID:%@",userId);
+    _userIdLbl.text = [kUserMessageManager.userId isEqualToString:userId]?NSStringFormat(@"我的ID:%@",userId):NSStringFormat(@"他的ID:%@",userId);
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
 }

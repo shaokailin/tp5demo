@@ -21,7 +21,7 @@
     // Initialization code
 }
 - (void)setupContentWithId:(NSString *)postId time:(NSString *)time count:(NSString *)count money:(NSString *)money {
-    self.postIdLbl.text = postId;
+    self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.timeLbl.text = time;
     self.countLbl.text = NSStringFormat(@"共%@个打赏",count);
     self.moneyLbl.text = money;

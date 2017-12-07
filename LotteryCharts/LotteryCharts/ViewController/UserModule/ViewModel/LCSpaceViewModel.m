@@ -30,6 +30,7 @@
         [_spaceCommand.executionSignals.flatten subscribeNext:^(LCSpaceModel *model) {
             @strongify(self)
             if (model.code == 200) {
+                [SKHUD dismiss];
                 if (self.page == 0) {
                     [self.dataArray removeAllObjects];
                 }
