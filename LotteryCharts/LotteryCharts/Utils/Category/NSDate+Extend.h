@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSDate (Extend)
+- (NSString *)getWeekDate;
 /**
  获取某年某月的天数
  

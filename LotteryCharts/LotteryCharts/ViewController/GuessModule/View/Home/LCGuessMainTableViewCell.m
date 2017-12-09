@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *postIdLbl;
 @property (weak, nonatomic) IBOutlet UILabel *pushTimeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *countLbl;
+@property (weak, nonatomic) IBOutlet UILabel *typeName;
 
 @property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 @property (weak, nonatomic) IBOutlet UILabel *openTimeLbl;
@@ -35,14 +36,18 @@
     self.leftbgView.layer.shadowOpacity=0.5;
     self.leftbgView.layer.shadowRadius=0;
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime {
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime type:(NSInteger)type {
+    if (KJudgeIsNullData(photo)) {
+        [_photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     self.nameLbl.text = name;
-    self.userIdLbl.text = userId;
-    self.postIdLbl.text = postId;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
+    self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.pushTimeLbl.text = pushTime;
-    self.moneyLbl.text = NSStringFormat(@"押注：%@金币",money);
+    self.moneyLbl.text = NSStringFormat(@"押注：%@银币",money);
     self.countLbl.text = NSStringFormat(@"剩余：%@份",count);
     self.openTimeLbl.text = openTime;
+    self.typeName.text = type == 2?@"杀两码":@"猜大小";
 }
 - (IBAction)clickBtn:(id)sender {
     if (self.cellBlock) {

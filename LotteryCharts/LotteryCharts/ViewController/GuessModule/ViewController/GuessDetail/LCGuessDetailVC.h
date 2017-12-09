@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewController.h"
-
+#import "LCGuessModel.h"
 @interface LCGuessDetailVC : LSKBaseViewController
-@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) LCGuessModel *guessModel;
 @end

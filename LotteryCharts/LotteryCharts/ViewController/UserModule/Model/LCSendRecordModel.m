@@ -11,7 +11,7 @@
 @implementation LCSendRecordModel
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
     NSNumber *createTime = dic[@"add_time"];
-    BOOL isStartTime = [createTime isKindOfClass:[NSNumber class]];
+    BOOL isStartTime = ([createTime isKindOfClass:[NSNumber class]] || [createTime isKindOfClass:[NSString class]]);
     if (isStartTime) {
         NSString *formar = @"yyyy-MM-dd HH:mm:ss";
         BOOL result = NO;;

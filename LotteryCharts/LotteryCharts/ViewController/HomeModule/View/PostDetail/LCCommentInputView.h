@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^InputSendBlock) (NSString *text);
+@interface LCCommentInputView : UIView<UITextFieldDelegate>
 
-@interface LCCommentInputView : UIView
+@property (nonatomic, copy) InputSendBlock sendBlock;
 @property (nonatomic, weak) UITextField *inputField;
+- (void)cleanText;
 @end

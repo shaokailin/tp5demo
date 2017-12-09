@@ -9,7 +9,8 @@
 #import "NSDate+Extend.h"
 static NSString *const kTIMEDEFAULTFORMATTER = @"yyyy-MM-dd";//时间转换默认的格式
 static NSDateFormatter * _formatter = nil;
-
+static NSCalendar * _calendar = nil;
+static NSDateComponents *_comps = nil;
 @implementation NSDate (Extend)
 + (NSInteger)getDaysInYear:(NSInteger)year month:(NSInteger)month {
     if((month == 0)||(month == 1)||(month == 3)||(month == 5)||(month == 7)||(month == 8)||(month == 10)||(month == 12))
@@ -81,12 +82,62 @@ static NSDateFormatter * _formatter = nil;
     return KJudgeIsNullData(format) ? format:kTIMEDEFAULTFORMATTER;
 }
 
--(NSDateFormatter *)setupFormatter
-{
+-(NSDateFormatter *)setupFormatter {
     if (_formatter == nil || [_formatter isKindOfClass:[NSNull class]]) {
         _formatter = [[NSDateFormatter alloc]init];
         [_formatter setTimeZone:[NSTimeZone systemTimeZone]];
     }
     return _formatter;
+}
+-(NSCalendar *)setupCalendar {
+    if (_calendar == nil || [_calendar isKindOfClass:[NSNull class]]) {
+        _calendar =  [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+        [_calendar setTimeZone:[NSTimeZone systemTimeZone]];
+    }
+    return _calendar;
+}
+-(NSDateComponents *)setupDateComponents {
+    if (_comps == nil || [_comps isKindOfClass:[NSNull class]]) {
+        _comps =  [[NSDateComponents alloc]init];
+    }
+    return _comps;
+}
+- (NSString *)getWeekDate {
+    [self setupDateComponents];
+    [self setupCalendar];
+    if (self) {
+        _comps = [_calendar components:NSCalendarUnitWeekday fromDate:self];
+        return [[self class] weekForIndex:_comps.weekday];
+    }
+    return nil;
+}
++ (NSString *)weekForIndex:(NSInteger)index {
+    NSString *week = nil;
+    switch (index) {
+        case 1:
+            week = @"星期天";
+            break;
+        case 2:
+            week = @"星期一";
+            break;
+        case 3:
+            week = @"星期二";
+            break;
+        case 4:
+            week = @"星期三";
+            break;
+        case 5:
+            week = @"星期四";
+            break;
+        case 6:
+            week = @"星期五";
+            break;
+        case 7:
+            week = @"星期六";
+            break;
+        default:
+            break;
+    }
+    return week;
 }
 @end

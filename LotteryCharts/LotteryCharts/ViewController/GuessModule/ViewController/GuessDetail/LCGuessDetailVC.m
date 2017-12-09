@@ -14,6 +14,7 @@
 @interface LCGuessDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
+@property (nonatomic, strong) LCCommentInputView *inputToolbar;
 @end
 
 @implementation LCGuessDetailVC
@@ -24,7 +25,9 @@
     self.title = @"猜大小";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self.inputToolbar removeFromSuperview];
 }
+
 - (void)pullUpLoadMore {
     [self.mainTableView.mj_footer endRefreshing];
 }
@@ -41,7 +44,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         LCPostHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostHeaderTableViewCell];
-        [cell setupCount:@"10" type:0];
+        [cell setupCount:self.guessModel.reply_count type:0];
         return cell;
     }else {
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
@@ -57,18 +60,23 @@
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.view endEditing: YES];
+    [self.inputToolbar.inputField resignFirstResponder];
+    [self.view endEditing:YES];
+}
+- (void)sendCommentClick:(NSString *)text {
+    
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"规则" target:self action:@selector(showRule)];
+     WS(ws)
     LCCommentInputView *inputView = [[LCCommentInputView alloc]init];
+    inputView.frame = CGRectMake(0, self.viewMainHeight - 44 - self.tabbarBetweenHeight, SCREEN_WIDTH, 44);
+    inputView.sendBlock = ^(NSString *text) {
+        [ws sendCommentClick:text];
+    };
+    self.inputToolbar = inputView;
     [self.view addSubview:inputView];
-    WS(ws)
-    [inputView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(ws.view);
-        make.height.mas_equalTo(45);
-        make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
-    }];
+   
     
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostCommentTableViewCell];
@@ -81,24 +89,54 @@
         make.left.top.bottom.equalTo(headerBgView);
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
-    [headerView setupContentTitle:@"挑战主题" money:@"1000" count:@"8" number1:@"1" number2:@"2" type:self.type];
-    mainTableView.tableHeaderView = headerBgView;
     
+    mainTableView.tableHeaderView = headerBgView;
+
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(ws.view);
-        make.bottom.equalTo(inputView.mas_top);
+        make.bottom.equalTo(ws.view).with.offset(-44);
     }];
+    [self setupHeadViewContent];
 }
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self.view endEditing:YES];
+- (void)setupHeadViewContent {
+    NSInteger type = self.guessModel.quiz_type == 2?0:1;
+    NSString *number1 = nil;
+    NSString *number2 = nil;
+    if (type == 0) {
+        if (KJudgeIsNullData(self.guessModel.quiz_answer)) {
+            NSArray *answerArray = [self.guessModel.quiz_answer componentsSeparatedByString:@","];
+            if (answerArray.count > 0) {
+                number1 = [answerArray objectAtIndex:0];
+            }
+            if (answerArray.count > 1) {
+                number2 = [answerArray objectAtIndex:1];
+            }
+        }
+    }else {
+        number1 = self.guessModel.quiz_answer;
+    }
+    [self.headerView setupContentTitle:self.guessModel.quiz_title money:self.guessModel.quiz_money count:[self.guessModel.quiz_number integerValue] - [self.guessModel.quiz_buynumber integerValue] number1:number1 number2:number2 type:type];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (BOOL)canBecomeFirstResponder {
+    return YES;
+}
+- (UIView *)inputAccessoryView {
+    if (self.headerView.isBecome) {
+        return nil;
+    }
+    return self.inputToolbar;
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if (self.headerView.isBecome) {
+        [self.view endEditing:YES];
+    }
+}
 /*
 #pragma mark - Navigation
 

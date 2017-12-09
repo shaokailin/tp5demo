@@ -171,6 +171,7 @@
                 <outlet property="postIdLbl" destination="IMX-o0-3vO" id="Qg1-L0-val"/>
                 <outlet property="pushTimeLbl" destination="V38-wV-J3n" id="RKR-In-zt6"/>
                 <outlet property="topLbl" destination="hnc-ZV-tgl" id="8bx-y8-gFj"/>
+                <outlet property="typeName" destination="KPo-rT-Qvo" id="2qd-vh-jpL"/>
                 <outlet property="userIdLbl" destination="ETv-7W-Zuc" id="M46-sx-ADT"/>
             </connections>
         </tableViewCell>

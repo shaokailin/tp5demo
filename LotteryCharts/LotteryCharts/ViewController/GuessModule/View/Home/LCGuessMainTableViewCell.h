@@ -11,5 +11,5 @@ static NSString * const kLCGuessMainTableViewCell = @"LCGuessMainTableViewCell";
 typedef void (^GuessCellBlock) (id clickCell);
 @interface LCGuessMainTableViewCell : UITableViewCell
 @property (nonatomic, copy) GuessCellBlock cellBlock;
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime;
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime type:(NSInteger)type;
 @end

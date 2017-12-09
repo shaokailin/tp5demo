@@ -20,7 +20,7 @@
 @end
 @implementation LCGuessHeaderView
 
-- (void)setupContentTitle:(NSString *)title money:(NSString *)money count:(NSString *)count number1:(NSString *)number1 number2:(NSString *)number2 type:(NSInteger)type {
+- (void)setupContentTitle:(NSString *)title money:(NSString *)money count:(NSInteger)count number1:(NSString *)number1 number2:(NSString *)number2 type:(NSInteger)type {
     if (type == 0) {
         self.sizeBtn.hidden = YES;
         self.rightBtn.hidden = NO;
@@ -34,13 +34,14 @@
     }
     self.titleLbl.text = title;
     self.moneyLbl.text = NSStringFormat(@"押注：%@银币",money);
-    self.countLbl.text = NSStringFormat(@"剩余：%@份",count);
+    self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
     ViewRadius(self.bgView, 5.0);
     ViewBorderLayer(self.bgView, ColorHexadecimal(0xa0a0a0, 1.0), 1.0);
+    self.countField.delegate = self;
 }
 
 - (IBAction)changeSize:(id)sender {
@@ -55,5 +56,11 @@
         self.hederBlock(1);
     }
 }
-
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    self.isBecome = NO;
+}
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    self.isBecome = YES;
+    return YES;
+}
 @end

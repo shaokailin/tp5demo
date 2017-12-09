@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "LCRootTabBarVC.h"
-@interface AppDelegate ()
+#import "LCLoginMainVC.h"
+#import "LCUserMainVC.h"
+@interface AppDelegate ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) LCRootTabBarVC *rootTabBarVC;
 @end
 
@@ -28,14 +30,27 @@
     self.window.rootViewController = self.rootTabBarVC;
 }
 - (void)changeLoginState {
-    [self.rootTabBarVC changeLoginWithState];
+//    [self.rootTabBarVC changeLoginWithState];
     self.rootTabBarVC.selectedIndex = 0;
 }
 - (LCRootTabBarVC *)rootTabBarVC {
     if (!_rootTabBarVC) {
         _rootTabBarVC = [[LCRootTabBarVC alloc]init];
+        _rootTabBarVC.delegate = self;
     }
     return _rootTabBarVC;
+}
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+    UINavigationController *navi = (UINavigationController *)viewController;
+    if (![kUserMessageManager isLogin] && [navi.topViewController isKindOfClass:[LCUserMainVC class]]) {
+        UINavigationController *selectNavi = (UINavigationController *)self.rootTabBarVC.selectedViewController;
+        LCLoginMainVC *login = [[LCLoginMainVC alloc]init];
+        login.isHidenNavi = YES;
+        login.hidesBottomBarWhenPushed = YES;
+        [selectNavi pushViewController:login animated:YES];
+        return NO;
+    }
+    return YES;
 }
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

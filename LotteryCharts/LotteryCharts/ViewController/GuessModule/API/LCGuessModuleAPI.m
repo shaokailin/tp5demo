@@ -9,8 +9,19 @@
 #import "LCGuessModuleAPI.h"
 #import "LSKBaseResponseModel.h"
 #import "LCGuessMainListModel.h"
+#import "LCGuessMainMoreModel.h"
+#import "LCGuessDetailModel.h"
+#import "LCGuessReplyListModel.h"
+#import "LCReplySuccessModel.h"
+
 static NSString * const kPushGuessApi = @"quiz/add.html";
 static NSString * const kGuessMainApi = @"Direct/getQuizList.html";
+static NSString * const kGuessMainMoreApi = @"Direct/getQuiz.html";
+static NSString * const kGuessDetailApi = @"Quiz/challengeKill.html";
+static NSString * const kGuessReplyApi = @"quiz/reply.html";
+static NSString * const kGuessReplyListApi = @"Quiz/challengeReply.html";
+static NSString * const kBetGuessApi = @"Quiz/challengeData.html";
+static NSString * const kGuessListApi = @"Direct/getOldQuizList.html";
 @implementation LCGuessModuleAPI
 + (LSKParamterEntity *)pushGuessEvent:(NSInteger)type content:(NSString *)content answer:(NSString *)answer money:(NSString *)money number:(NSString *)number title:(NSString *)title {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -24,6 +35,52 @@ static NSString * const kGuessMainApi = @"Direct/getQuizList.html";
     entity.requestApi = kGuessMainApi;
     entity.params = @{@"p":@(page)};
     entity.responseObject = [LCGuessMainListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)guessOldList:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGuessListApi;
+    entity.params = @{@"p":@(page)};
+    entity.responseObject = [LCGuessMainListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)guessMainMoreList:(NSInteger)page period_id:(NSString *)period_id {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGuessMainMoreApi;
+    entity.params = @{@"p":@(page),@"period_id":period_id};
+    entity.responseObject = [LCGuessMainMoreModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getGuessDetail:(NSString *)quiz_id {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGuessDetailApi;
+    entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id};
+    entity.responseObject = [LCGuessDetailModel class];
+    return entity;
+}
++ (LSKParamterEntity *)sendGuessComment:(NSString *)quiz_id message:(NSString *)message {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGuessReplyApi;
+    entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"message":message};
+    entity.responseObject = [LCReplySuccessModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getGuessDetail:(NSString *)quiz_id page:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    if (page == 0) {
+        return [[self class] getGuessDetail:quiz_id];
+    }else {
+        entity.requestApi = kGuessReplyListApi;
+        entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"p":@(page)};
+        entity.responseObject = [LCGuessReplyListModel class];
+    }
+    return entity;
+}
++ (LSKParamterEntity *)betGuessMessage:(NSString *)quiz_id period_id:(NSString *)period_id betting_num:(NSString *)betting_num {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kBetGuessApi;
+    entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"betting_num":betting_num,@"period_id":period_id};
+    entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
 @end

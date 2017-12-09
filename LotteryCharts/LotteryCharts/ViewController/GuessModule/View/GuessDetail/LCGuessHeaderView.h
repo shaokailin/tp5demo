@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^HeaderBlock)(NSInteger type);
-@interface LCGuessHeaderView : UIView
+@interface LCGuessHeaderView : UIView<UITextFieldDelegate>
 @property (nonatomic, copy) HeaderBlock hederBlock;
+@property (nonatomic, assign) BOOL isBecome;
 @property (weak, nonatomic) IBOutlet UITextField *countField;
-- (void)setupContentTitle:(NSString *)title money:(NSString *)money count:(NSString *)count number1:(NSString *)number1 number2:(NSString *)number2 type:(NSInteger)type;
+- (void)setupContentTitle:(NSString *)title money:(NSString *)money count:(NSInteger)count number1:(NSString *)number1 number2:(NSString *)number2 type:(NSInteger)type;
 @end

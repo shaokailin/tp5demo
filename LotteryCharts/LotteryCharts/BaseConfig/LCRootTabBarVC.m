@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _currentLogin = YES;
-    [self changeLoginWithState];
+//    [self changeLoginWithState];
     self.selectedIndex = 0;
 }
 - (void)changeLoginWithState {

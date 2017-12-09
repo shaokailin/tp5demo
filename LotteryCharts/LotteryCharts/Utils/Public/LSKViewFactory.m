@@ -175,17 +175,14 @@
 //对需要刷新和加载的进行foot处理
 + (void)setupFootRefresh:(UIScrollView *)scrollView page:(NSInteger)page currentCount:(NSInteger)count {
     //判断是否超出屏幕的高度，超出再进行尾部的处理  小于的话就进行隐藏
-    if (scrollView.contentSize.height > VIEW_MAIN_HEIGHT) {
-        scrollView.mj_footer.hidden = NO;
-        NSInteger pageIndex = page + 1;
-        if (count < pageIndex * PAGE_SIZE_NUMBER) {
-            [scrollView.mj_footer endRefreshingWithNoMoreData];
-        }else {
-            [scrollView.mj_footer resetNoMoreData];
-        }
+     scrollView.mj_footer.hidden = NO;
+    NSInteger pageIndex = page + 1;
+    if (count < pageIndex * PAGE_SIZE_NUMBER) {
+        [scrollView.mj_footer endRefreshingWithNoMoreData];
     }else {
-        scrollView.mj_footer.hidden = YES;
+        [scrollView.mj_footer resetNoMoreData];
     }
+    
 }
 //设置导航栏的属性
 + (void)setupMainNavigationBgColor:(UIColor *)bgColor titleFont:(CGFloat)font titleColor:(UIColor *)titleColor lineColor:(UIColor *)lineColor {

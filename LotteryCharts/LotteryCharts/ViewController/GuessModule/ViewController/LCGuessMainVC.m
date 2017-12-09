@@ -14,6 +14,8 @@
 #import "LCPushGuessMainVC.h"
 #import "LCGuessDetailVC.h"
 #import "LCGuessMainViewModel.h"
+#import "LCGuessModel.h"
+#import "LCGuessListMoreVC.h"
 @interface LCGuessMainVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCGuessMainViewModel *viewModel;
@@ -40,6 +42,7 @@
         }
         [self endRefreshing];
     }];
+    [_viewModel getGuessMianList:NO];
 }
 - (void)endRefreshing {
     if (_viewModel.page == 0) {
@@ -67,18 +70,31 @@
     LSKLog(@"%zd",indexPath.row);
 }
 - (void)moreClick:(NSInteger)index {
-    LSKLog(@"%zd",index);
+    LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:index - 200];
+    LCGuessListMoreVC *more = [[LCGuessListMoreVC alloc]init];
+    more.period_id = model.period_id;
+    more.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:more animated:YES];
 }
 #pragma mark delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    if (_viewModel && _viewModel.guessArray) {
+        return _viewModel.guessArray.count;
+    }
+    return 0;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:section];
+    if (KJudgeIsArrayAndHasValue(model.quiz_list)) {
+        return model.quiz_list.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCGuessMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCGuessMainTableViewCell];
-    [cell setupContentWithPhoto:nil name:@"凯先生" userId:@"码师ID:123456" postId:@"帖子ID:123456" pushTime:@"1小时前发布" money:@"100" count:@"8" openTime:@"2017年10月12日  20:40"];
+    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.user_id postId:model.post_common_id pushTime:model.create_time money:model.quiz_money count:model.quiz_number openTime:listModel.end_time type:model.quiz_type];
     WS(ws)
     cell.cellBlock = ^(id clickCell) {
         [ws cellClick:clickCell];
@@ -98,7 +114,8 @@
     headerView.moreBlock = ^(NSInteger index) {
         [ws moreClick:index];
     };
-    [headerView setupContentWithTime:@"2017年10月21日   星期一" count:@"211条新竞争"];
+    LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:section];
+    [headerView setupContentWithTime:model.create_time count:model.period_count];
     headerView.tag = 200 + section;
     return headerView;
 }
@@ -110,7 +127,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
-    detail.type = indexPath.row % 2;
+    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+    detail.guessModel = model;
     detail.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:detail animated:YES];
 }
@@ -136,7 +155,7 @@
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCGuessMainTableViewCell bundle:nil] forCellReuseIdentifier:kLCGuessMainTableViewCell];
     mainTableView.rowHeight = 100;
     mainTableView.tableFooterView = [UIView new];

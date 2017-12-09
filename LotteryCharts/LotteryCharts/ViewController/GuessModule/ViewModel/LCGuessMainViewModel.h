@@ -8,8 +8,11 @@
 
 #import "LSKBaseViewModel.h"
 #import "LCGuessMainListModel.h"
+#import "LCGuessMainMoreModel.h"
 @interface LCGuessMainViewModel : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *guessArray;
 - (void)getGuessMianList:(BOOL)isPull;
+@property (nonatomic, copy) NSString *period_id;
+- (void)getGuessMainMoreList:(BOOL)isPull;
 @end
