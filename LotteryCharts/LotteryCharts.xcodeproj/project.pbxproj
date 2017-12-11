@@ -156,6 +156,7 @@
 		E64198471FDE6CFD00C47713 /* LCRankingVipListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198461FDE6CFD00C47713 /* LCRankingVipListModel.m */; };
 		E641984A1FDE6D1200C47713 /* LCRankingRenListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */; };
 		E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */; };
+		E64198501FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */; };
 		E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */; };
 		E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */; };
 		E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */; };
@@ -521,6 +522,8 @@
 		E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingRenListModel.m; sourceTree = "<group>"; };
 		E641984B1FDE6EC900C47713 /* LCRankingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingViewModel.h; sourceTree = "<group>"; };
 		E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingViewModel.m; sourceTree = "<group>"; };
+		E641984E1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryLotteryViewModel.h; sourceTree = "<group>"; };
+		E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryLotteryViewModel.m; sourceTree = "<group>"; };
 		E66BA5251FC6A90100FE4FCF /* LCLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewModel.h; sourceTree = "<group>"; };
 		E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewModel.m; sourceTree = "<group>"; };
 		E66BA5281FC6A91E00FE4FCF /* LCLoginModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginModuleAPI.h; sourceTree = "<group>"; };
@@ -1438,6 +1441,8 @@
 				E641982B1FDE361D00C47713 /* LCHomeMainViewModel.m */,
 				E641984B1FDE6EC900C47713 /* LCRankingViewModel.h */,
 				E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */,
+				E641984E1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.h */,
+				E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2095,6 +2100,7 @@
 				E6C3F3D21FC04EB00077D670 /* LCRankingHeaderView.m in Sources */,
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
 				E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */,
+				E64198501FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m in Sources */,
 				95DDA6981FBC88B400686504 /* LCWalletMainVC.m in Sources */,
 				E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */,
 				E61EA1D41FD5525800737327 /* LCSpaceSendRecrdMoreListModel.m in Sources */,

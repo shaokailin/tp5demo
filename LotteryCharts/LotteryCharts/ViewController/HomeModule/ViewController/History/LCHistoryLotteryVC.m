@@ -10,6 +10,7 @@
 #import "LCHistoryLotteryTableViewCell.h"
 #import "LCOderSearchBarView.h"
 #import "PopoverView.h"
+#import "LCHistoryLotteryViewModel.h"
 @interface LCHistoryLotteryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
 {
     NSInteger _searchType;
@@ -17,6 +18,7 @@
 @property (nonatomic, strong) NSArray *menuArray;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCOderSearchBarView *searchView;
+@property (nonatomic, strong) LCHistoryLotteryViewModel *viewModel;
 
 @end
 
