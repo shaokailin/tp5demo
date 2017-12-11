@@ -157,6 +157,7 @@
 		E641984A1FDE6D1200C47713 /* LCRankingRenListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */; };
 		E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */; };
 		E64198501FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */; };
+		E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198521FDE8E1E00C47713 /* LCHistoryLotteryListModel.m */; };
 		E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */; };
 		E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */; };
 		E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */; };
@@ -524,6 +525,8 @@
 		E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingViewModel.m; sourceTree = "<group>"; };
 		E641984E1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryLotteryViewModel.h; sourceTree = "<group>"; };
 		E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryLotteryViewModel.m; sourceTree = "<group>"; };
+		E64198511FDE8E1E00C47713 /* LCHistoryLotteryListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryLotteryListModel.h; sourceTree = "<group>"; };
+		E64198521FDE8E1E00C47713 /* LCHistoryLotteryListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryLotteryListModel.m; sourceTree = "<group>"; };
 		E66BA5251FC6A90100FE4FCF /* LCLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewModel.h; sourceTree = "<group>"; };
 		E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewModel.m; sourceTree = "<group>"; };
 		E66BA5281FC6A91E00FE4FCF /* LCLoginModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginModuleAPI.h; sourceTree = "<group>"; };
@@ -1414,6 +1417,8 @@
 				E64198461FDE6CFD00C47713 /* LCRankingVipListModel.m */,
 				E64198481FDE6D1200C47713 /* LCRankingRenListModel.h */,
 				E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */,
+				E64198511FDE8E1E00C47713 /* LCHistoryLotteryListModel.h */,
+				E64198521FDE8E1E00C47713 /* LCHistoryLotteryListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2063,6 +2068,7 @@
 				E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */,
 				E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */,
 				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
+				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,

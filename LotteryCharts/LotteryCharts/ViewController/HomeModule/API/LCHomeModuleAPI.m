@@ -12,6 +12,7 @@
 #import "LCHomeHotListModel.h"
 #import "LCRankingRenListModel.h"
 #import "LCRankingVipListModel.h"
+#import "LCHistoryLotteryListModel.h"
 static NSString * kPushPostApi = @"post/add.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
 static NSString * kHomeHotPostApi = @"Index/hotpost.html";
@@ -20,6 +21,7 @@ static NSString * kVipPostApi = @"Index/vipPost.html";
 static NSString * kRenPostApi = @"Index/renPost.html";
 static NSString * kPullPostApi = @"Index/pullPost.html";
 static NSString * kRewardPostApi = @"Index/rewardPost.html";
+static NSString * kHistoryLotteryApi = @"Period/index.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -74,5 +76,8 @@ static NSString * kRewardPostApi = @"Index/rewardPost.html";
         entity.responseObject = [LCRankingRenListModel class];
     }
     return entity;
+}
++ (LSKParamterEntity *)getkHistoryLotteryList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id {
+    
 }
 @end
