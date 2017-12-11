@@ -187,7 +187,7 @@ static const NSInteger kWeb_Progress_View_Tag = 5001;
         _m_closeButton.hidden = YES;
         self.navigationItem.leftBarButtonItem = nil;
         UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc]initWithCustomView:_m_closeButton];
-        UIBarButtonItem *backButtonItem = [UIBarButtonItem initBarButtonItemWithNornalImage:@"navigation_back" seletedImage:nil title:nil font:0 fontColor:nil target:self action:@selector(backClick) isRight:NO];
+        UIBarButtonItem *backButtonItem = [UIBarButtonItem initBarButtonItemWithNornalImage:@"navi_back" seletedImage:nil title:nil font:0 fontColor:nil target:self action:@selector(backClick) isRight:NO];
         [self addNavigationLeftButtons:@[backButtonItem,closeButtonItem]];
     }
 }

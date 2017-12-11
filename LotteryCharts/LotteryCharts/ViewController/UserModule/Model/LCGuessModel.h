@@ -22,7 +22,7 @@
 @property (nonatomic, copy) NSString *user_id;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;
-@property (nonatomic, copy) NSString *reply_count;
+@property (nonatomic, assign) NSInteger reply_count;
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, copy) NSString *update_time;

@@ -25,8 +25,11 @@
     ViewBoundsRadius(self.photoImage, 20);
 }
 - (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId index:(NSInteger)index time:(NSString *)time content:(NSString *)content {
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     self.nickNameLbl.text = name;
-    self.userIdLbl.text = userId;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.indexLbl.text = NSStringFormat(@"%zd楼",index);
     self.timeLbl.text = time;
     self.contentLbl.text = content;

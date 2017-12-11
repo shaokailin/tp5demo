@@ -9,5 +9,4 @@
 #import "LSKBaseViewController.h"
 
 @interface LCHistoryLotteryVC : LSKBaseViewController
-
 @end

@@ -9,6 +9,7 @@
 #import "LSKBarnerScrollView.h"
 #import "NSTimer+Extend.h"
 #import "LSKBannerImageView.h"
+#import "LCAdBannerModel.h"
 @interface LSKBarnerScrollView ()<UIScrollViewDelegate>
 {
     /**默认图片*/
@@ -104,9 +105,9 @@
         }
         LSKBannerImageView *imageView = [[LSKBannerImageView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) placeHolderImage:_placeHolderImage];
         if (_imageUrlArray.count > 0) {
-//            PPSSBannerModel *model = [_imageUrlArray objectAtIndex:0];
-//            imageView.imageWebUrl = model.image;
-            imageView.backgroundColor = ColorRGBA((arc4random() % 256), (arc4random() % 256), (arc4random() % 256),1);
+            LCAdBannerModel *model = [_imageUrlArray objectAtIndex:0];
+            imageView.imageWebUrl = model.logo;
+            [imageView loadWebImageView];
         }
         [self.bannerScrollView addSubview:imageView];
         return;
@@ -118,7 +119,6 @@
             for (int i = 0; i < count; i++) {
                 @autoreleasepool {
                     LSKBannerImageView *imageView = [[LSKBannerImageView alloc]initWithFrame:CGRectMake((bannerHasViewCount + i) * CGRectGetWidth(self.bounds), 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds)) placeHolderImage:_placeHolderImage];
-                    imageView.backgroundColor = ColorRGBA((arc4random() % 256), (arc4random() % 256), (arc4random() % 256),1);
                     [self.bannerScrollView addSubview:imageView];
                 }
             }
@@ -132,16 +132,16 @@
     }
     for (int i = 0; i < imageArrayCount; i++) {
         LSKBannerImageView *imageView = (LSKBannerImageView *)[self.bannerScrollView.subviews objectAtIndex:i];
-//        PPSSBannerModel *model = nil;
+        LCAdBannerModel *model = nil;
         if (i == 0) {
-//            model = _imageUrlArray.lastObject;
+            model = _imageUrlArray.lastObject;
         }else if (i == imageArrayCount - 1){
-//            model = _imageUrlArray.firstObject;
+            model = _imageUrlArray.firstObject;
         }else {
-//            model = [_imageUrlArray objectAtIndex:i - 1];
+            model = [_imageUrlArray objectAtIndex:i - 1];
         }
-//        imageView.imageWebUrl = model.image;
-//        [imageView loadWebImageView];
+        imageView.imageWebUrl = model.logo;
+        [imageView loadWebImageView];
     }
     
 }
@@ -158,10 +158,8 @@
     }else {
         countImages += 2;
     }
-    self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * countImages, CGRectGetHeight(self.bounds));
     if (countImages > 1) {
         self.pageControl.numberOfPages = _imageUrlArray.count;
-        [self changePageControlFrame];
         LSKBannerImageView *imageView = nil;
         self.pageControl.currentPage = 0;
         if (countImages > 1) {
@@ -186,6 +184,7 @@
         }
         self.bannerScrollView.scrollEnabled = NO;
     }
+    self.bannerScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.bounds) * countImages, CGRectGetHeight(self.bounds));
 }
 #pragma mark - kvo
 - (void)addObservers {
@@ -207,10 +206,13 @@
 
 #pragma mark - caculate curIndex
 - (void)caculateCurIndex {
+    
     CGFloat width = CGRectGetWidth(self.bounds);
     //当手指滑动scrollview，而scrollview减速停止的时候 开始计算当前的图片的位置
     int currentPage = self.bannerScrollView.contentOffset.x/width;
-    if (_imageUrlArray.count > 1) {
+    if (_imageUrlArray.count <= 1) {
+        
+    }else {
         if (currentPage == _imageUrlArray.count + 1) {
             [self.bannerScrollView setContentOffset:CGPointMake(width, 0) animated:NO];
             self.pageControl.currentPage = 0;
@@ -246,7 +248,7 @@
     [self.timer pauseTimer];
 }
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-        [self.timer resumeTimer:kFGGScrollInterval];
+    [self.timer resumeTimer:kFGGScrollInterval];
 }
 -(void)changeIndex
 {
@@ -289,14 +291,6 @@
         [self addSubview:_pageControl];
     }
     return _pageControl;
-}
-- (void)changePageControlFrame {
-    CGSize pointSize = [_pageControl sizeForNumberOfPages:_pageControl.numberOfPages];
-    
-    CGFloat page_x = -(_pageControl.bounds.size.width - pointSize.width) / 2  + 10;
-    
-    [_pageControl setBounds:CGRectMake(page_x, _pageControl.bounds.origin.y,
-                                       _pageControl.bounds.size.width, _pageControl.bounds.size.height)];
 }
 
 - (UIScrollView *)bannerScrollView {

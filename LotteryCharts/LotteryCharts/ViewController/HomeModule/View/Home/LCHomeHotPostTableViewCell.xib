@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -38,22 +38,19 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="码师ID:123456" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sEi-4p-71D">
-                        <rect key="frame" x="128" y="18" width="64" height="11"/>
+                        <rect key="frame" x="141" y="18" width="64" height="11"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.90196078431372551" green="0.0" blue="0.070588235294117646" alpha="0.59957005033557043" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="帖子ID:123456" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFb-ue-04q">
-                        <rect key="frame" x="204" y="18" width="64" height="11"/>
+                        <rect key="frame" x="217" y="18" width="64" height="11"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.0039215686274509803" green="0.72549019607843135" blue="0.99215686274509807" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1小时前发布" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj1-Ye-ReE">
-                        <rect key="frame" x="268" y="18" width="42" height="11"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="42" id="17E-Bg-ANq"/>
-                        </constraints>
+                        <rect key="frame" x="259.5" y="18" width="50.5" height="11"/>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -72,7 +69,7 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="sEi-4p-71D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O7g-tL-1Hs" secondAttribute="trailing" constant="4" id="0fY-Ff-ub7"/>
+                    <constraint firstItem="sEi-4p-71D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="O7g-tL-1Hs" secondAttribute="trailing" constant="10" id="0fY-Ff-ub7"/>
                     <constraint firstItem="P7k-aR-Fec" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="5bB-gi-7si"/>
                     <constraint firstItem="c6A-Ya-NGk" firstAttribute="leading" secondItem="8Z6-7h-EHh" secondAttribute="leading" id="8WW-dU-7kS"/>
                     <constraint firstItem="8Z6-7h-EHh" firstAttribute="centerY" secondItem="P7k-aR-Fec" secondAttribute="centerY" id="Jkx-8Y-xaB"/>
@@ -82,13 +79,13 @@
                     <constraint firstItem="M0S-FJ-dWL" firstAttribute="centerY" secondItem="c6A-Ya-NGk" secondAttribute="centerY" id="Zy8-l9-NkY"/>
                     <constraint firstItem="M0S-FJ-dWL" firstAttribute="leading" secondItem="c6A-Ya-NGk" secondAttribute="trailing" constant="14" id="akC-Wa-IcQ"/>
                     <constraint firstItem="P7k-aR-Fec" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="dp5-9Z-WlW"/>
-                    <constraint firstItem="sEi-4p-71D" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="ghN-cv-C7o"/>
                     <constraint firstItem="sEi-4p-71D" firstAttribute="bottom" secondItem="O7g-tL-1Hs" secondAttribute="bottom" id="kUl-s6-1ls"/>
                     <constraint firstItem="JFb-ue-04q" firstAttribute="leading" secondItem="sEi-4p-71D" secondAttribute="trailing" constant="12" id="mfG-jp-sSe"/>
                     <constraint firstItem="JFb-ue-04q" firstAttribute="bottom" secondItem="sEi-4p-71D" secondAttribute="bottom" id="n31-Dv-TRS"/>
                     <constraint firstItem="8Z6-7h-EHh" firstAttribute="leading" secondItem="P7k-aR-Fec" secondAttribute="trailing" constant="6" id="o5b-ot-OV3"/>
                     <constraint firstItem="8Z6-7h-EHh" firstAttribute="top" secondItem="O7g-tL-1Hs" secondAttribute="bottom" constant="2" id="ohr-lA-HSl"/>
                     <constraint firstItem="c6A-Ya-NGk" firstAttribute="top" secondItem="8Z6-7h-EHh" secondAttribute="bottom" constant="8" id="vEH-uC-eaj"/>
+                    <constraint firstItem="sEi-4p-71D" firstAttribute="leading" secondItem="O7g-tL-1Hs" secondAttribute="trailing" constant="20" id="vn3-Cf-lY5"/>
                     <constraint firstItem="Cj1-Ye-ReE" firstAttribute="bottom" secondItem="JFb-ue-04q" secondAttribute="bottom" id="zNf-ql-BbV"/>
                 </constraints>
             </tableViewCellContentView>
@@ -100,7 +97,6 @@
                 <outlet property="postNameLbl" destination="O7g-tL-1Hs" id="nWP-Hd-4Pp"/>
                 <outlet property="postTitleLbl" destination="8Z6-7h-EHh" id="SIp-DJ-lQf"/>
                 <outlet property="sendTimeLbl" destination="Cj1-Ye-ReE" id="znL-Y5-yeF"/>
-                <outlet property="timeWidth" destination="17E-Bg-ANq" id="dsV-io-cTh"/>
                 <outlet property="userIdLbl" destination="sEi-4p-71D" id="q6D-Pu-gGr"/>
             </connections>
             <point key="canvasLocation" x="21" y="49"/>

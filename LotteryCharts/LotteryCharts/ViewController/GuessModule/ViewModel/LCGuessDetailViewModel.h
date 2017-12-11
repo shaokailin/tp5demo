@@ -7,7 +7,9 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCGuessReplyListModel.h"
+#import "LCGuessDetailModel.h"
+#import "LCReplySuccessModel.h"
 @interface LCGuessDetailViewModel : LSKBaseViewModel
 @property (nonatomic, copy) NSString *period_id;
 @property (nonatomic, copy) NSString *quiz_id;

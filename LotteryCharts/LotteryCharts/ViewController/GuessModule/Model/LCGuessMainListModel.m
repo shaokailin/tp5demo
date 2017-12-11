@@ -36,7 +36,7 @@
         }
         if (isEndTime) {
             NSString *endFormar = @"yyyy年MM月dd日  HH:mm";
-            _end_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:endFormar];
+            _end_time = [[NSDate dateWithTimeIntervalSince1970:[endTime integerValue]]dateTransformToString:endFormar];
             result = YES;
         }
         return result;

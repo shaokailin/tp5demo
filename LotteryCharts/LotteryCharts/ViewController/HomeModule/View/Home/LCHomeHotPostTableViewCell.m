@@ -29,7 +29,18 @@
     self.photoImage.backgroundColor = ColorHexadecimal(0xb5b5b5, 1.0);
     _timeWidth.constant = SCREEN_WIDTH == 320 ?  42 : WIDTH_RACE_5S(60);
 }
-
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money {
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
+    self.postNameLbl.text = name;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
+    self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
+    self.sendTimeLbl.text = time;
+    self.postTitleLbl.text = title;
+    self.countLbl.text = NSStringFormat(@"阅读数:%@",showCount);
+    self.moneyLbl.text = NSStringFormat(@"%@金币查看内容",money);
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

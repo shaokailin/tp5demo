@@ -7,16 +7,38 @@
 //
 
 #import "LCHomeNoticeView.h"
-
+#import "LCHomeNoticeModel.h"
 @implementation LCHomeNoticeView
 {
     UILabel *_contentLbl;
+    LMJScrollTextView2 * _scrollTextView;
 }
 - (instancetype)init {
     if (self = [super init]) {
         [self _layoutMainView];
     }
     return self;
+}
+- (void)setupContent:(NSArray *)content {
+//    _dataArray = content;
+    [self.dataArray removeAllObjects];
+    [_scrollTextView stop];
+    if (KJudgeIsArrayAndHasValue(content)) {
+        for (LCHomeNoticeModel *model in content) {
+            [self.dataArray addObject:model.content];
+        }
+    }
+    if (self.dataArray.count > 0) {
+        _scrollTextView.textDataArr = self.dataArray;
+        [_scrollTextView startScrollBottomToTop];
+    }
+    
+}
+- (NSMutableArray *)dataArray {
+    if (!_dataArray) {
+        _dataArray = [NSMutableArray array];
+    }
+    return _dataArray;
 }
 - (void)_layoutMainView {
     UIImageView *arrowImageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"home_notice")];
@@ -34,15 +56,11 @@
         make.left.equalTo(arrowImageView.mas_right).with.offset(5);
         make.centerY.equalTo(ws);
     }];
-    
-    UILabel *contentLbl = [LSKViewFactory initializeLableWithText:@"恭喜ABV用户获得获得获得" font:11 textColor:ColorHexadecimal(0x959595, 1.0) textAlignment:0 backgroundColor:nil];
-    _contentLbl = contentLbl;
-    [self addSubview:contentLbl];
-    [contentLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(titleLble.mas_right).with.offset(8);
-        make.centerY.equalTo(ws);
-        make.right.lessThanOrEqualTo(ws.mas_right).with.offset(-10);
-    }];
+    _scrollTextView = [[LMJScrollTextView2 alloc] initWithFrame:CGRectMake(65, 0, SCREEN_WIDTH - 75, 30)];
+    _scrollTextView.delegate        = self;
+    _scrollTextView.textColor       = ColorHexadecimal(0x959595, 1.0);
+    _scrollTextView.textFont        = [UIFont systemFontOfSize:11.f];
+    [self addSubview:_scrollTextView];
 }
 
 @end

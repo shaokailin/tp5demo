@@ -16,10 +16,13 @@
 #import "LCHistoryLotteryVC.h"
 #import "LCPushPostMainVC.h"
 #import "LCPostDetailVC.h"
+#import "LCHomeMainViewModel.h"
+#import "LCWebViewController.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
 @property (nonatomic, strong) NSArray *searchArray;
+@property (nonatomic, strong) LCHomeMainViewModel *viewModel;
 @end
 
 @implementation LCHomeMainVC
@@ -28,6 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self initializeMainView];
+    [self bindSignal];
 }
 #pragma mark private
 - (void)showMeunView:(UIButton *)sender {
@@ -39,11 +43,46 @@
 - (void)searchEnumClick:(NSInteger)index {
     self.headerView.searchIndex = index;
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCHomeMainViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 0) {
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.hotPostArray.count];
+        }else if(identifier == 10){
+            [self.headerView setupHotLineCount:model];
+        }else {
+            [self.headerView setupBannerData:self.viewModel.messageModel.adv_list];
+            [self.headerView setupNotice:self.viewModel.messageModel.notice];
+            [self.headerView setup3DMessage:self.viewModel.messageModel.period_list];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        if (identifier == 0) {
+            if (self.viewModel.page == 0) {
+                [self.mainTableView reloadData];
+            }
+            [self endRefreshing];
+        }
+    }];
+    [_viewModel bindSinal];
+    [_viewModel getHomeMessage:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    _viewModel.page = 0;
+    [_viewModel getHomeMessage:YES];
 }
 - (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    _viewModel.page += 1;
+    [_viewModel getHomeMessage:YES];
 }
 - (void)headerViewActionType:(NSInteger)type actionParam:(id)actionParam {
     [self.view endEditing:YES];
@@ -89,14 +128,42 @@
             controller.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:controller animated:YES];
         }
+    }else if (type == 3) {
+        if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.adv_list)) {
+            NSInteger index = [actionParam integerValue];
+            if (index < self.viewModel.messageModel.adv_list.count) {
+                LCAdBannerModel *banner = [self.viewModel.messageModel.adv_list objectAtIndex:index];
+                if (KJudgeIsNullData(banner.url)) {
+                    LCWebViewController *webVC = [[LCWebViewController alloc]init];
+                    webVC.hidesBottomBarWhenPushed = YES;
+                    webVC.loadUrl = banner.url;
+                    webVC.titleString = banner.name;
+                    [self.navigationController pushViewController:webVC animated:YES];
+                }
+            }
+        }
+    }else if (type == 2){//搜索
+        
+    }else {
+        if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.period_list)) {
+            LC3DLotteryModel *model = [self.viewModel.messageModel.period_list objectAtIndex:0];
+            LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
+            lottery.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:lottery animated:YES];
+        }
     }
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    if (_viewModel) {
+        return _viewModel.hotPostArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
+    LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.user_id postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface LCHomeNoticeView : UIView
-
+#import "LMJScrollTextView2.h"
+@interface LCHomeNoticeView : UIView<LMJScrollTextView2Delegate>
+@property (nonatomic, strong)NSMutableArray *dataArray;
+- (void)setupContent:(NSArray *)content;
 @end

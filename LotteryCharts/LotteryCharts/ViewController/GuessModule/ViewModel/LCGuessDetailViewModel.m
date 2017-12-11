@@ -8,9 +8,7 @@
 
 #import "LCGuessDetailViewModel.h"
 #import "LCGuessModuleAPI.h"
-#import "LCGuessReplyListModel.h"
-#import "LCGuessDetailModel.h"
-#import "LCReplySuccessModel.h"
+
 @interface LCGuessDetailViewModel ()
 @property (nonatomic, strong) RACCommand *replyListCommand;
 @property (nonatomic, strong) RACCommand *sendReplyCommand;
@@ -24,7 +22,7 @@
     [self.replyListCommand execute:nil];
 }
 - (void)sendReplyClick:(NSString *)message {
-    if (KJudgeIsNullData([message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]])) {
+    if (!KJudgeIsNullData([message stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]])) {
         return;
     }
     [SKHUD showLoadingDotInView:self.currentView];
@@ -122,7 +120,7 @@
         [_betGuessCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
-                [SKHUD dismiss];
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
                 [self sendSuccessResult:20 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];

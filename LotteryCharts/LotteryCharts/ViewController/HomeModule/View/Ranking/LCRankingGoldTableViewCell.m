@@ -26,8 +26,11 @@
 - (void)setupContentWithIndex:(NSInteger)index photo:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId postTitle:(NSString *)postTitle {
     self.indexLbl.text = NSStringFormat(@"%zd",index);
     self.nameLbl.text = name;
-    self.userIdLbl.text = userId;
-    self.postIdLbl.text = postId;
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
+    self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.postTitleLbl.text = postTitle;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

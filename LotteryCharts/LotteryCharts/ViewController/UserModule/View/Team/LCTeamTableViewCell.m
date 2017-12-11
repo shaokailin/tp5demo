@@ -25,8 +25,11 @@
     ViewBoundsRadius(self.photoImageView, 20);
 }
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount type:(NSInteger)type state:(NSInteger)state {
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     self.nameLbl.text = name;
-    self.userIdLbl.text = userId;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.glodLbl.text = glodCount;
     self.yinbiLbl.text = ybcount;
     if (type == 0) {

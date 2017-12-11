@@ -10,4 +10,10 @@
 
 @interface LCHomeModuleAPI : NSObject
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney;
+
++ (LSKParamterEntity *)getOnLineAll;
++ (LSKParamterEntity *)getHomeHeaderMessage;
++ (LSKParamterEntity *)getHotPostList:(NSInteger)page;
+
++ (LSKParamterEntity *)getPostRanking:(NSInteger)page type:(NSInteger)type;
 @end

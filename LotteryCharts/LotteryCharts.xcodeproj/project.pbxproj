@@ -142,6 +142,20 @@
 		E641981A1FDBCF6900C47713 /* LCGuessReplyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198191FDBCF6900C47713 /* LCGuessReplyListModel.m */; };
 		E641981D1FDBDCE900C47713 /* LCReplySuccessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641981C1FDBDCE900C47713 /* LCReplySuccessModel.m */; };
 		E64198201FDBE0DA00C47713 /* LCGuessDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641981F1FDBE0DA00C47713 /* LCGuessDetailViewModel.m */; };
+		E64198261FDE2A5600C47713 /* LCGuessHistoryViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198251FDE2A5600C47713 /* LCGuessHistoryViewModel.m */; };
+		E64198291FDE2A8C00C47713 /* LCGuessHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198281FDE2A8C00C47713 /* LCGuessHistoryVC.m */; };
+		E641982C1FDE361D00C47713 /* LCHomeMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641982B1FDE361D00C47713 /* LCHomeMainViewModel.m */; };
+		E641982F1FDE53B400C47713 /* LCAdBannerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641982E1FDE53B300C47713 /* LCAdBannerModel.m */; };
+		E64198321FDE53DF00C47713 /* LCHomeNoticeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198311FDE53DF00C47713 /* LCHomeNoticeModel.m */; };
+		E64198351FDE540D00C47713 /* LC3DLotteryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198341FDE540D00C47713 /* LC3DLotteryModel.m */; };
+		E64198381FDE542100C47713 /* LCHomeHeaderMessageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198371FDE542100C47713 /* LCHomeHeaderMessageModel.m */; };
+		E641983B1FDE55FF00C47713 /* LCHomeHotListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641983A1FDE55FF00C47713 /* LCHomeHotListModel.m */; };
+		E641983E1FDE561900C47713 /* LCHomePostModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641983D1FDE561900C47713 /* LCHomePostModel.m */; };
+		E64198411FDE63C100C47713 /* LMJScrollTextView2.m in Sources */ = {isa = PBXBuildFile; fileRef = E641983F1FDE63C100C47713 /* LMJScrollTextView2.m */; };
+		E64198441FDE6B5500C47713 /* LCHomeRankingListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198431FDE6B5500C47713 /* LCHomeRankingListModel.m */; };
+		E64198471FDE6CFD00C47713 /* LCRankingVipListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198461FDE6CFD00C47713 /* LCRankingVipListModel.m */; };
+		E641984A1FDE6D1200C47713 /* LCRankingRenListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */; };
+		E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */; };
 		E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */; };
 		E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA5291FC6A91E00FE4FCF /* LCLoginModuleAPI.m */; };
 		E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66BA52C1FC6ABC700FE4FCF /* LCLoginMainModel.m */; };
@@ -479,6 +493,34 @@
 		E641981C1FDBDCE900C47713 /* LCReplySuccessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCReplySuccessModel.m; sourceTree = "<group>"; };
 		E641981E1FDBE0DA00C47713 /* LCGuessDetailViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessDetailViewModel.h; sourceTree = "<group>"; };
 		E641981F1FDBE0DA00C47713 /* LCGuessDetailViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessDetailViewModel.m; sourceTree = "<group>"; };
+		E64198241FDE2A5600C47713 /* LCGuessHistoryViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessHistoryViewModel.h; sourceTree = "<group>"; };
+		E64198251FDE2A5600C47713 /* LCGuessHistoryViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessHistoryViewModel.m; sourceTree = "<group>"; };
+		E64198271FDE2A8C00C47713 /* LCGuessHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessHistoryVC.h; sourceTree = "<group>"; };
+		E64198281FDE2A8C00C47713 /* LCGuessHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessHistoryVC.m; sourceTree = "<group>"; };
+		E641982A1FDE361D00C47713 /* LCHomeMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeMainViewModel.h; sourceTree = "<group>"; };
+		E641982B1FDE361D00C47713 /* LCHomeMainViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeMainViewModel.m; sourceTree = "<group>"; };
+		E641982D1FDE53B300C47713 /* LCAdBannerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAdBannerModel.h; sourceTree = "<group>"; };
+		E641982E1FDE53B300C47713 /* LCAdBannerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAdBannerModel.m; sourceTree = "<group>"; };
+		E64198301FDE53DF00C47713 /* LCHomeNoticeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeNoticeModel.h; sourceTree = "<group>"; };
+		E64198311FDE53DF00C47713 /* LCHomeNoticeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeNoticeModel.m; sourceTree = "<group>"; };
+		E64198331FDE540D00C47713 /* LC3DLotteryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC3DLotteryModel.h; sourceTree = "<group>"; };
+		E64198341FDE540D00C47713 /* LC3DLotteryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC3DLotteryModel.m; sourceTree = "<group>"; };
+		E64198361FDE542100C47713 /* LCHomeHeaderMessageModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderMessageModel.h; sourceTree = "<group>"; };
+		E64198371FDE542100C47713 /* LCHomeHeaderMessageModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHeaderMessageModel.m; sourceTree = "<group>"; };
+		E64198391FDE55FF00C47713 /* LCHomeHotListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeHotListModel.h; sourceTree = "<group>"; };
+		E641983A1FDE55FF00C47713 /* LCHomeHotListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeHotListModel.m; sourceTree = "<group>"; };
+		E641983C1FDE561900C47713 /* LCHomePostModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomePostModel.h; sourceTree = "<group>"; };
+		E641983D1FDE561900C47713 /* LCHomePostModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomePostModel.m; sourceTree = "<group>"; };
+		E641983F1FDE63C100C47713 /* LMJScrollTextView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMJScrollTextView2.m; sourceTree = "<group>"; };
+		E64198401FDE63C100C47713 /* LMJScrollTextView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMJScrollTextView2.h; sourceTree = "<group>"; };
+		E64198421FDE6B5500C47713 /* LCHomeRankingListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHomeRankingListModel.h; sourceTree = "<group>"; };
+		E64198431FDE6B5500C47713 /* LCHomeRankingListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHomeRankingListModel.m; sourceTree = "<group>"; };
+		E64198451FDE6CFD00C47713 /* LCRankingVipListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingVipListModel.h; sourceTree = "<group>"; };
+		E64198461FDE6CFD00C47713 /* LCRankingVipListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingVipListModel.m; sourceTree = "<group>"; };
+		E64198481FDE6D1200C47713 /* LCRankingRenListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingRenListModel.h; sourceTree = "<group>"; };
+		E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingRenListModel.m; sourceTree = "<group>"; };
+		E641984B1FDE6EC900C47713 /* LCRankingViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingViewModel.h; sourceTree = "<group>"; };
+		E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingViewModel.m; sourceTree = "<group>"; };
 		E66BA5251FC6A90100FE4FCF /* LCLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginViewModel.h; sourceTree = "<group>"; };
 		E66BA5261FC6A90100FE4FCF /* LCLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLoginViewModel.m; sourceTree = "<group>"; };
 		E66BA5281FC6A91E00FE4FCF /* LCLoginModuleAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLoginModuleAPI.h; sourceTree = "<group>"; };
@@ -717,6 +759,8 @@
 		959018F91FB808ED00F5B0CE /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				E64198401FDE63C100C47713 /* LMJScrollTextView2.h */,
+				E641983F1FDE63C100C47713 /* LMJScrollTextView2.m */,
 				959018FA1FB808ED00F5B0CE /* LCHomeFuncView.h */,
 				959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */,
 				959018FC1FB808ED00F5B0CE /* LCHomeHeaderView.h */,
@@ -1102,6 +1146,8 @@
 			children = (
 				E636A8061FC5A04600C9460F /* LCGuessDetailVC.h */,
 				E636A8071FC5A04600C9460F /* LCGuessDetailVC.m */,
+				E64198271FDE2A8C00C47713 /* LCGuessHistoryVC.h */,
+				E64198281FDE2A8C00C47713 /* LCGuessHistoryVC.m */,
 			);
 			path = GuessDetail;
 			sourceTree = "<group>";
@@ -1317,6 +1363,8 @@
 				E6D33C941FD9301F0036AE54 /* LCGuessMainViewModel.m */,
 				E641981E1FDBE0DA00C47713 /* LCGuessDetailViewModel.h */,
 				E641981F1FDBE0DA00C47713 /* LCGuessDetailViewModel.m */,
+				E64198241FDE2A5600C47713 /* LCGuessHistoryViewModel.h */,
+				E64198251FDE2A5600C47713 /* LCGuessHistoryViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1345,6 +1393,24 @@
 		E6D9A7D51FAFF97300894BB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E641982D1FDE53B300C47713 /* LCAdBannerModel.h */,
+				E641982E1FDE53B300C47713 /* LCAdBannerModel.m */,
+				E64198301FDE53DF00C47713 /* LCHomeNoticeModel.h */,
+				E64198311FDE53DF00C47713 /* LCHomeNoticeModel.m */,
+				E64198331FDE540D00C47713 /* LC3DLotteryModel.h */,
+				E64198341FDE540D00C47713 /* LC3DLotteryModel.m */,
+				E64198361FDE542100C47713 /* LCHomeHeaderMessageModel.h */,
+				E64198371FDE542100C47713 /* LCHomeHeaderMessageModel.m */,
+				E64198391FDE55FF00C47713 /* LCHomeHotListModel.h */,
+				E641983A1FDE55FF00C47713 /* LCHomeHotListModel.m */,
+				E641983C1FDE561900C47713 /* LCHomePostModel.h */,
+				E641983D1FDE561900C47713 /* LCHomePostModel.m */,
+				E64198421FDE6B5500C47713 /* LCHomeRankingListModel.h */,
+				E64198431FDE6B5500C47713 /* LCHomeRankingListModel.m */,
+				E64198451FDE6CFD00C47713 /* LCRankingVipListModel.h */,
+				E64198461FDE6CFD00C47713 /* LCRankingVipListModel.m */,
+				E64198481FDE6D1200C47713 /* LCRankingRenListModel.h */,
+				E64198491FDE6D1200C47713 /* LCRankingRenListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1368,6 +1434,10 @@
 			children = (
 				E67FFBEA1FCFDC180045E5DF /* LCPushPostViewModel.h */,
 				E67FFBEB1FCFDC180045E5DF /* LCPushPostViewModel.m */,
+				E641982A1FDE361D00C47713 /* LCHomeMainViewModel.h */,
+				E641982B1FDE361D00C47713 /* LCHomeMainViewModel.m */,
+				E641984B1FDE6EC900C47713 /* LCRankingViewModel.h */,
+				E641984C1FDE6EC900C47713 /* LCRankingViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1987,6 +2057,7 @@
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */,
 				E61D2F111FBD3E51002005E3 /* LCExchangeMainVC.m in Sources */,
+				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
@@ -2008,6 +2079,7 @@
 				E61D2EF51FBAF400002005E3 /* LCRewardRecordTableViewCell.m in Sources */,
 				E636A7FC1FC593BD00C9460F /* LCPostVoiceView.m in Sources */,
 				E6E2C6691FB0038600866D15 /* LSKMediaParamterEntity.m in Sources */,
+				E64198471FDE6CFD00C47713 /* LCRankingVipListModel.m in Sources */,
 				E67FFBDE1FCE63DB0045E5DF /* LCBaseResponseModel.m in Sources */,
 				E6C3F3F11FC155420077D670 /* LCHistoryLotteryTableViewCell.m in Sources */,
 				E694503C1FD14F9500605793 /* LCTaskViewModel.m in Sources */,
@@ -2015,6 +2087,7 @@
 				E67FFBE61FCEA81B0045E5DF /* LCUserMessageViewModel.m in Sources */,
 				E6E2C6761FB0038600866D15 /* LSKBannerImageView.m in Sources */,
 				E6C3F4121FC18BAF0077D670 /* LCGuessMainHeaderView.m in Sources */,
+				E641983E1FDE561900C47713 /* LCHomePostModel.m in Sources */,
 				E61D2EC01FBAC3FF002005E3 /* LCUserMessageTableViewCell.m in Sources */,
 				E61D2F2B1FBE86F5002005E3 /* LCTaskMainVC.m in Sources */,
 				E641980B1FDA8FB000C47713 /* JSQMessagesComposerTextView.m in Sources */,
@@ -2029,6 +2102,7 @@
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
 				E67FFBCE1FCCFAB70045E5DF /* LCUserMianViewModel.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
+				E64198261FDE2A5600C47713 /* LCGuessHistoryViewModel.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
 				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
@@ -2048,6 +2122,8 @@
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
 				E636A7F71FC5930200C9460F /* LCPostAlertView.m in Sources */,
+				E64198321FDE53DF00C47713 /* LCHomeNoticeModel.m in Sources */,
+				E641982C1FDE361D00C47713 /* LCHomeMainViewModel.m in Sources */,
 				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,
 				E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
@@ -2055,10 +2131,13 @@
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
 				E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */,
+				E641984A1FDE6D1200C47713 /* LCRankingRenListModel.m in Sources */,
 				E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */,
+				E64198291FDE2A8C00C47713 /* LCGuessHistoryVC.m in Sources */,
 				E6C3F3CF1FC04CD10077D670 /* LCRankingMainVC.m in Sources */,
 				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
 				E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */,
+				E64198441FDE6B5500C47713 /* LCHomeRankingListModel.m in Sources */,
 				E694502D1FD0F96800605793 /* LCAttentionListModel.m in Sources */,
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E61D2F401FBEB97D002005E3 /* LCTeamMainVC.m in Sources */,
@@ -2080,11 +2159,15 @@
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
 				E61EA1C21FD549EE00737327 /* LCSpacePostListModel.m in Sources */,
 				E61D2F441FBEBB4E002005E3 /* LCTeamHeaderView.m in Sources */,
+				E641983B1FDE55FF00C47713 /* LCHomeHotListModel.m in Sources */,
 				E6C3F3DB1FC05A030077D670 /* LCVipTableViewCell.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,
+				E64198351FDE540D00C47713 /* LC3DLotteryModel.m in Sources */,
 				E6C3F3EC1FC155000077D670 /* LCHistoryLotteryVC.m in Sources */,
+				E64198381FDE542100C47713 /* LCHomeHeaderMessageModel.m in Sources */,
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
+				E641982F1FDE53B400C47713 /* LCAdBannerModel.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E61EA1C81FD54E0D00737327 /* LCSpacePostModel.m in Sources */,
 				E61D2EED1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.m in Sources */,
@@ -2115,6 +2198,7 @@
 				E61D2F331FBE87D4002005E3 /* LCTaskTableViewCell.m in Sources */,
 				E6C3F3C91FC0350C0077D670 /* LCContactServiceTableViewCell.m in Sources */,
 				95AF4EE71FB601590097B72D /* PopoverView.m in Sources */,
+				E64198411FDE63C100C47713 /* LMJScrollTextView2.m in Sources */,
 				E6E2C6771FB0038600866D15 /* LSKBarnerScrollView.m in Sources */,
 				E67FFBE31FCE98AF0045E5DF /* LCBaseMediaViewController.m in Sources */,
 			);

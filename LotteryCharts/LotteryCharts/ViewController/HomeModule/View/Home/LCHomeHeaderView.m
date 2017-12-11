@@ -46,6 +46,12 @@
 - (void)setupBannerData:(NSArray *)banner {
     [self.bannerView setupBannarContentWithUrlArray:banner];
 }
+- (void)setupNotice:(NSArray *)content {
+    [self.noticeView setupContent:content];
+}
+- (void)setup3DMessage:(NSArray *)array {
+    [self.lottery3DView setupLottertMessage:array];
+}
 - (void)_layoutMainView {
     WS(ws)
     _searchIndex = 1;
@@ -67,7 +73,6 @@
     }];
     self.bannerView = bannerView;
     [self addSubview:bannerView];
-    [bannerView setupBannarContentWithUrlArray:@[@"",@"",@""]];
     
     LCHomeFuncView *funcView = [[LCHomeFuncView alloc]init];
     [self addSubview:funcView];

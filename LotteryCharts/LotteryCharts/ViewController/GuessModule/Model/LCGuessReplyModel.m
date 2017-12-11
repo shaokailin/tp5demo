@@ -9,5 +9,18 @@
 #import "LCGuessReplyModel.h"
 
 @implementation LCGuessReplyModel
-
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+    NSNumber *createTime = dic[@"create_time"];
+    BOOL isStartTime = ([createTime isKindOfClass:[NSNumber class]] || [createTime isKindOfClass:[NSString class]]);
+    if (isStartTime) {
+        BOOL result = NO;;
+        if (isStartTime) {
+            NSString *endFormar = @"yyyy年MM月dd日  HH:mm";
+            _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:endFormar];
+            result = YES;
+        }
+        return result;
+    }
+    return NO;
+}
 @end

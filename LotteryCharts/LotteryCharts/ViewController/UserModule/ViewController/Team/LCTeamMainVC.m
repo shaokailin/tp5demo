@@ -115,7 +115,8 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCTeamTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCTeamTableViewCell];
-    [cell setupContentWithPhoto:nil name:@"凯先生" userId:@"码师ID:123456" glodCount:@"1234.00" yinbiCount:@"234234.00" type:_showType state:indexPath.row % 2];
+    LCTeamModel *model = [_viewModel.teamArray objectAtIndex:indexPath.row];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.uid glodCount:model.money yinbiCount:model.ymoney type:_showType state:_showType == 0? model.is_online : model.is_sign];
     return cell;
 }
 
@@ -130,7 +131,6 @@
     tableView.rowHeight = 80;
     LCTeamHeaderView *headerView = [[LCTeamHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 217)];
     self.headerView = headerView;
-    [headerView setupContentWithLineCount:@"12" allCount:@"30"];
     tableView.tableHeaderView = headerView;
     self.mainTableView = tableView;
     [self.view addSubview:tableView];

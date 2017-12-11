@@ -39,8 +39,11 @@
     self.nameLbl.text = name;
     self.moneyLbl.text = money;
     self.robMoneyLbl.text = robMoney;
-    self.userIdLbl.text = userId;
+    self.userIdLbl.text = NSStringFormat(@"码师:%@",userId);
     self.button.hidden = !isShow;
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     if (isShow == 0) {
         self.betweenValue.constant = 11;
         self.button.hidden = NO;;

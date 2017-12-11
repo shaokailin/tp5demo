@@ -13,11 +13,13 @@
 #import "LCVipTableViewCell.h"
 #import "LCRankingPushTableViewCell.h"
 #import "LCRankingGoldTableViewCell.h"
+#import "LCRankingViewModel.h"
 @interface LCRankingMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     NSInteger _showType;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, strong) LCRankingViewModel *viewModel;
 @end
 
 @implementation LCRankingMainVC
@@ -31,36 +33,97 @@
     }
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)showTypeChange:(NSInteger)type {
     _showType = type;
-    [self.mainTableView reloadData];
-}
-- (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
-}
-- (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    [self getMessage];
 }
 - (void)vipCellClick:(id)clickCell {
     NSInteger index = [self.mainTableView indexPathForCell:clickCell].row;
     LSKLog(@"%zd",index);
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCRankingViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.postArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self.viewModel.page == 0) {
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [self getMessage];
+}
+- (void)getMessage {
+    _viewModel.page = 0;
+    _viewModel.showType = _showType;
+    [_viewModel getRankingList:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
+- (void)pullDownRefresh {
+    _viewModel.page = 0;
+    [_viewModel getRankingList:YES];
+}
+- (void)pullUpLoadMore {
+    _viewModel.page += 1;
+    [_viewModel getRankingList:YES];
+}
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (!_viewModel) {
+        return 0;
+    }else {
+        NSInteger count = _viewModel.postArray.count;
+        if (count == 0) {
+            return count;
+        }
+        if (_showType == 2) {
+            return count;
+        }else {
+            if (_showType == 1) {
+                
+                if (KJudgeIsArrayAndHasValue(_viewModel.topArray)) {
+                    count += _viewModel.topArray.count;
+                    count += 1;
+                }
+            }else {
+                if (count > 3) {
+                    count += 1;
+                }
+            }
+            return count;
+        }
+    }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_showType == 2) {
         LCRankingPushTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRankingPushTableViewCell];
-        [cell setupContentWithIndex:indexPath.row + 1 photo:nil name:@"凯先生" userId:@"码师ID:123456" pushTime:@"1小时前发布" postId:@"帖子ID:123456" postTitle:@"帖子标题" count:@"阅读数：400"];
+        LCHomePostModel *model = [self.viewModel.postArray objectAtIndex:indexPath.row];
+        [cell setupContentWithIndex:indexPath.row + 1 photo:model.logo name:model.nickname userId:model.user_id pushTime:model.create_time postId:model.post_id postTitle:model.post_title count:model.make_click];
         return cell;
     }
-    if (indexPath.row < 3) {
+    if ((_showType == 1 && KJudgeIsArrayAndHasValue(self.viewModel.topArray) && indexPath.row < self.viewModel.topArray.count) || (_showType != 1 && indexPath.row < 3)) {
         LCVipRankingTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCVipRankingTableViewCell];
-        NSString *money = _showType == 0 ? @"付币查看  100金币":@"";
-        NSString *robMoney = _showType == 0?@"300金币抢此榜":(_showType == 1?@"粉丝：200":@"帖子ID:123456");
-        [cell setupContent:indexPath.row + 1 photo:nil postTitle:@"帖子标题" name:@"凯先生" money:money robMoney:robMoney userId:@"码师ID:123456" isShowBtn:_showType];
+        LCHomePostModel *model = nil;
+        if (_showType == 1) {
+            model = [self.viewModel.topArray objectAtIndex:indexPath.row];
+        }else {
+            model = [self.viewModel.postArray objectAtIndex:indexPath.row];
+        }
+        NSString *money = _showType == 0 ? NSStringFormat(@"付币查看  %@金币",model.post_money):@"";
+        NSString *robMoney = _showType == 0?NSStringFormat(@"%@金币抢此榜",model.post_vipmoney):(_showType == 1?@"粉丝：200":NSStringFormat(@"帖子ID:%@",model.post_id));
+        [cell setupContent:indexPath.row + 1 photo:model.logo postTitle:model.post_title name:model.nickname money:money robMoney:robMoney userId:model.user_id isShowBtn:_showType];
         if (_showType == 0) {
             WS(ws)
             cell.vipRankingBlock = ^(id clickCell) {
@@ -68,17 +131,22 @@
             };
         }
         return cell;
-    }else if (indexPath.row == 3) {
+    }else if ((_showType == 1 && KJudgeIsArrayAndHasValue(self.viewModel.topArray) && indexPath.row == self.viewModel.topArray.count) || (_showType != 1 && indexPath.row == 3)) {
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
     }else {
+        NSInteger index = indexPath.row - 1;
+        if (_showType == 1) {
+            index = KJudgeIsArrayAndHasValue(self.viewModel.topArray)?indexPath.row - self.viewModel.topArray.count - 1:indexPath.row;
+        }
+        LCHomePostModel *model = [self.viewModel.postArray objectAtIndex:index];
         if (_showType == 3) {
             LCRankingGoldTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRankingGoldTableViewCell];
-            [cell setupContentWithIndex:indexPath.row - 1 photo:nil name:@"凯先生" userId:@"码师ID:123456" postId:@"码师ID:123456" postTitle:@"帖子标题"];
+            [cell setupContentWithIndex:index + 1 photo:model.logo name:model.nickname userId:model.user_id postId:model.post_id postTitle:model.post_title];
             return cell;
         }else {
             LCVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCVipTableViewCell];
-            [cell setupContent:indexPath.row photo:nil postTitle:@"帖子标题" name:@"凯先生" money:@"付币查看  100金币" robMoney:@"300金币抢此榜" userId:@"码师ID:123456" isShowBtn:_showType == 0?YES:NO];
+            [cell setupContent:index + 1 photo:model.logo postTitle:model.post_title name:model.nickname money:NSStringFormat(@"付币查看  %@金币",model.post_money) robMoney:NSStringFormat(@"%@金币抢此榜",model.post_vipmoney) userId:model.user_id isShowBtn:_showType == 0?YES:NO];
             if (_showType == 0) {
                 WS(ws)
                 cell.vipBlock = ^(id clickCell) {
@@ -106,6 +174,7 @@
     }
 }
 - (void)initializeMainView {
+    _showType = 0;
     LCRankingHeaderView *headerView = [[LCRankingHeaderView alloc]init];
     WS(ws)
     headerView.headerBlock = ^(NSInteger type) {

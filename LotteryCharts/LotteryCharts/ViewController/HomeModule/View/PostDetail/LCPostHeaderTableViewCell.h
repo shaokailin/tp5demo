@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCPostHeaderTableViewCell = @"LCPostHeaderTableViewCell";
 @interface LCPostHeaderTableViewCell : UITableViewCell
-- (void)setupCount:(NSString *)count type:(NSInteger)type ;
+- (void)setupCount:(NSInteger)count type:(NSInteger)type ;
 @end

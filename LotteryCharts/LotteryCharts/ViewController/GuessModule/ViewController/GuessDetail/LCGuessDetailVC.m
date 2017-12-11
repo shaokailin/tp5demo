@@ -11,10 +11,12 @@
 #import "LCPostCommentTableViewCell.h"
 #import "LCCommentInputView.h"
 #import "LCGuessHeaderView.h"
+#import "LCGuessDetailViewModel.h"
 @interface LCGuessDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
+@property (nonatomic, strong) LCGuessDetailViewModel *viewModel;
 @end
 
 @implementation LCGuessDetailVC
@@ -22,24 +24,73 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"猜大小";
+    
     [self addNavigationBackButton];
     [self initializeMainView];
     [self.inputToolbar removeFromSuperview];
+    [self bindSignal];
 }
-
-- (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCGuessDetailViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 0) {
+            if (self.viewModel.page == 0) {
+                LCGuessDetailModel *model1 = (LCGuessDetailModel *)model;
+                self.guessModel = model1.response;
+                [self setupHeadViewContent];
+            }
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.replyArray.count];
+        }else if (identifier == 10){
+            [self.inputToolbar cleanText];
+            self.guessModel.reply_count += 1;
+            [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Reload indexPathStart:0 indexPathEnd:0 section:0 animation:UITableViewRowAnimationNone];
+            [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Insert indexPathStart:1 indexPathEnd:1 section:0 animation:UITableViewRowAnimationBottom];
+        }else {
+            
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (identifier == 0) {
+            [self endRefreshing];
+        }
+    }];
+    _viewModel.period_id = self.guessModel.period_id;
+    _viewModel.quiz_id = self.guessModel.quiz_id;
+    [_viewModel getReplyList:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
+- (void)sendCommentClick:(NSString *)text {
+    [self.viewModel sendReplyClick:text];
+}
+- (void)betGuessClick {
+    [self.viewModel betGuessWithCount:self.headerView.countField.text];
 }
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    _viewModel.page = 0;
+    [_viewModel getReplyList:YES];
+}
+- (void)pullUpLoadMore {
+    _viewModel.page += 1;
+    [_viewModel getReplyList:YES];
 }
 - (void)showRule {
     [self.view endEditing:YES];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel) {
+        return _viewModel.replyArray.count + 1;
+    }
+    return 1;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -48,7 +99,8 @@
         return cell;
     }else {
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
-        [cell setupPhoto:nil name:@"凯先生" userId:@"码师ID:123456" index:indexPath.row time:@"10月10日  12:23" content:@"内容内容"];
+        LCGuessReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        [cell setupPhoto:model.logo name:model.nickname userId:model.user_id index:indexPath.row time:model.create_time content:model.message];
         return cell;
     }
 }
@@ -63,9 +115,7 @@
     [self.inputToolbar.inputField resignFirstResponder];
     [self.view endEditing:YES];
 }
-- (void)sendCommentClick:(NSString *)text {
-    
-}
+
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"规则" target:self action:@selector(showRule)];
      WS(ws)
@@ -89,7 +139,7 @@
         make.left.top.bottom.equalTo(headerBgView);
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
-    
+    mainTableView.tableFooterView = [[UIView alloc]init];
     mainTableView.tableHeaderView = headerBgView;
 
     self.mainTableView = mainTableView;
@@ -98,6 +148,9 @@
         make.left.right.top.equalTo(ws.view);
         make.bottom.equalTo(ws.view).with.offset(-44);
     }];
+    headerView.hederBlock = ^(NSInteger type) {
+        [ws betGuessClick];
+    };
     [self setupHeadViewContent];
 }
 - (void)setupHeadViewContent {
@@ -105,6 +158,7 @@
     NSString *number1 = nil;
     NSString *number2 = nil;
     if (type == 0) {
+        self.title = @"杀两码";
         if (KJudgeIsNullData(self.guessModel.quiz_answer)) {
             NSArray *answerArray = [self.guessModel.quiz_answer componentsSeparatedByString:@","];
             if (answerArray.count > 0) {
@@ -115,6 +169,7 @@
             }
         }
     }else {
+        self.title = @"猜大小";
         number1 = self.guessModel.quiz_answer;
     }
     [self.headerView setupContentTitle:self.guessModel.quiz_title money:self.guessModel.quiz_money count:[self.guessModel.quiz_number integerValue] - [self.guessModel.quiz_buynumber integerValue] number1:number1 number2:number2 type:type];

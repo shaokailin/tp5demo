@@ -10,4 +10,5 @@
 typedef void (^LotteryMoreBlock)(BOOL is);
 @interface LCLottery3DView : UIView
 @property (nonatomic, copy) LotteryMoreBlock block;
+- (void)setupLottertMessage:(NSArray *)data;
 @end

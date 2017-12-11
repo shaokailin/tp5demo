@@ -22,7 +22,7 @@
     [self addSubview:rankingBtn];
     UIButton *liveBtn = [self _customBtnViewWithTitle:@"直播" image:@"home_live" flag:201];
     [self addSubview:liveBtn];
-    UIButton *historyBtn = [self _customBtnViewWithTitle:@"历史" image:@"home_history" flag:202];
+    UIButton *historyBtn = [self _customBtnViewWithTitle:@"解梦" image:@"home_jiemeng" flag:202];
     [self addSubview:historyBtn];
     UIButton *payBtn = [self _customBtnViewWithTitle:@"充值" image:@"home_pay" flag:203];
     [self addSubview:payBtn];

@@ -14,4 +14,6 @@ typedef void (^HeaderViewBlock) (NSInteger type,id actionParam);
 @property (nonatomic, assign) NSInteger searchIndex;
 - (void)setupHotLineCount:(NSString *)count;
 - (void)setupBannerData:(NSArray *)banner;
+- (void)setupNotice:(NSArray *)content;
+- (void)setup3DMessage:(NSArray *)array;
 @end

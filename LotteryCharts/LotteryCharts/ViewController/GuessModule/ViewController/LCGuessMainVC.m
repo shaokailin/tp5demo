@@ -8,7 +8,7 @@
 
 #import "LCGuessMainVC.h"
 #import "PopoverView.h"
-#import "LCRechargeMainVC.h"
+#import "LCGuessHistoryVC.h"
 #import "LCGuessMainHeaderView.h"
 #import "LCGuessMainTableViewCell.h"
 #import "LCPushGuessMainVC.h"
@@ -143,12 +143,12 @@
             [self.navigationController pushViewController:postMainVC animated:YES];
         }
     }];
-    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
+    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"历史竞猜" handler:^(PopoverAction *action) {
         @strongify(self)
         if ([self isCanJumpViewForLogin:YES]) {
-            LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
-            recgarge.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:recgarge animated:YES];
+            LCGuessHistoryVC *history = [[LCGuessHistoryVC alloc]init];
+            history.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:history animated:YES];
         }
     }];
     return @[multichatAction, addFriAction];

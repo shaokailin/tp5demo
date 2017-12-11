@@ -17,12 +17,12 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (void)setupCount:(NSString *)count type:(NSInteger)type {
+- (void)setupCount:(NSInteger)count type:(NSInteger)type {
     if (type != 0) {
         self.countLbl.textColor = ColorHexadecimal(0xff0000, 0.6);
-        self.countLbl.text = NSStringFormat(@"%@人打赏了我",count);
+        self.countLbl.text = NSStringFormat(@"%zd人打赏了我",count);
     }else {
-        self.countLbl.text = NSStringFormat(@"共%@条",count);
+        self.countLbl.text = NSStringFormat(@"共%zd条",count);
     }
     
 }
