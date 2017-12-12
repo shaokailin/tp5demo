@@ -7,10 +7,8 @@
 //
 
 #import "LCUserHomeHeaderView.h"
-#import "GPUImage.h"
-@interface LCUserHomeHeaderView ()
-//@property (nonatomic, strong) GPUImageGaussianBlurFilter * blurFilter;
-@end
+#import "LSKImageManager.h"
+
 @implementation LCUserHomeHeaderView
 {
     UIImageView *_userPhotoImageView;
@@ -33,13 +31,14 @@
     if ([bgImage isKindOfClass:[UIImage class]]) {
         [self setupBgImage:bgImage];
     }else {
-        if (!_isHasChange || (KJudgeIsNullData(bgImage) && [bgImage isEqualToString:_bgLogoImage])) {
+        if (!_isHasChange || (KJudgeIsNullData(bgImage) && ![bgImage isEqualToString:_bgLogoImage])) {
             if (KJudgeIsNullData(bgImage)){
                 _bgLogoImage = bgImage;
                 @weakify(self)
                 [_bgImageView sd_setImageWithURL:[NSURL URLWithString:bgImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     @strongify(self)
                     if (error == nil) {
+                        _isHasChange = YES;
                         [self setupBgImage:image];
                     }else {
                         _bgLogoImage = nil;
@@ -61,14 +60,11 @@
     }
 }
 - (void)setupBgImage:(UIImage *)image {
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
-        blurFilter.blurRadiusInPixels = 5.0;
-        UIImage *image1 = [blurFilter imageByFilteringImage:image];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            _bgImageView.image = image1;
-        });
-    });
+
+    UIImage *image1 = [LSKImageManager blurryImage:image withBlurLevel:0.7];
+    if (image1) {
+        _bgImageView.image = image1;
+    }
 }
 
 - (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo {

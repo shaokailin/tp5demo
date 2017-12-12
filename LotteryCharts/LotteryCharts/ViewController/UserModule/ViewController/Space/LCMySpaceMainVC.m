@@ -79,6 +79,7 @@
             if (_showType == 0 && self.viewModel.page == 0) {
                 LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
                 [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mchid attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
+                [self.headerView changeBgImage:dataModel.user_info.bglogo];
             }else if (_showType == 2 && self.viewModel.page == 0){
                 LCSpaceSendRecordListModel *dataModel = (LCSpaceSendRecordListModel *)model;
                 self.moneyString = dataModel.all_money;
@@ -313,6 +314,7 @@
     UIView *headerMainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 335)];
     headerMainView.backgroundColor = [UIColor whiteColor];
     LCUserHomeHeaderView *headerView = [[LCUserHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304)];
+    [headerView changeBgImage:nil];
     [headerView isShowPunchCard:NO];
     self.headerView = headerView;
 

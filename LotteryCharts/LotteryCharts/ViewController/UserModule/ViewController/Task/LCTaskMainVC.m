@@ -14,6 +14,7 @@
 #import "LCUserMessageVC.h"
 #import "LCRankingMainVC.h"
 #import "LCTeamMainVC.h"
+#import "LCUserSignVC.h"
 @interface LCTaskMainVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) LCTaskHeaderView *headerView;
 @property (nonatomic, weak) UITableView *mainTableView;
@@ -122,9 +123,8 @@
         ranking.isChangeNavi = YES;
         [self.navigationController pushViewController:ranking animated:YES];
     }else if (indexPath.row == 2){
-#warning 跳转签到
-        LCUserMessageVC *message = [[LCUserMessageVC alloc]init];
-        [self.navigationController pushViewController:message animated:YES];
+        LCUserSignVC *sign = [[LCUserSignVC alloc]init];
+        [self.navigationController pushViewController:sign animated:YES];
     }else {
         LCTeamMainVC *team = [[LCTeamMainVC alloc]init];
         [self.navigationController pushViewController:team animated:YES];

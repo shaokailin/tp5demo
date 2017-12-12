@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
+		95276E421FE02183007C22B2 /* LCUserSignVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95276E411FE02183007C22B2 /* LCUserSignVC.m */; };
 		9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */; };
 		9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FD1FB808ED00F5B0CE /* LCHomeHeaderView.m */; };
 		9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FF1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m */; };
@@ -267,6 +268,8 @@
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		5D69372B02398D1C5F1EDD65 /* Pods-LotteryCharts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.release.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.release.xcconfig"; sourceTree = "<group>"; };
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95276E401FE02183007C22B2 /* LCUserSignVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSignVC.h; sourceTree = "<group>"; };
+		95276E411FE02183007C22B2 /* LCUserSignVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSignVC.m; sourceTree = "<group>"; };
 		959018FA1FB808ED00F5B0CE /* LCHomeFuncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeFuncView.h; sourceTree = "<group>"; };
 		959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeFuncView.m; sourceTree = "<group>"; };
 		959018FC1FB808ED00F5B0CE /* LCHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
@@ -1606,6 +1609,8 @@
 				E61D2F381FBEB8DF002005E3 /* LCAttentionMainVC.m */,
 				E61D2F3B1FBEB968002005E3 /* LCContactMainVC.h */,
 				E61D2F3C1FBEB968002005E3 /* LCContactMainVC.m */,
+				95276E401FE02183007C22B2 /* LCUserSignVC.h */,
+				95276E411FE02183007C22B2 /* LCUserSignVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1946,7 +1951,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
-				"${BUILT_PRODUCTS_DIR}/GPUImage/GPUImage.framework",
 				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
@@ -1961,7 +1965,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GPUImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
@@ -2147,6 +2150,7 @@
 				E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */,
 				E64198291FDE2A8C00C47713 /* LCGuessHistoryVC.m in Sources */,
 				E6C3F3CF1FC04CD10077D670 /* LCRankingMainVC.m in Sources */,
+				95276E421FE02183007C22B2 /* LCUserSignVC.m in Sources */,
 				9590190F1FB808ED00F5B0CE /* LCHomeNoticeView.m in Sources */,
 				E67FFBEF1FCFEFD60045E5DF /* LCHomeModuleAPI.m in Sources */,
 				E64198441FDE6B5500C47713 /* LCHomeRankingListModel.m in Sources */,

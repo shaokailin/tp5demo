@@ -67,9 +67,8 @@
     [self.view addSubview:mainScrollerView];
     WS(ws)
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0,ws.isHidenNavi? ws.tabbarBetweenHeight : 0, 0));
+        make.edges.equalTo(ws.view);
     }];
-    CGFloat contentHeight = 635 > SCREEN_HEIGHT ? 635 : SCREEN_HEIGHT;
     LCLoginMainView *loginView = [[[NSBundle mainBundle] loadNibNamed:@"LCLoginMainView" owner:self options:nil] lastObject];
     loginView.loginBlock = ^(NSInteger type) {
         [ws loginActionWithType:type];
@@ -79,9 +78,9 @@
     [loginView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(mainScrollerView);
         make.right.equalTo(ws.view);
-        make.height.mas_equalTo(contentHeight);
+        make.height.mas_equalTo(SCREEN_HEIGHT);
     }];
-    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, SCREEN_HEIGHT);
     [loginView hidenBackBtn:_isHidenNavi];
 }
 - (void)didReceiveMemoryWarning {

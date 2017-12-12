@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface LSKImageManager : NSObject
++ (UIImage *)blurryImage:(UIImage *)image withBlurLevel:(CGFloat)blur;
 + (void)isAvailableSelectAVCapture:(NSString *)type completionHandler:(void (^)(BOOL granted))handler;
 /**
  生成颜色图片

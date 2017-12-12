@@ -7,8 +7,8 @@
  */
 
 #import "SDWebImageManager.h"
-#import "NSImage+WebCache.h"
 #import <objc/message.h>
+#import "NSImage+WebCache.h"
 
 @interface SDWebImageCombinedOperation : NSObject <SDWebImageOperation>
 
@@ -228,14 +228,11 @@
                     [self safelyRemoveOperationFromRunning:strongOperation];
                 }
             }];
-            @synchronized(operation) {
-                // Need same lock to ensure cancelBlock called because cancel method can be called in different queue
-                operation.cancelBlock = ^{
-                    [self.imageDownloader cancel:subOperationToken];
-                    __strong __typeof(weakOperation) strongOperation = weakOperation;
-                    [self safelyRemoveOperationFromRunning:strongOperation];
-                };
-            }
+            operation.cancelBlock = ^{
+                [self.imageDownloader cancel:subOperationToken];
+                __strong __typeof(weakOperation) strongOperation = weakOperation;
+                [self safelyRemoveOperationFromRunning:strongOperation];
+            };
         } else if (cachedImage) {
             __strong __typeof(weakOperation) strongOperation = weakOperation;
             [self callCompletionBlockForOperation:strongOperation completion:completedBlock image:cachedImage data:cachedData error:nil cacheType:cacheType finished:YES url:url];
@@ -322,16 +319,18 @@
 }
 
 - (void)cancel {
-    @synchronized(self) {
-        self.cancelled = YES;
-        if (self.cacheOperation) {
-            [self.cacheOperation cancel];
-            self.cacheOperation = nil;
-        }
-        if (self.cancelBlock) {
-            self.cancelBlock();
-            self.cancelBlock = nil;
-        }
+    self.cancelled = YES;
+    if (self.cacheOperation) {
+        [self.cacheOperation cancel];
+        self.cacheOperation = nil;
+    }
+    if (self.cancelBlock) {
+        self.cancelBlock();
+        
+        // TODO: this is a temporary fix to #809.
+        // Until we can figure the exact cause of the crash, going with the ivar instead of the setter
+//        self.cancelBlock = nil;
+        _cancelBlock = nil;
     }
 }
 

@@ -146,7 +146,6 @@
         
     }else {
         if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.period_list)) {
-            LC3DLotteryModel *model = [self.viewModel.messageModel.period_list objectAtIndex:0];
             LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
             lottery.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:lottery animated:YES];

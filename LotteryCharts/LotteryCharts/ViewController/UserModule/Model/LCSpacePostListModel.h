@@ -13,4 +13,6 @@
 @property (nonatomic, strong) LCUserMessageModel *user_info;
 @property (nonatomic, copy) NSString *follow_count;
 @property (nonatomic, copy) NSString *team_count;
+@property (nonatomic, copy) NSString *post_list_count;
+@property (nonatomic, copy) NSString *my_mchmoney;
 @end
