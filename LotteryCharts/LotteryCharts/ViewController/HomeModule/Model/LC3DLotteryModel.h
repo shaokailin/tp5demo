@@ -16,4 +16,7 @@
 @property (nonatomic, copy) NSString *lottery_result_kill;
 @property (nonatomic, copy) NSString *open_status;
 @property (nonatomic, copy) NSString *status;
+@property (nonatomic, copy) NSString *number1;
+@property (nonatomic, copy) NSString *number2;
+@property (nonatomic, copy) NSString *number3;
 @end

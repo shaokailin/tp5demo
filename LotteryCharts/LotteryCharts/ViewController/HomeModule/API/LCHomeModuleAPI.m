@@ -78,6 +78,15 @@ static NSString * kHistoryLotteryApi = @"Period/index.html";
     return entity;
 }
 + (LSKParamterEntity *)getkHistoryLotteryList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id {
-    
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kHistoryLotteryApi;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:@(page) forKey:@"p"];
+    [dict setObject:@(limit) forKey:@"limitrow"];
+    if (KJudgeIsNullData(period_id)) {
+        [dict setObject:period_id forKey:@"period_id"];
+    }
+    entity.params = dict;
+    entity.responseObject = [LCHistoryLotteryListModel class];
+    return entity;
 }
 @end

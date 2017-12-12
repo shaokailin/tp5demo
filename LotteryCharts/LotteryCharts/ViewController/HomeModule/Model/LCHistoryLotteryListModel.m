@@ -9,5 +9,9 @@
 #import "LCHistoryLotteryListModel.h"
 
 @implementation LCHistoryLotteryListModel
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{@"response" : [LC3DLotteryModel class],
+             };
+}
 
 @end

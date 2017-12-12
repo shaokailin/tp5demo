@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseResponseModel.h"
-
+#import "LC3DLotteryModel.h"
 @interface LCHistoryLotteryListModel : LSKBaseResponseModel
-
+@property (nonatomic, strong) NSArray *response;
 @end
