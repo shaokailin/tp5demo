@@ -16,4 +16,5 @@
 + (LSKParamterEntity *)getHotPostList:(NSInteger)page;
 
 + (LSKParamterEntity *)getPostRanking:(NSInteger)page type:(NSInteger)type;
++ (LSKParamterEntity *)getkHistoryLotteryList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id;
 @end

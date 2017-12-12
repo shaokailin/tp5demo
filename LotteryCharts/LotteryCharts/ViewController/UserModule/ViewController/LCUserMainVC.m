@@ -80,11 +80,9 @@ static NSString * const kSettingName = @"UserHomeSetting";
     _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, LCUserHomeMessageModel *model) {
         @strongify(self)
         if (identifier == 1) {
-            if (_editImageType == 1) {
-                [self.headerView changeBgImage:self.viewModel.photoImage];
-            }else if (_editImageType == 2) {
-                [self.headerView changeUserPhoto:self.viewModel.photoImage];
-            }
+            [self.headerView changeUserPhoto:self.viewModel.photoImage];
+        }else if (identifier == 10){
+             [self.headerView changeBgImage:self.viewModel.photoImage];
         }else {
             [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count];
             [self updateUserMessage];
@@ -267,7 +265,9 @@ static NSString * const kSettingName = @"UserHomeSetting";
 }
 - (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
     self.viewModel.photoImage = croppedImage;
-    [self.viewModel updateUserPhoto];
+    self.viewModel.editType = _editImageType;
+     [self.viewModel updateUserPhoto];
+    
     [self.navigationController popViewControllerAnimated:YES];
 
 }

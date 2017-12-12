@@ -15,7 +15,9 @@
              @"fish_ing" : @"response.fish_ing",
              @"is_sign" : @"response.is_sign",
              @"all_sign" : @"response.all_sign",
-             @"is_share" : @"response.is_share"
+             @"is_share" : @"response.is_share",
+             @"today_post" : @"response.today_post"
+             
              };
 }
 @end

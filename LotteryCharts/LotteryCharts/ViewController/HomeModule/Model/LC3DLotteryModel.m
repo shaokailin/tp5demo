@@ -24,4 +24,25 @@
         }
     }
 }
+- (void)setTest_number:(NSString *)test_number {
+    if (KJudgeIsNullData(test_number)) {
+        _test_number = [test_number stringByReplacingOccurrencesOfString:@"," withString:@""];
+    }
+}
+- (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
+    NSNumber *createTime = dic[@"betting_time"];
+    BOOL isStartTime = ([createTime isKindOfClass:[NSNumber class]] || [createTime isKindOfClass:[NSString class]]);
+    if (isStartTime) {
+        NSString *formar = @"yyyy年MM月dd日";
+        BOOL result = NO;;
+        if (isStartTime) {
+            NSDate *date = [NSDate dateWithTimeIntervalSince1970:[createTime integerValue]];
+            NSString *dateString = [date dateTransformToString:formar];
+            _betting_time = NSStringFormat(@"%@    %@",dateString,[date getWeekDate]);
+            result = YES;
+        }
+        return result;
+    }
+    return NO;
+}
 @end

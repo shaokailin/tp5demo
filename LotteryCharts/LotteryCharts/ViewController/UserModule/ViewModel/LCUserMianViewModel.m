@@ -23,6 +23,7 @@
 @property (nonatomic, copy) NSString *mediaUrl;
 @property (nonatomic, strong) RACCommand *userMessageCommand;
 @property (nonatomic, strong) RACCommand *signCommand;
+@property (nonatomic, strong) RACCommand *updateBgImageCommand;
 @end
 @implementation LCUserMianViewModel
 - (void)getUserMessage {
@@ -120,7 +121,12 @@
                               complete: ^(QNResponseInfo *info, NSString *key, NSDictionary *resp) {
                                   if (info.statusCode == 200 || info.error == nil) {
                                       self.mediaUrl = NSStringFormat(@"http://p04dq0z51.bkt.clouddn.com/%@",key);
-                                      [self.updatePhotoCommand execute:nil];
+                                      if (self.editType == 2) {
+                                          [self.updatePhotoCommand execute:nil];
+                                      }else {
+                                          [self.updateBgImageCommand execute:nil];
+                                      }
+                                      
                                   }else {
                                       [SKHUD showMessageInView:self.currentView withMessage:@"上传失败~！"];
                                   }
@@ -162,6 +168,24 @@
     return _updatePhotoCommand;
 }
 
-
+- (RACCommand *)updateBgImageCommand {
+    if (!_updateBgImageCommand) {
+        @weakify(self)
+        _updateBgImageCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI updateBgImage:self.mediaUrl]];
+        }];
+        [_updateBgImageCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            if (model.code == 200) {
+                [SKHUD showMessageInView:self.currentView withMessage:@"背景更换成功"];
+                kUserMessageManager.bglogo = self.mediaUrl;
+                [self sendSuccessResult:10 model:nil];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _updateBgImageCommand;
+}
 
 @end

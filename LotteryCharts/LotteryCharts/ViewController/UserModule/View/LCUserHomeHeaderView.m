@@ -8,6 +8,9 @@
 
 #import "LCUserHomeHeaderView.h"
 #import "GPUImage.h"
+@interface LCUserHomeHeaderView ()
+//@property (nonatomic, strong) GPUImageGaussianBlurFilter * blurFilter;
+@end
 @implementation LCUserHomeHeaderView
 {
     UIImageView *_userPhotoImageView;
@@ -17,7 +20,8 @@
     UILabel *_attentionLbl;
     UILabel *_teamLbl;
     UIButton *_punchBtn;
-    GPUImageGaussianBlurFilter * _blurFilter;
+    NSString *_bgLogoImage;
+    BOOL _isHasChange;
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -28,16 +32,25 @@
 - (void)changeBgImage:(id)bgImage {
     if ([bgImage isKindOfClass:[UIImage class]]) {
         [self setupBgImage:bgImage];
-    }else if (KJudgeIsNullData(bgImage)){
-        @weakify(self)
-        [_bgImageView sd_setImageWithURL:[NSURL URLWithString:bgImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
-            @strongify(self)
-            if (error == nil) {
-                [self setupBgImage:image];
-            }
-        }];
     }else {
-        [self setupBgImage:ImageNameInit(@"userbgImage")];
+        if (!_isHasChange || (KJudgeIsNullData(bgImage) && [bgImage isEqualToString:_bgLogoImage])) {
+            if (KJudgeIsNullData(bgImage)){
+                _bgLogoImage = bgImage;
+                @weakify(self)
+                [_bgImageView sd_setImageWithURL:[NSURL URLWithString:bgImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+                    @strongify(self)
+                    if (error == nil) {
+                        [self setupBgImage:image];
+                    }else {
+                        _bgLogoImage = nil;
+                        _isHasChange = NO;
+                    }
+                }];
+            }else {
+                _isHasChange = YES;
+                [self setupBgImage:ImageNameInit(@"userbgImage")];
+            }
+        }
     }
 }
 - (void)changeUserPhoto:(id)photo {
@@ -49,21 +62,15 @@
 }
 - (void)setupBgImage:(UIImage *)image {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        [self customBlurFilter];
-        UIImage *image1 = [_blurFilter imageByFilteringImage:image];
+        GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
+        blurFilter.blurRadiusInPixels = 5.0;
+        UIImage *image1 = [blurFilter imageByFilteringImage:image];
         dispatch_async(dispatch_get_main_queue(), ^{
             _bgImageView.image = image1;
         });
     });
 }
-- (GPUImageGaussianBlurFilter *)customBlurFilter {
-    if (!_blurFilter) {
-        GPUImageGaussianBlurFilter * blurFilter = [[GPUImageGaussianBlurFilter alloc] init];
-        blurFilter.blurRadiusInPixels = 5.0;
-        _blurFilter = blurFilter;
-    }
-    return _blurFilter;
-}
+
 - (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo {
     if (KJudgeIsNullData(photo)){
         [_userPhotoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
@@ -81,6 +88,7 @@
     _nameLbl.text = kUserMessageManager.nickName;
     _userIdLbl.text = NSStringFormat(@"我的ID:%@",kUserMessageManager.userId);
     [self changeUserPhoto:kUserMessageManager.logo];
+    [self changeBgImage:kUserMessageManager.bglogo];
 }
 - (void)isShowPunchCard:(BOOL)isShow {
     _punchBtn.hidden = !isShow;
@@ -119,7 +127,6 @@
     [bgImageView addGestureRecognizer:bgTap];
     _bgImageView = bgImageView;
     [self addSubview:bgImageView];
-    [self changeBgImage:nil];
     UIView *photoBgView = [[UIView alloc]init];
     photoBgView.backgroundColor = ColorHexadecimal(0xe5e5e5, 0.5);
     ViewRadius(photoBgView, 50);

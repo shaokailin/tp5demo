@@ -14,4 +14,5 @@
 @property (nonatomic, assign)  NSInteger is_sign;
 @property (nonatomic, assign) NSInteger all_sign;
 @property (nonatomic, assign) NSInteger is_share;
+@property (nonatomic, assign) NSInteger today_post;
 @end

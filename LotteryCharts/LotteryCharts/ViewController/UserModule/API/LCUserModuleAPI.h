@@ -11,7 +11,7 @@
 @interface LCUserModuleAPI : NSObject
 + (LSKParamterEntity *)getMediaToken;
 + (LSKParamterEntity *)updateUserPhoto:(NSString *)url;
-
++ (LSKParamterEntity *)updateBgImage:(NSString *)url;
 + (LSKParamterEntity *)updateUserMessage:(NSString *)photoUrl sex:(NSString *)sex nickname:(NSString *)nickname birthday:(NSInteger)birthday;
 
 + (LSKParamterEntity *)getUsermModuleMessage;

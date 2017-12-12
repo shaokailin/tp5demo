@@ -30,9 +30,14 @@
     self.title = @"历史订单";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
-- (void)searchClick {
+
+- (void)searchClick:(NSString *)text {
     [self.view endEditing:YES];
+    self.viewModel.period_id = self.searchView.searchText;
+    self.viewModel.limitRow = _searchType;
+    [self.viewModel getHistoryLotteryList:NO];
 }
 - (void)headerViewEvent:(NSInteger)type param:(id)param {
     if (type == 0) {
@@ -42,7 +47,7 @@
         popoverView.selectIndex = _searchType;
         [popoverView showToView:param withActions:self.menuArray];
     }else {
-        
+        [self searchClick:param];
     }
 }
 - (void)searchEnumClick:(NSInteger)type title:(NSString *)title {
@@ -51,19 +56,49 @@
         [self.searchView setupContent:title];
     }
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCHistoryLotteryViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.historyArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self.viewModel.page == 0) {
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [self.viewModel getHistoryLotteryList:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    _viewModel.page = 0;
+    [_viewModel getHistoryLotteryList:YES];
 }
 - (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    _viewModel.page += 1;
+    [_viewModel getHistoryLotteryList:YES];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel) {
+        return _viewModel.historyArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
-    [cell setupContentWithTime:@"2017年10月23日  星期日" issue:@"20171023" testRun:@"312" number1:@"3" number2:@"1" number3:@"2"];
+    LC3DLotteryModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
+    
+    [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number3:model.number3];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

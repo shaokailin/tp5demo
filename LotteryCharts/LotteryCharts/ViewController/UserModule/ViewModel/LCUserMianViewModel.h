@@ -10,6 +10,7 @@
 #import "LCUserHomeMessageModel.h"
 @interface LCUserMianViewModel : LSKBaseViewModel
 @property (nonatomic, strong) LCUserHomeMessageModel *messageModel;
+@property (nonatomic, assign) NSInteger editType;
 - (void)getUserMessage;
 - (void)userSignClickEvent;
 - (void)loginOutClickEvent;

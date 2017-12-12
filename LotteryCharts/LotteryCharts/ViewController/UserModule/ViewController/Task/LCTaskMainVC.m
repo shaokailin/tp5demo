@@ -96,7 +96,7 @@
             title = NSStringFormat(@"已完成%@%%",self.viewModel.taskModel.fish_ing);
             break;
         case 1:
-            title = self.viewModel.taskModel.is_share == 1? @"已回帖":@"未回帖";
+            title = self.viewModel.taskModel.today_post == 1? @"已回帖":@"未回帖";
             break;
         case 2:
             title = self.viewModel.taskModel.is_sign == 1? @"已签到":@"未签到";

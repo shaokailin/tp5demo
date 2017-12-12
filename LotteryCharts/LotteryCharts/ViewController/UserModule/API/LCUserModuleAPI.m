@@ -21,6 +21,8 @@
 #import "LCSpaceSendRecrdMoreListModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
+static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
+
 static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
 static NSString * const kUserMessage = @"User/getMy.html";
 static NSString * const kUserSign = @"User/sign.html";
@@ -55,6 +57,13 @@ static NSString * const kSendRankingList = @"Mch/getSmoneyPaiHang.html";
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kUpdatePhoto;
     entity.params = @{@"token":kUserMessageManager.token,@"logo":url};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)updateBgImage:(NSString *)url {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUpdateBgPhoto;
+    entity.params = @{@"token":kUserMessageManager.token,@"bglogo":url};
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }

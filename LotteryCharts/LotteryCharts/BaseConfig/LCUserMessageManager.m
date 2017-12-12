@@ -17,6 +17,7 @@ static NSString * const kUserMessage_NickName = @"user_NickName2";
 static NSString * const kUserMessage_Money = @"user_Money2";
 static NSString * const kUserMessage_YMoney = @"user_YMoney2";
 static NSString * const kUserMessage_SMoney = @"user_SMoney2";
+static NSString * const kUserMessage_bgLogo = @"user_bgLogo2";
 @interface LCUserMessageManager ()
 {
     NSTimer *_codeTimer;
@@ -46,7 +47,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _money = [self getMessageManagerForObjectWithKey:kUserMessage_Money];
         _yMoney = [self getMessageManagerForObjectWithKey:kUserMessage_YMoney];
         _sMoney = [self getMessageManagerForObjectWithKey:kUserMessage_SMoney];
-        
+        _bglogo = [self getMessageManagerForObjectWithKey:kUserMessage_bgLogo];
     }
 }
 - (void)setMoney:(NSString *)money {
@@ -65,6 +66,10 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _logo = logo;
     [self setMessageManagerForObjectWithKey:kUserMessage_Photo value:logo];
 }
+- (void)setBglogo:(NSString *)bglogo {
+    _bglogo = bglogo;
+    [self setMessageManagerForObjectWithKey:kUserMessage_bgLogo value:bglogo];
+}
 - (void)setNickName:(NSString *)nickName {
     _nickName = nickName;
     [self setMessageManagerForObjectWithKey:kUserMessage_NickName value:nickName];
@@ -80,6 +85,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _money = model.money;
     _yMoney = model.ymoney;
     _sMoney = model.smoney;
+    _bglogo = model.bglogo;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults setObject:model.token forKey:kUserMessage_Token];
     [userDefaults setObject:model.sex forKey:kUserMessage_Sex];
@@ -92,6 +98,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults setObject:model.logo forKey:kUserMessage_Photo];
     [userDefaults setObject:model.ymoney forKey:kUserMessage_YMoney];
     [userDefaults setObject:model.smoney forKey:kUserMessage_SMoney];
+    [userDefaults setObject:model.bglogo forKey:kUserMessage_bgLogo];
     [userDefaults synchronize];
     
 }
@@ -103,6 +110,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _yMoney = nil;
     _money = nil;
     _sMoney = nil;
+    _bglogo = nil;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults removeObjectForKey:kUserMessage_Token];
     [userDefaults removeObjectForKey:kUserMessage_Sex];
@@ -114,6 +122,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults removeObjectForKey:kUserMessage_Mchid];
     [userDefaults removeObjectForKey:kUserMessage_Photo];
     [userDefaults removeObjectForKey:kUserMessage_YMoney];
+    [userDefaults removeObjectForKey:kUserMessage_bgLogo];
     [userDefaults synchronize];
 }
 #pragma mark 定时器

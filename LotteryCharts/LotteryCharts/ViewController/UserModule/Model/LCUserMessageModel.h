@@ -21,4 +21,5 @@
 @property (nonatomic, copy) NSString *ymoney;
 @property (nonatomic, copy) NSString *smoney;
 @property (nonatomic, copy) NSString *mch_no;
+@property (nonatomic, copy) NSString *bglogo;
 @end

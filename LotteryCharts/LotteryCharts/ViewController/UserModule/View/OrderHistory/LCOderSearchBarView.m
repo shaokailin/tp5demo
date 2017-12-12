@@ -99,7 +99,8 @@
 }
 - (void)setupSearchType:(NSInteger)type {
     if (type == 1) {
-        self.searchField.placeholder = @"请输入查询单号";
+        self.searchField.keyboardType = UIKeyboardTypeNumberPad;
+        self.searchField.placeholder = @"请输入查询期数";
     }
 }
 @end
