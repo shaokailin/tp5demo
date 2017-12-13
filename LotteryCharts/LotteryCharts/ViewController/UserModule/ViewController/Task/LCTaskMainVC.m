@@ -50,8 +50,14 @@
         @strongify(self)
         [self.headerView setupMoney:self.viewModel.taskModel.all_money];
         [self.mainTableView reloadData];
-        
-    } failure:nil];
+        [self.mainTableView.mj_header endRefreshing];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainTableView.mj_header endRefreshing];
+    }];
+    [_viewModel getTaskMessage];
+}
+- (void)pullDownRefresh {
     [_viewModel getTaskMessage];
 }
 #pragma mark -delegate
@@ -132,7 +138,7 @@
 }
 #pragma makr -view
 - (void)initializeMainView {
-    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
+    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
     [tableView registerNib:[UINib nibWithNibName:kLCTaskTableViewCell bundle:nil] forCellReuseIdentifier:kLCTaskTableViewCell];
     tableView.rowHeight = 44;
     LCTaskHeaderView *header = [[LCTaskHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 175 + 42)];

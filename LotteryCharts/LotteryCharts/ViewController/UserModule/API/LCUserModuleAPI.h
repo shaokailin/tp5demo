@@ -19,7 +19,7 @@
 + (LSKParamterEntity *)userSignEvent;
 
 + (LSKParamterEntity *)getUserAttention:(NSInteger)page;
-
++ (LSKParamterEntity *)getContactList:(NSInteger)page;
 + (LSKParamterEntity *)getUserTeamList:(NSInteger)page type:(NSInteger)type;
 + (LSKParamterEntity *)getUserTeamCount;
 + (LSKParamterEntity *)getUserSignCount;

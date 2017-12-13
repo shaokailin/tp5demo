@@ -7,8 +7,15 @@
 //
 
 #import "LCUserSignVC.h"
-
-@interface LCUserSignVC ()
+#import "LCUserSignViewModel.h"
+#import "LSKImageManager.h"
+#import "LCSignHeaderView.h"
+#import "LCSignTableViewCell.h"
+@interface LCUserSignVC ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic, weak) LCSignHeaderView *headerView;
+@property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, strong) UIImage *homeNaviBgImage;
+@property (nonatomic, strong) LCUserSignViewModel *viewModel;
 
 @end
 
@@ -17,8 +24,78 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setEdgesForExtendedLayout:UIRectEdgeAll];
+    self.navigationItem.title = @"签到记录";
+    [self addNavigationBackButton];
+    [self initializeMainView];
+    [self bindSignal];
 }
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage forBarMetrics:UIBarMetricsDefault];
+}
+- (UIImage *)homeNaviBgImage {
+    if (!_homeNaviBgImage) {
+        _homeNaviBgImage = [LSKImageManager imageWithColor:ColorHexadecimal(0x000000, 0.4) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)];
+    }
+    return _homeNaviBgImage;
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCUserSignViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.mainTableView reloadData];
+        [self.mainTableView.mj_header endRefreshing];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainTableView.mj_header endRefreshing];
+    }];
+}
+- (void)pullDownRefresh {
+    
+}
+#pragma mark -delegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCSignTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSignTableViewCell];
+    [cell setupContentWithIndex:indexPath.section content:@"1"];
+    return cell;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 34;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 34)];
+    NSString *title = section == 0? @"本周":@"我的签到";
+    UILabel *titleLbl = [LSKViewFactory initializeLableWithText:title font:15 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];
+    [headerView addSubview:titleLbl];
+    [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(headerView).with.offset(20);
+        make.centerY.equalTo(headerView);
+    }];
+    return headerView;
+}
+#pragma makr -view
+- (void)initializeMainView {
+    UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:nil backgroundColor:nil];
+    [tableView registerNib:[UINib nibWithNibName:kLCSignTableViewCell bundle:nil] forCellReuseIdentifier:kLCSignTableViewCell];
+    tableView.rowHeight = 44;
+    LCSignHeaderView *header = [[LCSignHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250 + 52)];
+    self.headerView = header;
+    tableView.tableHeaderView = header;
+    self.mainTableView = tableView;
+    [self.view addSubview:tableView];
+    WS(ws)
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

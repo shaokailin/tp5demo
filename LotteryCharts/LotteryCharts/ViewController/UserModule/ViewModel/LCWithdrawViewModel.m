@@ -60,8 +60,6 @@
     if (!_recordCommand) {
         @weakify(self)
         _page = 0;
-        _mouth = -1;
-        _year = -1;
         _recordCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
             return [self requestWithPropertyEntity:[LCUserModuleAPI widthdrawRecordList:self.page month:self.mouth year:self.year]];

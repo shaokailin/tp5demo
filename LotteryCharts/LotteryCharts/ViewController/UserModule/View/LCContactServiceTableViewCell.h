@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCContactServiceTableViewCell = @"LCContactServiceTableViewCell";
 @interface LCContactServiceTableViewCell : UITableViewCell
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name detail:(NSString *)detail wxNumber:(NSString *)wxNumber qqNumber:(NSString *)qqNumber;
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name detail:(NSString *)detail wxNumber:(NSString *)wxNumber qqNumber:(NSString *)qqNumber mobile:(NSString *)mobile;
 @end

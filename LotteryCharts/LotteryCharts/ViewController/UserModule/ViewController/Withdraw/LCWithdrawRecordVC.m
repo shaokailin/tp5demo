@@ -48,12 +48,21 @@
 }
 
 - (void)changeSearchType:(NSInteger)type {
+    BOOL isChange = NO;
     if (_dateSelectType == 0) {
+        isChange = _yearSelect == type?NO:YES;
         _yearSelect = type;
         [self.searchView setupContentWithLeft:NSStringFormat(@"%zd年",_yearSelect) right:nil];
     }else {
+        isChange = _mouthSelect == type?NO:YES;
         _mouthSelect = type;
         [self.searchView setupContentWithLeft:nil right:NSStringFormat(@"%zd月",_mouthSelect)];
+    }
+    if (isChange) {
+        self.viewModel.year = _yearSelect;
+        self.viewModel.mouth = _mouthSelect;
+        self.viewModel.page = 0;
+        [self.viewModel getWidthdrawRecord:NO];
     }
 }
 - (void)bindSignal {
@@ -70,6 +79,8 @@
         }
         [self endRefreshing];
     }];
+    self.viewModel.year = _yearSelect;
+    self.viewModel.mouth = _mouthSelect;
     [self.viewModel getWidthdrawRecord:NO];
 }
 - (void)endRefreshing {
@@ -120,7 +131,16 @@
     searchView.searchBlock = ^(NSInteger type, UIImageView *image) {
         [ws headerViewEvent:type param:image];
     };
-    
+    [self setupSearchInit];
+}
+- (void)setupSearchInit {
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *date = [NSDate date];
+    NSDateComponents *comps = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
+    _yearSelect = comps.year;
+    _mouthSelect = comps.month;
+    [self.searchView setupContentWithLeft:NSStringFormat(@"%zd年",_yearSelect) right:nil];
+    [self.searchView setupContentWithLeft:nil right:NSStringFormat(@"%zd月",_mouthSelect)];
 }
 - (HSPDefineDatePickView *)datePickView {
     if (!_datePickView) {

@@ -21,6 +21,7 @@
 #import "LCSpaceSendRecrdMoreListModel.h"
 #import "LCHistoryOrderListModel.h"
 #import "LCWithdrawRecordListModel.h"
+#import "LCCantactListModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -29,7 +30,7 @@ static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
 static NSString * const kUserMessage = @"User/getMy.html";
 static NSString * const kUserSign = @"User/sign.html";
 static NSString * const kAttentionList = @"User/myFollow.html";
-
+static NSString * const kContactList = @"Direct/getContact";
 
 static NSString * const kTeamList = @"User/myTeam.html";
 static NSString * const kSignList = @"User/myTeamSign.html";
@@ -104,6 +105,13 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
     entity.requestApi = kAttentionList;
     entity.params = @{@"token":kUserMessageManager.token,@"p":@(page)};
     entity.responseObject = [LCAttentionListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getContactList:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kContactList;
+//    entity.params = @{@"token":kUserMessageManager.token,@"p":@(page)};
+    entity.responseObject = [LCCantactListModel class];
     return entity;
 }
 

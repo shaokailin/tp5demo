@@ -23,7 +23,7 @@
 #import "LCContactMainVC.h"
 #import "LCAttentionMainVC.h"
 #import "LCUserMianViewModel.h"
-
+#import "LCUserSignVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
@@ -100,8 +100,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
             if (_jumpViewType != -1) {
                 [self jumpEvent];
             }
+            [self.mainTableView.mj_header endRefreshing];
         }
-    } failure:nil];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        [self.mainTableView.mj_header endRefreshing];
+    }];
 }
 - (void)jumpEvent {
     
@@ -135,14 +139,14 @@ static NSString * const kSettingName = @"UserHomeSetting";
     }
 }
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    [self.viewModel getUserMessage];
 }
 #pragma mark delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _settingArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 10) {
+    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
     }else {
@@ -153,14 +157,14 @@ static NSString * const kSettingName = @"UserHomeSetting";
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 10) {
+    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
         return 10;
     }else {
         return 44;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 3 || indexPath.row == 7 || indexPath.row == 10) {
+    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
     }else {
         UIViewController *controller = nil;
         switch (indexPath.row) {
@@ -183,19 +187,25 @@ static NSString * const kSettingName = @"UserHomeSetting";
                 controller = historyVC;
                 break;
             }
-            case 4:
+            case 3:
+            {
+                LCUserSignVC *signVC = [[LCUserSignVC alloc]init];
+                controller = signVC;
+                break;
+            }
+            case 5:
             {
                 LCWalletMainVC *historyVC = [[LCWalletMainVC alloc]init];
                 controller = historyVC;
                 break;
             }
-            case 5:
+            case 6:
             {
                 LCTaskMainVC *taskVC = [[LCTaskMainVC alloc]init];
                 controller = taskVC;
                 break;
             }
-            case 6:
+            case 7:
             {
                 [self headerViewClickEvent:5];
                 break;
@@ -206,7 +216,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
                 controller = aboutVC;
                 break;
             }
-            case 9:
+            case 10:
             {
                 LCContactMainVC *attentionVC = [[LCContactMainVC alloc]init];
                 controller = attentionVC;

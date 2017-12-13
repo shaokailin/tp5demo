@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *detailLbl;
 @property (weak, nonatomic) IBOutlet UILabel *wxLbl;
 @property (weak, nonatomic) IBOutlet UILabel *qqLbl;
+@property (weak, nonatomic) IBOutlet UILabel *mobileLbl;
 
 @end
 @implementation LCContactServiceTableViewCell
@@ -23,7 +24,10 @@
     // Initialization code
     ViewBoundsRadius(self.photoImageView, 20);
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name detail:(NSString *)detail wxNumber:(NSString *)wxNumber qqNumber:(NSString *)qqNumber{
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name detail:(NSString *)detail wxNumber:(NSString *)wxNumber qqNumber:(NSString *)qqNumber mobile:(NSString *)mobile{
+    if (KJudgeIsNullData(photo)) {
+        [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }
     self.nameLbl.text = name;
     self.detailLbl.text = detail;
     self.wxLbl.text = wxNumber;
