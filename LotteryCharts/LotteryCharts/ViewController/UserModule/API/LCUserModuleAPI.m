@@ -214,7 +214,7 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
 }
 + (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
-    entity.requestApi = kOtherAttentionList;
+    entity.requestApi = kWithdrawMoneyList;
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(page),@"p",kUserMessageManager.token,@"token", nil];
     if (month != -1) {
         [param setObject:@(month) forKey:@"month"];
