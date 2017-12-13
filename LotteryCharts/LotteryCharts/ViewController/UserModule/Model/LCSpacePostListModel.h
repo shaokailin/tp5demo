@@ -15,4 +15,5 @@
 @property (nonatomic, copy) NSString *team_count;
 @property (nonatomic, copy) NSString *post_list_count;
 @property (nonatomic, copy) NSString *my_mchmoney;
+@property (nonatomic, copy) NSString *quiz_count;
 @end

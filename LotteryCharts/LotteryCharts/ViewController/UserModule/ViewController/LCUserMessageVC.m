@@ -146,7 +146,7 @@
     NSString *title = nil;
     switch (index) {
         case 2:
-            title = kUserMessageManager.userId;
+            title = kUserMessageManager.mch_no;
             break;
         case 3:
             title = [kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Mobile];

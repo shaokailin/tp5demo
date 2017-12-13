@@ -26,13 +26,13 @@
     ViewBoundsRadius(self.photoImageView, 15);
 }
 - (void)setupContentWithPostId:(NSString *)postId pushTime:(NSString *)pushTime photoImage:(NSString *)photoImage name:(NSString *)name userId:(NSString *)userId detail:(NSString *)detail money:(NSString *)money {
-    self.postIdLbl.text = postId;
+    self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.pushTimeLbl.text = pushTime;
     if (KJudgeIsNullData(photoImage)) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photoImage] placeholderImage:nil];
     }
     self.nameLbl.text = name;
-    self.userIdLbl.text = userId;
+    self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);;
     self.detailLbl.text = detail;
     self.payMoney.text = NSStringFormat(@"%@金币",money);
 }

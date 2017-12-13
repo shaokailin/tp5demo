@@ -42,7 +42,7 @@
             if (model.code == 200) {
                 [SKHUD dismiss];
                 model.user_info.token = kUserMessageManager.token;
-                [kUserMessageManager saveUserMessage:model.user_info];
+                [kUserMessageManager saveUserMessage:model.user_info isLogin:NO];
                 self.messageModel = model;
                 [self sendSuccessResult:0 model:nil];
             }else {

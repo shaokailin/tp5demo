@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0910"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5363F2EEF79E1A6D87F1003BBA03ACA"
+               BlueprintIdentifier = "D8FF218CE80CBA94CD45FD07E8690608"
                BuildableName = "Pods_LotteryCharts.framework"
                BlueprintName = "Pods-LotteryCharts"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -47,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B5363F2EEF79E1A6D87F1003BBA03ACA"
+            BlueprintIdentifier = "D8FF218CE80CBA94CD45FD07E8690608"
             BuildableName = "Pods_LotteryCharts.framework"
             BlueprintName = "Pods-LotteryCharts"
             ReferencedContainer = "container:Pods.xcodeproj">

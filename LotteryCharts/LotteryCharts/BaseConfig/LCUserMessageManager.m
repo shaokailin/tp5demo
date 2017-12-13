@@ -18,6 +18,7 @@ static NSString * const kUserMessage_Money = @"user_Money2";
 static NSString * const kUserMessage_YMoney = @"user_YMoney2";
 static NSString * const kUserMessage_SMoney = @"user_SMoney2";
 static NSString * const kUserMessage_bgLogo = @"user_bgLogo2";
+static NSString * const kUserMessage_mchno = @"user_mchno2";
 @interface LCUserMessageManager ()
 {
     NSTimer *_codeTimer;
@@ -48,6 +49,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _yMoney = [self getMessageManagerForObjectWithKey:kUserMessage_YMoney];
         _sMoney = [self getMessageManagerForObjectWithKey:kUserMessage_SMoney];
         _bglogo = [self getMessageManagerForObjectWithKey:kUserMessage_bgLogo];
+        _mch_no = [self getMessageManagerForObjectWithKey:kUserMessage_mchno];
     }
 }
 - (void)setMoney:(NSString *)money {
@@ -77,7 +79,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
 - (BOOL)isLogin {
     return KJudgeIsNullData(self.token);
 }
-- (void)saveUserMessage:(LCUserMessageModel *)model {
+- (void)saveUserMessage:(LCUserMessageModel *)model isLogin:(BOOL)isLogin {
     _token = model.token;
     _userId = model.userId;
     _logo = model.logo;
@@ -86,19 +88,22 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _yMoney = model.ymoney;
     _sMoney = model.smoney;
     _bglogo = model.bglogo;
+    _mch_no = model.mch_no;
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults setObject:model.token forKey:kUserMessage_Token];
     [userDefaults setObject:model.sex forKey:kUserMessage_Sex];
     [userDefaults setObject:model.nickname forKey:kUserMessage_NickName];
-    [userDefaults setObject:model.mobile forKey:kUserMessage_Mobile];
     [userDefaults setObject:model.birthday forKey:kUserMessage_Birthday];
-    [userDefaults setObject:model.money forKey:kUserMessage_Money];
+    if (isLogin) {
+        [userDefaults setObject:model.money forKey:kUserMessage_Money];
+    }
     [userDefaults setObject:model.userId forKey:kUserMessage_Uid];
     [userDefaults setObject:model.mchid forKey:kUserMessage_Mchid];
     [userDefaults setObject:model.logo forKey:kUserMessage_Photo];
     [userDefaults setObject:model.ymoney forKey:kUserMessage_YMoney];
     [userDefaults setObject:model.smoney forKey:kUserMessage_SMoney];
     [userDefaults setObject:model.bglogo forKey:kUserMessage_bgLogo];
+    [userDefaults setObject:model.mch_no forKey:kUserMessage_mchno];
     [userDefaults synchronize];
     
 }
@@ -111,6 +116,8 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     _money = nil;
     _sMoney = nil;
     _bglogo = nil;
+    _mch_no = nil;
+    [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kLoginOutChange_Notice object:nil];
     NSUserDefaults *userDefaults = [self getUserDefault];
     [userDefaults removeObjectForKey:kUserMessage_Token];
     [userDefaults removeObjectForKey:kUserMessage_Sex];
@@ -123,6 +130,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults removeObjectForKey:kUserMessage_Photo];
     [userDefaults removeObjectForKey:kUserMessage_YMoney];
     [userDefaults removeObjectForKey:kUserMessage_bgLogo];
+    [userDefaults removeObjectForKey:kUserMessage_mchno];
     [userDefaults synchronize];
 }
 #pragma mark 定时器

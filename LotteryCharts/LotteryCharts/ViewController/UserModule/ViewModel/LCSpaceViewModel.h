@@ -15,6 +15,7 @@
 @property (nonatomic, assign) NSInteger showType;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *dataArray;
+@property (nonatomic, assign) BOOL isCare;
 - (void)attentionUserClick;
 - (void)getSpaceData:(BOOL)isPull;
 @end

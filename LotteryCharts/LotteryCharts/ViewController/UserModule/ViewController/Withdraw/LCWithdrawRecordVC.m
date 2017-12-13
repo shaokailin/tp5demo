@@ -10,6 +10,7 @@
 #import "LCWithdrawRecordHeaderView.h"
 #import "LCWithdrawRecordTableViewCell.h"
 #import "HSPDefineDatePickView.h"
+#import "LCWithdrawViewModel.h"
 @interface LCWithdrawRecordVC ()<UITableViewDelegate, UITableViewDataSource>
 {
     NSInteger _yearSelect;
@@ -20,6 +21,7 @@
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCWithdrawRecordHeaderView *searchView;
 @property (nonatomic, strong) HSPDefineDatePickView *datePickView;
+@property (nonatomic, strong) LCWithdrawViewModel *viewModel;
 @end
 
 @implementation LCWithdrawRecordVC
@@ -37,7 +39,7 @@
         self.datePickView.datePickerMode = type;
         [self.datePickView showInView];
     }else {
-        
+       
     }
 }
 - (void)changeSearchType:(NSInteger)type {
@@ -55,7 +57,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCWithdrawRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCWithdrawRecordTableViewCell];
-    [cell setupContentWithType:@"提现到微信" time:@"2017-10-10 12:12:12" money:@"-100金币"];
+    [cell setupContentWithType:@"提现" time:@"2017-10-10 12:12:12" money:@"-100金币"];
     return cell;
 }
 #pragma mark 界面

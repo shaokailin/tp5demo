@@ -54,6 +54,8 @@
     if (type != _searchType) {
         _searchType = type;
         [self.searchView setupContent:title];
+        self.viewModel.page = 0;
+        [self.viewModel getHistoryLotteryList:NO];
     }
 }
 - (void)bindSignal {

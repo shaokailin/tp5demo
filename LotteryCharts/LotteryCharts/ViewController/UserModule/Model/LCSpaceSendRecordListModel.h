@@ -10,4 +10,5 @@
 #import "LCSendRecordModel.h"
 @interface LCSpaceSendRecordListModel : LCSpaceModel
 @property(nonatomic, copy) NSString *all_money;
+@property(nonatomic, copy) NSString *all_row;
 @end

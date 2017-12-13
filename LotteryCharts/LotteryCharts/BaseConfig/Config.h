@@ -28,4 +28,5 @@ View.layer.borderColor = (Color).CGColor\
 static NSString * const kUserModule_HomeChangeMessageNotice = @"HomeChangeMessageNotice";
 static NSString * const kPushPost_Alter = @"PushPost_Alter";
 static NSString * const kWallet_Change_Notice = @"Wallet_Change_Notice";
+static NSString * const kLoginOutChange_Notice = @"LoginOutChange_Notice";
 #endif /* Config_h */

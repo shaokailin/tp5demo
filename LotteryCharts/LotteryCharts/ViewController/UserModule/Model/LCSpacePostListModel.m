@@ -20,6 +20,9 @@
              @"follow_count" : @"response.follow_count",
              @"team_count" : @"response.team_count",
              @"data" : @"response.post_list",
+             @"quiz_count" : @"response.quiz_count",
+             @"post_list_count" : @"response.post_list_count",
+             
              };
 }
 @end

@@ -60,7 +60,12 @@
 }
 - (void)cellClick:(id)cell {
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
-    LSKLog(@"%zd",indexPath.row);
+    LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+    detail.guessModel = model;
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark delegate
 

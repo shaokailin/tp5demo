@@ -109,7 +109,7 @@
             if (model.code == 200) {
                 [SKHUD dismiss];
                 model.response.token = self.userToken;
-                [kUserMessageManager saveUserMessage:model.response];
+                [kUserMessageManager saveUserMessage:model.response isLogin:YES];
                 [self sendSuccessResult:0 model:nil];
                 [((AppDelegate *)[UIApplication sharedApplication].delegate) changeLoginState];
             }else {

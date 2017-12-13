@@ -19,6 +19,8 @@
 #import "LCSpaceSendRecordListModel.h"
 #import "LCSpaceSendRankingListModel.h"
 #import "LCSpaceSendRecrdMoreListModel.h"
+#import "LCHistoryOrderListModel.h"
+#import "LCWithdrawRecordListModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -37,6 +39,7 @@ static NSString * const kTaskMessage = @"User/myTask.html";
 static NSString * const kExchangeSilver = @"User/jinChangeYin.html";
 
 static NSString * const kUserAttenttion = @"Mch/follow.html";
+static NSString * const kUserUnAttenttion = @"Mch/unFollow.html";
 //被关注
 static NSString * const kOtherAttentionList = @"Mch/userBeiFollow.html";
 static NSString * const kUserAttenttionList = @"Mch/follow.html";
@@ -46,6 +49,12 @@ static NSString * const kSpaceGuessList = @"Mch/getQuizList.html";
 static NSString * const kSendRecordFirstList = @"Mch/getSmoneyLog.html";
 static NSString * const kSendRecordList = @"Mch/getSmoneyLogNext.html";
 static NSString * const kSendRankingList = @"Mch/getSmoneyPaiHang.html";
+
+static NSString * const kHisttoryOrderList = @"User/getMyPostLog.html";
+
+static NSString * const kWithdrawMoney = @"User/tiQian.html";
+static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
+
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -137,9 +146,13 @@ static NSString * const kSendRankingList = @"Mch/getSmoneyPaiHang.html";
     entity.responseObject = [LCBaseResponseModel class];
     return entity;
 }
-+ (LSKParamterEntity *)attentionUser:(NSString *)userId {
++ (LSKParamterEntity *)attentionUser:(NSString *)userId isCare:(BOOL)isCare {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
-    entity.requestApi = kUserAttenttion;
+    if (isCare) {
+        entity.requestApi = kUserUnAttenttion;
+    }else {
+        entity.requestApi = kUserAttenttion;
+    }
     entity.params = @{@"token":kUserMessageManager.token,@"mchid":userId};
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
@@ -178,6 +191,32 @@ static NSString * const kSendRankingList = @"Mch/getSmoneyPaiHang.html";
         entity.responseObject = [LCSpaceSendRankingListModel class];
     }
     entity.params = @{@"mchid":userId,@"p":@(page),@"token":kUserMessageManager.token};
+    return entity;
+}
+
++ (LSKParamterEntity *)getHisttoryOrderWith:(NSString *)searchId page:(NSInteger)page showType:(NSInteger)showType {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kHisttoryOrderList;
+    NSMutableDictionary *params = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(page),@"p",kUserMessageManager.token,@"token",@(showType + 1),@"post_type", nil];
+    if (KJudgeIsNullData(searchId)) {
+        [params setObject:searchId forKey:@"id"];
+    }
+    entity.params = params;
+    entity.responseObject = [LCHistoryOrderListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)widthdrawMoney:(NSString *)money {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kWithdrawMoney;
+    entity.params = @{@"jinbinum":money,@"token":kUserMessageManager.token};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kOtherAttentionList;
+    entity.params = @{@"p":@(page),@"token":kUserMessageManager.token};
+    entity.responseObject = [LCWithdrawRecordListModel class];
     return entity;
 }
 @end

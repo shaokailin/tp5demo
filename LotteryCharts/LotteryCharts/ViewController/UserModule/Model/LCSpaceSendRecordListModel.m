@@ -16,7 +16,8 @@
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{
              @"data" : @"response.post_reward",
-             @"all_money" : @"response.all_money"
+             @"all_money" : @"response.all_money",
+             @"all_row" : @"response.all_row"
              };
 }
 @end

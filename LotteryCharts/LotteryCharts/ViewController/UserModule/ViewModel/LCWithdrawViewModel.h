@@ -7,9 +7,15 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCWithdrawRecordListModel.h"
 @interface LCWithdrawViewModel : LSKBaseViewModel
 @property (nonatomic, strong) RACSignal *moneySignal;
 - (void)bindSignal;
 - (void)widthdrawActionEvent;
+@property (nonatomic, assign) NSInteger page;
+@property (nonatomic, assign) NSInteger mouth;
+@property (nonatomic, assign) NSInteger year;
+@property (nonatomic, strong) NSMutableArray *histtoryArray;
+- (void)getWidthdrawRecord:(BOOL)isPull;
+
 @end

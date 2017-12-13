@@ -69,16 +69,20 @@
     }
 }
 - (void)sendCommentClick:(NSString *)text {
+    [self.view endEditing:YES];
     [self.viewModel sendReplyClick:text];
 }
 - (void)betGuessClick {
+    [self.view endEditing:YES];
     [self.viewModel betGuessWithCount:self.headerView.countField.text];
 }
 - (void)pullDownRefresh {
+    [self.view endEditing:YES];
     _viewModel.page = 0;
     [_viewModel getReplyList:YES];
 }
 - (void)pullUpLoadMore {
+    [self.view endEditing:YES];
     _viewModel.page += 1;
     [_viewModel getReplyList:YES];
 }

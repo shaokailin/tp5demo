@@ -35,6 +35,10 @@
 @property (nonatomic, strong) LCSpaceViewModel *viewModel;
 @property (nonatomic, copy) NSString *moneyString;
 @property (nonatomic, copy) NSString *countString;
+@property (nonatomic, copy) NSString *my_mchmoney;
+@property (nonatomic, copy) NSString *post_list_count;
+@property (nonatomic, copy) NSString *quiz_count;
+@property (nonatomic, assign) BOOL isCare;
 @end
 
 @implementation LCMySpaceMainVC
@@ -79,10 +83,14 @@
             if (_showType == 0 && self.viewModel.page == 0) {
                 LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
                 [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mchid attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
+                self.countString = dataModel.post_list_count;
+                self.quiz_count = dataModel.quiz_count;
+                self.my_mchmoney = dataModel.my_mchmoney;
                 [self.headerView changeBgImage:dataModel.user_info.bglogo];
             }else if (_showType == 2 && self.viewModel.page == 0){
                 LCSpaceSendRecordListModel *dataModel = (LCSpaceSendRecordListModel *)model;
                 self.moneyString = dataModel.all_money;
+                self.countString = dataModel.all_row;
             }
             [self.mainTableView reloadData];
             [self endRefreshing];
@@ -174,7 +182,7 @@
     if (indexPath.row == 0) {
         if (_showType == 0 || _showType == 1) {
             LCSpaceHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceHeaderTableViewCell];
-            [cell setupCellContentWithCount:self.countString];
+            [cell setupCellContentWithCount:_showType == 0?self.post_list_count:self.quiz_count];
             return cell;
         }else if (_showType == 2) {
             LCRewardRecordHeaderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardRecordHeaderTableViewCell];
@@ -290,7 +298,7 @@
             make.height.mas_equalTo(49);
             make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
         }];
-        [_orderView setupContentWithIndex:@"20" photo:nil money:@"500"];
+        [_orderView setupContentWithIndex:nil photo:nil money:self.my_mchmoney];
     }
     return _orderView;
 }

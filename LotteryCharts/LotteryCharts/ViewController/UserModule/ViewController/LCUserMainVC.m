@@ -30,7 +30,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     NSArray *_settingArray;
     NSInteger _editImageType;
     NSInteger _jumpViewType;
-    
+    BOOL _isHasLoad;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
@@ -48,7 +48,18 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [self initializeMainView];
     [self bindSignal];
     [self addNotificationWithSelector:@selector(updateUserMessage) name:kUserModule_HomeChangeMessageNotice];
-    
+    [self addNotificationWithSelector:@selector(loginOutChange) name:kLoginOutChange_Notice];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (!_isHasLoad) {
+        _isHasLoad = YES;
+        [self.viewModel getUserMessage];
+    }
+}
+- (void)loginOutChange {
+    _isHasLoad = NO;
+    self.viewModel.messageModel = nil;
 }
 - (void)updateUserMessage {
     [self.headerView updateUserMessage];
@@ -91,7 +102,6 @@ static NSString * const kSettingName = @"UserHomeSetting";
             }
         }
     } failure:nil];
-    [self.viewModel getUserMessage];
 }
 - (void)jumpEvent {
     

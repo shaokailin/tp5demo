@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LCHistoryVipTableViewCell" rowHeight="100" id="KGk-i7-Jjw" customClass="LCHistoryVipTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3g-3o-Bfy">
+                        <rect key="frame" x="20" y="20" width="28.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.0039215686269999999" green="0.72549019609999998" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfi-Lj-HDK">
+                        <rect key="frame" x="273.5" y="20" width="26.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oz-R8-r8a">
+                        <rect key="frame" x="20" y="45.5" width="270" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OKt-GA-jmI">
+                        <rect key="frame" x="20" y="74.5" width="28.5" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.62745098040000002" green="0.62745098040000002" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Z3g-3o-Bfy" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="BHQ-el-FVf"/>
+                    <constraint firstItem="vfi-Lj-HDK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Gj3-k1-VKU"/>
+                    <constraint firstAttribute="trailing" secondItem="vfi-Lj-HDK" secondAttribute="trailing" constant="20" id="Jd1-sT-S7T"/>
+                    <constraint firstItem="OKt-GA-jmI" firstAttribute="top" secondItem="2oz-R8-r8a" secondAttribute="bottom" constant="11" id="KMb-3g-kbH"/>
+                    <constraint firstItem="2oz-R8-r8a" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="NzQ-D9-IMf"/>
+                    <constraint firstAttribute="trailing" secondItem="2oz-R8-r8a" secondAttribute="trailing" constant="30" id="cFU-Ox-sJc"/>
+                    <constraint firstItem="OKt-GA-jmI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="oH1-TL-KbH"/>
+                    <constraint firstItem="2oz-R8-r8a" firstAttribute="top" secondItem="Z3g-3o-Bfy" secondAttribute="bottom" constant="12" id="xPn-og-18A"/>
+                    <constraint firstItem="Z3g-3o-Bfy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="y0H-at-bWt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="moneyLbl" destination="OKt-GA-jmI" id="VrC-6Z-7Fm"/>
+                <outlet property="postIdLbl" destination="Z3g-3o-Bfy" id="bbu-0G-Ecw"/>
+                <outlet property="timeLbl" destination="vfi-Lj-HDK" id="Xiy-Ss-Bk8"/>
+                <outlet property="titleLbl" destination="2oz-R8-r8a" id="jUz-iM-8mD"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

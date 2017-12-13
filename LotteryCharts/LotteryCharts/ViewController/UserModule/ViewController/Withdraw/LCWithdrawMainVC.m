@@ -36,8 +36,10 @@
     [self bindSignal];
 }
 - (void)bindSignal {
+    @weakify(self)
     _viewModel = [[LCWithdrawViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        
+        @strongify(self)
+        [self updateMessage];
     } failure:nil];
     _viewModel.moneySignal = self.moneyField.rac_textSignal;
     [_viewModel bindSignal];

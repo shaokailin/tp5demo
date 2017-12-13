@@ -74,12 +74,17 @@
         @weakify(self)
           _attentionCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
              @strongify(self)
-              return [self requestWithPropertyEntity:[LCUserModuleAPI attentionUser:self.uid]];
+              return [self requestWithPropertyEntity:[LCUserModuleAPI attentionUser:self.uid isCare:self.isCare]];
         }];
         [_attentionCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
-                [SKHUD showMessageInView:self.currentView withMessage:@"关注成功"];
+                if (self.isCare) {
+                    [SKHUD showMessageInView:self.currentView withMessage:@"取消关注成功"];
+                }else {
+                    [SKHUD showMessageInView:self.currentView withMessage:@"关注成功"];
+                }
+                self.isCare = !self.isCare;
                 [self sendSuccessResult:100 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];

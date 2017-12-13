@@ -10,6 +10,9 @@
 #import "LCHistoryOrderTableViewCell.h"
 #import "LCOderSearchBarView.h"
 #import "PopoverView.h"
+#import "LCHistoryOrderViewModel.h"
+#import "LCHistoryGuessTableViewCell.h"
+#import "LCHistoryVipTableViewCell.h"
 @interface LCOrderHistoryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
 {
     NSInteger _searchType;
@@ -18,6 +21,7 @@
 @property (nonatomic, strong) NSArray *menuArray;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCOderSearchBarView *searchView;
+@property (nonatomic, strong) LCHistoryOrderViewModel *viewModel;
 @end
 
 @implementation LCOrderHistoryVC
@@ -29,6 +33,7 @@
     [self addNavigationBackButton];
     [self initializeMainView];
     [self backToNornalNavigationColor];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -42,7 +47,10 @@
 }
 - (void)searchClick {
     [self.view endEditing:YES];
+    self.viewModel.period_id = self.searchView.searchText;
+    [self.viewModel getHistoryOrderList:NO];
 }
+
 - (void)headerViewEvent:(NSInteger)type param:(id)param {
     if (type == 0) {
         PopoverView *popoverView = [PopoverView popoverView];
@@ -51,29 +59,71 @@
         popoverView.selectIndex = _searchType;
         [popoverView showToView:param withActions:self.menuArray];
     }else {
-        
+        [self searchClick];
     }
 }
 - (void)searchEnumClick:(NSInteger)type title:(NSString *)title {
     if (type != _searchType) {
         _searchType = type;
+        self.viewModel.showType = _searchType;
         [self.searchView setupContent:title];
+        self.viewModel.page = 0;
+        [self.viewModel getHistoryOrderList:NO];
+    }
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCHistoryOrderViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.historyArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self.viewModel.page == 0) {
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [self.viewModel getHistoryOrderList:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
     }
 }
 - (void)pullDownRefresh {
-    [self.mainTableView.mj_header endRefreshing];
+    _viewModel.page = 0;
+    [_viewModel getHistoryOrderList:YES];
 }
 - (void)pullUpLoadMore {
-    [self.mainTableView.mj_footer endRefreshing];
+    _viewModel.page += 1;
+    [_viewModel getHistoryOrderList:YES];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel) {
+        return _viewModel.historyArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
-    [cell setupContentWithPostId:@"帖子ID:123456" pushTime:@"10月10日发布" photoImage:nil name:@"凯先生" userId:@"码师ID:123456" detail:@"详情摘要详情摘要" money:@"100"];
-    return cell;
+    LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
+    if (_searchType == 0) {
+        LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
+        [cell setupContentWithPostId:model.post_id pushTime:model.add_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
+        return cell;
+    }else if (_searchType == 1){
+        LCHistoryGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryGuessTableViewCell];
+        [cell setupCellContent:model.post_id time:model.add_time type:[model.post_type integerValue] title:model.post_title payMoney:model.post_money hasBuy:0 betState:indexPath.row % 2];
+        return cell;
+    }else {
+        LCHistoryVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryVipTableViewCell];
+        [cell setupCellContent:model.post_id time:model.add_time title:model.post_title payMoney:model.post_vipmoney];
+        return cell;
+    }
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];
@@ -82,19 +132,16 @@
 - (NSArray *)menuArray {
     if (!_menuArray) {
         WS(ws)
-        PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"全部" handler:^(PopoverAction *action) {
+        PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"打赏记录" handler:^(PopoverAction *action) {
             [ws searchEnumClick:0 title:action.title];
         }];
-        PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"打赏记录" handler:^(PopoverAction *action) {
+        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"竞猜参与记录" handler:^(PopoverAction *action) {
             [ws searchEnumClick:1 title:action.title];
         }];
-        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"竞猜参与记录" handler:^(PopoverAction *action) {
+        PopoverAction *add2FriAction = [PopoverAction actionWithImage:nil title:@"VIP订单" handler:^(PopoverAction *action) {
             [ws searchEnumClick:2 title:action.title];
         }];
-        PopoverAction *add2FriAction = [PopoverAction actionWithImage:nil title:@"VIP订单" handler:^(PopoverAction *action) {
-            [ws searchEnumClick:3 title:action.title];
-        }];
-        _menuArray = [NSArray arrayWithObjects:multichatAction,addFriAction,add1FriAction,add2FriAction, nil];
+        _menuArray = [NSArray arrayWithObjects:addFriAction,add1FriAction,add2FriAction, nil];
     }
     return _menuArray;
 }
@@ -102,10 +149,12 @@
     _searchType = 0;
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryOrderTableViewCell];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryVipTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryVipTableViewCell];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryGuessTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryGuessTableViewCell];
     mainTableView.rowHeight = 100;
     LCOderSearchBarView *searchView = [[LCOderSearchBarView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50)];
     self.searchView = searchView;
-    [searchView setupContent:@"全部"];
+    [searchView setupContent:@"打赏记录"];
     mainTableView.tableHeaderView = searchView;
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];

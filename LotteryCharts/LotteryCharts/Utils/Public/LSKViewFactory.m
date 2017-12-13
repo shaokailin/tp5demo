@@ -160,7 +160,7 @@
         footerView.stateLabel.font = FontNornalInit(15);
         footerView.stateLabel.textColor = ColorHexadecimal(0x4a4a4a, 1.0);
         footerView.triggerAutomaticallyRefreshPercent = 200;
-//        footerView.hidden = YES;
+        footerView.hidden = YES;
         scrollView.mj_footer = footerView;
     }
     //因为iOS 11 下的 刷新会出现偏移，所以适配
@@ -175,7 +175,7 @@
 //对需要刷新和加载的进行foot处理
 + (void)setupFootRefresh:(UIScrollView *)scrollView page:(NSInteger)page currentCount:(NSInteger)count {
     //判断是否超出屏幕的高度，超出再进行尾部的处理  小于的话就进行隐藏
-     scrollView.mj_footer.hidden = NO;
+    scrollView.mj_footer.hidden = count == 0 ? YES:NO;
     NSInteger pageIndex = page + 1;
     if (count < pageIndex * PAGE_SIZE_NUMBER) {
         [scrollView.mj_footer endRefreshingWithNoMoreData];
