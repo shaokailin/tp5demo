@@ -32,6 +32,7 @@
     self.title = @"提现记录";
     [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)headerViewEvent:(NSInteger)type param:(id)param {
     if (type < 2) {
@@ -39,9 +40,13 @@
         self.datePickView.datePickerMode = type;
         [self.datePickView showInView];
     }else {
-       
+        _viewModel.year = _yearSelect;
+        _viewModel.mouth = _mouthSelect;
+        _viewModel.page = 0;
+        [_viewModel getWidthdrawRecord:NO];
     }
 }
+
 - (void)changeSearchType:(NSInteger)type {
     if (_dateSelectType == 0) {
         _yearSelect = type;
@@ -51,13 +56,48 @@
         [self.searchView setupContentWithLeft:nil right:NSStringFormat(@"%zd月",_mouthSelect)];
     }
 }
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCWithdrawViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.historyArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self.viewModel.page == 0) {
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [self.viewModel getWidthdrawRecord:NO];
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
+}
+- (void)pullDownRefresh {
+    _viewModel.page = 0;
+    [_viewModel getWidthdrawRecord:YES];
+}
+- (void)pullUpLoadMore {
+    _viewModel.page += 1;
+    [_viewModel getWidthdrawRecord:YES];
+}
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel) {
+        return _viewModel.historyArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCWithdrawRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCWithdrawRecordTableViewCell];
-    [cell setupContentWithType:@"提现" time:@"2017-10-10 12:12:12" money:@"-100金币"];
+    LCWithdrawRecordModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
+    [cell setupContentWithType:@"提现" time:model.create_time money:model.money];
     return cell;
 }
 #pragma mark 界面

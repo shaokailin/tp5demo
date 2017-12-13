@@ -39,6 +39,7 @@
     @weakify(self)
     _viewModel = [[LCWithdrawViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
+        self.moneyField.text = nil;
         [self updateMessage];
     } failure:nil];
     _viewModel.moneySignal = self.moneyField.rac_textSignal;

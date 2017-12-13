@@ -9,7 +9,7 @@
 #import "LSKBaseResponseModel.h"
 @interface LCWithdrawRecordModel : NSObject
 @property (nonatomic, copy) NSString *money;
-@property (nonatomic, copy) NSString *status;
+@property (nonatomic, copy) NSString *status;     //1  等待审核  2 提现失败  3  提现成功
 @property (nonatomic, copy) NSString *create_time;
 @end
 @interface LCWithdrawRecordListModel : LSKBaseResponseModel

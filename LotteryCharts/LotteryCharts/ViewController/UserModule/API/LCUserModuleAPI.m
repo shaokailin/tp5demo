@@ -212,10 +212,17 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
-+ (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page {
++ (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kOtherAttentionList;
-    entity.params = @{@"p":@(page),@"token":kUserMessageManager.token};
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(page),@"p",kUserMessageManager.token,@"token", nil];
+    if (month != -1) {
+        [param setObject:@(month) forKey:@"month"];
+    }
+    if (year != -1) {
+        [param setObject:@(year) forKey:@"year"];
+    }
+    entity.params = param;
     entity.responseObject = [LCWithdrawRecordListModel class];
     return entity;
 }

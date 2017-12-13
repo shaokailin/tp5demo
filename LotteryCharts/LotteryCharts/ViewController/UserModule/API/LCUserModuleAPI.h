@@ -35,5 +35,5 @@
 + (LSKParamterEntity *)getHisttoryOrderWith:(NSString *)searchId page:(NSInteger)page showType:(NSInteger)showType;
 
 + (LSKParamterEntity *)widthdrawMoney:(NSString *)money;
-+ (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page;
++ (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year;
 @end
