@@ -32,6 +32,7 @@
     self.detailLbl.text = detail;
     self.wxLbl.text = wxNumber;
     self.qqLbl.text = qqNumber;
+    self.mobileLbl.text = mobile;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
