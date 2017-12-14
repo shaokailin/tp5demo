@@ -17,4 +17,13 @@
 
 + (LSKParamterEntity *)getPostRanking:(NSInteger)page type:(NSInteger)type;
 + (LSKParamterEntity *)getkHistoryLotteryList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id;
+
++ (LSKParamterEntity *)sendPostReply:(NSString *)content postId:(NSString *)postId;
++ (LSKParamterEntity *)getPostReplyList:(NSInteger)page postId:(NSString *)postId;
++ (LSKParamterEntity *)getPostDetail:(NSString *)postId;
++ (LSKParamterEntity *)payPostForShow:(NSString *)postId;
++ (LSKParamterEntity *)getAllPostList:(NSInteger)page;
++ (LSKParamterEntity *)attentionPost:(NSString *)postId isCare:(BOOL)isCare;
++ (LSKParamterEntity *)rewardPostMoney:(NSString *)money postId:(NSString *)postId;
++ (LSKParamterEntity *)needPayForShowPost:(NSString *)postId;
 @end

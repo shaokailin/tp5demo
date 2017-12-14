@@ -13,6 +13,10 @@
 #import "LCRankingRenListModel.h"
 #import "LCRankingVipListModel.h"
 #import "LCHistoryLotteryListModel.h"
+#import "LCPostReplySuccessModel.h"
+#import "LCPostReplyListModel.h"
+#import "LCPostDetailModel.h"
+#import "LCPostDetailMessageModel.h"
 static NSString * kPushPostApi = @"post/add.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
 static NSString * kHomeHotPostApi = @"Index/hotpost.html";
@@ -22,6 +26,18 @@ static NSString * kRenPostApi = @"Index/renPost.html";
 static NSString * kPullPostApi = @"Index/pullPost.html";
 static NSString * kRewardPostApi = @"Index/rewardPost.html";
 static NSString * kHistoryLotteryApi = @"Period/index.html";
+
+static NSString * kPostReply = @"post/reply.html";
+static NSString * kPostReplyList = @"post/replypage.html";
+static NSString * kPostDetail = @"post/show.html";
+static NSString * kPayPost = @"post/show_payorder.html";
+static NSString * kAllPost = @"post/lists.html";
+
+static NSString * kAttentionPost = @"Post/postFollow.html";
+static NSString * kNoAttentionPost = @"Post/unPostFollow.html";
+
+static NSString * kRewardPost = @"Post/rewardPost.html";
+static NSString * kIsPostPay = @"Post/isPostPay.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -89,4 +105,69 @@ static NSString * kHistoryLotteryApi = @"Period/index.html";
     entity.responseObject = [LCHistoryLotteryListModel class];
     return entity;
 }
+
+
++ (LSKParamterEntity *)sendPostReply:(NSString *)content postId:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPostReply;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"message":content};
+    entity.responseObject = [LCPostReplySuccessModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getPostReplyList:(NSInteger)page postId:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPostReplyList;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"p":@(page)};
+    entity.responseObject = [LCPostReplyListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getPostDetail:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPostDetail;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId};
+    entity.responseObject = [LCPostDetailModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)payPostForShow:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPayPost;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+    
+}
++ (LSKParamterEntity *)getAllPostList:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kAllPost;
+    entity.params = @{@"p":@(page)};
+    entity.responseObject = [LCHomeHotListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)attentionPost:(NSString *)postId isCare:(BOOL)isCare {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    if (isCare) {
+        entity.requestApi = kNoAttentionPost;
+    }else {
+        entity.requestApi = kAttentionPost;
+    }
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)rewardPostMoney:(NSString *)money postId:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kRewardPost;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"money":money};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)needPayForShowPost:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kIsPostPay;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId};
+    entity.responseObject = [LCPostDetailMessageModel class];
+    return entity;
+}
+
 @end

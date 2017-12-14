@@ -150,7 +150,7 @@
     [self.view addSubview:mainTableView];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(ws.view);
-        make.bottom.equalTo(ws.view).with.offset(-44);
+        make.bottom.equalTo(ws.view).with.offset(-44 - ws.tabbarBetweenHeight);
     }];
     headerView.hederBlock = ^(NSInteger type) {
         [ws betGuessClick];

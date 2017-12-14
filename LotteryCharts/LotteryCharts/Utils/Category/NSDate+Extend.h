@@ -10,6 +10,7 @@
 
 @interface NSDate (Extend)
 - (NSString *)getWeekDate;
+- (NSInteger )getWeekIndex;
 /**
  获取某年某月的天数
  

@@ -10,5 +10,5 @@
 static NSString * const kLCSignTableViewCell = @"LCSignTableViewCell";
 @interface LCSignTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
-- (void)setupContentWithIndex:(NSInteger)index content:(NSString *)content;
+- (void)setupContentWithIndex:(NSInteger)index content:(NSInteger)content;
 @end

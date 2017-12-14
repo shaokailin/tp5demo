@@ -111,6 +111,44 @@ static NSDateComponents *_comps = nil;
     }
     return nil;
 }
+- (NSInteger )getWeekIndex {
+    [self setupDateComponents];
+    [self setupCalendar];
+    if (self) {
+        _comps = [_calendar components:NSCalendarUnitWeekday fromDate:self];
+        return [[self class] weekIndexForIndex:_comps.weekday];
+    }
+    return 0;
+}
++ (NSInteger)weekIndexForIndex:(NSInteger)index {
+    NSInteger week = 0;
+    switch (index) {
+        case 1:
+            week = 7;
+            break;
+        case 2:
+            week = 1;
+            break;
+        case 3:
+            week = 2;
+            break;
+        case 4:
+            week = 3;
+            break;
+        case 5:
+            week = 4;
+            break;
+        case 6:
+            week = 5;
+            break;
+        case 7:
+            week = 6;
+            break;
+        default:
+            break;
+    }
+    return week;
+}
 + (NSString *)weekForIndex:(NSInteger)index {
     NSString *week = nil;
     switch (index) {

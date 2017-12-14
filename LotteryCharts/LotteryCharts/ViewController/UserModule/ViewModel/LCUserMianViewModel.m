@@ -63,7 +63,7 @@
             @strongify(self)
             return [self requestWithPropertyEntity:[LCUserModuleAPI userSignEvent]];
         }];
-        [_signCommand.executionSignals.flatten subscribeNext:^(LCUserHomeMessageModel *model) {
+        [_signCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD showMessageInView:self.currentView withMessage:@"签到成功"];

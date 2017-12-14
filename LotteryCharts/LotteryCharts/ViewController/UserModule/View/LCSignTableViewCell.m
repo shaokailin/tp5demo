@@ -14,11 +14,11 @@
     [super awakeFromNib];
     // Initialization code
 }
-- (void)setupContentWithIndex:(NSInteger)index content:(NSString *)content {
+- (void)setupContentWithIndex:(NSInteger)index content:(NSInteger)content {
     if (index == 0) {
-        self.titleLbl.text = NSStringFormat(@"已获取%@枚签到银币",content);
+        self.titleLbl.text = NSStringFormat(@"已获取%zd枚签到银币",content);
     }else {
-        self.titleLbl.text = NSStringFormat(@"共获得%@枚签到银币",content);
+        self.titleLbl.text = NSStringFormat(@"共获得%zd枚签到银币",content);
     }
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -17,6 +17,7 @@
 + (LSKParamterEntity *)getUsermModuleMessage;
 
 + (LSKParamterEntity *)userSignEvent;
++ (LSKParamterEntity *)userSignMessage;
 
 + (LSKParamterEntity *)getUserAttention:(NSInteger)page;
 + (LSKParamterEntity *)getContactList:(NSInteger)page;

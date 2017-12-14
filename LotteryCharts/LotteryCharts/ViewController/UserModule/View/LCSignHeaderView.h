@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^SignClickBlock)(BOOL sign);
 @interface LCSignHeaderView : UIView
+@property (nonatomic, copy) SignClickBlock signBlock;
 @property (nonatomic, assign) BOOL isSign;
+- (void)changeSingAll:(NSInteger)allSign;
+- (void)signForToday:(NSInteger)week;
+- (void)setupSignIdentifier:(NSArray *)array;
 @end

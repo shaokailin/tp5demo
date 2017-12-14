@@ -16,17 +16,16 @@ PODS:
     - AFNetworking/NSURLSession
   - FDFullscreenPopGesture (1.1)
   - HappyDNS (0.3.12)
-  - Masonry (1.0.2)
-  - MJRefresh (3.1.12)
-  - Qiniu (7.1.6):
-    - AFNetworking (~> 3)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.1)
+  - Qiniu (7.2.0):
     - HappyDNS (~> 0.3)
   - ReactiveObjC (3.0.0)
-  - RSKImageCropper (1.6.3)
-  - SDWebImage (4.1.0):
-    - SDWebImage/Core (= 4.1.0)
-  - SDWebImage/Core (4.1.0)
-  - TPKeyboardAvoiding (1.3.1)
+  - RSKImageCropper (2.0.0)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
+  - TPKeyboardAvoiding (1.3.2)
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -45,15 +44,15 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   HappyDNS: 691a3041128055d09866f86e6e9ca90f24da1f18
-  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  Qiniu: 8af94ce9b1611ed5f4350883e41d4a62cabad491
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 5f8552bc25ca8751c010f621c1098dbdaacbccd6
+  Qiniu: 41a3261629a60cc990687aeb1009b48a9cc81ed0
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
-  RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
-  SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
-  TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
+  RSKImageCropper: d9a1acbc0600bf8decc8f0d21895872c99a9e4cf
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
+  TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
 PODFILE CHECKSUM: a4a993ee876d2e7f54e0cc234d66010019e99b7a
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0.beta.1

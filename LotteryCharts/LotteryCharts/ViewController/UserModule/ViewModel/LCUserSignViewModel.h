@@ -7,7 +7,9 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCUserSignMessageModel.h"
 @interface LCUserSignViewModel : LSKBaseViewModel
-
+@property (nonatomic, strong) LCUserSignMessageModel *messageModel;
+- (void)userSignClickEvent;
+- (void)getSignMessage;
 @end

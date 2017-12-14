@@ -44,16 +44,29 @@
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCUserSignViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        @strongify(self)
-        [self.mainTableView reloadData];
-        [self.mainTableView.mj_header endRefreshing];
+        if (identifier == 0) {
+            @strongify(self)
+            [self.mainTableView reloadData];
+            self.headerView.isSign = self.viewModel.messageModel.today_issign;
+            [self.headerView changeSingAll:self.viewModel.messageModel.zhou_sign];
+            [self.headerView setupSignIdentifier:self.viewModel.messageModel.list_sign];
+            [self.mainTableView.mj_header endRefreshing];
+        }else {
+            [self.headerView changeSingAll:self.viewModel.messageModel.zhou_sign + 1];
+            self.headerView.isSign = YES;
+            [self.headerView signForToday:[[NSDate date]getWeekIndex]];
+        }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
         [self.mainTableView.mj_header endRefreshing];
     }];
+    [self.viewModel getSignMessage];
 }
 - (void)pullDownRefresh {
-    
+    [self.viewModel getSignMessage];
+}
+- (void)signClick {
+    [self.viewModel userSignClickEvent];
 }
 #pragma mark -delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -64,7 +77,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCSignTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSignTableViewCell];
-    [cell setupContentWithIndex:indexPath.section content:@"1"];
+    if (_viewModel && _viewModel.messageModel) {
+        [cell setupContentWithIndex:indexPath.section content:indexPath.section == 0?self.viewModel.messageModel.zhou_sign:self.viewModel.messageModel.my_count];
+    }else {
+        [cell setupContentWithIndex:indexPath.section content:0];
+    }
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -88,6 +105,7 @@
     tableView.rowHeight = 44;
     LCSignHeaderView *header = [[LCSignHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 250 + 52)];
     self.headerView = header;
+    
     tableView.tableHeaderView = header;
     self.mainTableView = tableView;
     [self.view addSubview:tableView];
@@ -95,6 +113,9 @@
     [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
+    header.signBlock = ^(BOOL sign) {
+        [ws signClick];
+    };
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

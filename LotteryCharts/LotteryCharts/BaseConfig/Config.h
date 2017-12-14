@@ -29,4 +29,5 @@ static NSString * const kUserModule_HomeChangeMessageNotice = @"HomeChangeMessag
 static NSString * const kPushPost_Alter = @"PushPost_Alter";
 static NSString * const kWallet_Change_Notice = @"Wallet_Change_Notice";
 static NSString * const kLoginOutChange_Notice = @"LoginOutChange_Notice";
+static NSString * const kSign_Change_Notice = @"Sign_Change_Notice";
 #endif /* Config_h */

@@ -7,7 +7,8 @@
 //
 
 #import "LSKBaseViewController.h"
-
+#import "LCHomePostModel.h"
 @interface LCPostDetailVC : LSKBaseViewController
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) LCHomePostModel *postModel;
 @end

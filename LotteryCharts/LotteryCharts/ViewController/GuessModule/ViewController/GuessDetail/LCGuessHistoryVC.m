@@ -61,7 +61,11 @@
 }
 - (void)cellClick:(id)cell {
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
-    LSKLog(@"%zd",indexPath.row);
+    LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+    detail.guessModel = model;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)moreClick:(NSInteger)index {
     LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:index - 200];

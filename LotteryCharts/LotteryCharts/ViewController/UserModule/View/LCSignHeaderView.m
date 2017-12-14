@@ -7,7 +7,7 @@
 //
 
 #import "LCSignHeaderView.h"
-
+#import "LCUserSignMessageModel.h"
 @implementation LCSignHeaderView
 {
     UIButton *_signBtn;
@@ -31,6 +31,7 @@
 - (void)changeSignState {
     if (_isSign) {
         [_signBtn setImage:ImageNameInit(@"signgou") forState:UIControlStateNormal];
+        [_signBtn setTitle:nil forState:UIControlStateNormal];
         _signBtn.userInteractionEnabled = NO;
         _signTitleLbl.text = @"今日已签到";
     }else {
@@ -48,6 +49,50 @@
 }
 - (void)changeSingAll:(NSInteger)allSign {
     _signDateLbl.text = NSStringFormat(@"本周您已连续签到%zd天",allSign);
+}
+- (void)setupSignIdentifier:(NSArray *)array {
+    if (KJudgeIsNullData(array)) {
+        NSArray *result = [array sortedArrayUsingComparator:^NSComparisonResult(LCUserSignModel  *obj1, LCUserSignModel *obj2) {
+            return obj1.week > obj2.week; //升序
+            
+        }];
+        for (int i = 0; i <= 7; i++) {
+            BOOL isSign = NO;
+            for (int j = 0; j < result.count; j++) {
+                LCUserSignModel *model = [result objectAtIndex:j];
+                if (i < model.week) {
+                    break;
+                }else if(i == model.week){
+                    isSign = YES;
+                    break;
+                }
+            }
+            if (isSign) {
+                UIButton *weekBtn = [self viewWithTag:200 + i];
+                if (weekBtn) {
+                    UILabel *weekLbl = [weekBtn viewWithTag:300 + i];
+                    weekLbl.text = @"已签";
+                    weekLbl.textColor = ColorHexadecimal(0xf6a623, 1.0);
+                }
+            }else {
+                UIButton *weekBtn = [self viewWithTag:200 + i];
+                if (weekBtn) {
+                    UILabel *weekLbl = [weekBtn viewWithTag:300 + i];
+                    weekLbl.text = @"未签";
+                    weekLbl.textColor = ColorHexadecimal(0x959595, 1.0);
+                }
+            }
+        }
+    }else {
+        for (NSInteger i = 1; i <= 7; i++) {
+            UIButton *weekBtn = [self viewWithTag:200 + i];
+            if (weekBtn) {
+                UILabel *weekLbl = [weekBtn viewWithTag:300 + i];
+                weekLbl.text = @"未签";
+                weekLbl.textColor = ColorHexadecimal(0x959595, 1.0);
+            }
+        }
+    }
 }
 - (void)_layoutMainView {
     UIView *headerView = [[UIView alloc]init];
@@ -158,7 +203,9 @@
     return btn;
 }
 - (void)signClick {
-    
+    if (!_isSign && _signBlock) {
+        self.signBlock(YES);
+    }
 }
 
 @end

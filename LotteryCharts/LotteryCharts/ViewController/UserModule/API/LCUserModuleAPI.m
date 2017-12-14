@@ -22,6 +22,7 @@
 #import "LCHistoryOrderListModel.h"
 #import "LCWithdrawRecordListModel.h"
 #import "LCCantactListModel.h"
+#import "LCUserSignMessageModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -29,6 +30,7 @@ static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
 static NSString * const kUpdateMessage = @"User/updateUserInfo.html";
 static NSString * const kUserMessage = @"User/getMy.html";
 static NSString * const kUserSign = @"User/sign.html";
+static NSString * const kUserSignMessage = @"User/getSign.html";
 static NSString * const kAttentionList = @"User/myFollow.html";
 static NSString * const kContactList = @"Direct/getContact";
 
@@ -98,6 +100,13 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
     entity.requestApi = kUserSign;
     entity.params = @{@"token":kUserMessageManager.token};
     entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)userSignMessage {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUserSignMessage;
+    entity.params = @{@"token":kUserMessageManager.token};
+    entity.responseObject = [LCUserSignMessageModel class];
     return entity;
 }
 + (LSKParamterEntity *)getUserAttention:(NSInteger)page {

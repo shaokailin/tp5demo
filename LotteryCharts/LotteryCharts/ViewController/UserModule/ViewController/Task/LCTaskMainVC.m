@@ -32,6 +32,7 @@
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+    [self addNotificationWithSelector:@selector(changeSignState) name:kSign_Change_Notice];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -43,6 +44,12 @@
         _homeNaviBgImage = [LSKImageManager imageWithColor:ColorHexadecimal(0xeeeeee, 0.1) size:CGSizeMake(SCREEN_WIDTH, self.navibarHeight)];
     }
     return _homeNaviBgImage;
+}
+- (void)changeSignState {
+    if (_viewModel && _viewModel.taskModel) {
+        _viewModel.taskModel.is_sign = 1;
+        [self.mainTableView reloadData];
+    }
 }
 - (void)bindSignal {
     @weakify(self)

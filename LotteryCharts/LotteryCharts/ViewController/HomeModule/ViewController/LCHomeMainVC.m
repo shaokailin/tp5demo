@@ -166,18 +166,14 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"支付金币查看内容" message:@"\n\n\n是否支付10金币查看该帖\n" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"支付", nil];
-    @weakify(self)
-    [alterView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
-        if ([x integerValue] == 1) {
-            @strongify(self)
-            LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
-            detail.type = indexPath.row % 2;
-            detail.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:detail animated:YES];
-        }
-    }];
-    [alterView show];
+    if ([self isCanJumpViewForLogin:YES]) {
+        LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
+        LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
+        detail.postModel = model;
+        detail.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 #pragma mark -界面初始化
