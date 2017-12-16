@@ -94,8 +94,9 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     [userDefaults setObject:model.sex forKey:kUserMessage_Sex];
     [userDefaults setObject:model.nickname forKey:kUserMessage_NickName];
     [userDefaults setObject:model.birthday forKey:kUserMessage_Birthday];
+    [userDefaults setObject:model.money forKey:kUserMessage_Money];
     if (isLogin) {
-        [userDefaults setObject:model.money forKey:kUserMessage_Money];
+        [userDefaults setObject:model.mobile forKey:kUserMessage_Mobile];
     }
     [userDefaults setObject:model.userId forKey:kUserMessage_Uid];
     [userDefaults setObject:model.mchid forKey:kUserMessage_Mchid];

@@ -37,7 +37,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p4g-iI-sYJ">
-                        <rect key="frame" x="71" y="13" width="37.5" height="18"/>
+                        <rect key="frame" x="71" y="13" width="239" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.40000000000000002" green="0.66274509803921566" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -61,14 +61,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="contactphone" translatesAutoresizingMaskIntoConstraints="NO" id="oZI-Tr-ZLT">
-                        <rect key="frame" x="174" y="102.5" width="25" height="25"/>
+                        <rect key="frame" x="174" y="105" width="20" height="20"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="25" id="8ch-N2-Uad"/>
-                            <constraint firstAttribute="width" constant="25" id="KHT-fg-vxD"/>
+                            <constraint firstAttribute="height" constant="20" id="8ch-N2-Uad"/>
+                            <constraint firstAttribute="width" constant="20" id="KHT-fg-vxD"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AxF-nt-DFP">
-                        <rect key="frame" x="205" y="108" width="31" height="14.5"/>
+                        <rect key="frame" x="200" y="108" width="31" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -93,6 +93,7 @@
                     <constraint firstAttribute="trailing" secondItem="FZB-4R-fjO" secondAttribute="trailing" constant="18" id="onR-UT-yqg"/>
                     <constraint firstItem="FZB-4R-fjO" firstAttribute="top" secondItem="p4g-iI-sYJ" secondAttribute="bottom" constant="12" id="pYH-W3-wUZ"/>
                     <constraint firstItem="oZI-Tr-ZLT" firstAttribute="leading" secondItem="wug-FK-9cu" secondAttribute="trailing" constant="15" id="qAW-S7-ujb"/>
+                    <constraint firstAttribute="trailing" secondItem="p4g-iI-sYJ" secondAttribute="trailing" constant="10" id="qk3-1G-VMT"/>
                     <constraint firstItem="FSB-Nx-aYJ" firstAttribute="leading" secondItem="E5p-Kq-bVV" secondAttribute="trailing" constant="15" id="yFb-oc-eze"/>
                 </constraints>
             </tableViewCellContentView>

@@ -67,11 +67,11 @@
 - (void)imageCropViewControllerDidCancelCrop:(RSKImageCropViewController *)controller {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
+
+- (void)imageCropViewController:(nonnull RSKImageCropViewController *)controller didCropImage:(nonnull UIImage *)croppedImage usingCropRect:(CGRect)cropRect rotationAngle:(CGFloat)rotationAngle {
     self.viewModel.photoImage = croppedImage;
     [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     [self.navigationController popViewControllerAnimated:YES];
-    
 }
 - (void)changePhoto {
     UIActionSheet *sheetView = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"手机相册", nil];
@@ -191,7 +191,7 @@
 #pragma mark - init view
 - (void)initializeMainView {
     TPKeyboardAvoidingTableView *tableview = [LSKViewFactory initializeTPTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:nil footRefreshAction:nil separatorColor:nil backgroundColor:nil];
-     tableview.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
+    tableview.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
     [tableview registerNib:[UINib nibWithNibName:kLCPhotoTableViewCell bundle:nil] forCellReuseIdentifier:kLCPhotoTableViewCell];
     [tableview registerNib:[UINib nibWithNibName:kLCNameInputTableViewCell bundle:nil] forCellReuseIdentifier:kLCNameInputTableViewCell];
     [tableview registerNib:[UINib nibWithNibName:kLCUserMessageTableViewCell bundle:nil] forCellReuseIdentifier:kLCUserMessageTableViewCell];
@@ -201,7 +201,7 @@
     [self.view addSubview:tableview];
     WS(ws)
     [tableview mas_makeConstraints:^(MASConstraintMaker *make) {
-      make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight, 0));
     }];
     
 }
@@ -212,13 +212,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

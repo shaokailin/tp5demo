@@ -283,7 +283,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
-- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect {
+- (void)imageCropViewController:(RSKImageCropViewController *)controller didCropImage:(UIImage *)croppedImage usingCropRect:(CGRect)cropRect rotationAngle:(CGFloat)rotationAngle {
     self.viewModel.photoImage = croppedImage;
     self.viewModel.editType = _editImageType;
      [self.viewModel updateUserPhoto];
