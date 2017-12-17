@@ -42,6 +42,7 @@
                 sliver += (self.glodMoney * 100);
                 kUserMessageManager.yMoney = NSStringFormat(@"%zd",sliver);
                 [SKHUD showMessageInView:self.currentView withMessage:@"兑换成功"];
+                [self sendSuccessResult:0 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];
             }

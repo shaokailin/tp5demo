@@ -14,7 +14,8 @@
 #import "LCRankingPushTableViewCell.h"
 #import "LCRankingGoldTableViewCell.h"
 #import "LCRankingViewModel.h"
-@interface LCRankingMainVC ()<UITableViewDelegate,UITableViewDataSource>
+#import "LCPostDetailVC.h"
+@interface LCRankingMainVC ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     NSInteger _showType;
 }
@@ -41,7 +42,29 @@
 }
 - (void)vipCellClick:(id)clickCell {
     NSInteger index = [self.mainTableView indexPathForCell:clickCell].row;
-    LSKLog(@"%zd",index);
+    if (index > 2) {
+        index -= 1;
+    }
+    LCHomePostModel *model = [self.viewModel.postArray objectAtIndex:index];
+    self.viewModel.postId = model.post_id;
+    UIAlertView *customAlertView = [[UIAlertView alloc] initWithTitle:@"抢榜金额" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [customAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    UITextField *nameField = [customAlertView textFieldAtIndex:0];
+    nameField.keyboardType = UIKeyboardTypePhonePad;
+    nameField.placeholder = @"请输入抢榜金额";
+    [customAlertView show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == alertView.firstOtherButtonIndex) {
+        UITextField *nameField = [alertView textFieldAtIndex:0];
+        if (KJudgeIsNullData(nameField.text) && [nameField.text integerValue] > 0) {
+            self.viewModel.money = nameField.text;
+            [self.viewModel upPostViewRanging];
+        }else {
+            [SKHUD showMessageInView:self.view withMessage:@"没有输入抢榜金额"];
+        }
+    }
 }
 - (void)bindSignal {
     @weakify(self)
@@ -146,7 +169,7 @@
             return cell;
         }else {
             LCVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCVipTableViewCell];
-            [cell setupContent:index + 1 photo:model.logo postTitle:model.post_title name:model.nickname money:NSStringFormat(@"付币查看  %@金币",model.post_money) robMoney:NSStringFormat(@"%@金币抢此榜",model.post_vipmoney) userId:model.user_id isShowBtn:_showType == 0?YES:NO];
+            [cell setupContent:index + 1 photo:model.logo postTitle:model.post_title name:model.nickname money:NSStringFormat(@"付币查看  %@金币",model.post_money) robMoney:NSStringFormat(@"%@金币抢此榜",model.post_vipmoney) userId:model.user_id isShowBtn:_showType == 0?([model.user_id isEqualToString:kUserMessageManager.userId] == YES?YES:NO):NO];
             if (_showType == 0) {
                 WS(ws)
                 cell.vipBlock = ^(id clickCell) {
@@ -157,6 +180,24 @@
         }
     }
     return nil;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCHomePostModel *model = nil;
+    if (_showType == 2) {
+        model = [self.viewModel.postArray objectAtIndex:indexPath.row];
+    }else if (_showType == 1){
+        if (_showType == 1 && KJudgeIsArrayAndHasValue(self.viewModel.topArray) && indexPath.row < self.viewModel.topArray.count) {
+            model = [self.viewModel.topArray objectAtIndex:indexPath.row];
+        }else {
+            model = [self.viewModel.postArray objectAtIndex:KJudgeIsArrayAndHasValue(self.viewModel.topArray)?indexPath.row - self.viewModel.topArray.count - 1:indexPath.row];
+        }
+    }else {
+        NSInteger index = indexPath.row > 2?indexPath.row - 1:indexPath.row;
+        model = [self.viewModel.postArray objectAtIndex:index];
+    }
+    LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
+    detail.postModel = model;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (_showType == 2) {

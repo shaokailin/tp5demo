@@ -45,7 +45,12 @@
 }
 - (IBAction)moreClick:(id)sender {
     if (self.block) {
-        self.block(YES);
+        self.block(0);
+    }
+}
+- (IBAction)lastMoreClick:(id)sender {
+    if (self.block) {
+        self.block(1);
     }
 }
 

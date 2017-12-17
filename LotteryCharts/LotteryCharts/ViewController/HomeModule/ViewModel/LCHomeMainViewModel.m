@@ -9,10 +9,15 @@
 #import "LCHomeMainViewModel.h"
 #import "LCHomeModuleAPI.h"
 #import "LCBaseResponseModel.h"
+#import "LCHomeHotListModel.h"
 @interface LCHomeMainViewModel ()
 @property (nonatomic, strong) RACCommand *onlineCommand;
 @property (nonatomic, strong) RACCommand *headerMessageCommand;
 @property (nonatomic, strong) RACCommand *hotCommand;
+
+@property (nonatomic, strong) RACCommand *searchCommand;
+@property (nonatomic, strong) RACCommand *searchUserId;
+@property (nonatomic, strong) RACCommand *searchPost;
 @end
 @implementation LCHomeMainViewModel
 - (void)getHomeMessage:(BOOL)isPull {
@@ -108,5 +113,77 @@
         }];
     }
     return _headerMessageCommand;
+}
+- (void)searchPostEvent:(NSString *)test {
+    self.searchText = [test stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if (!KJudgeIsNullData(self.searchText)) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入搜索内容"];
+        return;
+    }
+    [SKHUD showLoadingDotInWindow];
+    if (self.searchType == 0) {
+        [self.searchCommand execute:nil];
+    }else if (self.searchType == 1){
+        [self.searchUserId execute:nil];
+    }else {
+        [self.searchPost execute:nil];
+    }
+}
+- (RACCommand *)searchPost {
+    if (!_searchPost) {
+        @weakify(self)
+        _searchPost = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI getPostDetail:self.searchText]];
+        }];
+        [_searchPost.executionSignals.flatten subscribeNext:^(LCPostDetailModel *model) {
+            @strongify(self)
+            if (model.code == 200 && KJudgeIsNullData(model.post_id)) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:70 model:model];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:@"查无数据"];
+            }
+        }];
+    }
+    return _searchPost;
+}
+- (RACCommand *)searchCommand {
+    if (!_searchCommand) {
+        @weakify(self)
+        _searchCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI getSearchPostList:self.searchText page:0]];
+        }];
+        [_searchCommand.executionSignals.flatten subscribeNext:^(LCHomeHotListModel *model) {
+            @strongify(self)
+            if (model.code == 200 && KJudgeIsArrayAndHasValue(model.response)) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:60 model:model.response];
+            }else {
+                 [SKHUD showMessageInView:self.currentView withMessage:@"查无数据"];
+            }
+        }];
+    }
+    return _searchCommand;
+}
+- (RACCommand *)searchUserId {
+    if (!_searchUserId) {
+        @weakify(self)
+        _searchUserId = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI getUserUid:self.searchText]];
+        }];
+        [_searchUserId.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200 && KJudgeIsNullData(model.response)) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:50 model:model.response];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:@"查无数据"];
+            }
+        }];
+    }
+    return _searchUserId;
 }
 @end

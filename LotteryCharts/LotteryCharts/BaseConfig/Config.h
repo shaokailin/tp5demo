@@ -30,4 +30,9 @@ static NSString * const kPushPost_Alter = @"PushPost_Alter";
 static NSString * const kWallet_Change_Notice = @"Wallet_Change_Notice";
 static NSString * const kLoginOutChange_Notice = @"LoginOutChange_Notice";
 static NSString * const kSign_Change_Notice = @"Sign_Change_Notice";
+static NSString * const kMessage_Change_Notice = @"Message_Change_Notice";
+static NSString * const kAttenttion_Change_Notice = @"Attention_Change_Notice";
+
+static NSString * const KLIVE_BROADCAST = @"http://lottery.sina.com.cn/video/fcopen/";
+static NSString * const KJIE_MENG = @"http://www.sosuo.name/jiemeng/";
 #endif /* Config_h */

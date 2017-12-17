@@ -9,10 +9,15 @@
 #import "LSKBaseViewModel.h"
 #import "LCHomeHotListModel.h"
 #import "LCHomeHeaderMessageModel.h"
+#import "LCPostDetailModel.h"
 @interface LCHomeMainViewModel : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *hotPostArray;
 @property (nonatomic, strong) LCHomeHeaderMessageModel *messageModel;
 - (void)bindSinal;
 - (void)getHomeMessage:(BOOL)isPull;
+
+@property (nonatomic, copy) NSString *searchText;
+@property (nonatomic, assign) NSInteger searchType;
+- (void)searchPostEvent:(NSString *)test;
 @end

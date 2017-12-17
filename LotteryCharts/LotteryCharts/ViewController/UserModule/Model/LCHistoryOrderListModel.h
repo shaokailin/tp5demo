@@ -9,7 +9,7 @@
 #import "LSKBaseResponseModel.h"
 @interface LCHistoryOrderModel : NSObject
 @property (nonatomic, copy) NSString *award_money;
-@property (nonatomic, copy) NSString *add_time;
+//@property (nonatomic, copy) NSString *add_time;
 @property (nonatomic, copy) NSString *post_id;
 @property (nonatomic, copy) NSString *post_title;
 @property (nonatomic, copy) NSString *post_type;
@@ -20,6 +20,7 @@
 @property (nonatomic, copy) NSString *mch_no;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;
+@property (nonatomic, copy) NSString *create_time;
 @end
 @interface LCHistoryOrderListModel : LSKBaseResponseModel
 @property (nonatomic, strong) NSArray *response;

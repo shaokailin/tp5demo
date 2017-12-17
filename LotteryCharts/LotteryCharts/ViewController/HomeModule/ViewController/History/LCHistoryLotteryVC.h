@@ -9,4 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCHistoryLotteryVC : LSKBaseViewController
+@property (nonatomic, copy) NSString *searchText;
 @end

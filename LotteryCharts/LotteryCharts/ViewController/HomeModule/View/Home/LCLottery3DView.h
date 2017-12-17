@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef void (^LotteryMoreBlock)(BOOL is);
+typedef void (^LotteryMoreBlock)(NSInteger type);
 @interface LCLottery3DView : UIView
 @property (nonatomic, copy) LotteryMoreBlock block;
 - (void)setupLottertMessage:(NSArray *)data;

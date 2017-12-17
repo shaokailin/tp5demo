@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^HeaderViewBlock)(NSInteger type,NSInteger index);
+typedef void (^HeaderViewFrameBlock)(CGFloat height);
 @interface LCPostDetailHeaderView : UIView
+@property (nonatomic, copy) HeaderViewFrameBlock frameBlock;
 @property (nonatomic, copy) HeaderViewBlock headerBlock;
 @property (nonatomic, assign) BOOL isCare;
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type;

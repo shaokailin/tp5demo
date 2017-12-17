@@ -10,6 +10,7 @@
 #import "LCHomeModuleAPI.h"
 @interface LCRankingViewModel ()
 @property (nonatomic, strong) RACCommand *postListCommand;
+@property (nonatomic, strong) RACCommand *postupCommand;
 @end
 @implementation LCRankingViewModel
 - (void)getRankingList:(BOOL)isPull {
@@ -67,5 +68,29 @@
         _postArray = [NSMutableArray array];
     }
     return _postArray;
+}
+
+- (RACCommand *)postupCommand {
+    if (!_postupCommand) {
+        @weakify(self)
+        _postupCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI upPostVipRanking:self.postId money:self.money]];
+        }];
+        [_postupCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            if (model.code == 200) {
+                [SKHUD showMessageInView:self.currentView withMessage:@"抢榜成功"];
+                self.page = 0;
+                [self.postListCommand execute:nil];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _postupCommand;
+}
+- (void)upPostViewRanging {
+    [SKHUD showLoadingDotInView:self.currentView];
+    [self.postupCommand execute:nil];
 }
 @end

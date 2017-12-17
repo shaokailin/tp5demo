@@ -113,17 +113,20 @@
     LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
     if (_searchType == 0) {
         LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
-        [cell setupContentWithPostId:model.post_id pushTime:model.add_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
+        [cell setupContentWithPostId:model.post_id pushTime:model.create_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
         return cell;
     }else if (_searchType == 1){
         LCHistoryGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryGuessTableViewCell];
-        [cell setupCellContent:model.post_id time:model.add_time type:[model.post_type integerValue] title:model.post_title payMoney:model.post_money hasBuy:0 betState:indexPath.row % 2];
+        [cell setupCellContent:model.post_id time:model.create_time type:[model.post_type integerValue] title:model.post_title payMoney:model.post_money hasBuy:0 betState:indexPath.row % 2];
         return cell;
     }else {
         LCHistoryVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryVipTableViewCell];
-        [cell setupCellContent:model.post_id time:model.add_time title:model.post_title payMoney:model.post_vipmoney];
+        [cell setupCellContent:model.post_id time:model.create_time title:model.post_title payMoney:model.post_vipmoney];
         return cell;
     }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];

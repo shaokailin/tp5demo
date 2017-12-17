@@ -11,6 +11,7 @@
 #import "LCTeamTableViewCell.h"
 #import "LSKImageManager.h"
 #import "LCTeamViewModel.h"
+#import "LCMySpaceMainVC.h"
 @interface LCTeamMainVC ()
 {
     NSInteger _showType;
@@ -121,6 +122,10 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];
+    LCTeamModel *model = [_viewModel.teamArray objectAtIndex:indexPath.row];
+    space.userId = model.uid;
+    [self.navigationController pushViewController:space animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

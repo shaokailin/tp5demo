@@ -17,11 +17,13 @@
 @property (nonatomic, copy) NSString *post_money;
 @property (nonatomic, copy) NSString *post_vipmoney;
 @property (nonatomic, copy) NSString *user_id;
+@property (nonatomic, copy) NSString *nickname;
+@property (nonatomic, copy) NSString *logo;
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, strong) NSArray *reply_list;
 @property (nonatomic, assign) NSInteger return_status;
-
+@property (nonatomic, copy) NSString *make_click;
 @property (nonatomic, assign) NSInteger is_follow;
 @property (nonatomic, assign) NSInteger reply_count;
 @property (nonatomic, copy) NSString *reward_count;

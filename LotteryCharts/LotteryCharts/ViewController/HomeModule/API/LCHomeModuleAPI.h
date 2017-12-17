@@ -26,4 +26,9 @@
 + (LSKParamterEntity *)attentionPost:(NSString *)postId isCare:(BOOL)isCare;
 + (LSKParamterEntity *)rewardPostMoney:(NSString *)money postId:(NSString *)postId;
 + (LSKParamterEntity *)needPayForShowPost:(NSString *)postId;
+
++ (LSKParamterEntity *)getSearchPostList:(NSString *)searchText page:(NSInteger)page;
++ (LSKParamterEntity *)getUserUid:(NSString *)searchText;
+
++ (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money;
 @end

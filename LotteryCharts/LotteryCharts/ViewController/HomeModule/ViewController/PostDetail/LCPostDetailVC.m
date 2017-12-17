@@ -20,6 +20,7 @@
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
 @property (nonatomic, weak) LCPostDetailHeaderView *headerView;
 @property (nonatomic, strong) LCPostDetailViewModel *viewModel;
+@property (nonatomic, strong) UIView *headerBgView;
 @end
 
 @implementation LCPostDetailVC
@@ -27,9 +28,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"彩神榜";
+    self.navigationItem.title = @"帖子详情";
+    [self backToNornalNavigationColor];
     [self addNavigationBackButton];
-    LSKLog(@"%@---%@",self.postModel.user_id,kUserMessageManager.userId);
     self.type = [self.postModel.user_id isEqualToString:kUserMessageManager.userId]? 1:0;
     _isNeedSend = [self.postModel.post_type integerValue] == 2? YES:NO;
     [self initializeMainView];
@@ -131,7 +132,26 @@
     }else if (type == 1){
         
     }else {
-        [self.viewModel rewardPostMoney:@"1"];
+        [self getRewardEvent];
+    }
+}
+- (void)getRewardEvent {
+    UIAlertView *customAlertView = [[UIAlertView alloc] initWithTitle:@"打赏金额" message:nil delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [customAlertView setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    UITextField *nameField = [customAlertView textFieldAtIndex:0];
+    nameField.keyboardType = UIKeyboardTypePhonePad;
+    nameField.placeholder = @"请输入打赏金额";
+    [customAlertView show];
+}
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == alertView.firstOtherButtonIndex) {
+        UITextField *nameField = [alertView textFieldAtIndex:0];
+        if (KJudgeIsNullData(nameField.text) && [nameField.text integerValue] > 0) {
+            [self.viewModel rewardPostMoney:nameField.text];
+        }else {
+            [SKHUD showMessageInView:self.view withMessage:@"没有输入打赏金额"];
+        }
     }
 }
 - (void)sendCommentClick:(NSString *)text {
@@ -186,6 +206,7 @@
     self.headerView = headerView;
     CGFloat height = self.type == 0 ? 272 + 80 : 80 + 200;
     UIView *headerBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, height)];
+    self.headerBgView = headerBgView;
     [headerBgView addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(headerBgView);
@@ -203,6 +224,13 @@
     [self setupHeadView:NO isFirst:YES];
     headerView.headerBlock = ^(NSInteger type, NSInteger index) {
         [ws headerViewEvent:type index:index];
+    };
+    headerView.frameBlock = ^(CGFloat height) {
+        ws.mainTableView.tableHeaderView = nil;
+        CGRect frame = ws.headerBgView.frame;
+        frame.size.height = height;
+        ws.headerBgView.frame = frame;
+        self.mainTableView.tableHeaderView = self.headerBgView;
     };
 }
 - (void)setupHeadView:(BOOL)isShow isFirst:(BOOL)isFirst {

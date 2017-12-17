@@ -23,6 +23,9 @@
 #import "LCSpaceMyOrderView.h"
 #import "LCSpaceViewModel.h"
 #import "LCAttentionMainVC.h"
+#import "LCHomePostModel.h"
+#import "LCPostDetailVC.h"
+#import "LCGuessDetailVC.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
@@ -56,8 +59,8 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (_isChange) {
-        _isChange = NO;
+    if (!_isChange) {
+        _isChange = YES;
         self.navigationController.navigationBar.translucent = YES;
         [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage forBarMetrics:UIBarMetricsDefault];
     }
@@ -70,7 +73,7 @@
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    _isChange = YES;
+    _isChange = NO;
 }
 
 - (void)bindSignal {
@@ -83,7 +86,7 @@
             if (_showType == 0 && self.viewModel.page == 0) {
                 LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
                 [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mchid attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
-                self.countString = dataModel.post_list_count;
+                self.post_list_count = dataModel.post_list_count;
                 self.quiz_count = dataModel.quiz_count;
                 self.my_mchmoney = dataModel.my_mchmoney;
                 [self.headerView changeBgImage:dataModel.user_info.bglogo];
@@ -159,6 +162,7 @@
 - (void)showMyOrderMessage {
     if (_showType == 2 && ![kUserMessageManager.userId isEqualToString:self.userId]) {
         self.orderView.hidden = NO;
+        [_orderView setupContentWithIndex:nil photo:nil money:KNullTransformNumber(self.my_mchmoney)];
         WS(ws)
         [self.mainTableView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight - 49);
@@ -283,6 +287,30 @@
     return 100;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (_showType == 0) {
+        LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
+        LCPostModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+        LCHomePostModel *postModel = [[LCHomePostModel alloc]init];
+        postModel.post_id = model.post_id;
+        postModel.post_title = model.post_title;
+        postModel.post_type = model.post_type;
+        postModel.post_money = model.post_money;
+        postModel.post_vipmoney = model.post_vipmoney;
+        postModel.user_id = model.user_id;
+        postModel.nickname = model.nickname;
+        postModel.logo = model.logo;
+        postModel.reply_count = [model.reply_count integerValue];
+        postModel.reward_count = model.reward_count;
+        postModel.reward_money = @"0";
+        postModel.create_time = model.create_time;
+        detail.postModel = postModel;
+        [self.navigationController pushViewController:detail animated:YES];
+    }else if (_showType == 1){
+        LCGuessModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+        LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+        detail.guessModel = model;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -298,15 +326,15 @@
             make.height.mas_equalTo(49);
             make.bottom.equalTo(ws.view).with.offset(-ws.tabbarBetweenHeight);
         }];
-        [_orderView setupContentWithIndex:nil photo:nil money:self.my_mchmoney];
+        [_orderView setupContentWithIndex:nil photo:nil money:KNullTransformNumber(self.my_mchmoney)];
     }
     return _orderView;
 }
 - (void)initializeMainView {
     _showType = 0;
-    if (![kUserMessageManager.userId isEqualToString:self.userId]) {
-        [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
-    }
+//    if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+//        [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
+//    }
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardOrderTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardRecordTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardRecordTableViewCell];

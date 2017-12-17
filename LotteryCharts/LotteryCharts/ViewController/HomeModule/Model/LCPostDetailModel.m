@@ -38,6 +38,8 @@
              @"reply_count" : @"response.reply_count",
              @"reward_count" : @"response.reward_count",
              @"reward_money" : @"response.reward_money",
+             @"nickname" : @"response.nickname",
+             @"logo" : @"response.logo",
              };
 }
 @end

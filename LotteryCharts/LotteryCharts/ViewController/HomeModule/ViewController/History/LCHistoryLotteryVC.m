@@ -31,11 +31,12 @@
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+    
 }
 
 - (void)searchClick:(NSString *)text {
     [self.view endEditing:YES];
-    self.viewModel.period_id = self.searchView.searchText;
+    self.viewModel.period_id = text;
     self.viewModel.limitRow = _searchType;
     [self.viewModel getHistoryLotteryList:NO];
 }
@@ -72,7 +73,13 @@
         }
         [self endRefreshing];
     }];
-    [self.viewModel getHistoryLotteryList:NO];
+    if (KJudgeIsNullData(self.searchText)) {
+        self.searchView.searchText = self.searchText;
+        [self searchClick:self.searchText];
+    }else{
+        [self.viewModel getHistoryLotteryList:NO];
+    }
+    
 }
 - (void)endRefreshing {
     if (_viewModel.page == 0) {

@@ -44,11 +44,15 @@
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }
+    if ([userId isEqualToString:kUserMessageManager.userId]) {
+        self.button.hidden = NO;
+    }else {
+        self.button.hidden = YES;;
+    }
     if (isShow == 0) {
         self.betweenValue.constant = 11;
-        self.button.hidden = NO;;
+        
     }else {
-        self.button.hidden = YES;
         self.betweenValue.constant = 0;
         if (isShow == 1) {
             self.robMoneyLbl.textColor = ColorHexadecimal(0xf6a623, 1.0);

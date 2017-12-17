@@ -107,7 +107,8 @@
                 [kUserMessageManager setMessageManagerForObjectWithKey:kUserMessage_Birthday value:self.birthday];
                 [kUserMessageManager setMessageManagerForObjectWithKey:kUserMessage_Sex value:self.sexString == 1?@"女":@"男"];
                 [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kUserModule_HomeChangeMessageNotice object:nil];
-                [self sendSuccessResult:0 model:nil];
+                [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kSign_Change_Notice object:nil];
+//                [self sendSuccessResult:0 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];
             }

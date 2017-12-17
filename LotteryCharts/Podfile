@@ -12,4 +12,5 @@ pod 'MJRefresh'
 pod 'TPKeyboardAvoiding'
 pod 'RSKImageCropper'
 pod 'Qiniu'
+pod 'PYPhotoBrowser'
 end

@@ -18,6 +18,8 @@
 #import "LCPostDetailVC.h"
 #import "LCHomeMainViewModel.h"
 #import "LCWebViewController.h"
+#import "LCMySpaceMainVC.h"
+#import "LCSearchPostVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -53,6 +55,40 @@
             [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.hotPostArray.count];
         }else if(identifier == 10){
             [self.headerView setupHotLineCount:model];
+        }else if (identifier == 50) {
+            LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];
+            space.userId = model;
+            space.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:space animated:YES];
+        }else if (identifier == 60) {
+            LCSearchPostVC *search = [[LCSearchPostVC alloc]init];
+            search.searchText = self.viewModel.searchText;
+            search.searchArray = model;
+            search.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:search animated:YES];
+        }else if (identifier == 70){
+            LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
+            LCPostDetailModel *detaiModel = (LCPostDetailModel *)model;
+            LCHomePostModel *postModel = [[LCHomePostModel alloc]init];
+            postModel.post_id = detaiModel.post_id;
+            postModel.post_title = detaiModel.post_title;
+            postModel.post_content = detaiModel.post_content;
+            postModel.post_upload = detaiModel.post_upload;
+            postModel.post_type = detaiModel.post_type;
+            postModel.post_money = detaiModel.post_money;
+            postModel.post_vipmoney = detaiModel.post_vipmoney;
+            postModel.user_id = detaiModel.user_id;
+             postModel.nickname = detaiModel.nickname;
+             postModel.logo = detaiModel.logo;
+             postModel.reply_count = detaiModel.reply_count;
+             postModel.reward_count = detaiModel.reward_count;
+             postModel.reward_money = detaiModel.reward_money;
+            postModel.make_click = detaiModel.make_click;
+            postModel.status = detaiModel.status;
+            postModel.create_time = detaiModel.create_time;
+            detail.postModel = postModel;
+            detail.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detail animated:YES];
         }else {
             [self.headerView setupBannerData:self.viewModel.messageModel.adv_list];
             [self.headerView setupNotice:self.viewModel.messageModel.notice];
@@ -93,6 +129,9 @@
         popoverView.selectIndex = self.headerView.searchIndex;
         [popoverView showToView:actionParam withActions:self.searchArray];
     }else if(type == 4) {
+        if (![self isCanJumpViewForLogin:YES]) {
+            return;
+        }
         NSInteger index = [actionParam integerValue];
         UIViewController *controller = nil;
         switch (index) {
@@ -103,16 +142,17 @@
                 break;
             }
             case 1:
-            {
-                if ([self isCanJumpViewForLogin:YES]) {
-                    
-                }
-                break;
-            }
             case 2:
             {
-                LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
-                controller = lottery;
+                LCWebViewController *webView  = [[LCWebViewController alloc]init];
+                if (index == 1) {
+                    webView.loadUrl = KLIVE_BROADCAST;
+                    webView.titleString = @"直播";
+                }else {
+                    webView.loadUrl = KJIE_MENG;
+                    webView.titleString = @"解梦";
+                }
+                controller = webView;
                 break;
             }
             case 3:
@@ -143,11 +183,20 @@
             }
         }
     }else if (type == 2){//搜索
-        
+        if ([self isCanJumpViewForLogin:YES]) {
+            self.viewModel.searchType = self.headerView.searchIndex;
+            [self.viewModel searchPostEvent:actionParam];
+        }
     }else {
         if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.period_list)) {
             LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
             lottery.hidesBottomBarWhenPushed = YES;
+//            if (self.viewModel.messageModel.period_list.count > 1) {
+//                if (type == 6) {
+//                    LC3DLotteryModel *model = [self.viewModel.messageModel.period_list objectAtIndex:1];
+//                    lottery.searchText = model.period_id;
+//                }
+//            }
             [self.navigationController pushViewController:lottery animated:YES];
         }
     }

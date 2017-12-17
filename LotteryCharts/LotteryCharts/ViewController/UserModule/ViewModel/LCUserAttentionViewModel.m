@@ -100,6 +100,6 @@
             [self sendFailureResult:0 error:nil];
         }];
     }
-    return _attentionCommand;
+    return _userAttentionCommand;
 }
 @end

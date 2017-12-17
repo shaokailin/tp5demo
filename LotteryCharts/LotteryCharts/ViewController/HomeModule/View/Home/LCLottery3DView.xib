@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -122,12 +122,29 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8D-6W-IMl">
+                    <rect key="frame" x="315" y="141.5" width="50" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="1lJ-Uc-61o"/>
+                        <constraint firstAttribute="height" constant="35" id="Awh-nN-Yys"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-21" maxY="0.0"/>
+                    <state key="normal" title="更多" image="home_arrow1">
+                        <color key="titleColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="lastMoreClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="Ycw-jw-gLT"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="kgy-Jc-W5Y" firstAttribute="centerY" secondItem="NWw-z1-QxS" secondAttribute="centerY" id="0Lw-39-fDf"/>
                 <constraint firstItem="dPm-Os-7TV" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="10A-wa-eAv"/>
                 <constraint firstItem="dPm-Os-7TV" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="1Hq-mj-bvC"/>
+                <constraint firstItem="J8D-6W-IMl" firstAttribute="centerY" secondItem="Exl-9g-tbC" secondAttribute="centerY" id="1mR-Ei-ye8"/>
                 <constraint firstItem="kgy-Jc-W5Y" firstAttribute="leading" secondItem="SPa-QF-s6y" secondAttribute="trailing" constant="23" id="2c2-vA-0Pz"/>
                 <constraint firstItem="Exl-9g-tbC" firstAttribute="centerY" secondItem="1Kh-Js-6lJ" secondAttribute="centerY" id="5FQ-Hi-kq2"/>
                 <constraint firstItem="mBu-WY-ER8" firstAttribute="centerY" secondItem="pve-gN-oGm" secondAttribute="centerY" id="5mC-x0-WjW"/>
@@ -153,6 +170,7 @@
                 <constraint firstItem="SPa-QF-s6y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFK-y8-tsS"/>
                 <constraint firstAttribute="bottom" secondItem="1Kh-Js-6lJ" secondAttribute="bottom" id="iVo-kI-P3X"/>
                 <constraint firstItem="CaV-Hd-ghh" firstAttribute="leading" secondItem="Exl-9g-tbC" secondAttribute="trailing" constant="5" id="u5B-nX-0q0"/>
+                <constraint firstAttribute="trailing" secondItem="J8D-6W-IMl" secondAttribute="trailing" constant="10" id="xbF-J7-e7I"/>
                 <constraint firstItem="SPa-QF-s6y" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="zc1-KE-pdm"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

@@ -97,10 +97,16 @@
     }];
     LCLottery3DView *lotteryView = [[[NSBundle mainBundle] loadNibNamed:@"LCLottery3DView" owner:self options:nil] lastObject];
     self.lottery3DView = lotteryView;
-    lotteryView.block = ^(BOOL is) {
+    lotteryView.block = ^(NSInteger type) {
         if (ws.headerBlock) {
-            ws.headerBlock(5, nil);
+            if (type == 0) {
+                ws.headerBlock(5, nil);
+            }else{
+                ws.headerBlock(6, nil);
+            }
         }
+        
+        
     };
     [self addSubview:lotteryView];
     [lotteryView mas_makeConstraints:^(MASConstraintMaker *make) {

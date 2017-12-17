@@ -9,6 +9,7 @@
 #import "LCAttentionMainVC.h"
 #import "LCAttentionTableViewCell.h"
 #import "LCUserAttentionViewModel.h"
+#import "LCMySpaceMainVC.h"
 @interface LCAttentionMainVC ()<UITableViewDelegate, UITableViewDataSource>
 {
     BOOL _isChange;
@@ -30,11 +31,16 @@
         }
     }else{
         self.title = @"我的关注";
+        [self addNotificationWithSelector:@selector(changeUserAttention) name:kAttenttion_Change_Notice];
     }
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+}
+- (void)changeUserAttention {
+    self.viewModel.page = 0;
+    [self.viewModel getUserAttentionList:NO];
 }
 - (void)viewDidAppear:(BOOL)animated {
     _isChange = YES;
@@ -64,6 +70,7 @@
         @strongify(self)
         [self endRefreshing];
     }];
+    _viewModel.userId = self.userId;
     [_viewModel getUserAttentionList:NO];
 }
 - (void)endRefreshing {
@@ -83,12 +90,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCAttentionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCAttentionTableViewCell];
     LCAttentionModel *model = [self.viewModel.attentionArray objectAtIndex:indexPath.row];
-    
     [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.uid glodCount:model.money yinbiCount:model.ymoney];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCAttentionModel *model = [self.viewModel.attentionArray objectAtIndex:indexPath.row];
+    LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];
+    space.userId = model.uid;
+    [self.navigationController pushViewController:space animated:YES];
+}
 - (void)initializeMainView {
-    
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCAttentionTableViewCell bundle:nil] forCellReuseIdentifier:kLCAttentionTableViewCell];
     mainTableView.rowHeight = 80;

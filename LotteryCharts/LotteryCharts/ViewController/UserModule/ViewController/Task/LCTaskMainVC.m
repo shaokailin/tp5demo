@@ -33,6 +33,7 @@
     [self initializeMainView];
     [self bindSignal];
     [self addNotificationWithSelector:@selector(changeSignState) name:kSign_Change_Notice];
+    [self addNotificationWithSelector:@selector(changeMessage) name:kMessage_Change_Notice];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -50,6 +51,9 @@
         _viewModel.taskModel.is_sign = 1;
         [self.mainTableView reloadData];
     }
+}
+- (void)changeMessage {
+    [self pullDownRefresh];
 }
 - (void)bindSignal {
     @weakify(self)

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
 		95276E421FE02183007C22B2 /* LCUserSignVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95276E411FE02183007C22B2 /* LCUserSignVC.m */; };
+		957AD4001FE6060C0081A91A /* LCSearchPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */; };
+		957AD4031FE606BC0081A91A /* LCSearchPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 957AD4021FE606BC0081A91A /* LCSearchPostViewModel.m */; };
 		9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */; };
 		9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FD1FB808ED00F5B0CE /* LCHomeHeaderView.m */; };
 		9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FF1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m */; };
@@ -289,6 +291,10 @@
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95276E401FE02183007C22B2 /* LCUserSignVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSignVC.h; sourceTree = "<group>"; };
 		95276E411FE02183007C22B2 /* LCUserSignVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSignVC.m; sourceTree = "<group>"; };
+		957AD3FE1FE6060C0081A91A /* LCSearchPostVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchPostVC.h; sourceTree = "<group>"; };
+		957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchPostVC.m; sourceTree = "<group>"; };
+		957AD4011FE606BC0081A91A /* LCSearchPostViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchPostViewModel.h; sourceTree = "<group>"; };
+		957AD4021FE606BC0081A91A /* LCSearchPostViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchPostViewModel.m; sourceTree = "<group>"; };
 		959018FA1FB808ED00F5B0CE /* LCHomeFuncView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeFuncView.h; sourceTree = "<group>"; };
 		959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCHomeFuncView.m; sourceTree = "<group>"; };
 		959018FC1FB808ED00F5B0CE /* LCHomeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCHomeHeaderView.h; sourceTree = "<group>"; };
@@ -1511,6 +1517,8 @@
 				959019161FB809FD00F5B0CE /* Recharge */,
 				E6E2C6FA1FB00FAB00866D15 /* LCHomeMainVC.h */,
 				E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */,
+				957AD3FE1FE6060C0081A91A /* LCSearchPostVC.h */,
+				957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1528,6 +1536,8 @@
 				E641984F1FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m */,
 				E66A065F1FE24781007F6891 /* LCPostDetailViewModel.h */,
 				E66A06601FE24781007F6891 /* LCPostDetailViewModel.m */,
+				957AD4011FE606BC0081A91A /* LCSearchPostViewModel.h */,
+				957AD4021FE606BC0081A91A /* LCSearchPostViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2043,10 +2053,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/FDFullscreenPopGesture/FDFullscreenPopGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PYPhotoBrowser/PYPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Qiniu/Qiniu.framework",
 				"${BUILT_PRODUCTS_DIR}/RSKImageCropper/RSKImageCropper.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
@@ -2057,10 +2071,14 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDFullscreenPopGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Qiniu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RSKImageCropper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
@@ -2202,6 +2220,7 @@
 				E641983E1FDE561900C47713 /* LCHomePostModel.m in Sources */,
 				E66A066D1FE2534B007F6891 /* LCPostDetailModel.m in Sources */,
 				E61D2EC01FBAC3FF002005E3 /* LCUserMessageTableViewCell.m in Sources */,
+				957AD4031FE606BC0081A91A /* LCSearchPostViewModel.m in Sources */,
 				E61D2F2B1FBE86F5002005E3 /* LCTaskMainVC.m in Sources */,
 				E641980B1FDA8FB000C47713 /* JSQMessagesComposerTextView.m in Sources */,
 				E61D2EFA1FBAF429002005E3 /* LCSpaceGuessTableViewCell.m in Sources */,
@@ -2309,6 +2328,7 @@
 				E6E2C67C1FB0038600866D15 /* LSKBaseWebView.m in Sources */,
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E61D2F1B1FBD3ED5002005E3 /* LCWithdrawRecordVC.m in Sources */,
+				957AD4001FE6060C0081A91A /* LCSearchPostVC.m in Sources */,
 				E67FFBD51FCD4D910045E5DF /* LCPushGuessViewModel.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
 				E636A7E31FC4472A00C9460F /* LCSelectTwoYardsView.m in Sources */,

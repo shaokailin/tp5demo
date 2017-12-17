@@ -210,7 +210,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
                 [self headerViewClickEvent:5];
                 break;
             }
-            case 8:
+            case 9:
             {
                 LCAboutUsVC *aboutVC = [[LCAboutUsVC alloc]init];
                 controller = aboutVC;

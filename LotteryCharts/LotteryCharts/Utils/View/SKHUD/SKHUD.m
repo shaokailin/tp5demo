@@ -89,6 +89,7 @@ static const BOOL kIsImageAnimal = YES;
     //当显示的View没有的话，不显示
     //提示内容为空的时候不显示任何效果
     if (!superView || (status == HUDMessage && !KJudgeIsNullData(message))) {
+        [self removeView];
         return ;
     }
     self.alpha = 1;

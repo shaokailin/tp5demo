@@ -38,6 +38,10 @@ static NSString * kNoAttentionPost = @"Post/unPostFollow.html";
 
 static NSString * kRewardPost = @"Post/rewardPost.html";
 static NSString * kIsPostPay = @"Post/isPostPay.html";
+
+static NSString * kSearchPost = @"direct/search.html";
+static NSString * kGetUserId = @"Direct/getMchUid.html";
+static NSString * kUpPostVip = @"post/up_pay.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -170,4 +174,25 @@ static NSString * kIsPostPay = @"Post/isPostPay.html";
     return entity;
 }
 
++ (LSKParamterEntity *)getSearchPostList:(NSString *)searchText page:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kSearchPost;
+    entity.params = @{@"p":@(page),@"searchword":searchText};
+    entity.responseObject = [LCHomeHotListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getUserUid:(NSString *)searchText {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGetUserId;
+    entity.params = @{@"mch_no":searchText};
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUpPostVip;
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@" pay_money":money};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
 @end

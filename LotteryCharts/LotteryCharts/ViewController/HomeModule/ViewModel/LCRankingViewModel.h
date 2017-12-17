@@ -16,4 +16,7 @@
 @property (nonatomic, assign) NSArray *topArray;
 @property (nonatomic, strong) NSMutableArray *postArray;
 - (void)getRankingList:(BOOL)isPull;
+@property (nonatomic, copy) NSString *money;
+@property (nonatomic, copy) NSString *postId;
+- (void)upPostViewRanging;
 @end
