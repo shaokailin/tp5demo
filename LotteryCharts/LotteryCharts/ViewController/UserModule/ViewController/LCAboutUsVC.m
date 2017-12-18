@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"关于彩神榜";
+    self.title = @"关于神仙鱼";
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
 //    [self addRightNavigationButtonWithNornalImage:@"share_icon" seletedIamge:@"share_icon" target:self action:@selector(shareClick)];
@@ -43,13 +43,13 @@
     self.isShowBack = YES;
     self.isGetJsBrirge = NO;
     self.isShowProgress = YES;
-    [self loadMainWebViewUrl: NSStringFormat(@"%@Public/about.html",SERVER_URL)];
-    NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.contentLbl.text];
-    NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
-    [paragraphStyle1 setLineSpacing:8];
-    [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.contentLbl.text length])];
-    [self.contentLbl setAttributedText:attributedString1];
-    self.version.text = NSStringFormat(@"V%@",[LSKPublicMethodUtil getAppVersion]);
+    [self loadMainWebViewUrl: NSStringFormat(@"%@Public/page/keyword/about.html",SERVER_URL)];
+//    NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.contentLbl.text];
+//    NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+//    [paragraphStyle1 setLineSpacing:8];
+//    [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.contentLbl.text length])];
+//    [self.contentLbl setAttributedText:attributedString1];
+//    self.version.text = NSStringFormat(@"V%@",[LSKPublicMethodUtil getAppVersion]);
 }
 - (void)shareClick {
     UIActionSheet *sheet = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"发送给微信朋友",@"分享到微信朋友圈",@"分享到QQ", nil];

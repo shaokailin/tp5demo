@@ -6,7 +6,7 @@
 		<key>tabbar_title</key>
 		<string>首页</string>
 		<key>navigation_title</key>
-		<string>彩神榜</string>
+		<string>神仙鱼</string>
 		<key>nornal_img</key>
 		<string>home_nornal</string>
 		<key>selected_img</key>
@@ -30,7 +30,7 @@
 		<key>tabbar_title</key>
 		<string>我的</string>
 		<key>navigation_title</key>
-		<string>彩神榜</string>
+		<string>我的</string>
 		<key>nornal_img</key>
 		<string>me_nornal</string>
 		<key>selected_img</key>

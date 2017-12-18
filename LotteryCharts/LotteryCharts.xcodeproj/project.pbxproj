@@ -28,6 +28,7 @@
 		959019251FB82D8000F5B0CE /* LCRechargePaySureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959019241FB82D8000F5B0CE /* LCRechargePaySureView.xib */; };
 		959019271FB88F0F00F5B0CE /* UserHomeSetting.plist in Resources */ = {isa = PBXBuildFile; fileRef = 959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */; };
 		9590193D1FB8974000F5B0CE /* LCSpaceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */; };
+		95AE93271FE80A1600766894 /* LCRankingRenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AE93261FE80A1600766894 /* LCRankingRenModel.m */; };
 		95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE21FB601590097B72D /* PopoverAction.m */; };
 		95AF4EE71FB601590097B72D /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AF4EE41FB601590097B72D /* PopoverView.m */; };
 		95BC5E6B1FE153D100FB5C3E /* LCContactViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BC5E6A1FE153D100FB5C3E /* LCContactViewModel.m */; };
@@ -61,7 +62,6 @@
 		E61D2EC11FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EBF1FBAC3FF002005E3 /* LCUserMessageTableViewCell.xib */; };
 		E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EC61FBAD132002005E3 /* HSPDatePickView.m */; };
 		E61D2ECC1FBAD6A2002005E3 /* LCAboutUsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2ECA1FBAD6A2002005E3 /* LCAboutUsVC.m */; };
-		E61D2ECD1FBAD6A2002005E3 /* LCAboutUsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2ECB1FBAD6A2002005E3 /* LCAboutUsVC.xib */; };
 		E61D2ED21FBADFF3002005E3 /* LCMySpaceMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2ED11FBADFF3002005E3 /* LCMySpaceMainVC.m */; };
 		E61D2ED51FBAE50D002005E3 /* LCMySpaceTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2ED41FBAE50D002005E3 /* LCMySpaceTabView.m */; };
 		E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2ED71FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m */; };
@@ -324,6 +324,8 @@
 		959019261FB88F0F00F5B0CE /* UserHomeSetting.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = UserHomeSetting.plist; sourceTree = "<group>"; };
 		9590193B1FB8974000F5B0CE /* LCSpaceTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceTableViewCell.h; sourceTree = "<group>"; };
 		9590193C1FB8974000F5B0CE /* LCSpaceTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceTableViewCell.m; sourceTree = "<group>"; };
+		95AE93251FE80A1600766894 /* LCRankingRenModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingRenModel.h; sourceTree = "<group>"; };
+		95AE93261FE80A1600766894 /* LCRankingRenModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingRenModel.m; sourceTree = "<group>"; };
 		95AF4EE11FB601590097B72D /* PopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverAction.h; sourceTree = "<group>"; };
 		95AF4EE21FB601590097B72D /* PopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverAction.m; sourceTree = "<group>"; };
 		95AF4EE31FB601590097B72D /* PopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
@@ -380,7 +382,6 @@
 		E61D2EC61FBAD132002005E3 /* HSPDatePickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSPDatePickView.m; sourceTree = "<group>"; };
 		E61D2EC91FBAD6A2002005E3 /* LCAboutUsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCAboutUsVC.h; sourceTree = "<group>"; };
 		E61D2ECA1FBAD6A2002005E3 /* LCAboutUsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCAboutUsVC.m; sourceTree = "<group>"; };
-		E61D2ECB1FBAD6A2002005E3 /* LCAboutUsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCAboutUsVC.xib; sourceTree = "<group>"; };
 		E61D2ED01FBADFF3002005E3 /* LCMySpaceMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMySpaceMainVC.h; sourceTree = "<group>"; };
 		E61D2ED11FBADFF3002005E3 /* LCMySpaceMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMySpaceMainVC.m; sourceTree = "<group>"; };
 		E61D2ED31FBAE50D002005E3 /* LCMySpaceTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMySpaceTabView.h; sourceTree = "<group>"; };
@@ -1503,6 +1504,8 @@
 				E66A066C1FE2534B007F6891 /* LCPostDetailModel.m */,
 				E66A066E1FE268B5007F6891 /* LCPostDetailMessageModel.h */,
 				E66A066F1FE268B5007F6891 /* LCPostDetailMessageModel.m */,
+				95AE93251FE80A1600766894 /* LCRankingRenModel.h */,
+				95AE93261FE80A1600766894 /* LCRankingRenModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1694,7 +1697,6 @@
 				E6BFCC741FB9933F00AE1FE2 /* LCUserMessageVC.m */,
 				E61D2EC91FBAD6A2002005E3 /* LCAboutUsVC.h */,
 				E61D2ECA1FBAD6A2002005E3 /* LCAboutUsVC.m */,
-				E61D2ECB1FBAD6A2002005E3 /* LCAboutUsVC.xib */,
 				95DDA6961FBC88B400686504 /* LCWalletMainVC.h */,
 				95DDA6971FBC88B400686504 /* LCWalletMainVC.m */,
 				E61D2F0E1FBD3E51002005E3 /* LCExchangeMainVC.h */,
@@ -2018,7 +2020,6 @@
 				E61D2EE41FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib in Resources */,
 				E636A7F41FC5559300C9460F /* LCPostShowTypeView.xib in Resources */,
 				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
-				E61D2ECD1FBAD6A2002005E3 /* LCAboutUsVC.xib in Resources */,
 				95DDA68C1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
 				E61D2EDF1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.xib in Resources */,
@@ -2238,6 +2239,7 @@
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
 				E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */,
 				E66A066A1FE251E6007F6891 /* LCPostReplyListModel.m in Sources */,
+				95AE93271FE80A1600766894 /* LCRankingRenModel.m in Sources */,
 				E64198261FDE2A5600C47713 /* LCGuessHistoryViewModel.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -68,6 +68,12 @@
                         <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iZb-tV-D0j">
+                        <rect key="frame" x="123" y="59.5" width="26.5" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.96470588239999999" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="HCE-FD-h1F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="13" id="0KC-Jc-RW3"/>
@@ -80,9 +86,11 @@
                     <constraint firstItem="810-TG-Jbm" firstAttribute="bottom" secondItem="qRU-LO-Wa2" secondAttribute="bottom" id="UAe-Ff-LP4"/>
                     <constraint firstItem="MNp-Sq-Qxe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="UWp-70-lID"/>
                     <constraint firstItem="MNp-Sq-Qxe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="UxQ-km-m4D"/>
+                    <constraint firstItem="iZb-tV-D0j" firstAttribute="centerY" secondItem="iec-IL-nN4" secondAttribute="centerY" id="dLC-sl-N1b"/>
                     <constraint firstItem="MNp-Sq-Qxe" firstAttribute="centerY" secondItem="eZa-NN-kHY" secondAttribute="centerY" id="f5w-Ue-gud"/>
                     <constraint firstItem="dU7-sQ-14w" firstAttribute="leading" secondItem="eZa-NN-kHY" secondAttribute="trailing" constant="11" id="mbg-Pt-sjw"/>
                     <constraint firstAttribute="trailing" secondItem="dU7-sQ-14w" secondAttribute="trailing" constant="15" id="r3r-d2-90w"/>
+                    <constraint firstItem="iZb-tV-D0j" firstAttribute="leading" secondItem="iec-IL-nN4" secondAttribute="trailing" constant="3" id="su4-kh-ipS"/>
                     <constraint firstItem="dU7-sQ-14w" firstAttribute="top" secondItem="qRU-LO-Wa2" secondAttribute="bottom" constant="8" id="vc1-Ms-7OD"/>
                     <constraint firstItem="810-TG-Jbm" firstAttribute="leading" secondItem="qRU-LO-Wa2" secondAttribute="trailing" constant="11" id="wl3-l3-0yJ"/>
                     <constraint firstItem="iec-IL-nN4" firstAttribute="top" secondItem="dU7-sQ-14w" secondAttribute="bottom" constant="8" id="x5F-XG-FDF"/>
@@ -92,6 +100,7 @@
             <connections>
                 <outlet property="countLbl" destination="iec-IL-nN4" id="wG6-En-FTc"/>
                 <outlet property="indexLbl" destination="MNp-Sq-Qxe" id="SKo-pX-adB"/>
+                <outlet property="moneyLbl" destination="iZb-tV-D0j" id="neB-CU-mQH"/>
                 <outlet property="nameLbl" destination="qRU-LO-Wa2" id="NYW-Fd-PtR"/>
                 <outlet property="photoImage" destination="eZa-NN-kHY" id="3Ga-lj-cJj"/>
                 <outlet property="postIdLbl" destination="1bq-gs-4DJ" id="PuD-nD-5XM"/>

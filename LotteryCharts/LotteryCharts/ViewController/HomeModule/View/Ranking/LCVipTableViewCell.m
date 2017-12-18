@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 @property (weak, nonatomic) IBOutlet UILabel *userIdLbl;
 @property (weak, nonatomic) IBOutlet UILabel *robMoneyLbl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *betweenValue;
 
 @end
 @implementation LCVipTableViewCell
@@ -38,6 +39,9 @@
     }
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.button.hidden = !isShow;
+}
+- (void)setShowType:(NSInteger)showType {
+    self.betweenValue.constant = 0;
 }
 - (IBAction)buttonClick:(id)sender {
     if (self.vipBlock) {

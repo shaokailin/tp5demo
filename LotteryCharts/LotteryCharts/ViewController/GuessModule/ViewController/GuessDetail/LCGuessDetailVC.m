@@ -164,12 +164,12 @@
     if (type == 0) {
         self.title = @"杀两码";
         if (KJudgeIsNullData(self.guessModel.quiz_answer)) {
-            NSArray *answerArray = [self.guessModel.quiz_answer componentsSeparatedByString:@","];
+            NSArray *answerArray = [LSKPublicMethodUtil jsonDataTransformToDictionary:[self.guessModel.quiz_answer dataUsingEncoding:NSUTF8StringEncoding]];
             if (answerArray.count > 0) {
-                number1 = [answerArray objectAtIndex:0];
+                number1 = NSStringFormat(@"%@",[answerArray objectAtIndex:0]);
             }
             if (answerArray.count > 1) {
-                number2 = [answerArray objectAtIndex:1];
+                number2 = NSStringFormat(@"%@",[answerArray objectAtIndex:1]);
             }
         }
     }else {

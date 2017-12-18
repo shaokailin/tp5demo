@@ -27,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *imageBgView;
 @property (weak, nonatomic) IBOutlet UILabel *voiceTimeLbl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *shangTopHeight;
-@property (nonatomic, weak) PYPhotosView *linePhotosView;
+@property (nonatomic, strong) PYPhotosView *linePhotosView;
 @property (nonatomic, copy) NSString *audioUrl;
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, assign) BOOL isLoading;
@@ -44,8 +44,9 @@
     ViewRadius(self.shangBtn, 35 / 2.0);
     
     self.contentLbl.text = nil;
-    PYPhotosView *linePhotosView = [PYPhotosView photosViewWithThumbnailUrls:nil originalUrls:nil layoutType:PYPhotosViewLayoutTypeLine];
+    PYPhotosView *linePhotosView = [PYPhotosView photosViewWithThumbnailUrls:nil originalUrls:nil layoutType:PYPhotosViewLayoutTypeLine ];
     // 设置Frame
+    linePhotosView.photosMaxCol = 3;
     linePhotosView.py_y = 0;
     linePhotosView.py_x = PYMargin * 2;
     linePhotosView.py_width = 80;
@@ -67,6 +68,7 @@
             NSArray *images = [mediaDict objectForKey:@"images"];
             if (KJudgeIsArrayAndHasValue(images)) {
                 self.linePhotosView.originalUrls = images;
+                self.linePhotosView.photosMaxCol = 3;
             }
             BOOL isVoice = NO;;
             NSDictionary *voiceDict = [mediaDict objectForKey:@"record"];

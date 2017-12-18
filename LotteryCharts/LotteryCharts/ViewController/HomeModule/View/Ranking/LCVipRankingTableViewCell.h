@@ -12,4 +12,5 @@ static NSString * const kLCVipRankingTableViewCell = @"LCVipRankingTableViewCell
 @interface LCVipRankingTableViewCell : UITableViewCell
 @property (nonatomic, copy) VipRankingBlock vipRankingBlock;
 - (void)setupContent:(NSInteger)index photo:(NSString *)photo postTitle:(NSString *)postTitle name:(NSString *)name money:(NSString *)money robMoney:(NSString *)robMoney userId:(NSString *)userId isShowBtn:(NSInteger)isShow;
+- (void)setupTypeThreeContent:(NSString *)money isThree:(BOOL)isThree;
 @end

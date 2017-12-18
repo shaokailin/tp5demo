@@ -10,4 +10,5 @@
 static NSString * const kLCRankingPushTableViewCell = @"LCRankingPushTableViewCell";
 @interface LCRankingPushTableViewCell : UITableViewCell
 - (void)setupContentWithIndex:(NSInteger)index photo:(NSString *)photo name:(NSString *)name userId:(NSString *)userId pushTime:(NSString *)pushTime postId:(NSString *)postId postTitle:(NSString *)postTitle count:(NSString *)count;
+- (void)setupTypeThreeContent:(NSString *)money isThree:(BOOL)isThree;
 @end

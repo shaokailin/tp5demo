@@ -34,10 +34,10 @@
                 if (self.page == 0 && _postArray) {
                     [_postArray removeAllObjects];
                 }
-                if (self.showType == 1) {
-                    LCRankingRenListModel *ren = (LCRankingRenListModel *)model;
-                    self.topArray = ren.viptoplist;
-                }
+//                if (self.showType == 1) {
+//                    LCRankingRenListModel *ren = (LCRankingRenListModel *)model;
+//                    self.topArray = ren.viptoplist;
+//                }
                 if (KJudgeIsArrayAndHasValue(model.list)) {
                     [self.postArray addObjectsFromArray:model.list];
                 }

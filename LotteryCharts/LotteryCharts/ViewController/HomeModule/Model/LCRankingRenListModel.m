@@ -10,14 +10,12 @@
 
 @implementation LCRankingRenListModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"list" : [LCHomePostModel class],
-             @"viptoplist" : [LCHomePostModel class],
+    return @{@"list" : [LCRankingRenModel class],
              };
 }
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{
-             @"list" : @"response.list",
-             @"viptoplist" : @"response.viptoplist"
+             @"list" : @"response"
              };
 }
 @end

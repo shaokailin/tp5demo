@@ -27,4 +27,5 @@
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, copy) NSString *update_time;
 @property (nonatomic, strong) NSArray *reply;
+@property (nonatomic, copy) NSString *mch_no;
 @end

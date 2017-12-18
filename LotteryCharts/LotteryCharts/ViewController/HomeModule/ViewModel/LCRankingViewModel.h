@@ -13,7 +13,7 @@
 @interface LCRankingViewModel : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger showType;
 @property (nonatomic, assign) NSInteger page;
-@property (nonatomic, assign) NSArray *topArray;
+//@property (nonatomic, assign) NSArray *topArray;
 @property (nonatomic, strong) NSMutableArray *postArray;
 - (void)getRankingList:(BOOL)isPull;
 @property (nonatomic, copy) NSString *money;

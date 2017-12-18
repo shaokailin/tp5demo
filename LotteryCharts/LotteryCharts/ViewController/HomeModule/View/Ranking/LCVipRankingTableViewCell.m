@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *userIdLbl;
 @property (weak, nonatomic) IBOutlet UILabel *robMoneyLbl;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *betweenValue;
+@property (weak, nonatomic) IBOutlet UILabel *type3titleLbl;
+@property (weak, nonatomic) IBOutlet UILabel *type3MoneyLbl;
 
 @end
 @implementation LCVipRankingTableViewCell
@@ -32,6 +34,8 @@
     ViewRadius(self.button, 3.0);
     ViewBoundsRadius(self.photoImage, 30.0);
     ViewBorderLayer(self.button, [UIColor redColor], kLineView_Height);
+    self.type3MoneyLbl.text = nil;
+    self.type3titleLbl.text = nil;
 }
 - (void)setupContent:(NSInteger)index photo:(NSString *)photo postTitle:(NSString *)postTitle name:(NSString *)name money:(NSString *)money robMoney:(NSString *)robMoney userId:(NSString *)userId isShowBtn:(NSInteger)isShow {
     self.indexLbl.text = NSStringFormat(@"%zd",index);
@@ -44,24 +48,31 @@
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }
-    if ([userId isEqualToString:kUserMessageManager.userId]) {
-        self.button.hidden = NO;
-    }else {
-        self.button.hidden = YES;;
-    }
-    if (isShow == 0) {
+    
+    self.button.hidden = YES;;
+    if (isShow == YES) {
         self.betweenValue.constant = 11;
-        
+        if ([userId isEqualToString:kUserMessageManager.userId]) {
+            self.button.hidden = NO;
+        }
     }else {
         self.betweenValue.constant = 0;
-        if (isShow == 1) {
+        if (isShow == NO) {
             self.robMoneyLbl.textColor = ColorHexadecimal(0xf6a623, 1.0);
         }else {
             self.robMoneyLbl.textColor = ColorHexadecimal(0x01b9fd, 1.0);
         }
     }
 }
-
+- (void)setupTypeThreeContent:(NSString *)money isThree:(BOOL)isThree {
+    if (isThree) {
+        self.type3MoneyLbl.text = NSStringFormat(@"%@金币",money);
+        self.type3titleLbl.text = @"累计：";
+    }else {
+        self.type3MoneyLbl.text = nil;
+        self.type3titleLbl.text = nil;
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

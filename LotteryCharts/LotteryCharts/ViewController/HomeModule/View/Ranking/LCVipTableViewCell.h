@@ -12,4 +12,5 @@ static NSString * const kLCVipTableViewCell = @"LCVipTableViewCell";
 @interface LCVipTableViewCell : UITableViewCell
 @property (nonatomic, copy) VipBlock vipBlock;
 - (void)setupContent:(NSInteger)index photo:(NSString *)photo postTitle:(NSString *)postTitle name:(NSString *)name money:(NSString *)money robMoney:(NSString *)robMoney userId:(NSString *)userId isShowBtn:(BOOL)isShow ;
+- (void)setShowType:(NSInteger)showType;
 @end

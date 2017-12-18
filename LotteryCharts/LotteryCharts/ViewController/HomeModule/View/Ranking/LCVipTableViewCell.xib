@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +83,6 @@
                     <constraint firstItem="cfo-dH-5AQ" firstAttribute="centerY" secondItem="X43-uh-Rzh" secondAttribute="centerY" id="8by-u1-KmI"/>
                     <constraint firstItem="cfo-dH-5AQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="CUu-5b-5Rh"/>
                     <constraint firstAttribute="trailing" secondItem="CBq-OQ-0Ng" secondAttribute="trailing" constant="19" id="DBa-Qk-Mbq"/>
-                    <constraint firstItem="dQJ-cA-EkO" firstAttribute="bottom" secondItem="MAO-Fx-cxo" secondAttribute="bottom" id="TEh-hj-bv1"/>
                     <constraint firstItem="MAO-Fx-cxo" firstAttribute="leading" secondItem="X43-uh-Rzh" secondAttribute="trailing" constant="10" id="UCm-Ad-HbK"/>
                     <constraint firstAttribute="bottom" secondItem="CBq-OQ-0Ng" secondAttribute="bottom" constant="6" id="YGG-fL-eZi"/>
                     <constraint firstItem="MAO-Fx-cxo" firstAttribute="top" secondItem="lhA-2l-AOr" secondAttribute="bottom" constant="9" id="aOW-fp-sPg"/>
@@ -96,9 +95,11 @@
                     <constraint firstItem="X43-uh-Rzh" firstAttribute="leading" secondItem="cfo-dH-5AQ" secondAttribute="trailing" constant="6" id="wGq-fG-TUR"/>
                     <constraint firstItem="lhA-2l-AOr" firstAttribute="leading" secondItem="X43-uh-Rzh" secondAttribute="trailing" constant="10" id="wQb-Ph-cBf"/>
                     <constraint firstItem="J8C-zK-XZS" firstAttribute="centerY" secondItem="X43-uh-Rzh" secondAttribute="centerY" id="zgO-jI-V0K"/>
+                    <constraint firstItem="dQJ-cA-EkO" firstAttribute="top" secondItem="1BH-su-eIu" secondAttribute="bottom" constant="9" id="zzn-c0-uC3"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="betweenValue" destination="hwR-T9-WKh" id="TAf-gd-GDd"/>
                 <outlet property="button" destination="J8C-zK-XZS" id="sxj-5M-dXe"/>
                 <outlet property="indexLbl" destination="cfo-dH-5AQ" id="4Gb-FJ-ubP"/>
                 <outlet property="moneyLbl" destination="MAO-Fx-cxo" id="WOk-8r-Guq"/>

@@ -7,7 +7,7 @@
 //
 
 #import "LCHomeRankingListModel.h"
-
+#import "LCRankingRenModel.h"
 @interface LCRankingRenListModel : LCHomeRankingListModel
-@property (nonatomic, strong) NSArray *viptoplist;
+
 @end

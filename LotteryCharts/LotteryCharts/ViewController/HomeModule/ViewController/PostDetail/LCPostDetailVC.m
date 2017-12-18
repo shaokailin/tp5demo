@@ -15,6 +15,7 @@
 @interface LCPostDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     BOOL _isNeedSend;
+    BOOL _isViewAppear;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
@@ -106,9 +107,12 @@
     @weakify(self)
     UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"支付金币查看内容" message:NSStringFormat(@"\n\n\n是否支付%@金币查看该帖\n",self.postModel.post_money) delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"支付", nil];
     [alterView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        @strongify(self)
         if ([x integerValue] == 1) {
-            @strongify(self)
+            
             [self.viewModel payForShowEvent];
+        }else {
+            [self navigationBackClick];
         }
     }];
     [alterView show];
@@ -256,7 +260,17 @@
     // Dispose of any resources that can be recreated.
 }
 - (BOOL)canBecomeFirstResponder {
-    return YES;
+    return _isViewAppear;
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    _isViewAppear = YES;
+}
+- (void)viewDidAppear:(BOOL)animated {
+    
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    _isViewAppear = NO;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.inputToolbar.inputField resignFirstResponder];

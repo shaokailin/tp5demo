@@ -17,6 +17,7 @@
 @property (nonatomic, copy) NSString *post_money;
 @property (nonatomic, copy) NSString *post_vipmoney;
 @property (nonatomic, copy) NSString *user_id;
+@property (nonatomic, copy) NSString *mch_no;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;
 @property (nonatomic, assign) NSInteger reply_count;
