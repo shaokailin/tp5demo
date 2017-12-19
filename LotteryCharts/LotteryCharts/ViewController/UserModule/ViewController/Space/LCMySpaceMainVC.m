@@ -74,6 +74,7 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     _isChange = NO;
+    [self backToNornalNavigationColor];
 }
 
 - (void)bindSignal {

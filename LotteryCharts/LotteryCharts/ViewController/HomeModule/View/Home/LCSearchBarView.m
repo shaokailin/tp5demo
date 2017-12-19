@@ -22,7 +22,7 @@
     return self;
 }
 - (void)_layoutMainView {
-    UITextField *inputText = [LSKViewFactory initializeTextFieldWithDelegate:nil text:nil placeholder:nil textFont:14 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:0 returnKey:UIReturnKeySearch keyBoard:UIKeyboardTypeDefault cleanModel:0];
+    UITextField *inputText = [LSKViewFactory initializeTextFieldWithDelegate:nil text:nil placeholder:nil textFont:14 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:0 returnKey:UIReturnKeySearch keyBoard:UIKeyboardTypeDefault cleanModel:UITextFieldViewModeAlways];
     inputText.backgroundColor = [UIColor whiteColor];
     ViewRadius(inputText, 5.0);
     inputText.leftViewMode = UITextFieldViewModeAlways;

@@ -212,7 +212,21 @@
     LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
     LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
     [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money];
+    WS(ws)
+    cell.photoBlock = ^(id clickCell) {
+        [ws jumpSpaceView:clickCell];
+    };
     return cell;
+}
+- (void)jumpSpaceView:(LCHomeHotPostTableViewCell *)cell {
+    if ([self isCanJumpViewForLogin:YES]) {
+        NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+        LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
+        LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];
+        space.userId = model.user_id;
+        space.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:space animated:YES];
+    }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([self isCanJumpViewForLogin:YES]) {
@@ -260,14 +274,14 @@
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(254, 198, 198, 1.0) backgroundColor:nil];
     LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 486)];
     self.headerView = headerView;
     
     mainTableView.tableHeaderView = headerView;
     
     [mainTableView registerNib:[UINib nibWithNibName:kLCHomeHotPostTableViewCell bundle:nil] forCellReuseIdentifier:kLCHomeHotPostTableViewCell];
-    mainTableView.rowHeight = 80;
+    mainTableView.rowHeight = 68;
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     WS(ws)
