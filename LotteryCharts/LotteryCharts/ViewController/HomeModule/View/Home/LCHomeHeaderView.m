@@ -122,7 +122,13 @@
         make.top.equalTo(lotteryView.mas_bottom).with.offset(10);
         make.height.mas_equalTo(40);
     }];
-    
+    UIView *lineView = [[UIView alloc]init];
+    lineView.backgroundColor = ColorRGBA(254, 198, 198, 1.0);
+    [self addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(ws);
+        make.height.mas_equalTo(1);
+    }];
 }
 
 @end

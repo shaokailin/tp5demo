@@ -35,4 +35,6 @@ static NSString * const kAttenttion_Change_Notice = @"Attention_Change_Notice";
 
 static NSString * const KLIVE_BROADCAST = @"http://lottery.sina.com.cn/video/fcopen/";
 static NSString * const KJIE_MENG = @"http://www.sosuo.name/jiemeng/";
+//头像点击
+typedef void (^PhotoClickBlock)(id clickCell);
 #endif /* Config_h */

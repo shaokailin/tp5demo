@@ -27,10 +27,13 @@
     UIButton *payBtn = [self _customBtnViewWithTitle:@"充值" image:@"home_pay" flag:203];
     [self addSubview:payBtn];
     UIView *lineView1 = [LSKViewFactory initializeLineView];
+    lineView1.backgroundColor = ColorRGBA(246, 166, 35, 1.0);
     [self addSubview:lineView1];
     UIView *lineView2 = [LSKViewFactory initializeLineView];
+    lineView2.backgroundColor = ColorRGBA(246, 166, 35, 1.0);
     [self addSubview:lineView2];
     UIView *lineView3 = [LSKViewFactory initializeLineView];
+    lineView3.backgroundColor = ColorRGBA(246, 166, 35, 1.0);
     [self addSubview:lineView3];
     WS(ws)
     [rankingBtn mas_makeConstraints:^(MASConstraintMaker *make) {

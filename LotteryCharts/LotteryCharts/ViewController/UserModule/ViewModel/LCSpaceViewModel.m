@@ -40,6 +40,9 @@
                 [self sendSuccessResult:0 model:model];
             }else {
                 [self loadError];
+                if (self.page == 0) {
+                    [SKHUD showMessageInView:self.currentView withMessage:model.message];
+                }
                 [self sendFailureResult:0 error:nil];
             }
         }];

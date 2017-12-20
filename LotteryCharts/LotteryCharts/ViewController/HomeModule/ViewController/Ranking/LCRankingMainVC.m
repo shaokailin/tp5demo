@@ -120,24 +120,7 @@
         return 0;
     }else {
         NSInteger count = _viewModel.postArray.count;
-        if (count == 0) {
-            return count;
-        }
-        if (_showType == 2) {
-            return count;
-        }else {
-//            if (_showType == 1) {
-//                if (KJudgeIsArrayAndHasValue(_viewModel.topArray)) {
-//                    count += _viewModel.topArray.count;
-//                    count += 1;
-//                }
-//            }else {
-                if (count > 3) {
-                    count += 1;
-                }
-//            }
-            return count;
-        }
+        return count;
     }
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -173,12 +156,8 @@
         }
         return cell;
         
-    }
-    else if  (indexPath.row == 3){
-        LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
-        return cell;
     }else {
-        NSInteger index = indexPath.row - 1;
+        NSInteger index = indexPath.row;
         if (_showType !=3) {
             LCVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCVipTableViewCell];
             if (_showType == 1) {
@@ -211,14 +190,14 @@
     if (_showType == 2) {
         model = [self.viewModel.postArray objectAtIndex:indexPath.row];
     }else if (_showType == 1){
-        NSInteger index = indexPath.row > 2?indexPath.row - 1:indexPath.row;
+        NSInteger index = indexPath.row;
         LCRankingRenModel *model = [self.viewModel.postArray objectAtIndex:index];
         LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];
         space.userId = model.mch_id;
         [self.navigationController pushViewController:space animated:YES];
         return;
     }else {
-        NSInteger index = indexPath.row > 2?indexPath.row - 1:indexPath.row;
+        NSInteger index = indexPath.row;
         model = [self.viewModel.postArray objectAtIndex:index];
     }
     LCPostDetailVC *detail = [[LCPostDetailVC alloc]init];
@@ -238,8 +217,6 @@
         else {
             return 120;
         }
-    }else if (indexPath.row == 3) {
-        return 10;
     }else {
         if (_showType == 3) {
             return 80;
@@ -259,9 +236,9 @@
     [self.view addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(ws.view);
-        make.height.mas_equalTo(40);
+        make.height.mas_equalTo(41);
     }];
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(0xFEC6C6, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCVipTableViewCell bundle:nil] forCellReuseIdentifier:kLCVipTableViewCell];
     [mainTableView registerNib:[UINib nibWithNibName:kLCVipRankingTableViewCell bundle:nil] forCellReuseIdentifier:kLCVipRankingTableViewCell];
     [mainTableView registerClass:[LCSpaceTableViewCell class] forCellReuseIdentifier:kLCSpaceTableViewCell];
@@ -270,7 +247,7 @@
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(40.5, 0, ws.tabbarBetweenHeight, 0));
+        make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(41, 0, ws.tabbarBetweenHeight, 0));
     }];
     
 }

@@ -25,9 +25,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    ViewBoundsRadius(self.photoImage, 30);
+    ViewBoundsRadius(self.photoImage, 15);
     self.photoImage.backgroundColor = ColorHexadecimal(0xb5b5b5, 1.0);
     _timeWidth.constant = SCREEN_WIDTH == 320 ?  42 : WIDTH_RACE_5S(60);
+    self.photoImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
+    [self.photoImage addGestureRecognizer:tap];
+}
+- (void)jumpUserSpace {
+    if (self.photoBlock) {
+        self.photoBlock(self);
+    }
 }
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money {
     if (KJudgeIsNullData(photo)) {
@@ -39,7 +47,7 @@
     self.sendTimeLbl.text = time;
     self.postTitleLbl.text = title;
     self.countLbl.text = NSStringFormat(@"阅读数:%@",showCount);
-    self.moneyLbl.text = NSStringFormat(@"%@金币查看内容",money);
+    self.moneyLbl.text = money;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
