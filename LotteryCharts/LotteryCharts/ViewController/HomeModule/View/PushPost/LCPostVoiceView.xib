@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -30,15 +30,25 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="录音中，松开结束录音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUo-0z-dwK">
+                    <rect key="frame" x="126" y="241" width="123" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="m9a-LI-ddO" firstAttribute="top" secondItem="eUo-0z-dwK" secondAttribute="bottom" constant="10" id="Lbw-Dc-1rj"/>
                 <constraint firstItem="m9a-LI-ddO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-30" id="Q1O-Ih-qGj"/>
+                <constraint firstItem="eUo-0z-dwK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="QZP-53-9Ei"/>
                 <constraint firstItem="m9a-LI-ddO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z1o-6X-tzd"/>
                 <constraint firstItem="7yq-V7-VKh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z89-H3-xcC"/>
                 <constraint firstItem="7yq-V7-VKh" firstAttribute="top" secondItem="m9a-LI-ddO" secondAttribute="bottom" constant="10" id="ueJ-0z-pLE"/>
             </constraints>
             <connections>
+                <outlet property="closeLbl" destination="eUo-0z-dwK" id="Lui-kt-2CR"/>
+                <outlet property="openLbl" destination="7yq-V7-VKh" id="TUu-i7-Mbn"/>
                 <outlet property="voiceBtn" destination="m9a-LI-ddO" id="wxb-fp-Mqh"/>
             </connections>
         </view>

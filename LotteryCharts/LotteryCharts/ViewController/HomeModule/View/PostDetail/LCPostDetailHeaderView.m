@@ -55,6 +55,15 @@
     self.voiceTimeLbl.hidden = YES;
     self.linePhotosView = linePhotosView;
     [self.imageBgView addSubview:linePhotosView];
+    
+    self.photoImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
+    [self.photoImage addGestureRecognizer:tap];
+}
+- (void)jumpUserSpace {
+    if (self.photoBlock) {
+        self.photoBlock(self);
+    }
 }
 - (void)setupRewardCount:(NSInteger)count {
     self.shangCountLbl.text = NSStringFormat(@"%zd人打赏了帖主",count);

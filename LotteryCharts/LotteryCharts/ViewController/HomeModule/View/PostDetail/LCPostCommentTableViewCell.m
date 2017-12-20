@@ -23,6 +23,14 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.photoImage, 20);
+    self.photoImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
+    [self.photoImage addGestureRecognizer:tap];
+}
+- (void)jumpUserSpace {
+    if (self.photoBlock) {
+        self.photoBlock(self);
+    }
 }
 - (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId index:(NSInteger)index time:(NSString *)time content:(NSString *)content {
     if (KJudgeIsNullData(photo)) {

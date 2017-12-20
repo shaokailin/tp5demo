@@ -24,6 +24,14 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.photoImageView, 15);
+    self.photoImageView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
+    [self.photoImageView addGestureRecognizer:tap];
+}
+- (void)jumpUserSpace {
+    if (self.photoBlock) {
+        self.photoBlock(self);
+    }
 }
 - (void)setupContentWithPostId:(NSString *)postId pushTime:(NSString *)pushTime photoImage:(NSString *)photoImage name:(NSString *)name userId:(NSString *)userId detail:(NSString *)detail money:(NSString *)money {
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);

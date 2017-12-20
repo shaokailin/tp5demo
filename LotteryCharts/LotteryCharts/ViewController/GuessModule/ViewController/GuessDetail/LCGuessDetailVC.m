@@ -12,6 +12,7 @@
 #import "LCCommentInputView.h"
 #import "LCGuessHeaderView.h"
 #import "LCGuessDetailViewModel.h"
+#import "LCMySpaceMainVC.h"
 @interface LCGuessDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
@@ -105,8 +106,20 @@
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
         LCGuessReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
         [cell setupPhoto:model.logo name:model.nickname userId:model.user_id index:indexPath.row time:model.create_time content:model.message];
+        WS(ws)
+        cell.photoBlock = ^(id clickCell) {
+            [ws photoClick:clickCell];
+        };
         return cell;
     }
+}
+- (void)photoClick:(id)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LCGuessReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    detail.userId = model.user_id;
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {

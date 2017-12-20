@@ -35,6 +35,14 @@
     self.leftbgView.layer.shadowOffset=CGSizeMake(1,1);
     self.leftbgView.layer.shadowOpacity=0.5;
     self.leftbgView.layer.shadowRadius=0;
+    self.photoImage.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
+    [self.photoImage addGestureRecognizer:tap];
+}
+- (void)jumpUserSpace {
+    if (self.photoBlock) {
+        self.photoBlock(self);
+    }
 }
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime type:(NSInteger)type {
     if (KJudgeIsNullData(photo)) {

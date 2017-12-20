@@ -12,6 +12,7 @@
 #import "LCGuessMainViewModel.h"
 #import "LCGuessModel.h"
 #import "LCGuessListMoreVC.h"
+#import "LCMySpaceMainVC.h"
 @interface LCGuessListMoreVC ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCGuessMainViewModel *viewModel;
@@ -64,7 +65,14 @@
     LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
     LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
     detail.guessModel = model;
-    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
+}
+- (void)photoClick:(id)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+    detail.userId = model.user_id;
     [self.navigationController pushViewController:detail animated:YES];
 }
 #pragma mark delegate
@@ -83,8 +91,12 @@
     cell.cellBlock = ^(id clickCell) {
         [ws cellClick:clickCell];
     };
+    cell.photoBlock = ^(id clickCell) {
+        [ws photoClick:clickCell];
+    };
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
     LCGuessModel *model = [_viewModel.guessArray objectAtIndex:indexPath.row];

@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCPostCommentTableViewCell = @"LCPostCommentTableViewCell";
 @interface LCPostCommentTableViewCell : UITableViewCell
+@property (nonatomic, copy) PhotoClickBlock photoBlock;
 - (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId index:(NSInteger)index time:(NSString *)time content:(NSString *)content;
 @end

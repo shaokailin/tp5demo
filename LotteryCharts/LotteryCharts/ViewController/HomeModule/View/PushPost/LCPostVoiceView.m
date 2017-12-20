@@ -16,8 +16,10 @@
     NSInteger _timeString;
     NSURL *urlPlay;
 }
+@property (weak, nonatomic) IBOutlet UILabel *closeLbl;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
+@property (weak, nonatomic) IBOutlet UILabel *openLbl;
 @property (nonatomic, strong) NSTimer *audioTimer;
 @end
 @implementation LCPostVoiceView
@@ -25,6 +27,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _timeString = 0;
+    self.closeLbl.hidden = YES;
     ViewRadius(self.voiceBtn, 75 / 2.0);
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidenView)];
     [self addGestureRecognizer:tapView];
@@ -41,6 +44,8 @@
 }
 - (void)startRecord {
     if (![self.audioRecorder isRecording]) {
+        self.closeLbl.hidden = NO;
+        self.openLbl.hidden = YES;
         //开始
         [_audioRecorder record];
         [self.audioTimer isValid];
@@ -53,6 +58,8 @@
         [self.audioRecorder stop];
         [self.audioTimer invalidate];
         _audioTimer = nil;
+        self.closeLbl.hidden = YES;
+        self.openLbl.hidden = NO;
         if (_timeString == 0) {
             [SKHUD showMessageInView:self withMessage:@"录音时间太段"];
             return;

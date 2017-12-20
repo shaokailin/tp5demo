@@ -60,6 +60,13 @@
         make.top.bottom.width.equalTo(publishBtn);
         make.right.equalTo(ws);
     }];
+    UIView *lineView = [[UIView alloc]init];
+    lineView.backgroundColor = ColorHexadecimal(0xFEC6C6, 1.0);
+    [self addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(ws);
+        make.height.mas_equalTo(kLineView_Height);
+    }];
 }
 - (UIButton *)customBtnView:(NSString *)title flag:(NSInteger)flag {
     UIButton *btn = [LSKViewFactory initializeButtonWithTitle:title target:self action:@selector(changeClick:) textfont:15 textColor:ColorHexadecimal(0xbfbfbf, 1.0)];

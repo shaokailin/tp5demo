@@ -93,6 +93,7 @@
     [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.uid glodCount:model.money yinbiCount:model.ymoney];
     return cell;
 }
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LCAttentionModel *model = [self.viewModel.attentionArray objectAtIndex:indexPath.row];
     LCMySpaceMainVC *space = [[LCMySpaceMainVC alloc]init];

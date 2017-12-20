@@ -12,6 +12,7 @@
 #import "LCCommentInputView.h"
 #import "LCPostDetailHeaderView.h"
 #import "LCPostDetailViewModel.h"
+#import "LCMySpaceMainVC.h"
 @interface LCPostDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     BOOL _isNeedSend;
@@ -103,6 +104,11 @@
     _viewModel.postId = self.postModel.post_id;
     [_viewModel getPostDetail:NO];
 }
+- (void)messagePhotoClick:(id)cell {
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    detail.userId = self.postModel.user_id;
+    [self.navigationController pushViewController:detail animated:YES];
+}
 - (void)showAlterView {
     @weakify(self)
     UIAlertView *alterView = [[UIAlertView alloc]initWithTitle:@"支付金币查看内容" message:NSStringFormat(@"\n\n\n是否支付%@金币查看该帖\n",self.postModel.post_money) delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"支付", nil];
@@ -179,8 +185,20 @@
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
         LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
         [cell setupPhoto:model.logo name:model.nickname userId:model.user_id index:indexPath.row time:model.create_time content:model.message];
+        WS(ws)
+        cell.photoBlock = ^(id clickCell) {
+            [ws photoClick:clickCell];
+        };
         return cell;
     }
+}
+- (void)photoClick:(id)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LCPostReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    detail.userId = model.user_id;
+    detail.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -235,6 +253,9 @@
         frame.size.height = height;
         ws.headerBgView.frame = frame;
         self.mainTableView.tableHeaderView = self.headerBgView;
+    };
+    headerView.photoBlock = ^(id clickCell) {
+        [ws messagePhotoClick:nil];
     };
 }
 - (void)setupHeadView:(BOOL)isShow isFirst:(BOOL)isFirst {

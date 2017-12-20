@@ -13,6 +13,7 @@
 #import "LCHistoryOrderViewModel.h"
 #import "LCHistoryGuessTableViewCell.h"
 #import "LCHistoryVipTableViewCell.h"
+#import "LCMySpaceMainVC.h"
 @interface LCOrderHistoryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
 {
     NSInteger _searchType;
@@ -114,6 +115,10 @@
     if (_searchType == 0) {
         LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
         [cell setupContentWithPostId:model.post_id pushTime:model.create_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
+        WS(ws)
+        cell.photoBlock = ^(id clickCell) {
+            [ws photoClick:clickCell];
+        };
         return cell;
     }else if (_searchType == 1){
         LCHistoryGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryGuessTableViewCell];
@@ -127,6 +132,13 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+}
+- (void)photoClick:(id)cell {
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    detail.userId = model.uid;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     [self.view endEditing:YES];

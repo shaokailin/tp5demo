@@ -68,8 +68,11 @@
                 }
                 
             }else {
+                
                 if (self.page != 0) {
                     self.page --;
+                }else {
+                    [SKHUD showMessageInView:self.currentView withMessage:model.message];
                 }
                 [self sendFailureResult:0 error:nil];
             }

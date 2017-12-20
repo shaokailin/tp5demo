@@ -87,14 +87,9 @@
             return [self requestWithPropertyEntity:[LCLoginModuleAPI loginOutEvent:kUserMessageManager.token]];
         }];
         [_loginOutCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
-            @strongify(self)
-            if (model.code == 200) {
-                [kUserMessageManager removeUserMessage];
-                [SKHUD showMessageInWindowWithMessage:@"退出成功~!"];
-                [((AppDelegate *)[UIApplication sharedApplication].delegate)changeLoginState];
-            }else {
-                [SKHUD showMessageInView:self.currentView withMessage:model.message];
-            }
+            [kUserMessageManager removeUserMessage];
+            [SKHUD showMessageInWindowWithMessage:@"退出成功~!"];
+            [((AppDelegate *)[UIApplication sharedApplication].delegate)changeLoginState];
         }];
     }
     return _loginOutCommand;

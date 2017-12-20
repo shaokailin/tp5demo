@@ -249,10 +249,24 @@
                 LCRewardOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderTableViewCell];
                 LCSendRecordModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
                 [cell setupContentWithName:model.nickname userId:model.user_id index:indexPath.row photo:model.logo];
+                WS(ws)
+                cell.photoBlock = ^(id clickCell) {
+                    [ws photoClick:clickCell];
+                };
                 return cell;
             }
         }
     }
+}
+- (void)photoClick:(id)cell {
+    if ([self.userId isEqualToString:kUserMessageManager.userId]) {
+        return;
+    }
+    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+    LCSendRecordModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
+    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+    detail.userId = model.user_id;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
