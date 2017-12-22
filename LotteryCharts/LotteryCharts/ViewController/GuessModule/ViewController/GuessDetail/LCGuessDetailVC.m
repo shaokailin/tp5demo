@@ -13,6 +13,7 @@
 #import "LCGuessHeaderView.h"
 #import "LCGuessDetailViewModel.h"
 #import "LCMySpaceMainVC.h"
+#import "LCGuessRuleVC.h"
 @interface LCGuessDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
@@ -47,9 +48,13 @@
         }else if (identifier == 10){
             [self.inputToolbar cleanText];
             self.guessModel.reply_count += 1;
+            
             [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Reload indexPathStart:0 indexPathEnd:0 section:0 animation:UITableViewRowAnimationNone];
             [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Insert indexPathStart:1 indexPathEnd:1 section:0 animation:UITableViewRowAnimationBottom];
-        }else {
+        }else if(identifier == 20) {
+            self.guessModel.quiz_buynumber = self.guessModel.quiz_buynumber + [self.headerView.countField.text integerValue];
+            self.headerView.countField.text = @"1";
+            [self.headerView changeCount:self.guessModel.hasCount];
             
         }
     } failure:^(NSUInteger identifier, NSError *error) {
@@ -75,6 +80,10 @@
 }
 - (void)betGuessClick {
     [self.view endEditing:YES];
+    if ([self.guessModel.user_id isEqualToString:kUserMessageManager.userId]) {
+        [SKHUD showMessageInView:self.view withMessage:@"自己不能接受挑战自己的竞猜"];
+        return;
+    }
     [self.viewModel betGuessWithCount:self.headerView.countField.text];
 }
 - (void)pullDownRefresh {
@@ -89,6 +98,8 @@
 }
 - (void)showRule {
     [self.view endEditing:YES];
+    LCGuessRuleVC *ruleVC = [[LCGuessRuleVC alloc]init];
+    [self.navigationController pushViewController:ruleVC animated:YES];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -177,7 +188,7 @@
     if (type == 0) {
         self.title = @"杀两码";
         if (KJudgeIsNullData(self.guessModel.quiz_answer)) {
-            NSArray *answerArray = [LSKPublicMethodUtil jsonDataTransformToDictionary:[self.guessModel.quiz_answer dataUsingEncoding:NSUTF8StringEncoding]];
+            NSArray *answerArray = [self.guessModel.quiz_answer componentsSeparatedByString:@","];
             if (answerArray.count > 0) {
                 number1 = NSStringFormat(@"%@",[answerArray objectAtIndex:0]);
             }
@@ -189,7 +200,8 @@
         self.title = @"猜大小";
         number1 = self.guessModel.quiz_answer;
     }
-    [self.headerView setupContentTitle:self.guessModel.quiz_title money:self.guessModel.quiz_money count:[self.guessModel.quiz_number integerValue] - [self.guessModel.quiz_buynumber integerValue] number1:number1 number2:number2 type:type];
+    [self.headerView setupContentTitle:self.guessModel.quiz_title money:self.guessModel.quiz_money count:self.guessModel.hasCount number1:number1 number2:number2 type:type];
+    [self.headerView hidenEventViewWithAuthor:[self.guessModel.user_id isEqualToString:kUserMessageManager.userId]];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

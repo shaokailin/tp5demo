@@ -31,4 +31,6 @@
 + (LSKParamterEntity *)getUserUid:(NSString *)searchText;
 
 + (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money;
+
++ (LSKParamterEntity *)getPayTypeList;
 @end

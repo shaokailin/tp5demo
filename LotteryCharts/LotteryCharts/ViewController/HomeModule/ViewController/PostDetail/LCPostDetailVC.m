@@ -51,6 +51,7 @@
                 self.postModel.post_content = detailModel.post_content;
                 self.postModel.post_upload = detailModel.post_upload;
                 self.postModel.post_type = detailModel.post_type;
+                self.postModel.mch_no = detailModel.mch_no;
                 self.postModel.post_money = detailModel.post_money;
                 self.postModel.post_vipmoney = detailModel.post_vipmoney;
                 self.postModel.user_id = detailModel.user_id;
@@ -102,6 +103,7 @@
         }
     }];
     _viewModel.postId = self.postModel.post_id;
+    _viewModel.userId = self.postModel.user_id;
     [_viewModel getPostDetail:NO];
 }
 - (void)messagePhotoClick:(id)cell {
@@ -259,7 +261,7 @@
     };
 }
 - (void)setupHeadView:(BOOL)isShow isFirst:(BOOL)isFirst {
-    [self.headerView setupContentWithPhoto:self.postModel.logo name:self.postModel.nickname userId:self.postModel.user_id money:self.postModel.post_money title:self.postModel.post_title content:nil postId:self.postModel.post_id time:self.postModel.create_time count:self.postModel.reward_count type:self.type];
+    [self.headerView setupContentWithPhoto:self.postModel.logo name:self.postModel.nickname userId:self.postModel.mch_no money:self.postModel.post_money title:self.postModel.post_title content:nil postId:self.postModel.post_id time:self.postModel.create_time count:self.postModel.reward_count type:self.type];
     if (isShow) {
         if (KJudgeIsNullData(self.postModel.post_upload)) {
             NSDictionary *dict = [LSKPublicMethodUtil jsonDataTransformToDictionary:[self.postModel.post_upload dataUsingEncoding:NSUTF8StringEncoding]];

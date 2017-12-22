@@ -17,6 +17,7 @@
 #import "LCPostReplyListModel.h"
 #import "LCPostDetailModel.h"
 #import "LCPostDetailMessageModel.h"
+#import "LCRechargeMoneyListModel.h"
 static NSString * kPushPostApi = @"post/add.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
 static NSString * kHomeHotPostApi = @"Index/hotpost.html";
@@ -42,6 +43,8 @@ static NSString * kIsPostPay = @"Post/isPostPay.html";
 static NSString * kSearchPost = @"direct/search.html";
 static NSString * kGetUserId = @"Direct/getMchUid.html";
 static NSString * kUpPostVip = @"post/up_pay.html";
+
+static NSString * kPayTypeList = @"Direct/getPaySet.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -193,6 +196,13 @@ static NSString * kUpPostVip = @"post/up_pay.html";
     entity.requestApi = kUpPostVip;
     entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@" pay_money":money};
     entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)getPayTypeList {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPayTypeList;
+    entity.responseObject = [LCRechargeMoneyListModel class];
     return entity;
 }
 @end

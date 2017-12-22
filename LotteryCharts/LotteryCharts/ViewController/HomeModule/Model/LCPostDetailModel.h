@@ -19,6 +19,7 @@
 @property (nonatomic, copy) NSString *user_id;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;
+@property (nonatomic, copy) NSString *mch_no;
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, strong) NSArray *reply_list;

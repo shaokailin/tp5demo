@@ -16,10 +16,12 @@
 #import "LCRechargeMainVC.h"
 #import "LCExchangeMainVC.h"
 #import "LCWithdrawMainVC.h"
+#import "LCExchangeMoneyViewModel.h"
 @interface LCWalletMainVC ()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, weak) LCWalletHeaderView *headerView;
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
+@property (nonatomic, strong) LCExchangeMoneyViewModel *viewModel;
 @end
 
 @implementation LCWalletMainVC
@@ -85,10 +87,26 @@
             rechargeVC.isChangeNavi = YES;
             [self.navigationController pushViewController:rechargeVC animated:YES];
         }else {
-            LCExchangeMainVC *exchangeVC = [[LCExchangeMainVC alloc]init];
-            [self.navigationController pushViewController:exchangeVC animated:YES];
+            [self.viewModel getExchangeRate];
         }
     }
+}
+- (LCExchangeMoneyViewModel *)viewModel {
+    if (!_viewModel) {
+        @weakify(self)
+        _viewModel = [[LCExchangeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+            @strongify(self)
+            NSInteger rate = [model integerValue];
+            if (rate > 0) {
+                LCExchangeMainVC *exchangeVC = [[LCExchangeMainVC alloc]init];
+                exchangeVC.rate = rate;
+                [self.navigationController pushViewController:exchangeVC animated:YES];
+            }else {
+                [SKHUD showMessageInView:self.view withMessage:@"兑换比例出错，请重新尝试"];
+            }
+        } failure:nil];
+    }
+    return _viewModel;
 }
 - (void)jumpWithdrawVC {
     LCWithdrawMainVC *withdrawVC = [[LCWithdrawMainVC alloc]init];

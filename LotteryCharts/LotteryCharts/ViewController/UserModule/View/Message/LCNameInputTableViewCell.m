@@ -9,7 +9,8 @@
 #import "LCNameInputTableViewCell.h"
 @interface LCNameInputTableViewCell ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
-
+@property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (nonatomic, assign) NSInteger type;
 @end
 @implementation LCNameInputTableViewCell
 
@@ -20,13 +21,21 @@
     [[self.nameField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {
         @strongify(self)
         if (self.nameBlock) {
-            self.nameBlock(x);
+            self.nameBlock(x,self.type);
         }
     }];
     
 }
-- (void)setupCellContentWithName:(NSString *)name {
+- (void)setupCellContentWithName:(NSString *)name type:(NSInteger)type {
     self.nameField.text = name;
+    self.type = type;
+    if (type == 0) {
+        self.nameLbl.text = @"昵称";
+        self.nameField.placeholder = @"请输入昵称";
+    }else {
+        self.nameLbl.text = @"推荐码师";
+        self.nameField.placeholder = @"推荐码师ID号，非必填";
+    }
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self.nameField resignFirstResponder];

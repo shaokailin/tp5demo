@@ -40,6 +40,7 @@ static NSString * const kTeamLineCount = @"User/getOnlineTeamCount.html";
 static NSString * const kSignCount = @"User/getMyTeamSignCount.html";
 static NSString * const kTaskMessage = @"User/myTask.html";
 static NSString * const kExchangeSilver = @"User/jinChangeYin.html";
+static NSString * const kExchangeRate = @"direct/getUserJinBiLi";
 
 static NSString * const kUserAttenttion = @"Mch/follow.html";
 static NSString * const kUserUnAttenttion = @"Mch/unFollow.html";
@@ -163,6 +164,14 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
     entity.responseObject = [LCBaseResponseModel class];
     return entity;
 }
+
++ (LSKParamterEntity *)getExchangeRate {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kExchangeRate;
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
+
 + (LSKParamterEntity *)attentionUser:(NSString *)userId isCare:(BOOL)isCare {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     if (isCare) {

@@ -40,6 +40,13 @@
     }
     return _rootTabBarVC;
 }
+- (void)loginOutEvent {
+    UINavigationController *selectNavi = (UINavigationController *)self.rootTabBarVC.selectedViewController;
+    LCLoginMainVC *login = [[LCLoginMainVC alloc]init];
+    login.isHidenNavi = YES;
+    login.hidesBottomBarWhenPushed = YES;
+    [selectNavi pushViewController:login animated:YES];
+}
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
     UINavigationController *navi = (UINavigationController *)viewController;
     if (![kUserMessageManager isLogin] && [navi.topViewController isKindOfClass:[LCUserMainVC class]]) {

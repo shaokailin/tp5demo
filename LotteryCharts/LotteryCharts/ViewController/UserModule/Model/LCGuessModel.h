@@ -17,8 +17,8 @@
 @property (nonatomic, assign) NSInteger quiz_type;
 @property (nonatomic, copy) NSString *quiz_answer;
 @property (nonatomic, copy) NSString *quiz_money;
-@property (nonatomic, copy) NSString *quiz_number;
-@property (nonatomic, copy) NSString *quiz_buynumber;
+@property (nonatomic, assign) NSInteger quiz_number;
+@property (nonatomic, assign) NSInteger quiz_buynumber;
 @property (nonatomic, copy) NSString *user_id;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;
@@ -28,4 +28,5 @@
 @property (nonatomic, copy) NSString *update_time;
 @property (nonatomic, strong) NSArray *reply;
 @property (nonatomic, copy) NSString *mch_no;
+@property (nonatomic, assign) NSInteger hasCount;
 @end

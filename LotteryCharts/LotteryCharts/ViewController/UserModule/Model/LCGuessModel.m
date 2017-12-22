@@ -12,11 +12,18 @@
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {
     NSNumber *createTime = dic[@"create_time"];
     BOOL isStartTime = ([createTime isKindOfClass:[NSNumber class]] || [createTime isKindOfClass:[NSString class]]);
-    if (isStartTime) {
+    NSNumber *updateTime = dic[@"update_time"];
+    BOOL isUpdateTime = ([updateTime isKindOfClass:[NSNumber class]] || [updateTime isKindOfClass:[NSString class]]);
+    if (isStartTime || isUpdateTime) {
         NSString *formar = @"yyyy-MM-dd HH:mm:ss";
         BOOL result = NO;;
         if (isStartTime) {
             _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:formar];
+            result = YES;
+        }
+        if (isUpdateTime) {
+            NSString *formar1 = @"yyyy年MM月dd日 HH:mm:ss";
+            _update_time = [[NSDate dateWithTimeIntervalSince1970:[updateTime integerValue]]dateTransformToString:formar1];
             result = YES;
         }
         return result;
@@ -26,5 +33,8 @@
 + (NSDictionary *)modelContainerPropertyGenericClass {
     return @{ @"reply" : [LCGuessReplyModel class]
               };
+}
+- (NSInteger)hasCount {
+    return self.quiz_number - self.quiz_buynumber;
 }
 @end

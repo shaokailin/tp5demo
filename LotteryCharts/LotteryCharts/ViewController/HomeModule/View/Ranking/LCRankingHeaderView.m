@@ -61,7 +61,7 @@
         make.right.equalTo(ws);
     }];
     UIView *lineView = [[UIView alloc]init];
-    lineView.backgroundColor = ColorHexadecimal(0xFEC6C6, 1.0);
+    lineView.backgroundColor = ColorHexadecimal(0xFFEDCF, 1.0);
     [self addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.bottom.equalTo(ws);

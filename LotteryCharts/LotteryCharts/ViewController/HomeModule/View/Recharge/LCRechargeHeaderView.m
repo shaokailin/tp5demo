@@ -45,6 +45,16 @@
         }
     }
 }
+- (void)setupPayMoneyType:(NSArray *)array {
+    for (int i = 1; i <= 4; i++) {
+        
+        if (array && array.count > 0 && i <= array.count) {
+            
+        }else {
+            
+        }
+    }
+}
 - (void)cancleSelect {
     if (_currentIndex != 0) {
         NSInteger tag = _currentIndex * 100;
@@ -109,7 +119,7 @@
     [self addSubview:titleLbl2];
     [titleLbl2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(ws).with.offset(18);
-        make.top.equalTo(btn3.mas_bottom).with.offset(18);
+        make.top.equalTo(titleLbl.mas_bottom).with.offset(18 + 10 + 55 + 10 + 55);
     }];
     
     UITextField *inputField = [LSKViewFactory initializeTextFieldWithDelegate:nil text:nil placeholder:@"请输入您的充值币数" textFont:12 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:UITextBorderStyleRoundedRect returnKey:UIReturnKeyDone keyBoard:UIKeyboardTypeNumberPad cleanModel:0];

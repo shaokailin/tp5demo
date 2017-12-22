@@ -52,6 +52,10 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _mch_no = [self getMessageManagerForObjectWithKey:kUserMessage_mchno];
     }
 }
+- (void)setToken:(NSString *)token {
+    _token = token;
+    [self setMessageManagerForObjectWithKey:kUserMessage_Token value:token];
+}
 - (void)setMoney:(NSString *)money {
     _money = money;
     [self setMessageManagerForObjectWithKey:kUserMessage_Money value:money];
@@ -174,9 +178,16 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
             [self.alertListArray replaceObjectAtIndex:weight withObject:alertView];
             _alterCount ++;
         }else {
-            UIAlertView *alter = [self.alertListArray objectAtIndex:_currentWeight];
-            [alter dismissWithClickedButtonIndex:0 animated:NO];
+            id alterView1 = [self.alertListArray objectAtIndex:_currentWeight];
+            if ([alterView1 isKindOfClass:[UIAlertView class]]) {
+                UIAlertView *alter = (UIAlertView *)alterView1;
+                [alter dismissWithClickedButtonIndex:0 animated:NO];
+            }else if ([alterView1 isKindOfClass:[UIView class]]){
+                UIView *alter = (UIView *)alterView1;
+                [alter removeFromSuperview];
+            }
             [self.alertListArray replaceObjectAtIndex:weight withObject:alertView];
+            _currentWeight = weight;
             _alterCount ++;
             [self showView:alertView];
         }
@@ -197,7 +208,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
             id alter = [_alertListArray objectAtIndex:i];
             if ([alter isKindOfClass:[UIAlertView class]] || [alter isKindOfClass:[UIView class]]) {
                 _currentWeight = i;
-                if (i == 1) {//|| (_currentWeight > 1 && [self isLogin])//需要登录
+                if (i == 1 || (_currentWeight > 1 && [self isLogin])) {
                     [self showView:alter];;
                     break;
                 }else {

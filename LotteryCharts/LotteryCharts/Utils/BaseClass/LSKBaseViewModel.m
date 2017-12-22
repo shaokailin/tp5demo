@@ -10,6 +10,8 @@
 #import "LSKHttpManager.h"
 #import "LSKBaseResponseModel.h"
 #import "YYModel.h"
+#import "LCLoginMainVC.h"
+#import "AppDelegate.h"
 @interface LSKBaseViewModel ()
 @property (nonatomic ,strong) NSMutableArray *loadingArray;
 @property (nonatomic, copy) HttpSuccessBlock successBlock;
@@ -40,7 +42,12 @@
             LSKLog("api=%@---class=%@---%@",entity.requestApi,NSStringFromClass(entity.responseObject),model);
             [self removeLoadingIdentifier:identifier];
             LSKBaseResponseModel *object = [entity.responseObject yy_modelWithJSON:model];
-            [subscriber sendNext:object];
+            if (object.code == 4) {
+                [self tokenOvertimeEvent];
+                [self sendFailureResult:0 error:nil];
+            }else {
+                [subscriber sendNext:object];
+            }
             [subscriber sendCompleted];
         } failure:^(NSUInteger identifier, NSError *error) {
             LSKLog("error===api=%@---class=%@---%@",entity.requestApi,NSStringFromClass(entity.responseObject),error);
@@ -56,7 +63,22 @@
         return nil;
     }];
 }
-
+- (void)tokenOvertimeEvent {
+    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:@"提示" message:@"您的账号在别的手机上登陆或者由于您长久没有使用此账号，需要重新登陆!" delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"重新登陆", nil];
+    [alter.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
+        if ([x integerValue] == 0) {
+            [kUserMessageManager removeUserMessage];
+            [self.currentController.navigationController popToRootViewControllerAnimated:YES];
+            [((AppDelegate *)[UIApplication sharedApplication].delegate) changeLoginState];
+        }else {
+            kUserMessageManager.token = nil;
+            [self.currentController.navigationController popToRootViewControllerAnimated:NO];
+            [((AppDelegate *)[UIApplication sharedApplication].delegate) loginOutEvent];
+        }
+        [kUserMessageManager hidenAlertView];
+    }];
+    [kUserMessageManager showAlertView:alter weight:1];
+}
 #pragma mark - 结果的回调
 - (void)sendSuccessResult:(NSUInteger)identifier model:(id)model{
     if (_successBlock) {

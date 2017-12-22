@@ -8,4 +8,5 @@
 
 #import "LSKBaseViewController.h"
 @interface LCExchangeMainVC : LSKBaseViewController
+@property (nonatomic, assign) NSInteger rate;
 @end

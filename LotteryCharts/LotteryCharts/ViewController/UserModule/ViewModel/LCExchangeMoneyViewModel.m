@@ -11,6 +11,7 @@
 #import "LCBaseResponseModel.h"
 @interface LCExchangeMoneyViewModel ()
 @property (nonatomic, strong) RACCommand *exchangeCommand;
+@property (nonatomic, strong) RACCommand *exchangeRateCommand;
 @end
 @implementation LCExchangeMoneyViewModel
 - (void)glodExchangeSilverEvent {
@@ -39,7 +40,7 @@
                 glod -= self.glodMoney;
                 kUserMessageManager.money = NSStringFormat(@"%zd",glod);
                 NSInteger sliver = [kUserMessageManager.yMoney integerValue];
-                sliver += (self.glodMoney * 100);
+                sliver += (self.glodMoney * self.rate);
                 kUserMessageManager.yMoney = NSStringFormat(@"%zd",sliver);
                 [SKHUD showMessageInView:self.currentView withMessage:@"兑换成功"];
                 [self sendSuccessResult:0 model:nil];
@@ -49,5 +50,28 @@
         }];
     }
     return _exchangeCommand;
+}
+- (void)getExchangeRate {
+    [SKHUD showLoadingDotInWindow];
+    [self.exchangeRateCommand execute:nil];
+}
+- (RACCommand *)exchangeRateCommand {
+    if (!_exchangeRateCommand) {
+        @weakify(self)
+        _exchangeRateCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getExchangeRate]];
+        }];
+        [_exchangeRateCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:0 model:model.response];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _exchangeRateCommand;
 }
 @end

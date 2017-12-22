@@ -12,6 +12,7 @@
 @property (nonatomic, strong) UIImage *photoImage;
 @property (nonatomic, assign) NSInteger sexString;
 @property (nonatomic, copy) NSString *nameString;
+@property (nonatomic, copy) NSString *mchnoString;
 @property (nonatomic, copy) NSString *birthday;
 - (void)updateUserMessage;
 @end

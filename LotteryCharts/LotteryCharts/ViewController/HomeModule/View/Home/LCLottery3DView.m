@@ -16,7 +16,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *thirdNumBtn;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UILabel *lastVersionLbl;
-@property (weak, nonatomic) IBOutlet UILabel *lastOpenLbl;
+@property (weak, nonatomic) IBOutlet UIButton *lastNum1;
+
+@property (weak, nonatomic) IBOutlet UIButton *lastNum2;
+@property (weak, nonatomic) IBOutlet UIButton *lastNum3;
+@property (weak, nonatomic) IBOutlet UIButton *lastNum4;
+@property (weak, nonatomic) IBOutlet UIButton *lastNum5;
 
 @end
 @implementation LCLottery3DView
@@ -37,9 +42,17 @@
         self.currentOpenLbl.text = [open1 componentsJoinedByString:@""];
         if (data.count >= 2) {
             LC3DLotteryModel *lastModel = [data objectAtIndex:1];
-            self.lastVersionLbl.text = NSStringFormat(@"第%@期开奖试机号:",lastModel.period_id);
+            self.lastVersionLbl.text = NSStringFormat(@"第%@期:",lastModel.period_id);
             NSArray *open2 = [lastModel.lottery_result_kill componentsSeparatedByString:@","];
-            self.lastOpenLbl.text = [open2 componentsJoinedByString:@""];
+            if (open2.count >= 1) {
+                [self.lastNum1 setTitle:[open2 objectAtIndex:0] forState:UIControlStateNormal];
+            }
+            if (open2.count >= 2) {
+                [self.lastNum2 setTitle:[open2 objectAtIndex:1] forState:UIControlStateNormal];
+            }
+            if (open2.count >= 3) {
+                [self.lastNum3 setTitle:[open2 objectAtIndex:2] forState:UIControlStateNormal];
+            }
         }
     }
 }

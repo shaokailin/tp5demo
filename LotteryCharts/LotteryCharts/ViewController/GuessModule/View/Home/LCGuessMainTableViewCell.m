@@ -26,7 +26,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    ViewBoundsRadius(self.photoImage, 20);
+    ViewBoundsRadius(self.photoImage, 23);
     ViewBoundsRadius(self.topLbl, 5.0);
     self.userIdLbl.adjustsFontSizeToFitWidth = YES;
     ViewBorderLayer(self.topLbl, [UIColor redColor], kLineView_Height);
@@ -44,7 +44,7 @@
         self.photoBlock(self);
     }
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSString *)count openTime:(NSString *)openTime type:(NSInteger)type {
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSInteger )count openTime:(NSString *)openTime type:(NSInteger)type {
     if (KJudgeIsNullData(photo)) {
         [_photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }
@@ -53,7 +53,7 @@
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.pushTimeLbl.text = pushTime;
     self.moneyLbl.text = NSStringFormat(@"押注：%@银币",money);
-    self.countLbl.text = NSStringFormat(@"剩余：%@份",count);
+    self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     self.openTimeLbl.text = openTime;
     self.typeName.text = type == 2?@"杀两码":@"猜大小";
 }

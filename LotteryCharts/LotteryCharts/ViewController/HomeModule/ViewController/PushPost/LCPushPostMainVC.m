@@ -85,14 +85,14 @@
             [self.typeView mas_updateConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(height);
             }];
-             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, height + 184 + CGRectGetHeight(self.contentView.frame) + 30);
+             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, height + 162 + CGRectGetHeight(self.contentView.frame) + 30);
         }
     };
     self.contentView.frameBlock = ^(CGFloat height) {
         @strongify(self)
         [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(height);
-             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetHeight(self.typeView.frame) + 184 + height + 30);
+             self.mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetHeight(self.typeView.frame) + 162 + height + 30);
         }];
     };
     self.contentView.mediaBlock = ^(NSInteger type) {
@@ -195,13 +195,13 @@
         make.left.equalTo(mainScrollerView);
         make.top.equalTo(typeView.mas_bottom).with.offset(10);
         make.right.equalTo(ws.view);
-        make.height.mas_equalTo(184);
+        make.height.mas_equalTo(162);
     }];
     
     [mainScrollerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view).with.insets(UIEdgeInsetsMake(0, 0, ws.tabbarBetweenHeight , 0));
     }];
-    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 107 + 184 + 230 + 30);
+    mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, 107 + 162 + 230 + 30);
 }
 
 

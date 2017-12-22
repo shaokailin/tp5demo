@@ -13,6 +13,7 @@
 #import "LCPostDetailMessageModel.h"
 @interface LCPostDetailViewModel : LSKBaseViewModel
 @property (nonatomic, copy) NSString *postId;
+@property (nonatomic, copy) NSString *userId;
 - (void)getPostDetail:(BOOL)isPull;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *replyArray;

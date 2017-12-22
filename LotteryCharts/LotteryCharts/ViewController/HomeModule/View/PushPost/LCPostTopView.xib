@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -76,12 +76,6 @@
                     <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*备注：1元宝=1金币=1000银币" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bct-ua-rtI">
-                    <rect key="frame" x="20" y="88" width="143.5" height="12"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMs-j5-MAM">
                     <rect key="frame" x="20" y="119" width="335" height="45"/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -110,11 +104,9 @@
                 <constraint firstItem="9UC-kd-J6f" firstAttribute="centerY" secondItem="0lp-MB-mpb" secondAttribute="centerY" id="GI5-fI-Gx1"/>
                 <constraint firstItem="Lnp-Ar-GnF" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="LzK-o7-3pL"/>
                 <constraint firstItem="0lp-MB-mpb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="cCR-Xl-pKh"/>
-                <constraint firstItem="Bct-ua-rtI" firstAttribute="top" secondItem="0lp-MB-mpb" secondAttribute="bottom" constant="10" id="cFy-Tg-Ea7"/>
                 <constraint firstItem="Lnp-Ar-GnF" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="haX-90-fuN"/>
                 <constraint firstItem="9UC-kd-J6f" firstAttribute="leading" secondItem="0lp-MB-mpb" secondAttribute="trailing" constant="10" id="kgN-hv-ZWQ"/>
                 <constraint firstAttribute="trailing" secondItem="zMs-j5-MAM" secondAttribute="trailing" constant="20" id="l6n-DX-Qyg"/>
-                <constraint firstItem="Bct-ua-rtI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="uHZ-Jc-8Cs"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

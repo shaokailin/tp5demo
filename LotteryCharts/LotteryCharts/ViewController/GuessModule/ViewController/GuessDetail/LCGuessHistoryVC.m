@@ -101,7 +101,7 @@
     LCGuessMainTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCGuessMainTableViewCell];
     LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
     LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
-    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.user_id postId:model.post_common_id pushTime:model.create_time money:model.quiz_money count:model.quiz_number openTime:listModel.end_time type:model.quiz_type];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_common_id pushTime:model.create_time money:model.quiz_money count:model.hasCount openTime:model.update_time type:model.quiz_type];
     WS(ws)
     cell.cellBlock = ^(id clickCell) {
         [ws cellClick:clickCell];
@@ -146,7 +146,7 @@
 - (void)initializeMainView {
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStyleGrouped separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCGuessMainTableViewCell bundle:nil] forCellReuseIdentifier:kLCGuessMainTableViewCell];
-    mainTableView.rowHeight = 100;
+    mainTableView.rowHeight = 90;
     mainTableView.tableFooterView = [UIView new];
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];

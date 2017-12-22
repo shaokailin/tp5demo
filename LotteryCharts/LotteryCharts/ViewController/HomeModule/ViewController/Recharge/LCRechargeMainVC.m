@@ -11,11 +11,13 @@
 #import "LCRechargeHeaderView.h"
 #import "LCRechargePaySureView.h"
 #import "LCRechargePayTypeView.h"
+#import "LCRechargeMoneyViewModel.h"
 @interface LCRechargeMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCRechargeHeaderView *headerView;
 @property (nonatomic, weak) LCRechargePaySureView *sureView;
 @property (nonatomic, weak) LCRechargePayTypeView *typeView;
+@property (nonatomic, strong) LCRechargeMoneyViewModel *viewModel;
 @end
 
 @implementation LCRechargeMainVC
@@ -27,6 +29,7 @@
     self.title = @"充值";
     [self addRightNavigationButtonWithTitle:@"充值记录" target:self action:@selector(rechargeRecord)];
     [self initializeMainView];
+    [self bindSignal];
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -34,14 +37,33 @@
         [self backToNornalNavigationColor];
     }
 }
+- (void)pullDownRefresh {
+    
+}
 - (void)rechargeRecord {
     
 }
-
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCRechargeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        if (identifier == 0) {
+            [self.mainScrollerView.mj_header endRefreshing];
+        }
+    } failure:^(NSUInteger identifier, NSError *error) {
+        if (identifier == 0) {
+            @strongify(self)
+            [self.mainScrollerView.mj_header endRefreshing];
+        }
+    }];
+    [self.viewModel getRechargeType];
+}
 #pragma mark 界面初始化
 - (void)initializeMainView {
     TPKeyboardAvoidingScrollView *mainScrollerView = [LSKViewFactory initializeTPScrollView];
     mainScrollerView.backgroundColor = ColorHexadecimal(kMainBackground_Color, 1.0);
+    MJRefreshNormalHeader *refreshHeader = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(pullDownRefresh)];
+    mainScrollerView.mj_header = refreshHeader;
     self.mainScrollerView = mainScrollerView;
     [self.view addSubview:mainScrollerView];
     WS(ws)

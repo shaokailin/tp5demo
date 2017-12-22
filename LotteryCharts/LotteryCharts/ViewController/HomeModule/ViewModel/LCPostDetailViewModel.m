@@ -8,6 +8,7 @@
 
 #import "LCPostDetailViewModel.h"
 #import "LCHomeModuleAPI.h"
+#import "LCUserModuleAPI.h"
 @interface LCPostDetailViewModel ()
 @property (nonatomic, strong) RACCommand *isPayCommand;
 @property (nonatomic, strong) RACCommand *postDetailCommand;
@@ -167,7 +168,7 @@
         [_rewardCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
-                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+                [SKHUD showMessageInView:self.currentView withMessage:@"打赏成功~!"];
                 [self sendSuccessResult:20 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];
@@ -185,7 +186,7 @@
         @weakify(self)
         _attentionCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCHomeModuleAPI attentionPost:self.postId isCare:[input boolValue]]];
+            return [self requestWithPropertyEntity:[LCUserModuleAPI attentionUser:self.userId isCare:[input boolValue]]];
         }];
         [_attentionCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)

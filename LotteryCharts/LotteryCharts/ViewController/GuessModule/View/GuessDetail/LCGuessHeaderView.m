@@ -37,6 +37,16 @@
     self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     
 }
+- (void)changeCount:(NSInteger)count {
+    self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
+}
+- (void)hidenEventViewWithAuthor:(BOOL)isAuthor {
+    if (isAuthor) {
+        self.countField.userInteractionEnabled = NO;
+    }else {
+        self.countField.userInteractionEnabled = YES;
+    }
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     ViewRadius(self.bgView, 5.0);

@@ -28,20 +28,21 @@
     }];
 }
 - (void)_layoutMainView {
-    UIView *lineView = [[UIView alloc]init];
-    lineView.backgroundColor = [UIColor redColor];
-    [self addSubview:lineView];
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:ImageNameInit(@"fish")];
+    [self addSubview:imageView];
     WS(ws)
-    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.equalTo(ws).with.offset(10);
-        make.size.mas_equalTo(CGSizeMake(5, 20));
+    [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(ws).with.offset(10);
+        make.size.mas_equalTo(CGSizeMake(15, 15));
+        make.centerY.equalTo(ws);
     }];
+    
     
     UILabel *titleLbl = [LSKViewFactory initializeLableWithText:@"热帖" font:14 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];
     [self addSubview:titleLbl];
     [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(lineView.mas_right).with.offset(4);
-        make.centerY.equalTo(lineView);
+        make.left.equalTo(imageView.mas_right).with.offset(5);
+        make.centerY.equalTo(imageView);
     }];
     
     UILabel *countLbl = [LSKViewFactory initializeLableWithText:@"在线人数：0" font:10 textColor:[UIColor whiteColor] textAlignment:1 backgroundColor:ColorHexadecimal(0xbfbfbf, 1.0)];
@@ -50,7 +51,7 @@
     [self addSubview:countLbl];
     [countLbl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(ws).with.offset(-10);
-        make.centerY.equalTo(lineView);
+        make.centerY.equalTo(imageView);
         make.height.mas_equalTo(16);
         make.width.mas_equalTo(56 + 36);
     }];

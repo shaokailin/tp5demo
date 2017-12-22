@@ -40,6 +40,8 @@
              @"reward_money" : @"response.reward_money",
              @"nickname" : @"response.nickname",
              @"logo" : @"response.logo",
+             @"mch_no" : @"response.mch_no",
+             
              };
 }
 @end

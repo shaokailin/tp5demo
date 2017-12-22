@@ -17,6 +17,7 @@
 #import "LCPostDetailVC.h"
 #import "LCMySpaceMainVC.h"
 #import "LCRankingRenTableViewCell.h"
+#import "LCPushPostMainVC.h"
 @interface LCRankingMainVC ()<UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate>
 {
     NSInteger _showType;
@@ -189,7 +190,12 @@
         return 65;
     }
 }
+- (void)pushPostClick{
+    LCPushPostMainVC *postMainVcC = [[LCPushPostMainVC alloc]init];
+    [self.navigationController pushViewController:postMainVcC animated:YES];
+}
 - (void)initializeMainView {
+    [self addRightNavigationButtonWithTitle:@"发布" target:self action:@selector(pushPostClick)];
     _showType = 0;
     LCRankingHeaderView *headerView = [[LCRankingHeaderView alloc]init];
     WS(ws)
@@ -201,7 +207,7 @@
         make.left.top.right.equalTo(ws.view);
         make.height.mas_equalTo(41);
     }];
-    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(0xFEC6C6, 1.0) backgroundColor:nil];
+    UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(0xFFEDCF, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCVipTableViewCell bundle:nil] forCellReuseIdentifier:kLCVipTableViewCell];
     [mainTableView registerNib:[UINib nibWithNibName:kLCVipRankingTableViewCell bundle:nil] forCellReuseIdentifier:kLCVipRankingTableViewCell];
     [mainTableView registerClass:[LCSpaceTableViewCell class] forCellReuseIdentifier:kLCSpaceTableViewCell];

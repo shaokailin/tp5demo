@@ -89,7 +89,7 @@
 
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 7;
+    return 8;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
@@ -100,10 +100,10 @@
             [ws changePhoto];
         };
         return cell;
-    }else if (indexPath.row == 4){
+    }else if (indexPath.row == 5){
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
-    }else if(indexPath.row == 5) {
+    }else if(indexPath.row == 6) {
         LCSexTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSexTableViewCell];
         [cell setupCurrentSex:self.viewModel.sexString];
         WS(ws)
@@ -111,17 +111,22 @@
             ws.viewModel.sexString = type;
         };
         return cell;
-    }else if (indexPath.row == 1) {
+    }else if (indexPath.row == 1 || indexPath.row == 4) {
         LCNameInputTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCNameInputTableViewCell];
-        [cell setupCellContentWithName:self.viewModel.nameString];
+        [cell setupCellContentWithName:indexPath.row == 1?self.viewModel.nameString:self.viewModel.mchnoString type:indexPath.row == 1?0:1];
         WS(ws)
-        cell.nameBlock = ^(NSString *name) {
-            ws.viewModel.nameString = name;
+        cell.nameBlock = ^(NSString *name, NSInteger type) {
+            if (type == 1) {
+                ws.viewModel.mchnoString = name;
+            }else {
+                ws.viewModel.nameString = name;
+            }
+            
         };
         return cell;
     }else {
         LCUserMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCUserMessageTableViewCell];
-        [cell setupCellContentWithTitle:[self returnLeftString:indexPath.row] detail:[self returnRightString:indexPath.row] isShowArrow:indexPath.row == 6? YES:NO];
+        [cell setupCellContentWithTitle:[self returnLeftString:indexPath.row] detail:[self returnRightString:indexPath.row] isShowArrow:indexPath.row == 7? YES:NO];
         return cell;
     }
 }
@@ -134,7 +139,7 @@
         case 3:
             title = @"手机号码";
             break;
-        case 6:
+        case 7:
             title = @"出生日期";
             break;
         default:
@@ -151,7 +156,7 @@
         case 3:
             title = [kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Mobile];
             break;
-        case 6:
+        case 7:
             title = self.viewModel.birthday;
             break;
         default:
@@ -162,14 +167,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return 75;
-    }else if (indexPath.row == 4){
+    }else if (indexPath.row == 5){
         return 10;
     }else {
         return 50;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 6) {
+    if (indexPath.row == 7) {
         [self.datePickView showInView];
     }
 }
@@ -180,7 +185,7 @@
         WS(ws)
         datePick.dateBlock = ^(NSDate *date) {
             ws.viewModel.birthday = [date dateTransformToString:@"yyyy/MM/dd"];
-            [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:6 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            [ws.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:7 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         };
         _datePickView = datePick;
         [[UIApplication sharedApplication].keyWindow addSubview:datePick];

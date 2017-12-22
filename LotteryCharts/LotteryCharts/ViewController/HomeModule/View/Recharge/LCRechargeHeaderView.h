@@ -10,4 +10,5 @@
 typedef void (^RechargeMoneyBlock)(NSString *money);
 @interface LCRechargeHeaderView : UIView
 @property (nonatomic, copy) RechargeMoneyBlock moneyBlock;
+- (void)setupPayMoneyType:(NSArray *)array;
 @end

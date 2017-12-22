@@ -25,6 +25,8 @@
         _nameString = kUserMessageManager.nickName;
         _sexString = [[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Sex] isEqualToString:@"男"] == YES ? 0:1;
         _birthday = [[NSDate dateWithTimeIntervalSince1970:[[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Birthday]floatValue]]dateTransformToString:@"yyyy/MM/dd"];
+#warning 还没有弄好
+//        _mchnoString =
     }
     return self;
 }

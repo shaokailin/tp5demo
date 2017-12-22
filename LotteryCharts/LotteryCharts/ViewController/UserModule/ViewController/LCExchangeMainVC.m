@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UILabel *yinbiLbl;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
+@property (weak, nonatomic) IBOutlet UILabel *remarkLbl;
 @property (nonatomic, strong) LCExchangeMoneyViewModel *viewModel;
 @end
 
@@ -44,18 +45,19 @@
     _viewModel = [[LCExchangeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
         [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kWallet_Change_Notice object:nil];
-        [self navigationBackClick];
+        [self performSelector:@selector(navigationBackClick) withObject:nil afterDelay:1.2];
     } failure:nil];
-    
+    _viewModel.rate = self.rate;
     [[self.moneyField.rac_textSignal skip:1] subscribeNext:^(NSString * _Nullable x) {
         @strongify(self)
         NSInteger number = [x integerValue];
         self.viewModel.glodMoney = number;
-        self.yinbiLbl.text = NSStringFormat(@"%zd银币",number * 100);
+        self.yinbiLbl.text = NSStringFormat(@"%zd银币",number * self.rate);
     }];
 }
 - (void)initializeMainView {
     ViewRadius(self.sureBtn, 5.0);
+    self.remarkLbl.text = NSStringFormat(@"*注：1金币=%zd银币",self.rate);
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
