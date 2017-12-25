@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^PayTypeBlock)(NSInteger type);
 @interface LCRechargePayTypeView : UIView
-
+@property (nonatomic, copy) PayTypeBlock typeBlock;
+@property (nonatomic, assign) NSInteger payType;
 @end

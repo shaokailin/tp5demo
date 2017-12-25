@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef void (^PayClickBlock)(NSInteger type);
 @interface LCRechargePaySureView : UIView
-
+- (void)setupPayTypeWithMoney:(NSString *)money number:(NSString *)number;
+@property (nonatomic, copy) PayClickBlock clickBlock;
 @end

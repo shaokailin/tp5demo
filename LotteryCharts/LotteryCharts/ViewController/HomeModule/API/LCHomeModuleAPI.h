@@ -33,4 +33,7 @@
 + (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money;
 
 + (LSKParamterEntity *)getPayTypeList;
+
++ (LSKParamterEntity *)aliPayMoney:(NSString *)jinbi;
++ (LSKParamterEntity *)wxPayMoney:(NSString *)jinbi;
 @end

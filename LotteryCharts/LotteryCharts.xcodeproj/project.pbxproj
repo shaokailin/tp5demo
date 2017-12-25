@@ -169,6 +169,19 @@
 		E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198521FDE8E1E00C47713 /* LCHistoryLotteryListModel.m */; };
 		E64784271FEA54D9000A3A01 /* LCRankingRenTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E64784251FEA54D9000A3A01 /* LCRankingRenTableViewCell.m */; };
 		E64784281FEA54D9000A3A01 /* LCRankingRenTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E64784261FEA54D9000A3A01 /* LCRankingRenTableViewCell.xib */; };
+		E6618BF51FF0E3EC00ACCFBC /* AlipaySDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */; };
+		E6618BF61FF0E3EC00ACCFBC /* AlipaySDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */; };
+		E6618BF81FF0E41600ACCFBC /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BF71FF0E41600ACCFBC /* libc++.tbd */; };
+		E6618BFA1FF0E42A00ACCFBC /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BF91FF0E42A00ACCFBC /* libz.tbd */; };
+		E6618BFC1FF0E45A00ACCFBC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BFB1FF0E45A00ACCFBC /* SystemConfiguration.framework */; };
+		E6618BFE1FF0E58000ACCFBC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BFD1FF0E58000ACCFBC /* CoreTelephony.framework */; };
+		E6618C001FF0E5E000ACCFBC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618BFF1FF0E5E000ACCFBC /* QuartzCore.framework */; };
+		E6618C021FF0E5E700ACCFBC /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C011FF0E5E700ACCFBC /* CoreText.framework */; };
+		E6618C041FF0E5EC00ACCFBC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C031FF0E5EC00ACCFBC /* CoreGraphics.framework */; };
+		E6618C061FF0E5F200ACCFBC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C051FF0E5F200ACCFBC /* UIKit.framework */; };
+		E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C071FF0E5F800ACCFBC /* Foundation.framework */; };
+		E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */; };
+		E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */; };
 		E66A064B1FE10924007F6891 /* LCHistoryOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */; };
 		E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064D1FE10EB9007F6891 /* LCHistoryOrderListModel.m */; };
 		E66A06521FE1185F007F6891 /* LCHistoryGuessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A06501FE1185F007F6891 /* LCHistoryGuessTableViewCell.m */; };
@@ -576,6 +589,19 @@
 		E64784241FEA54D9000A3A01 /* LCRankingRenTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRankingRenTableViewCell.h; sourceTree = "<group>"; };
 		E64784251FEA54D9000A3A01 /* LCRankingRenTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRankingRenTableViewCell.m; sourceTree = "<group>"; };
 		E64784261FEA54D9000A3A01 /* LCRankingRenTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCRankingRenTableViewCell.xib; sourceTree = "<group>"; };
+		E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AlipaySDK.bundle; sourceTree = "<group>"; };
+		E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AlipaySDK.framework; sourceTree = "<group>"; };
+		E6618BF71FF0E41600ACCFBC /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		E6618BF91FF0E42A00ACCFBC /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E6618BFB1FF0E45A00ACCFBC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E6618BFD1FF0E58000ACCFBC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		E6618BFF1FF0E5E000ACCFBC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E6618C011FF0E5E700ACCFBC /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		E6618C031FF0E5EC00ACCFBC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E6618C051FF0E5F200ACCFBC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E6618C071FF0E5F800ACCFBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E66A06491FE10924007F6891 /* LCHistoryOrderViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderViewModel.h; sourceTree = "<group>"; };
 		E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryOrderViewModel.m; sourceTree = "<group>"; };
 		E66A064C1FE10EB9007F6891 /* LCHistoryOrderListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderListModel.h; sourceTree = "<group>"; };
@@ -812,7 +838,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */,
+				E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */,
+				E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */,
+				E6618C061FF0E5F200ACCFBC /* UIKit.framework in Frameworks */,
+				E6618C041FF0E5EC00ACCFBC /* CoreGraphics.framework in Frameworks */,
+				E6618C021FF0E5E700ACCFBC /* CoreText.framework in Frameworks */,
+				E6618C001FF0E5E000ACCFBC /* QuartzCore.framework in Frameworks */,
+				E6618BFE1FF0E58000ACCFBC /* CoreTelephony.framework in Frameworks */,
+				E6618BFC1FF0E45A00ACCFBC /* SystemConfiguration.framework in Frameworks */,
+				E6618BFA1FF0E42A00ACCFBC /* libz.tbd in Frameworks */,
+				E6618BF81FF0E41600ACCFBC /* libc++.tbd in Frameworks */,
 				814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */,
+				E6618BF61FF0E3EC00ACCFBC /* AlipaySDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,6 +1003,17 @@
 		CCDB604C2C61D11EF89E35AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */,
+				E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */,
+				E6618C071FF0E5F800ACCFBC /* Foundation.framework */,
+				E6618C051FF0E5F200ACCFBC /* UIKit.framework */,
+				E6618C031FF0E5EC00ACCFBC /* CoreGraphics.framework */,
+				E6618C011FF0E5E700ACCFBC /* CoreText.framework */,
+				E6618BFF1FF0E5E000ACCFBC /* QuartzCore.framework */,
+				E6618BFD1FF0E58000ACCFBC /* CoreTelephony.framework */,
+				E6618BFB1FF0E45A00ACCFBC /* SystemConfiguration.framework */,
+				E6618BF91FF0E42A00ACCFBC /* libz.tbd */,
+				E6618BF71FF0E41600ACCFBC /* libc++.tbd */,
 				907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */,
 			);
 			name = Frameworks;
@@ -1250,6 +1299,15 @@
 			path = GuessDetail;
 			sourceTree = "<group>";
 		};
+		E6618BF21FF0E3E400ACCFBC /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */,
+				E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
 		E67FFBCF1FCD36130045E5DF /* Public */ = {
 			isa = PBXGroup;
 			children = (
@@ -1364,6 +1422,7 @@
 		E6D9A7761FAFF97300894BB0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				E6618BF21FF0E3E400ACCFBC /* SDK */,
 				95AF4EDE1FB6011E0097B72D /* View */,
 				E6D9A7771FAFF97300894BB0 /* Plist */,
 			);
@@ -2050,6 +2109,7 @@
 				9590190E1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.xib in Resources */,
 				95DDA68C1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.xib in Resources */,
 				E6D9A5DD1FAFF4A400894BB0 /* Assets.xcassets in Resources */,
+				E6618BF51FF0E3EC00ACCFBC /* AlipaySDK.bundle in Resources */,
 				E61D2EDF1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.xib in Resources */,
 				E636A80D1FC5A60800C9460F /* LCGuessHeaderView.xib in Resources */,
 				E66A06531FE1185F007F6891 /* LCHistoryGuessTableViewCell.xib in Resources */,
@@ -2499,6 +2559,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
@@ -2518,6 +2582,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;

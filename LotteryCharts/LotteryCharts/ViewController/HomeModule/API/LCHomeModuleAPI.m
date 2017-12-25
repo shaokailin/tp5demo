@@ -45,6 +45,8 @@ static NSString * kGetUserId = @"Direct/getMchUid.html";
 static NSString * kUpPostVip = @"post/up_pay.html";
 
 static NSString * kPayTypeList = @"Direct/getPaySet.html";
+static NSString * kAliPay = @"Alipay/getAppAliPay.html";
+static NSString * kWXPay = @"Wxpay/getWxpayData.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -194,7 +196,7 @@ static NSString * kPayTypeList = @"Direct/getPaySet.html";
 + (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kUpPostVip;
-    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@" pay_money":money};
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"pay_money":money};
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
@@ -202,6 +204,20 @@ static NSString * kPayTypeList = @"Direct/getPaySet.html";
 + (LSKParamterEntity *)getPayTypeList {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kPayTypeList;
+    entity.responseObject = [LCRechargeMoneyListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)aliPayMoney:(NSString *)jinbi {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kAliPay;
+    entity.params = @{@"token":kUserMessageManager.token,@"jinbinnum":jinbi};
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)wxPayMoney:(NSString *)jinbi {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kWXPay;
+    entity.params = @{@"token":kUserMessageManager.token,@"jinbinnum":jinbi};
     entity.responseObject = [LCRechargeMoneyListModel class];
     return entity;
 }

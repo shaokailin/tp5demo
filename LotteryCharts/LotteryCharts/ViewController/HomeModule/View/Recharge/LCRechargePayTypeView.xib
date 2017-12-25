@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -93,6 +93,12 @@
                 <constraint firstItem="GXP-vK-JIx" firstAttribute="leading" secondItem="xJy-NY-nwz" secondAttribute="trailing" constant="10" id="zAe-cA-ADL"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="detailLbl" destination="tR7-Gl-dO0" id="J3d-iC-LXD"/>
+                <outlet property="hidenLbl" destination="Q65-cQ-n0R" id="R2A-qt-O47"/>
+                <outlet property="iconImage" destination="xJy-NY-nwz" id="aRR-N7-SA8"/>
+                <outlet property="titleLbl" destination="GXP-vK-JIx" id="koK-qd-zdW"/>
+            </connections>
             <point key="canvasLocation" x="32.5" y="98"/>
         </view>
     </objects>

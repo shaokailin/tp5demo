@@ -8,8 +8,10 @@
 
 #import "LCRechargeMoneyViewModel.h"
 #import "LCHomeModuleAPI.h"
+#import "LCBaseResponseModel.h"
 @interface LCRechargeMoneyViewModel ()
 @property (nonatomic, strong) RACCommand *typeCommand;
+@property (nonatomic, strong) RACCommand *aliPayCommand;
 @end
 @implementation LCRechargeMoneyViewModel
 - (void)getRechargeType {
@@ -42,5 +44,32 @@
         }];
     }
     return _typeCommand;
+}
+- (void)payGlodEventClick {
+    if (!KJudgeIsNullData(self.jinbi) || [self.jinbi integerValue] <= 0) {
+        [SKHUD showMessageInView:self.currentView withMessage:@"请选择要充值的金额"];
+        return;
+    }
+    [SKHUD showLoadingDotInWindow];
+    [self.aliPayCommand execute:nil];
+}
+- (RACCommand *)aliPayCommand {
+    if (!_aliPayCommand) {
+        @weakify(self)
+        _aliPayCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI aliPayMoney:self.jinbi]];
+        }];
+        [_aliPayCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:10 model:model.response];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _aliPayCommand;
 }
 @end

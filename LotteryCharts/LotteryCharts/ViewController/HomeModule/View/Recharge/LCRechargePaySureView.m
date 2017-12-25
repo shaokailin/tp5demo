@@ -22,11 +22,19 @@
     ViewBorderLayer(self.cancleBtn, ColorHexadecimal(0xbfbfbf, 1.0), 1.0);
 }
 - (IBAction)sureClick:(id)sender {
+    if (self.clickBlock) {
+        self.clickBlock(1);
+    }
 }
 
 - (IBAction)canclClick:(id)sender {
+    if (self.clickBlock) {
+        self.clickBlock(0);
+    }
 }
 
-
+- (void)setupPayTypeWithMoney:(NSString *)money number:(NSString *)number {
+    
+}
 
 @end

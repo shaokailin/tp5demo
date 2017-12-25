@@ -7,6 +7,7 @@
 //
 
 #import "LCRechargeHeaderView.h"
+#import "LCRechargeMoneyListModel.h"
 @interface LCRechargeHeaderView ()
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, weak) UITextField *moneyField;
@@ -40,18 +41,43 @@
         UILabel *detailLbl = [btn viewWithTag:btn.tag + 2];
         detailLbl.textColor = ColorHexadecimal(0xf6a623, 0.6);
         btn.selected = YES;
-        if (self.moneyBlock) {
-            self.moneyBlock(@"100");
+        if (self.typeBlock) {
+            self.typeBlock(_currentIndex - 1);
         }
     }
 }
 - (void)setupPayMoneyType:(NSArray *)array {
+    CGFloat width = (SCREEN_WIDTH - 50) / 2.0;
     for (int i = 1; i <= 4; i++) {
-        
+        UIButton *btn = [self viewWithTag:i * 100];
         if (array && array.count > 0 && i <= array.count) {
-            
+            if (!btn) {
+                btn = [self customBtnViewWithTopTitle:nil detail:nil flag:i * 100];
+                int j = (i - 1) / 2;
+                int z = (i - 1) % 2;
+                btn.frame = CGRectMake(20 + 10 * z + width * z, 35 + 10 * (j + 1) + 55 * j, width, 55);
+                [self addSubview:btn];
+            }
+            UILabel *titleLbl = [btn viewWithTag:i * 100 + 1];
+            UILabel *detailLbl = [btn viewWithTag:i * 100 + 2];
+            LCRechargeMoneyModel *model = [array objectAtIndex:i - 1];
+            titleLbl.text = NSStringFormat(@"%@币",model.money);
+            detailLbl.text = NSStringFormat(@"售%@元",model.paymoney);
+            if (i == _currentIndex) {
+                btn.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
+                titleLbl.textColor = ColorHexadecimal(0xf6a623, 1.0);
+                detailLbl.textColor = ColorHexadecimal(0xf6a623, 0.6);
+                btn.selected = YES;
+            }else {
+                btn.selected = NO;
+                btn.layer.borderColor = ColorHexadecimal(0xbfbfbf, 1.0).CGColor;
+                titleLbl.textColor = ColorHexadecimal(0x434343, 1.0);
+                detailLbl.textColor = ColorHexadecimal(0x7d7d7d, 1.0);
+            }
         }else {
-            
+            if (btn) {
+                btn.hidden = YES;
+            }
         }
     }
 }
@@ -77,44 +103,6 @@
         make.left.equalTo(ws).with.offset(20);
         make.top.equalTo(ws).with.offset(18);
     }];
-    
-    UIButton *btn1 = [self customBtnViewWithTopTitle:@"100币" detail:@"售100.00元" flag:100];
-    btn1.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
-    UILabel *titleLbl1 = [btn1 viewWithTag:101];
-    titleLbl1.textColor = ColorHexadecimal(0xf6a623, 1.0);
-    UILabel *detailLbl = [btn1 viewWithTag: 102];
-    detailLbl.textColor = ColorHexadecimal(0xf6a623, 0.6);
-    btn1.selected = YES;
-    [self addSubview:btn1];
-    UIButton *btn2 = [self customBtnViewWithTopTitle:@"100币" detail:@"售100.00元" flag:200];
-    [self addSubview:btn2];
-    UIButton *btn3 = [self customBtnViewWithTopTitle:@"100币" detail:@"售100.00元" flag:300];
-    [self addSubview:btn3];
-    UIButton *btn4 = [self customBtnViewWithTopTitle:@"100币" detail:@"售100.00元" flag:400];
-    [self addSubview:btn4];
-    [btn1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(20);
-        make.top.equalTo(titleLbl.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(55);
-    }];
-    
-    [btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(btn1.mas_right).with.offset(10);
-        make.top.bottom.equalTo(btn1);
-        make.right.equalTo(ws).with.offset(-20);
-        make.width.equalTo(btn1);
-    }];
-    
-    [btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(btn1);
-        make.top.equalTo(btn1.mas_bottom).with.offset(10);
-    }];
-    
-    [btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.height.equalTo(btn2);
-        make.top.equalTo(btn3);
-    }];
-    
     UILabel *titleLbl2 = [LSKViewFactory initializeLableWithText:@"手动输入" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];
     [self addSubview:titleLbl2];
     [titleLbl2 mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -136,8 +124,8 @@
     self.moneyField = inputField;
     [self addSubview:inputField];
     [inputField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(btn1);
-        make.right.equalTo(btn2);
+        make.left.equalTo(ws).with.offset(20);
+        make.right.equalTo(ws).with.offset(-20);
         make.top.equalTo(titleLbl2.mas_bottom).with.offset(10);
         make.height.mas_equalTo(35);
     }];

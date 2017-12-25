@@ -12,7 +12,11 @@
 #import "LCRechargePaySureView.h"
 #import "LCRechargePayTypeView.h"
 #import "LCRechargeMoneyViewModel.h"
-@interface LCRechargeMainVC ()
+#import "LSKActionSheetView.h"
+#import <AlipaySDK/AlipaySDK.h>
+@interface LCRechargeMainVC () {
+    NSString *_payMoney;
+}
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCRechargeHeaderView *headerView;
 @property (nonatomic, weak) LCRechargePaySureView *sureView;
@@ -38,17 +42,36 @@
     }
 }
 - (void)pullDownRefresh {
-    
+    [self.viewModel getRechargeType];
+}
+- (void)showActionSheet {
+    @weakify(self)
+    LSKActionSheetView *actionSheet = [[LSKActionSheetView alloc]initWithCancelButtonTitle:@"取消" clcikIndex:^(NSInteger seletedIndex) {
+        if (seletedIndex > 0) {
+            @strongify(self)
+            self.typeView.payType = seletedIndex - 1;
+        }
+    } otherButtonTitles:@"微信支付",@"支付宝支付", nil];
+    [actionSheet showInView];
 }
 - (void)rechargeRecord {
     
+}
+- (void)payClickWithType:(NSInteger)type {
+    if (type == 1) {
+        self.viewModel.jinbi = @"10";
+        [self.viewModel payGlodEventClick];
+    }
 }
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCRechargeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
         if (identifier == 0) {
+            [self.headerView setupPayMoneyType:self.viewModel.typeArray];
             [self.mainScrollerView.mj_header endRefreshing];
+        }else if (identifier == 10) {
+            [self aliPayEvent:model];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         if (identifier == 0) {
@@ -57,6 +80,12 @@
         }
     }];
     [self.viewModel getRechargeType];
+}
+- (void)aliPayEvent:(NSString*)response {
+    // NOTE: 调用支付结果开始支付
+    [[AlipaySDK defaultService] payOrder:response fromScheme:@"lotteryCharts" callback:^(NSDictionary *resultDic) {
+        NSLog(@"reslut = %@",resultDic);
+    }];
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {
@@ -104,6 +133,18 @@
     contentHeight += 275;
     
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
+    self.headerView.moneyBlock = ^(NSString *money) {
+        
+    };
+    self.headerView.typeBlock = ^(NSInteger type) {
+        
+    };
+    self.typeView.typeBlock = ^(NSInteger type) {
+        [ws showActionSheet];
+    };
+    self.sureView.clickBlock = ^(NSInteger type) {
+        [ws payClickWithType:type];
+    };
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^RechargeMoneyBlock)(NSString *money);
+typedef void (^RechargeTypeBlock) (NSInteger type);
 @interface LCRechargeHeaderView : UIView
+@property (nonatomic, copy) RechargeTypeBlock typeBlock;
 @property (nonatomic, copy) RechargeMoneyBlock moneyBlock;
 - (void)setupPayMoneyType:(NSArray *)array;
 @end

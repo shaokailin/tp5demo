@@ -23,7 +23,7 @@
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
-    return self;
+    return YES;
 }
 - (void)eventClickWithType:(NSInteger)type {
     [self endEditing:YES];
