@@ -29,4 +29,5 @@
 @property (nonatomic, strong) NSArray *reply;
 @property (nonatomic, copy) NSString *mch_no;
 @property (nonatomic, assign) NSInteger hasCount;
+@property (nonatomic, assign) CGFloat contentHeight;
 @end

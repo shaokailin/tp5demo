@@ -37,4 +37,8 @@
 - (NSInteger)hasCount {
     return self.quiz_number - self.quiz_buynumber;
 }
+- (void)setQuiz_content:(NSString *)quiz_content {
+    _quiz_content = KNullTransformString(quiz_content);
+    _contentHeight = [_quiz_content calculateTextHeight:12 width:SCREEN_WIDTH - 40];
+}
 @end

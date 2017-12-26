@@ -182,6 +182,8 @@
 		E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C071FF0E5F800ACCFBC /* Foundation.framework */; };
 		E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */; };
 		E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */; };
+		E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */; };
+		E6618C151FF2490900ACCFBC /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C141FF2490900ACCFBC /* libWeChatSDK.a */; };
 		E66A064B1FE10924007F6891 /* LCHistoryOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */; };
 		E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064D1FE10EB9007F6891 /* LCHistoryOrderListModel.m */; };
 		E66A06521FE1185F007F6891 /* LCHistoryGuessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A06501FE1185F007F6891 /* LCHistoryGuessTableViewCell.m */; };
@@ -602,6 +604,12 @@
 		E6618C071FF0E5F800ACCFBC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		E6618C0D1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCOrderHistoryGuessModel.h; sourceTree = "<group>"; };
+		E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCOrderHistoryGuessModel.m; sourceTree = "<group>"; };
+		E6618C111FF2490900ACCFBC /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		E6618C121FF2490900ACCFBC /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		E6618C131FF2490900ACCFBC /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		E6618C141FF2490900ACCFBC /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		E66A06491FE10924007F6891 /* LCHistoryOrderViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderViewModel.h; sourceTree = "<group>"; };
 		E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryOrderViewModel.m; sourceTree = "<group>"; };
 		E66A064C1FE10EB9007F6891 /* LCHistoryOrderListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderListModel.h; sourceTree = "<group>"; };
@@ -838,6 +846,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6618C151FF2490900ACCFBC /* libWeChatSDK.a in Frameworks */,
 				E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */,
 				E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */,
 				E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */,
@@ -1302,10 +1311,22 @@
 		E6618BF21FF0E3E400ACCFBC /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				E6618C101FF2490900ACCFBC /* WechatSDK */,
 				E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */,
 				E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */,
 			);
 			path = SDK;
+			sourceTree = "<group>";
+		};
+		E6618C101FF2490900ACCFBC /* WechatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E6618C111FF2490900ACCFBC /* WXApi.h */,
+				E6618C121FF2490900ACCFBC /* WXApiObject.h */,
+				E6618C131FF2490900ACCFBC /* WechatAuthSDK.h */,
+				E6618C141FF2490900ACCFBC /* libWeChatSDK.a */,
+			);
+			path = WechatSDK;
 			sourceTree = "<group>";
 		};
 		E67FFBCF1FCD36130045E5DF /* Public */ = {
@@ -1764,6 +1785,8 @@
 				95BC5E6D1FE153FD00FB5C3E /* LCCantactListModel.m */,
 				E66A065C1FE20D31007F6891 /* LCUserSignMessageModel.h */,
 				E66A065D1FE20D31007F6891 /* LCUserSignMessageModel.m */,
+				E6618C0D1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.h */,
+				E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2276,6 +2299,7 @@
 				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
 				95BC5E781FE1781000FB5C3E /* LCSignTableViewCell.m in Sources */,
 				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
+				E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
@@ -2568,6 +2592,10 @@
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2591,6 +2619,10 @@
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

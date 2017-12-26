@@ -8,6 +8,7 @@
 
 #import "LSKBaseViewModel.h"
 #import "LCHistoryOrderListModel.h"
+#import "LCOrderHistoryGuessModel.h"
 @interface LCHistoryOrderViewModel : LSKBaseViewModel
 @property (nonatomic, copy) NSString *period_id;
 @property (nonatomic, assign) NSInteger page;

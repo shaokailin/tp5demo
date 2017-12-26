@@ -35,14 +35,26 @@
     }
     self.titleLbl.text = title;
     self.countLbl.text = NSStringFormat(@"%@银币/1份",money);
-    self.hascountLbl.text = NSStringFormat(@"已挑战%@份",hasBuy);
-    if (state == 0) {
-        self.stateLbl.text = @"挑战失败";
-        self.stateLbl.textColor = ColorHexadecimal(0x535353, 1.0);
+    NSString *stateString = nil;
+    if (state != 1) {
+        NSInteger allMoney = [money integerValue] * [hasBuy integerValue];
+        if (state == 0) {
+            stateString = @"挑战失败";
+            self.stateLbl.text = NSStringFormat(@"+%zd银币",allMoney);
+        }else {
+            stateString = @"挑战失败";
+            self.stateLbl.text = NSStringFormat(@"-%zd银币",allMoney);
+        }
     }else {
-        self.stateLbl.text = @"挑战成功";
+        stateString = @"未开奖";
+        self.stateLbl.text = nil;
+    }
+    if (state == 0) {
+        self.stateLbl.textColor = ColorHexadecimal(0x535353, 1.0);
+    }else if(state == 2) {
         self.stateLbl.textColor = [UIColor redColor];
     }
+    self.hascountLbl.text = NSStringFormat(@"已挑战%@份，%@",hasBuy,stateString);
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

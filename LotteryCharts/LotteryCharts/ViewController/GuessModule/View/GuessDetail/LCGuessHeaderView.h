@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 typedef void (^HeaderBlock)(NSInteger type);
+typedef void (^HeaderFrameBlock)(CGFloat height);
 @interface LCGuessHeaderView : UIView<UITextFieldDelegate>
 @property (nonatomic, copy) HeaderBlock hederBlock;
+@property (nonatomic, copy) HeaderFrameBlock frameBlock;
 @property (nonatomic, assign) BOOL isBecome;
 @property (weak, nonatomic) IBOutlet UITextField *countField;
 - (void)setupContentTitle:(NSString *)title money:(NSString *)money count:(NSInteger)count number1:(NSString *)number1 number2:(NSString *)number2 type:(NSInteger)type;
+- (void)setupContentWithContent:(NSString *)content height:(CGFloat)height;
 - (void)hidenEventViewWithAuthor:(BOOL)isAuthor;
 - (void)changeCount:(NSInteger)count;
 @end

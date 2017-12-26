@@ -120,7 +120,7 @@
             title = self.viewModel.taskModel.is_sign == 1? @"已签到":@"未签到";
             break;
         case 3:
-            title = NSStringFormat(@"已签到%zd人",self.viewModel.taskModel.all_sign);
+            title = NSStringFormat(@"获取%zd银币",self.viewModel.taskModel.all_sign);
             break;
         case 4:
             title = @"获取1银币";

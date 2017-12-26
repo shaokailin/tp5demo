@@ -23,6 +23,7 @@
 #import "LCWithdrawRecordListModel.h"
 #import "LCCantactListModel.h"
 #import "LCUserSignMessageModel.h"
+#import "LCOrderHistoryGuessModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -228,7 +229,12 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
         [params setObject:searchId forKey:@"id"];
     }
     entity.params = params;
-    entity.responseObject = [LCHistoryOrderListModel class];
+    if (showType == 1) {
+        entity.responseObject = [LCOrderHistoryGuessModel class];
+    }else {
+        entity.responseObject = [LCHistoryOrderListModel class];
+    }
+    
     return entity;
 }
 + (LSKParamterEntity *)widthdrawMoney:(NSString *)money {

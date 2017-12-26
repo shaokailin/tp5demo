@@ -28,15 +28,21 @@
             @strongify(self)
             return [self requestWithPropertyEntity:[LCUserModuleAPI getHisttoryOrderWith:self.period_id page:self.page showType:self.showType]];
         }];
-        [_historyListCommand.executionSignals.flatten subscribeNext:^(LCHistoryOrderListModel *model) {
+        [_historyListCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
                 if (self.page == 0 && _historyArray) {
                     [_historyArray removeAllObjects];
                 }
-                if (KJudgeIsArrayAndHasValue(model.response)) {
-                    [self.historyArray addObjectsFromArray:model.response];
+                NSArray *array = nil;
+                if (self.showType == 0) {
+                    array = ((LCHistoryOrderListModel *)model).response;
+                }else {
+                    array = ((LCOrderHistoryGuessModel *)model).response;
+                }
+                if (KJudgeIsArrayAndHasValue(array)) {
+                    [self.historyArray addObjectsFromArray:array];
                 }
                 [self sendSuccessResult:0 model:nil];
             }else {

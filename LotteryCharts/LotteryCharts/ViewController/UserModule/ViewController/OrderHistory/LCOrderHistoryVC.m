@@ -111,8 +111,8 @@
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
     if (_searchType == 0) {
+        LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
         LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
         [cell setupContentWithPostId:model.post_id pushTime:model.create_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
         WS(ws)
@@ -121,10 +121,12 @@
         };
         return cell;
     }else if (_searchType == 1){
+        LCHistoryGuessModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
         LCHistoryGuessTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryGuessTableViewCell];
-        [cell setupCellContent:model.post_id time:model.create_time type:[model.post_type integerValue] title:model.post_title payMoney:model.post_money hasBuy:0 betState:indexPath.row % 2];
+        [cell setupCellContent:model.quiz_id time:model.create_time type:model.quiz_type title:model.quiz_title payMoney:model.quiz_money hasBuy:model.betting_num betState:model.status];
         return cell;
     }else {
+        LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
         LCHistoryVipTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryVipTableViewCell];
         [cell setupCellContent:model.post_id time:model.create_time title:model.post_title payMoney:model.post_vipmoney];
         return cell;

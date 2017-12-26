@@ -19,6 +19,7 @@
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
 @property (nonatomic, strong) LCGuessDetailViewModel *viewModel;
+@property (nonatomic, strong) UIView *headerBgView;
 @end
 
 @implementation LCGuessDetailVC
@@ -161,14 +162,21 @@
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostHeaderTableViewCell];
     LCGuessHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"LCGuessHeaderView" owner:self options:nil] lastObject];
     self.headerView = headerView;
-    UIView *headerBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 272)];
-    [headerBgView addSubview:headerView];
+    CGFloat height = 0;
+    if (self.guessModel.contentHeight > 45) {
+        height = 330;
+    }else {
+        height += 272 + self.guessModel.contentHeight;
+    }
+     self.headerBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, height)];
+   
+    [ self.headerBgView addSubview:headerView];
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(headerBgView);
+        make.left.top.bottom.equalTo(ws.headerBgView);
         make.width.mas_equalTo(SCREEN_WIDTH);
     }];
     mainTableView.tableFooterView = [[UIView alloc]init];
-    mainTableView.tableHeaderView = headerBgView;
+    mainTableView.tableHeaderView = self.headerBgView;
 
     self.mainTableView = mainTableView;
     [self.view addSubview:mainTableView];
@@ -179,7 +187,17 @@
     headerView.hederBlock = ^(NSInteger type) {
         [ws betGuessClick];
     };
+    headerView.frameBlock = ^(CGFloat height) {
+        [ws changeHeaderFrame:height];
+    };
     [self setupHeadViewContent];
+}
+- (void)changeHeaderFrame:(CGFloat)height {
+    self.mainTableView.tableHeaderView = nil;
+    CGRect frame = self.headerBgView.frame;
+    frame.size.height = height;
+    self.headerBgView.frame = frame;
+    self.mainTableView.tableHeaderView = self.headerBgView;
 }
 - (void)setupHeadViewContent {
     NSInteger type = self.guessModel.quiz_type == 2?0:1;
@@ -201,6 +219,7 @@
         number1 = self.guessModel.quiz_answer;
     }
     [self.headerView setupContentTitle:self.guessModel.quiz_title money:self.guessModel.quiz_money count:self.guessModel.hasCount number1:number1 number2:number2 type:type];
+    [self.headerView setupContentWithContent:self.guessModel.quiz_content height:self.guessModel.contentHeight];
     [self.headerView hidenEventViewWithAuthor:[self.guessModel.user_id isEqualToString:kUserMessageManager.userId]];
 }
 - (void)didReceiveMemoryWarning {
