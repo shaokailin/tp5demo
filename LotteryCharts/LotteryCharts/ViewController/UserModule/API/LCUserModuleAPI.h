@@ -38,4 +38,5 @@
 
 + (LSKParamterEntity *)widthdrawMoney:(NSString *)money;
 + (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year;
++ (LSKParamterEntity *)rechargeRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year;
 @end

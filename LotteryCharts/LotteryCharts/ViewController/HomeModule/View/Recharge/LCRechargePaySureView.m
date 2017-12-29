@@ -34,7 +34,8 @@
 }
 
 - (void)setupPayTypeWithMoney:(NSString *)money number:(NSString *)number {
-    
+    self.moneyLbl.text = NSStringFormat(@"￥%@",money);
+    self.moneyDetailLbl.text = NSStringFormat(@"您将支付%@元充值%@金币",money,number);
 }
 
 @end

@@ -97,6 +97,7 @@
                 <outlet property="detailLbl" destination="tR7-Gl-dO0" id="J3d-iC-LXD"/>
                 <outlet property="hidenLbl" destination="Q65-cQ-n0R" id="R2A-qt-O47"/>
                 <outlet property="iconImage" destination="xJy-NY-nwz" id="aRR-N7-SA8"/>
+                <outlet property="moreBtn" destination="KdJ-UX-8jN" id="aie-iH-2C3"/>
                 <outlet property="titleLbl" destination="GXP-vK-JIx" id="koK-qd-zdW"/>
             </connections>
             <point key="canvasLocation" x="32.5" y="98"/>

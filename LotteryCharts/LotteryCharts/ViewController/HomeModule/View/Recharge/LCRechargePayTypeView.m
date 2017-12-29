@@ -11,6 +11,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *hidenLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImage;
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
+@property (weak, nonatomic) IBOutlet UIButton *moreBtn;
 @property (weak, nonatomic) IBOutlet UILabel *detailLbl;
 
 @end
@@ -18,6 +19,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _payType = 0;
+    _moreBtn.hidden = YES;
 }
 - (IBAction)moerPayClick:(id)sender {
     if (self.typeBlock) {

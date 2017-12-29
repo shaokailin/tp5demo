@@ -45,7 +45,7 @@ static NSString * kGetUserId = @"Direct/getMchUid.html";
 static NSString * kUpPostVip = @"post/up_pay.html";
 
 static NSString * kPayTypeList = @"Direct/getPaySet.html";
-static NSString * kAliPay = @"Alipay/getAppAliPay.html";
+static NSString * kAliPay = @"Alipay/setPay.html";
 static NSString * kWXPay = @"Wxpay/getWxpayData.html";
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
@@ -210,7 +210,7 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
 + (LSKParamterEntity *)aliPayMoney:(NSString *)jinbi {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kAliPay;
-    entity.params = @{@"token":kUserMessageManager.token,@"jinbinnum":jinbi};
+    entity.params = @{@"token":kUserMessageManager.token,@"id":jinbi};
     entity.responseObject = [LCBaseResponseModel class];
     return entity;
 }

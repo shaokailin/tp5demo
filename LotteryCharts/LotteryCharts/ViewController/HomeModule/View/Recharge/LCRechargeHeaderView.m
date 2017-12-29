@@ -47,8 +47,13 @@
     }
 }
 - (void)setupPayMoneyType:(NSArray *)array {
+    if (_currentIndex > array.count) {
+        _currentIndex = 1;
+    }
     CGFloat width = (SCREEN_WIDTH - 50) / 2.0;
-    for (int i = 1; i <= 4; i++) {
+    NSInteger subViewCount = self.subviews.count - 1;
+    subViewCount = subViewCount > array.count?subViewCount:array.count;
+    for (int i = 1; i <= subViewCount; i++) {
         UIButton *btn = [self viewWithTag:i * 100];
         if (array && array.count > 0 && i <= array.count) {
             if (!btn) {
@@ -80,6 +85,9 @@
             }
         }
     }
+    if (self.typeBlock) {
+        self.typeBlock(_currentIndex - 1);
+    }
 }
 - (void)cancleSelect {
     if (_currentIndex != 0) {
@@ -103,42 +111,42 @@
         make.left.equalTo(ws).with.offset(20);
         make.top.equalTo(ws).with.offset(18);
     }];
-    UILabel *titleLbl2 = [LSKViewFactory initializeLableWithText:@"手动输入" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];
-    [self addSubview:titleLbl2];
-    [titleLbl2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(18);
-        make.top.equalTo(titleLbl.mas_bottom).with.offset(18 + 10 + 55 + 10 + 55);
-    }];
-    
-    UITextField *inputField = [LSKViewFactory initializeTextFieldWithDelegate:nil text:nil placeholder:@"请输入您的充值币数" textFont:12 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:UITextBorderStyleRoundedRect returnKey:UIReturnKeyDone keyBoard:UIKeyboardTypeNumberPad cleanModel:0];
-    inputField.leftViewMode = UITextFieldViewModeAlways;
-    inputField.rightViewMode = UITextFieldViewModeAlways;
-    UILabel *leftView = [LSKViewFactory initializeLableWithText:@"充值" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
-    leftView.frame = CGRectMake(0, 0, 44, 35);
-    inputField.leftView = leftView;
-    
-    UILabel *rightView = [LSKViewFactory initializeLableWithText:@"币" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
-    rightView.frame = CGRectMake(0, 0, 32, 35);
-    inputField.rightView = rightView;
-    
-    self.moneyField = inputField;
-    [self addSubview:inputField];
-    [inputField mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(ws).with.offset(20);
-        make.right.equalTo(ws).with.offset(-20);
-        make.top.equalTo(titleLbl2.mas_bottom).with.offset(10);
-        make.height.mas_equalTo(35);
-    }];
-    
-    UIButton *sureBtn = [LSKViewFactory initializeButtonWithTitle:@"确认" target:self action:@selector(sureInputClick) textfont:15 textColor:[UIColor whiteColor]];
-    ViewRadius(sureBtn, 5.0);
-    [sureBtn setBackgroundColor:[UIColor redColor]];
-    [self addSubview:sureBtn];
-    [sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(inputField.mas_bottom).with.offset(20);
-        make.centerX.equalTo(ws);
-        make.size.mas_equalTo(CGSizeMake(162, 40));
-    }];
+//    UILabel *titleLbl2 = [LSKViewFactory initializeLableWithText:@"手动输入" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];
+//    [self addSubview:titleLbl2];
+//    [titleLbl2 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(ws).with.offset(18);
+//        make.top.equalTo(titleLbl.mas_bottom).with.offset(18 + 10 + 55 + 10 + 55);
+//    }];
+//    
+//    UITextField *inputField = [LSKViewFactory initializeTextFieldWithDelegate:nil text:nil placeholder:@"请输入您的充值币数" textFont:12 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:UITextBorderStyleRoundedRect returnKey:UIReturnKeyDone keyBoard:UIKeyboardTypeNumberPad cleanModel:0];
+//    inputField.leftViewMode = UITextFieldViewModeAlways;
+//    inputField.rightViewMode = UITextFieldViewModeAlways;
+//    UILabel *leftView = [LSKViewFactory initializeLableWithText:@"充值" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
+//    leftView.frame = CGRectMake(0, 0, 44, 35);
+//    inputField.leftView = leftView;
+//    
+//    UILabel *rightView = [LSKViewFactory initializeLableWithText:@"币" font:12 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
+//    rightView.frame = CGRectMake(0, 0, 32, 35);
+//    inputField.rightView = rightView;
+//    
+//    self.moneyField = inputField;
+//    [self addSubview:inputField];
+//    [inputField mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.left.equalTo(ws).with.offset(20);
+//        make.right.equalTo(ws).with.offset(-20);
+//        make.top.equalTo(titleLbl2.mas_bottom).with.offset(10);
+//        make.height.mas_equalTo(35);
+//    }];
+//    
+//    UIButton *sureBtn = [LSKViewFactory initializeButtonWithTitle:@"确认" target:self action:@selector(sureInputClick) textfont:15 textColor:[UIColor whiteColor]];
+//    ViewRadius(sureBtn, 5.0);
+//    [sureBtn setBackgroundColor:[UIColor redColor]];
+//    [self addSubview:sureBtn];
+//    [sureBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(inputField.mas_bottom).with.offset(20);
+//        make.centerX.equalTo(ws);
+//        make.size.mas_equalTo(CGSizeMake(162, 40));
+//    }];
 }
 - (UIButton *)customBtnViewWithTopTitle:(NSString *)topTitle detail:(NSString *)detail flag:(NSInteger)flag {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

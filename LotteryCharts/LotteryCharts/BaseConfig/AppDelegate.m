@@ -85,6 +85,12 @@
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             NSLog(@"result = %@",resultDic);
+            NSInteger code = [[resultDic objectForKey:@"resultStatus"]integerValue];
+            if (code == 9000) {
+                [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Success_Notice object:nil];
+            }else {
+                [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Fail_Notice object:nil];
+            }
         }];
     }
     return YES;

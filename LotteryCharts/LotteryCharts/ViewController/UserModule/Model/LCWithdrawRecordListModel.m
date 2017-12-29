@@ -31,6 +31,6 @@
     return NO;
 }
 - (void)setMoney:(NSString *)money {
-    _money = NSStringFormat(@"-%@金币",KNullTransformMoney(money));
+    _money = NSStringFormat(@"%@金币",KNullTransformMoney(money));
 }
 @end

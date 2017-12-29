@@ -108,7 +108,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCWithdrawRecordTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCWithdrawRecordTableViewCell];
     LCWithdrawRecordModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
-    [cell setupContentWithType:@"提现" time:model.create_time money:model.money];
+    [cell setupContentWithType:@"提现" time:model.create_time money:NSStringFormat(@"-%@",model.money)];
     return cell;
 }
 #pragma mark 界面

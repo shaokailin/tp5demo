@@ -59,7 +59,7 @@ static NSString * const kHisttoryOrderList = @"User/getMyPostLog.html";
 
 static NSString * const kWithdrawMoney = @"User/tiQian.html";
 static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
-
+static NSString * const kRechargeMoneyList = @"User/getPayLog.html";
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -247,6 +247,20 @@ static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
 + (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kWithdrawMoneyList;
+    NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(page),@"p",kUserMessageManager.token,@"token", nil];
+    if (month != -1) {
+        [param setObject:@(month) forKey:@"month"];
+    }
+    if (year != -1) {
+        [param setObject:@(year) forKey:@"year"];
+    }
+    entity.params = param;
+    entity.responseObject = [LCWithdrawRecordListModel class];
+    return entity;
+}
++ (LSKParamterEntity *)rechargeRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kRechargeMoneyList;
     NSMutableDictionary *param = [NSMutableDictionary dictionaryWithObjectsAndKeys:@(page),@"p",kUserMessageManager.token,@"token", nil];
     if (month != -1) {
         [param setObject:@(month) forKey:@"month"];

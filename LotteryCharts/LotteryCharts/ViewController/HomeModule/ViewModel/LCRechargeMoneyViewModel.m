@@ -46,7 +46,7 @@
     return _typeCommand;
 }
 - (void)payGlodEventClick {
-    if (!KJudgeIsNullData(self.jinbi) || [self.jinbi integerValue] <= 0) {
+    if (!KJudgeIsNullData(self.jinbi)) {
         [SKHUD showMessageInView:self.currentView withMessage:@"请选择要充值的金额"];
         return;
     }

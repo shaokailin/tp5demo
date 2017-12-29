@@ -12,6 +12,7 @@
 @property (nonatomic, copy) NSString *money;
 @property (nonatomic, strong) RACCommand *widthdrawCommand;
 @property (nonatomic, strong) RACCommand *recordCommand;
+@property (nonatomic, strong) RACCommand *rechargeCommand;
 @end
 @implementation LCWithdrawViewModel
 - (void)bindSignal {
@@ -103,5 +104,42 @@
     return _historyArray;
 }
 
-
+- (void)getRechargeRecord:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInView:self.currentView];
+    }
+    [self.rechargeCommand execute: nil];
+}
+- (RACCommand *)rechargeCommand {
+    if (!_rechargeCommand) {
+        @weakify(self)
+        _page = 0;
+        _rechargeCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI rechargeRecordList:self.page month:self.mouth year:self.year]];
+        }];
+        [_rechargeCommand.executionSignals.flatten subscribeNext:^(LCWithdrawRecordListModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                if (self.page == 0 && _historyArray) {
+                    [_historyArray removeAllObjects];
+                }
+                if (KJudgeIsArrayAndHasValue(model.response)) {
+                    [self.historyArray addObjectsFromArray:model.response];
+                }
+                [self sendSuccessResult:0 model:nil];
+            }else {
+                [self loadError];
+                [self sendFailureResult:0 error:nil];
+            }
+        }];
+        [_rechargeCommand.errors subscribeNext:^(NSError * _Nullable x) {
+            @strongify(self)
+            [self loadError];
+            [self sendFailureResult:0 error:nil];
+        }];
+    }
+    return _rechargeCommand;
+}
 @end

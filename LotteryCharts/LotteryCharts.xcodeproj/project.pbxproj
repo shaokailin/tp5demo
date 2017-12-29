@@ -183,7 +183,6 @@
 		E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */; };
 		E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */; };
 		E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */; };
-		E6618C151FF2490900ACCFBC /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6618C141FF2490900ACCFBC /* libWeChatSDK.a */; };
 		E66A064B1FE10924007F6891 /* LCHistoryOrderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */; };
 		E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A064D1FE10EB9007F6891 /* LCHistoryOrderListModel.m */; };
 		E66A06521FE1185F007F6891 /* LCHistoryGuessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E66A06501FE1185F007F6891 /* LCHistoryGuessTableViewCell.m */; };
@@ -258,6 +257,7 @@
 		E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4261FC2C61C0077D670 /* LCRegisterMainView.m */; };
 		E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */; };
 		E6C3F42C1FC2C63A0077D670 /* LCForgetPWDView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */; };
+		E6C7F4A61FF5D11700479605 /* LCRechargeRecordVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E6C7F4A51FF5D11700479605 /* LCRechargeRecordVC.m */; };
 		E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */; };
 		E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C941FD9301F0036AE54 /* LCGuessMainViewModel.m */; };
 		E6D33C981FD944850036AE54 /* LCGuessMainListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E6D33C971FD944850036AE54 /* LCGuessMainListModel.m */; };
@@ -606,10 +606,6 @@
 		E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E6618C0D1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCOrderHistoryGuessModel.h; sourceTree = "<group>"; };
 		E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCOrderHistoryGuessModel.m; sourceTree = "<group>"; };
-		E6618C111FF2490900ACCFBC /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
-		E6618C121FF2490900ACCFBC /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
-		E6618C131FF2490900ACCFBC /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		E6618C141FF2490900ACCFBC /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		E66A06491FE10924007F6891 /* LCHistoryOrderViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderViewModel.h; sourceTree = "<group>"; };
 		E66A064A1FE10924007F6891 /* LCHistoryOrderViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCHistoryOrderViewModel.m; sourceTree = "<group>"; };
 		E66A064C1FE10EB9007F6891 /* LCHistoryOrderListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCHistoryOrderListModel.h; sourceTree = "<group>"; };
@@ -743,6 +739,8 @@
 		E6C3F4281FC2C62F0077D670 /* LCForgetPWDView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCForgetPWDView.h; sourceTree = "<group>"; };
 		E6C3F4291FC2C62F0077D670 /* LCForgetPWDView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCForgetPWDView.m; sourceTree = "<group>"; };
 		E6C3F42B1FC2C63A0077D670 /* LCForgetPWDView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCForgetPWDView.xib; sourceTree = "<group>"; };
+		E6C7F4A41FF5D11700479605 /* LCRechargeRecordVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCRechargeRecordVC.h; sourceTree = "<group>"; };
+		E6C7F4A51FF5D11700479605 /* LCRechargeRecordVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCRechargeRecordVC.m; sourceTree = "<group>"; };
 		E6D33C791FD798250036AE54 /* LCSpaceModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceModel.h; sourceTree = "<group>"; };
 		E6D33C7A1FD798250036AE54 /* LCSpaceModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceModel.m; sourceTree = "<group>"; };
 		E6D33C931FD9301F0036AE54 /* LCGuessMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessMainViewModel.h; sourceTree = "<group>"; };
@@ -846,7 +844,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6618C151FF2490900ACCFBC /* libWeChatSDK.a in Frameworks */,
 				E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */,
 				E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */,
 				E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */,
@@ -920,6 +917,8 @@
 			children = (
 				959019171FB80A1700F5B0CE /* LCRechargeMainVC.h */,
 				959019181FB80A1700F5B0CE /* LCRechargeMainVC.m */,
+				E6C7F4A41FF5D11700479605 /* LCRechargeRecordVC.h */,
+				E6C7F4A51FF5D11700479605 /* LCRechargeRecordVC.m */,
 			);
 			path = Recharge;
 			sourceTree = "<group>";
@@ -1311,22 +1310,10 @@
 		E6618BF21FF0E3E400ACCFBC /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				E6618C101FF2490900ACCFBC /* WechatSDK */,
 				E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */,
 				E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */,
 			);
 			path = SDK;
-			sourceTree = "<group>";
-		};
-		E6618C101FF2490900ACCFBC /* WechatSDK */ = {
-			isa = PBXGroup;
-			children = (
-				E6618C111FF2490900ACCFBC /* WXApi.h */,
-				E6618C121FF2490900ACCFBC /* WXApiObject.h */,
-				E6618C131FF2490900ACCFBC /* WechatAuthSDK.h */,
-				E6618C141FF2490900ACCFBC /* libWeChatSDK.a */,
-			);
-			path = WechatSDK;
 			sourceTree = "<group>";
 		};
 		E67FFBCF1FCD36130045E5DF /* Public */ = {
@@ -2436,6 +2423,7 @@
 				E69450301FD1337700605793 /* LCTeamViewModel.m in Sources */,
 				E6C3F3D61FC059F60077D670 /* LCVipRankingTableViewCell.m in Sources */,
 				E636A81A1FC5A67400C9460F /* LCPostDetailHeaderView.m in Sources */,
+				E6C7F4A61FF5D11700479605 /* LCRechargeRecordVC.m in Sources */,
 				E6E2C67F1FB0038600866D15 /* LSKWebProgressView.m in Sources */,
 				E636A7EA1FC5551D00C9460F /* LCPostContentView.m in Sources */,
 				E61D2EDE1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.m in Sources */,

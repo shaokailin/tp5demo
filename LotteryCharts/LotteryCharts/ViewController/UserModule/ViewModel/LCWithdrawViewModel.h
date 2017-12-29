@@ -17,5 +17,6 @@
 @property (nonatomic, assign) NSInteger year;
 @property (nonatomic, strong) NSMutableArray *historyArray;
 - (void)getWidthdrawRecord:(BOOL)isPull;
+- (void)getRechargeRecord:(BOOL)isPull;
 
 @end
