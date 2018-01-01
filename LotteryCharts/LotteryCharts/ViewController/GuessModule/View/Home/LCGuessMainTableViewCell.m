@@ -52,7 +52,7 @@
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.pushTimeLbl.text = pushTime;
-    self.moneyLbl.text = NSStringFormat(@"押注：%@银币",money);
+    self.moneyLbl.text = NSStringFormat(@"挑战：%@银币",money);
     self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     self.openTimeLbl.text = openTime;
     self.typeName.text = type == 2?@"杀两码":@"猜大小";

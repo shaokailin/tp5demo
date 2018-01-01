@@ -154,7 +154,7 @@
 }
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
-    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发布竞猜" handler:^(PopoverAction *action) {
+    PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发布擂台" handler:^(PopoverAction *action) {
         @strongify(self)
         if ([self isCanJumpViewForLogin:YES]) {
             LCPushGuessMainVC *postMainVC = [[LCPushGuessMainVC alloc]init];
@@ -162,7 +162,7 @@
             [self.navigationController pushViewController:postMainVC animated:YES];
         }
     }];
-    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"历史竞猜" handler:^(PopoverAction *action) {
+    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"历史擂台" handler:^(PopoverAction *action) {
         @strongify(self)
         if ([self isCanJumpViewForLogin:YES]) {
             LCGuessHistoryVC *history = [[LCGuessHistoryVC alloc]init];
@@ -170,7 +170,7 @@
             [self.navigationController pushViewController:history animated:YES];
         }
     }];
-    PopoverAction *ruleFriAction = [PopoverAction actionWithImage:nil title:@"竞猜规则" handler:^(PopoverAction *action) {
+    PopoverAction *ruleFriAction = [PopoverAction actionWithImage:nil title:@"擂台规则" handler:^(PopoverAction *action) {
         @strongify(self)
         LCGuessRuleVC *ruleVC = [[LCGuessRuleVC alloc]init];
         ruleVC.hidesBottomBarWhenPushed = YES;

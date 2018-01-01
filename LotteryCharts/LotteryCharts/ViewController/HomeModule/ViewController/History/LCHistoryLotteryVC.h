@@ -10,4 +10,5 @@
 
 @interface LCHistoryLotteryVC : LSKBaseViewController
 @property (nonatomic, copy) NSString *searchText;
+@property (nonatomic, assign) NSInteger type;
 @end

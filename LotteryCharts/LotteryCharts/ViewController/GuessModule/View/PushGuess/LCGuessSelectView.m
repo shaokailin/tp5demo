@@ -80,7 +80,7 @@
 - (void)_layoutMainView {
     _currentType = 2;
    
-    UILabel *titleLbl = [LSKViewFactory initializeLableWithText:@"竞猜类型" font:15 textColor: ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
+    UILabel *titleLbl = [LSKViewFactory initializeLableWithText:@"擂台类型" font:15 textColor: ColorHexadecimal(0x434343, 1.0) textAlignment:1 backgroundColor:nil];
     [self addSubview:titleLbl];
     WS(ws)
     [titleLbl mas_makeConstraints:^(MASConstraintMaker *make) {

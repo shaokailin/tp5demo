@@ -18,7 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self addNavigationBackButton];
-    self.navigationItem.title = @"竞猜规则";
+    self.navigationItem.title = @"擂台规则";
 }
 
 - (void)didReceiveMemoryWarning {

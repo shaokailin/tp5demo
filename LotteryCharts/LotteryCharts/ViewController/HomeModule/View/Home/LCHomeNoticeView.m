@@ -25,7 +25,10 @@
     [_scrollTextView stop];
     if (KJudgeIsArrayAndHasValue(content)) {
         for (LCHomeNoticeModel *model in content) {
-            [self.dataArray addObject:model.content];
+            NSString *text = [model.content stringByReplacingOccurrencesOfString:@"&gt;" withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"&lt;" withString:@""];
+            text = [text stringByReplacingOccurrencesOfString:@"/p" withString:@""];
+            [self.dataArray addObject:text];
         }
     }
     if (self.dataArray.count > 0) {

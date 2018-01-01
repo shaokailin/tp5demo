@@ -45,7 +45,7 @@
     leftBtn.selected = YES;
     [self addSubview:leftBtn];
     
-    UIButton *middleBtn = [LSKViewFactory initializeButtonWithTitle:@"竞猜贴" target:self action:@selector(buttonClick:) textfont:15 textColor:ColorHexadecimal(0x7d7d7d, 1.0)];
+    UIButton *middleBtn = [LSKViewFactory initializeButtonWithTitle:@"擂台贴" target:self action:@selector(buttonClick:) textfont:15 textColor:ColorHexadecimal(0x7d7d7d, 1.0)];
     middleBtn.tag = 201;
     [middleBtn setTitleColor:ColorHexadecimal(0xff0000, 1.0) forState:UIControlStateSelected];
     [self addSubview:middleBtn];

@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"历史订单";
+    self.title = @"福彩3D开奖历史";
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
@@ -107,7 +107,7 @@
     LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
     LC3DLotteryModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
     
-    [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number3:model.number3];
+    [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number4:@"8" number3:model.number3 number5:@"8" type:self.type];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

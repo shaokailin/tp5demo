@@ -50,6 +50,9 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [self addNotificationWithSelector:@selector(updateUserMessage) name:kUserModule_HomeChangeMessageNotice];
     [self addNotificationWithSelector:@selector(loginOutChange) name:kLoginOutChange_Notice];
 }
+- (BOOL)fd_prefersNavigationBarHidden {
+    return YES;
+}
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!_isHasLoad) {

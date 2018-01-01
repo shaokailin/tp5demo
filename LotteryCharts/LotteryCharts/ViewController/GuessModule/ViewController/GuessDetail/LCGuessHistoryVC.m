@@ -26,7 +26,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addNavigationBackButton];
-    self.navigationItem.title = @"历史竞猜";
+    self.navigationItem.title = @"历史擂台";
     [self initializeMainView];
     [self bindSignal];
 }

@@ -152,7 +152,7 @@
         PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"打赏记录" handler:^(PopoverAction *action) {
             [ws searchEnumClick:0 title:action.title];
         }];
-        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"竞猜参与记录" handler:^(PopoverAction *action) {
+        PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"擂台参与记录" handler:^(PopoverAction *action) {
             [ws searchEnumClick:1 title:action.title];
         }];
         PopoverAction *add2FriAction = [PopoverAction actionWithImage:nil title:@"VIP订单" handler:^(PopoverAction *action) {

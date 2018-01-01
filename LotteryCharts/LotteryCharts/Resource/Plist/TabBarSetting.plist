@@ -16,9 +16,9 @@
 	</dict>
 	<dict>
 		<key>tabbar_title</key>
-		<string>竞猜</string>
+		<string>擂台</string>
 		<key>navigation_title</key>
-		<string>竞猜</string>
+		<string>擂台</string>
 		<key>nornal_img</key>
 		<string>jincai_nornal</string>
 		<key>selected_img</key>

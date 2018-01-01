@@ -30,7 +30,7 @@
 }
 - (void)betGuessWithCount:(NSString *)count {
     if (!KJudgeIsNullData(count) || [count integerValue] <= 0) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"请输入要押注的份额"];
+        [SKHUD showMessageInView:self.currentView withMessage:@"请输入要挑战的份额"];
         return;
     }
     [self.betGuessCommand execute:count];

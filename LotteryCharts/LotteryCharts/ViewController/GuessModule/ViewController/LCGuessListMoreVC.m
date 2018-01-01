@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"更多竞猜";
+    self.title = @"更多擂台";
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];

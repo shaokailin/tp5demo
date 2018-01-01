@@ -191,6 +191,7 @@
         if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.period_list)) {
             LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
             lottery.hidesBottomBarWhenPushed = YES;
+            lottery.type = type;
 //            if (self.viewModel.messageModel.period_list.count > 1) {
 //                if (type == 6) {
 //                    LC3DLotteryModel *model = [self.viewModel.messageModel.period_list objectAtIndex:1];

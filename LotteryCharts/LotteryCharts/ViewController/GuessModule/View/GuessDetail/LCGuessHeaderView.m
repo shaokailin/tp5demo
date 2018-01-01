@@ -70,7 +70,7 @@
         self.leftBtn.hidden = YES;
     }
     self.titleLbl.text = title;
-    self.moneyLbl.text = NSStringFormat(@"押注：%@银币",money);
+    self.moneyLbl.text = NSStringFormat(@"挑战：%@银币",money);
     self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     
 }

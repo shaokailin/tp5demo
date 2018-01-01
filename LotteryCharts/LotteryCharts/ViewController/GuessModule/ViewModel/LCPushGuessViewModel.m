@@ -28,7 +28,7 @@
     }
     if (!KJudgeIsNullData(answer)) {
         if (self.type == 3) {
-            [SKHUD showMessageInView:self.currentView withMessage:@"请选择要竞猜的大小"];
+            [SKHUD showMessageInView:self.currentView withMessage:@"请选择要擂台的大小"];
             return;
         }else {
             [SKHUD showMessageInView:self.currentView withMessage:@"请选择必杀的2个数字"];
@@ -36,11 +36,11 @@
         }
     }
     if (!KJudgeIsNullData(self.money) || [self.money integerValue] <= 0) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"竞猜金额要大于0金币"];
+        [SKHUD showMessageInView:self.currentView withMessage:@"擂台金额要大于0金币"];
         return;
     }
     if (!KJudgeIsNullData(self.number) || [self.number integerValue] <= 0) {
-        [SKHUD showMessageInView:self.currentView withMessage:@"竞猜份额要大于0"];
+        [SKHUD showMessageInView:self.currentView withMessage:@"擂台份额要大于0"];
         return;
     }
     [SKHUD showLoadingDotInView:self.currentView];

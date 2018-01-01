@@ -14,6 +14,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *number1Lbl;
 @property (weak, nonatomic) IBOutlet UILabel *number2Lbl;
 @property (weak, nonatomic) IBOutlet UILabel *number3Lbl;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *offsetWidth;
+@property (weak, nonatomic) IBOutlet UILabel *number4Lbl;
+@property (weak, nonatomic) IBOutlet UILabel *number5Lbl;
 
 @end
 @implementation LCHistoryLotteryTableViewCell
@@ -24,14 +27,25 @@
     ViewBoundsRadius(self.number1Lbl, 10);
     ViewBoundsRadius(self.number2Lbl, 10);
     ViewBoundsRadius(self.number3Lbl, 10);
+    ViewBoundsRadius(self.number4Lbl, 10);
+    ViewBoundsRadius(self.number5Lbl, 10);
 }
-- (void)setupContentWithTime:(NSString *)time issue:(NSString *)issue testRun:(NSString *)testRun number1:(NSString *)number1 number2:(NSString *)number2 number3:(NSString *)number3 {
+- (void)setupContentWithTime:(NSString *)time issue:(NSString *)issue testRun:(NSString *)testRun number1:(NSString *)number1 number2:(NSString *)number2 number4:(NSString *)number4  number3:(NSString *)number3 number5:(NSString *)number5 type:(NSInteger)type {
     self.timeLbl.text = time;
     [self changeIssueData:issue];
     self.numberLbl.text = testRun;
     self.number1Lbl.text = number1;
     self.number2Lbl.text = number2;
     self.number3Lbl.text = number3;
+    self.number4Lbl.text = number4;
+    self.number5Lbl.text = number5;
+    if (type == 5) {
+        self.number4Lbl.hidden = YES;
+        self.number5Lbl.hidden = YES;
+    }else {
+        self.number4Lbl.hidden = NO;
+        self.number5Lbl.hidden = NO;
+    }
 }
 - (void)changeIssueData:(NSString *)issue {
     NSString *content = NSStringFormat(@"第  %@  期",issue);

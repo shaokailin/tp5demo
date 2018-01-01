@@ -42,7 +42,8 @@
             LSKLog("api=%@---class=%@---%@",entity.requestApi,NSStringFromClass(entity.responseObject),model);
             [self removeLoadingIdentifier:identifier];
             LSKBaseResponseModel *object = [entity.responseObject yy_modelWithJSON:model];
-            if (object.code == 4) {
+            if (object.code == -1) {
+                [SKHUD dismiss];
                 [self tokenOvertimeEvent];
                 [self sendFailureResult:0 error:nil];
             }else {

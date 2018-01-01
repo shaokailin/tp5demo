@@ -82,7 +82,7 @@
 - (void)betGuessClick {
     [self.view endEditing:YES];
     if ([self.guessModel.user_id isEqualToString:kUserMessageManager.userId]) {
-        [SKHUD showMessageInView:self.view withMessage:@"自己不能接受挑战自己的竞猜"];
+        [SKHUD showMessageInView:self.view withMessage:@"自己不能接受挑战自己的擂台"];
         return;
     }
     [self.viewModel betGuessWithCount:self.headerView.countField.text];
