@@ -31,15 +31,23 @@
                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="夜晚9点到凌晨不允许发帖和开擂台" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mI5-7O-bE0">
+                    <rect key="frame" x="15" y="153" width="239" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="1" green="0.18823529410000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="lKc-GL-zzq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="1ch-hE-SX1"/>
                 <constraint firstItem="oxE-1e-Sr7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="7Pu-Gf-2fI"/>
+                <constraint firstItem="mI5-7O-bE0" firstAttribute="top" secondItem="lKc-GL-zzq" secondAttribute="bottom" constant="15" id="H55-QQ-8xc"/>
                 <constraint firstAttribute="trailing" secondItem="lKc-GL-zzq" secondAttribute="trailing" constant="15" id="KVh-Gx-JPd"/>
                 <constraint firstAttribute="trailing" secondItem="oxE-1e-Sr7" secondAttribute="trailing" constant="15" id="MLM-rj-rQd"/>
                 <constraint firstItem="lKc-GL-zzq" firstAttribute="top" secondItem="oxE-1e-Sr7" secondAttribute="bottom" constant="15" id="O2B-XW-zMH"/>
                 <constraint firstItem="oxE-1e-Sr7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="15" id="pPe-Td-e5c"/>
+                <constraint firstItem="mI5-7O-bE0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="15" id="soR-tG-baL"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
             <point key="canvasLocation" x="32.5" y="102.5"/>
