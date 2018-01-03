@@ -46,7 +46,7 @@
         make.centerX.equalTo(ws);
     }];
     
-    UILabel *titleLbl1 = [LSKViewFactory initializeLableWithText:@"金币" font:20 textColor:ColorHexadecimal(0x434343,1.0) textAlignment:0 backgroundColor:nil];
+    UILabel *titleLbl1 = [LSKViewFactory initializeLableWithText:@"银币" font:20 textColor:ColorHexadecimal(0x434343,1.0) textAlignment:0 backgroundColor:nil];
     [self addSubview:titleLbl1];
     [titleLbl1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(nameLbl.mas_top).with.offset(-14);
