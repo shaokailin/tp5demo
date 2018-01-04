@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"福彩3D开奖历史";
+    self.title = @"开奖历史";
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];

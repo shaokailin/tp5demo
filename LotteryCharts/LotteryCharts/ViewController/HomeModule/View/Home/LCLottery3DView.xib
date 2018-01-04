@@ -15,8 +15,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="178"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="福彩3D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S9-pq-RBt">
-                    <rect key="frame" x="30" y="12" width="48" height="17"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开奖号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4S9-pq-RBt">
+                    <rect key="frame" x="30" y="12" width="57.5" height="17"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                     <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -96,14 +96,14 @@
                         <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="排列三" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-Js-6lJ">
-                    <rect key="frame" x="10" y="138" width="34" height="40"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="开奖号码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kh-Js-6lJ">
+                    <rect key="frame" x="10" y="138" width="45" height="40"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                     <color key="textColor" red="0.96470588235294119" green="0.65098039215686276" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第0期:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Exl-9g-tbC">
-                    <rect key="frame" x="94" y="152" width="33.5" height="13.5"/>
+                    <rect key="frame" x="90" y="152" width="33.5" height="13.5"/>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                     <color key="textColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -125,7 +125,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FU7-w5-CM7">
-                    <rect key="frame" x="132.5" y="147" width="25" height="25"/>
+                    <rect key="frame" x="128.5" y="147" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="Uap-kE-o40"/>
                         <constraint firstAttribute="width" constant="25" id="pZn-6n-S7Y"/>
@@ -136,7 +136,7 @@
                     </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AjN-cF-tXa">
-                    <rect key="frame" x="162.5" y="147.5" width="25" height="25"/>
+                    <rect key="frame" x="158.5" y="147.5" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="J3v-ty-Ss9"/>
                         <constraint firstAttribute="width" constant="25" id="PEd-Uv-DeR"/>
@@ -147,7 +147,7 @@
                     </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWP-NY-Ymq">
-                    <rect key="frame" x="192.5" y="147" width="25" height="25"/>
+                    <rect key="frame" x="188.5" y="147" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="iKL-it-Iaz"/>
                         <constraint firstAttribute="width" constant="25" id="vf6-LE-RJO"/>
@@ -158,7 +158,7 @@
                     </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgF-F6-TWO">
-                    <rect key="frame" x="222.5" y="147" width="25" height="25"/>
+                    <rect key="frame" x="218.5" y="147" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="UPL-t2-0z1"/>
                         <constraint firstAttribute="height" constant="25" id="roj-BG-1r0"/>
@@ -169,7 +169,7 @@
                     </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD4-yz-Ya1">
-                    <rect key="frame" x="253" y="147" width="25" height="25"/>
+                    <rect key="frame" x="249" y="147" width="25" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="25" id="FAG-s1-MlQ"/>
                         <constraint firstAttribute="height" constant="25" id="tiX-lS-Vun"/>
@@ -218,7 +218,7 @@
                 <constraint firstItem="fWP-NY-Ymq" firstAttribute="leading" secondItem="AjN-cF-tXa" secondAttribute="trailing" constant="5" id="cGN-0f-V8U"/>
                 <constraint firstItem="fD4-yz-Ya1" firstAttribute="centerY" secondItem="fWP-NY-Ymq" secondAttribute="centerY" id="d2u-GM-oew"/>
                 <constraint firstItem="fD4-yz-Ya1" firstAttribute="leading" secondItem="cgF-F6-TWO" secondAttribute="trailing" constant="5" id="dxR-M8-8ag"/>
-                <constraint firstItem="Exl-9g-tbC" firstAttribute="leading" secondItem="1Kh-Js-6lJ" secondAttribute="trailing" constant="50" id="ej0-lR-auV"/>
+                <constraint firstItem="Exl-9g-tbC" firstAttribute="leading" secondItem="1Kh-Js-6lJ" secondAttribute="trailing" constant="35" id="ej0-lR-auV"/>
                 <constraint firstItem="J8D-6W-IMl" firstAttribute="centerY" secondItem="1Kh-Js-6lJ" secondAttribute="centerY" id="hx8-ak-EKn"/>
                 <constraint firstItem="1Kh-Js-6lJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="i4j-mq-JX8"/>
                 <constraint firstItem="SPa-QF-s6y" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="iFK-y8-tsS"/>
