@@ -40,20 +40,26 @@
             [self.thirdNumBtn setTitle:[open1 objectAtIndex:2] forState:UIControlStateNormal];
         }
         self.currentOpenLbl.text = [open1 componentsJoinedByString:@""];
-        if (data.count >= 2) {
-            LC3DLotteryModel *lastModel = [data objectAtIndex:1];
-            self.lastVersionLbl.text = NSStringFormat(@"第%@期:",lastModel.period_id);
-            NSArray *open2 = [lastModel.lottery_result_kill componentsSeparatedByString:@","];
-            if (open2.count >= 1) {
-                [self.lastNum1 setTitle:[open2 objectAtIndex:0] forState:UIControlStateNormal];
-            }
-            if (open2.count >= 2) {
-                [self.lastNum2 setTitle:[open2 objectAtIndex:1] forState:UIControlStateNormal];
-            }
-            if (open2.count >= 3) {
-                [self.lastNum3 setTitle:[open2 objectAtIndex:2] forState:UIControlStateNormal];
-            }
-        }
+    }
+}
+- (void)setupLottertFiveMessage:(LCLotteryFiveModel *)model {
+    
+    self.lastVersionLbl.text = model.p_name;
+    NSArray *open2 = [model.content componentsSeparatedByString:@","];
+    if (open2.count >= 1) {
+        [self.lastNum1 setTitle:[open2 objectAtIndex:0] forState:UIControlStateNormal];
+    }
+    if (open2.count >= 2) {
+        [self.lastNum2 setTitle:[open2 objectAtIndex:1] forState:UIControlStateNormal];
+    }
+    if (open2.count >= 3) {
+        [self.lastNum3 setTitle:[open2 objectAtIndex:2] forState:UIControlStateNormal];
+    }
+    if (open2.count >= 4) {
+        [self.lastNum4 setTitle:[open2 objectAtIndex:3] forState:UIControlStateNormal];
+    }
+    if (open2.count >= 5) {
+        [self.lastNum5 setTitle:[open2 objectAtIndex:4] forState:UIControlStateNormal];
     }
 }
 - (IBAction)moreClick:(id)sender {

@@ -52,6 +52,9 @@
 - (void)setup3DMessage:(NSArray *)array {
     [self.lottery3DView setupLottertMessage:array];
 }
+- (void)setup5DMessage:(id)data {
+    [self.lottery3DView setupLottertFiveMessage:data];
+}
 - (void)_layoutMainView {
     WS(ws)
     _searchIndex = 1;

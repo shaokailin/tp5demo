@@ -89,7 +89,10 @@
             detail.postModel = postModel;
             detail.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:detail animated:YES];
-        }else {
+        }else if (identifier == 80) {
+            [self.headerView setup5DMessage:model];
+        }
+        else {
             [self.headerView setupBannerData:self.viewModel.messageModel.adv_list];
             [self.headerView setupNotice:self.viewModel.messageModel.notice];
             [self.headerView setup3DMessage:self.viewModel.messageModel.period_list];
@@ -188,18 +191,10 @@
             [self.viewModel searchPostEvent:actionParam];
         }
     }else {
-        if (self.viewModel.messageModel && KJudgeIsArrayAndHasValue(self.viewModel.messageModel.period_list)) {
-            LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
-            lottery.hidesBottomBarWhenPushed = YES;
-            lottery.type = type;
-//            if (self.viewModel.messageModel.period_list.count > 1) {
-//                if (type == 6) {
-//                    LC3DLotteryModel *model = [self.viewModel.messageModel.period_list objectAtIndex:1];
-//                    lottery.searchText = model.period_id;
-//                }
-//            }
-            [self.navigationController pushViewController:lottery animated:YES];
-        }
+        LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
+        lottery.hidesBottomBarWhenPushed = YES;
+        lottery.type = type;
+        [self.navigationController pushViewController:lottery animated:YES];
     }
 }
 #pragma mark delegate

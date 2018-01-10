@@ -8,7 +8,9 @@
 
 #import "LSKBaseViewModel.h"
 #import "LCHistoryLotteryListModel.h"
+#import "LCLottery5DListModel.h"
 @interface LCHistoryLotteryViewModel : LSKBaseViewModel
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, copy) NSString *period_id;
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, assign) NSInteger limitRow;

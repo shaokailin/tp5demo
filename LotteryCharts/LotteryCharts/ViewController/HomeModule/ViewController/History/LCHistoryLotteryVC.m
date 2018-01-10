@@ -73,6 +73,7 @@
         }
         [self endRefreshing];
     }];
+    _viewModel.type = self.type;
     if (KJudgeIsNullData(self.searchText)) {
         self.searchView.searchText = self.searchText;
         [self searchClick:self.searchText];
@@ -105,9 +106,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
-    LC3DLotteryModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
-    
-    [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number4:@"8" number3:model.number3 number5:@"8" type:self.type];
+    if (self.type == 5) {
+        LC3DLotteryModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
+        
+        [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number4:@"8" number3:model.number3 number5:@"8" type:self.type];
+    }else {
+        LCLottery5DModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
+        
+        [cell setupContentWithTime:model.create_time issue:model.p_name testRun:nil number1:model.number1 number2:model.number2 number4:model.number4 number3:model.number3 number5:model.number5 type:self.type];
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -31,6 +31,8 @@
 + (LSKParamterEntity *)getUserUid:(NSString *)searchText;
 
 + (LSKParamterEntity *)upPostVipRanking:(NSString *)postId money:(NSString *)money;
++ (LSKParamterEntity *)getLastLotteryFive;
++ (LSKParamterEntity *)getLottery5DList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id;
 
 + (LSKParamterEntity *)getPayTypeList;
 

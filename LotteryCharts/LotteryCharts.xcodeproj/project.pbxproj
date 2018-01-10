@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		814C40CFA045ADB2D3BEE800 /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */; };
 		95276E421FE02183007C22B2 /* LCUserSignVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95276E411FE02183007C22B2 /* LCUserSignVC.m */; };
+		95393DE020008A740091BF1B /* LCLotteryFiveModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95393DDF20008A740091BF1B /* LCLotteryFiveModel.m */; };
+		95393DE32000EC970091BF1B /* LCLottery5DListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 95393DE22000EC970091BF1B /* LCLottery5DListModel.m */; };
 		957AD4001FE6060C0081A91A /* LCSearchPostVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */; };
 		957AD4031FE606BC0081A91A /* LCSearchPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 957AD4021FE606BC0081A91A /* LCSearchPostViewModel.m */; };
 		9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */ = {isa = PBXBuildFile; fileRef = 959018FB1FB808ED00F5B0CE /* LCHomeFuncView.m */; };
@@ -312,6 +314,10 @@
 		907F967CBCC92A39E9A888B4 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95276E401FE02183007C22B2 /* LCUserSignVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSignVC.h; sourceTree = "<group>"; };
 		95276E411FE02183007C22B2 /* LCUserSignVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSignVC.m; sourceTree = "<group>"; };
+		95393DDE20008A740091BF1B /* LCLotteryFiveModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLotteryFiveModel.h; sourceTree = "<group>"; };
+		95393DDF20008A740091BF1B /* LCLotteryFiveModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLotteryFiveModel.m; sourceTree = "<group>"; };
+		95393DE12000EC970091BF1B /* LCLottery5DListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCLottery5DListModel.h; sourceTree = "<group>"; };
+		95393DE22000EC970091BF1B /* LCLottery5DListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCLottery5DListModel.m; sourceTree = "<group>"; };
 		957AD3FE1FE6060C0081A91A /* LCSearchPostVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchPostVC.h; sourceTree = "<group>"; };
 		957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSearchPostVC.m; sourceTree = "<group>"; };
 		957AD4011FE606BC0081A91A /* LCSearchPostViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSearchPostViewModel.h; sourceTree = "<group>"; };
@@ -1597,6 +1603,10 @@
 				95AE93261FE80A1600766894 /* LCRankingRenModel.m */,
 				E6C086231FECF15E007F9CF2 /* LCRechargeMoneyListModel.h */,
 				E6C086241FECF15E007F9CF2 /* LCRechargeMoneyListModel.m */,
+				95393DDE20008A740091BF1B /* LCLotteryFiveModel.h */,
+				95393DDF20008A740091BF1B /* LCLotteryFiveModel.m */,
+				95393DE12000EC970091BF1B /* LCLottery5DListModel.h */,
+				95393DE22000EC970091BF1B /* LCLottery5DListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2349,6 +2359,7 @@
 				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
 				E641981D1FDBDCE900C47713 /* LCReplySuccessModel.m in Sources */,
+				95393DE32000EC970091BF1B /* LCLottery5DListModel.m in Sources */,
 				E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */,
 				E636A7E01FC446BD00C9460F /* LCSelectSizeView.m in Sources */,
 				E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */,
@@ -2434,6 +2445,7 @@
 				E6E2C7021FB00FFE00866D15 /* LCUserMainVC.m in Sources */,
 				E61D2F1B1FBD3ED5002005E3 /* LCWithdrawRecordVC.m in Sources */,
 				957AD4001FE6060C0081A91A /* LCSearchPostVC.m in Sources */,
+				95393DE020008A740091BF1B /* LCLotteryFiveModel.m in Sources */,
 				E67FFBD51FCD4D910045E5DF /* LCPushGuessViewModel.m in Sources */,
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
 				E636A7E31FC4472A00C9460F /* LCSelectTwoYardsView.m in Sources */,

@@ -10,10 +10,12 @@
 #import "LCHomeModuleAPI.h"
 #import "LCBaseResponseModel.h"
 #import "LCHomeHotListModel.h"
+#import "LCLotteryFiveModel.h"
 @interface LCHomeMainViewModel ()
 @property (nonatomic, strong) RACCommand *onlineCommand;
 @property (nonatomic, strong) RACCommand *headerMessageCommand;
 @property (nonatomic, strong) RACCommand *hotCommand;
+@property (nonatomic, strong) RACCommand *lotteryFiveCommand;
 
 @property (nonatomic, strong) RACCommand *searchCommand;
 @property (nonatomic, strong) RACCommand *searchUserId;
@@ -27,6 +29,7 @@
     if (self.page == 0) {
         [self.onlineCommand execute:nil];
         [self.headerMessageCommand execute:nil];
+        [self.lotteryFiveCommand execute:nil];
     }
     [self.hotCommand execute:nil];
 }
@@ -94,6 +97,25 @@
         }];
     }
     return _onlineCommand;
+}
+- (RACCommand *)lotteryFiveCommand {
+    if (!_lotteryFiveCommand) {
+        @weakify(self)
+        _lotteryFiveCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI getLastLotteryFive]];
+        }];
+        [_lotteryFiveCommand.executionSignals.flatten subscribeNext:^(LCLotteryFiveModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [self sendSuccessResult:80 model:model];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _lotteryFiveCommand;
+    
 }
 - (RACCommand *)headerMessageCommand {
     if (!_headerMessageCommand) {

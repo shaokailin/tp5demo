@@ -16,4 +16,5 @@ typedef void (^HeaderViewBlock) (NSInteger type,id actionParam);
 - (void)setupBannerData:(NSArray *)banner;
 - (void)setupNotice:(NSArray *)content;
 - (void)setup3DMessage:(NSArray *)array;
+- (void)setup5DMessage:(id)data;
 @end

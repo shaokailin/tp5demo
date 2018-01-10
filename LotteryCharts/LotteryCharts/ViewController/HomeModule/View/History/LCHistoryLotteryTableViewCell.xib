@@ -137,6 +137,7 @@
                 <outlet property="number5Lbl" destination="sLw-mR-fxR" id="8yY-sy-jkF"/>
                 <outlet property="numberLbl" destination="dWF-f5-8bS" id="Hnf-DW-d4f"/>
                 <outlet property="offsetWidth" destination="Vad-76-btH" id="bM6-6U-fyf"/>
+                <outlet property="testLbl" destination="rNF-SJ-IQi" id="b7n-FT-Cml"/>
                 <outlet property="timeLbl" destination="auk-WY-Bve" id="A1e-OW-BZO"/>
             </connections>
         </tableViewCell>

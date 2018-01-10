@@ -18,7 +18,10 @@
 #import "LCPostDetailModel.h"
 #import "LCPostDetailMessageModel.h"
 #import "LCRechargeMoneyListModel.h"
+#import "LCLotteryFiveModel.h"
+#import "LCLottery5DListModel.h"
 static NSString * kPushPostApi = @"post/add.html";
+static NSString * kLotteryFiveApi = @"Direct/getRangeOne.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
 static NSString * kHomeHotPostApi = @"Index/hotpost.html";
 static NSString * kHomeHeaderApi = @"Index/index.html";
@@ -27,6 +30,7 @@ static NSString * kRenPostApi = @"Index/renPost.html";
 static NSString * kPullPostApi = @"Index/pullPost.html";
 static NSString * kRewardPostApi = @"Index/rewardPost.html";
 static NSString * kHistoryLotteryApi = @"Period/index.html";
+static NSString * kLottery5DListApi = @"Direct/getRangeList.html";
 
 static NSString * kPostReply = @"post/reply.html";
 static NSString * kPostReplyList = @"post/replypage.html";
@@ -69,6 +73,14 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
     entity.requestType = HTTPRequestType_GET;
     entity.responseObject = [LCBaseResponseModel class];
     return entity;
+}
++ (LSKParamterEntity *)getLastLotteryFive {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kLotteryFiveApi;
+    entity.requestType = HTTPRequestType_POST;
+    entity.responseObject = [LCLotteryFiveModel class];
+    return entity;
+    
 }
 + (LSKParamterEntity *)getHotPostList:(NSInteger)page {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -115,6 +127,18 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
     return entity;
 }
 
++ (LSKParamterEntity *)getLottery5DList:(NSInteger)page limitRow:(NSInteger)limit period_id:(NSString *)period_id {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kLottery5DListApi;
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithObject:@(page) forKey:@"p"];
+    [dict setObject:@(limit) forKey:@"limitrow"];
+    if (KJudgeIsNullData(period_id)) {
+        [dict setObject:period_id forKey:@"p_name"];
+    }
+    entity.params = dict;
+    entity.responseObject = [LCLottery5DListModel class];
+    return entity;
+}
 
 + (LSKParamterEntity *)sendPostReply:(NSString *)content postId:(NSString *)postId {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];

@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LCLotteryFiveModel.h"
 typedef void (^LotteryMoreBlock)(NSInteger type);
 @interface LCLottery3DView : UIView
 @property (nonatomic, copy) LotteryMoreBlock block;
 - (void)setupLottertMessage:(NSArray *)data;
+- (void)setupLottertFiveMessage:(LCLotteryFiveModel *)model;
 @end
