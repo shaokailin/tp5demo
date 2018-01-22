@@ -69,7 +69,8 @@
                         <constraint firstAttribute="width" constant="75" id="TJz-fK-ZXf"/>
                         <constraint firstAttribute="height" constant="75" id="bCS-gL-f9n"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="8" backgroundImage="home_redcircle">
                         <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -80,7 +81,8 @@
                         <constraint firstAttribute="width" constant="75" id="QtD-5g-HMv"/>
                         <constraint firstAttribute="height" constant="75" id="WFr-LO-W7z"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="8" backgroundImage="home_redcircle">
                         <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
@@ -91,7 +93,8 @@
                         <constraint firstAttribute="width" constant="75" id="9jS-3l-oHz"/>
                         <constraint firstAttribute="height" constant="75" id="Nef-Cs-mxM"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
+                    <inset key="titleEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <state key="normal" title="8" backgroundImage="home_redcircle">
                         <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
                     </state>

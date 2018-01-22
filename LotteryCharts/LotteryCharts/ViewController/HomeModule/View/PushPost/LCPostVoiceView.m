@@ -11,16 +11,21 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "LCPublicMethod.h"
 #import "NSTimer+Extend.h"
+#import "UIImage+GIF.h"
 @interface LCPostVoiceView ()<AVAudioRecorderDelegate>
 {
     NSInteger _timeString;
     NSURL *urlPlay;
+    UIImage *_nornalImage;
+    UIImage *_selectImage;
 }
+@property (weak, nonatomic) UIImageView *voiceImageView;
 @property (weak, nonatomic) IBOutlet UILabel *closeLbl;
 @property (weak, nonatomic) IBOutlet UIButton *voiceBtn;
 @property (nonatomic, strong) AVAudioRecorder *audioRecorder;
 @property (weak, nonatomic) IBOutlet UILabel *openLbl;
 @property (nonatomic, strong) NSTimer *audioTimer;
+
 @end
 @implementation LCPostVoiceView
 
@@ -28,12 +33,28 @@
     [super awakeFromNib];
     _timeString = 0;
     self.closeLbl.hidden = YES;
-    ViewRadius(self.voiceBtn, 75 / 2.0);
     UITapGestureRecognizer *tapView = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hidenView)];
     [self addGestureRecognizer:tapView];
     [self.voiceBtn addTarget:self action:@selector(offsetButtonTouchBegin:)forControlEvents:UIControlEventTouchDown];
     [self.voiceBtn addTarget:self action:@selector(offsetButtonTouchEnd:)forControlEvents:UIControlEventTouchUpInside];
     [self.voiceBtn addTarget:self action:@selector(offsetButtonTouchEnd:)forControlEvents:UIControlEventTouchUpOutside];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"gif_m" ofType:@"gif"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    UIImage *image = [UIImage sd_animatedGIFWithData:data];
+    _selectImage = image;
+    _nornalImage = [UIImage imageNamed:@"white_voice"];
+    
+    UIImageView *voiceImage = [[UIImageView alloc]initWithImage:_nornalImage];
+    voiceImage.contentMode = UIViewContentModeCenter;
+    ViewRadius(voiceImage, 90 / 2.0);
+    voiceImage.backgroundColor = ColorHexadecimal(0x5C5C5C, 1.0);
+    self.voiceImageView = voiceImage;
+    [self.voiceBtn addSubview:voiceImage];
+    WS(ws)
+    [voiceImage mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(ws.voiceBtn);
+    }];
     //button长按事件
 //    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(btnLong:)];
 //    [self.voiceBtn addGestureRecognizer:longPress];
@@ -46,9 +67,13 @@
     if (![self.audioRecorder isRecording]) {
         self.closeLbl.hidden = NO;
         self.openLbl.hidden = YES;
+        
         //开始
         [_audioRecorder record];
         [self.audioTimer isValid];
+        self.voiceImageView.backgroundColor = [UIColor clearColor];
+        self.voiceImageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.voiceImageView.image = _selectImage;
     }
 }
 -(void) offsetButtonTouchEnd:(id)sender{
@@ -64,6 +89,9 @@
             [SKHUD showMessageInView:self withMessage:@"录音时间太段"];
             return;
         }
+        self.voiceImageView.backgroundColor = ColorHexadecimal(0x5C5C5C, 1.0);
+        self.voiceImageView.contentMode = UIViewContentModeCenter;
+        self.voiceImageView.image = _nornalImage;
         if (self.voiceBlock) {
             self.voiceBlock(_timeString);
         }

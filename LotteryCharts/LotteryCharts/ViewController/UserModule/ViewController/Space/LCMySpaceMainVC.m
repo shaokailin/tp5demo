@@ -86,7 +86,7 @@
         }else {
             if (_showType == 0 && self.viewModel.page == 0) {
                 LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
-                [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mchid attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
+                [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mch_no attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
                 self.post_list_count = dataModel.post_list_count;
                 self.quiz_count = dataModel.quiz_count;
                 self.my_mchmoney = dataModel.my_mchmoney;

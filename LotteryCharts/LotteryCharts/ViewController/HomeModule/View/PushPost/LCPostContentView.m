@@ -190,6 +190,7 @@
     self.isVoice = NO;
     self.delectVoiceBtn.hidden = YES;
     self.timeLbl.text = nil;
+    _audioPlayer = nil;
     if (self.mediaDelectBlock) {
         self.mediaDelectBlock(1, 0);
     }

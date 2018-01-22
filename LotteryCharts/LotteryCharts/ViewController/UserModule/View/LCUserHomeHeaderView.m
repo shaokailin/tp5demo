@@ -72,7 +72,7 @@
         [_userPhotoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }
     _nameLbl.text = name;
-    _userIdLbl.text = [kUserMessageManager.userId isEqualToString:userId]?NSStringFormat(@"我的ID:%@",userId):NSStringFormat(@"他的ID:%@",userId);
+    _userIdLbl.text = [kUserMessageManager.mch_no isEqualToString:userId]?NSStringFormat(@"我的ID:%@",userId):NSStringFormat(@"他的ID:%@",userId);
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
 }
@@ -82,7 +82,7 @@
 }
 - (void)updateUserMessage {
     _nameLbl.text = kUserMessageManager.nickName;
-    _userIdLbl.text = NSStringFormat(@"我的ID:%@",kUserMessageManager.userId);
+    _userIdLbl.text = NSStringFormat(@"我的ID:%@",kUserMessageManager.mch_no);
     [self changeUserPhoto:kUserMessageManager.logo];
     [self changeBgImage:kUserMessageManager.bglogo];
 }
