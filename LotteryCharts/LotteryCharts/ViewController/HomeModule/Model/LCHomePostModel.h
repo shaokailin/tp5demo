@@ -10,6 +10,7 @@
 
 @interface LCHomePostModel : LSKBaseResponseModel
 @property (nonatomic, copy) NSString *post_id;
+@property (nonatomic, copy) NSString *fans_count;
 @property (nonatomic, copy) NSString *post_title;
 @property (nonatomic, copy) NSString *post_content;
 @property (nonatomic, copy) NSString *post_upload;

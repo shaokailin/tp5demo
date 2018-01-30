@@ -120,7 +120,7 @@
             
             [self.viewModel payForShowEvent];
         }else {
-            [self navigationBackClick];
+//            [self navigationBackClick];
         }
     }];
     [alterView show];
@@ -271,7 +271,7 @@
         if (isFirst) {
             [self.headerView setupContent:nil media:nil isShow:isShow];
         }else {
-            [self.headerView setupContent:self.postModel.post_upload media:nil isShow:isShow];
+            [self.headerView setupContent:@"暂时没有权限查看噢！~" media:nil isShow:isShow];
         }
     }
 }

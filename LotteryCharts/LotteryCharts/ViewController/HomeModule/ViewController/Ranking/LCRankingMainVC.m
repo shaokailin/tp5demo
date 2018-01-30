@@ -42,7 +42,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"彩神榜";
+    self.title = @"神仙鱼";
     if (self.isChangeNavi) {
         [self backToNornalNavigationColor];
     }

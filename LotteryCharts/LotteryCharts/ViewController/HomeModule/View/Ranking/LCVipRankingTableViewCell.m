@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *image1;
 @property (weak, nonatomic) IBOutlet UIImageView *image2;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *btnWidth;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *moneyWidth;
 
 @property (weak, nonatomic) IBOutlet UIImageView *rankingImage;
 
@@ -75,6 +76,7 @@
             self.button.hidden = NO;
         }
     }
+    self.moneyWidth.constant = 70;
     self.btnWidth.constant = 60;
     self.image1.hidden = NO;
     self.image2.hidden = NO;
@@ -103,6 +105,7 @@
         self.indexBgImage.hidden = YES;
         self.rankingImage.hidden = YES;
     }
+    self.moneyWidth.constant = 60;
     self.image1.hidden = YES;
     self.image2.hidden = YES;
     self.button.hidden = YES;
@@ -131,6 +134,7 @@
         self.indexBgImage.hidden = YES;
         self.rankingImage.hidden = YES;
     }
+    self.moneyWidth.constant = 30;
     self.image1.hidden = YES;
     self.image2.hidden = NO;
     self.button.hidden = YES;

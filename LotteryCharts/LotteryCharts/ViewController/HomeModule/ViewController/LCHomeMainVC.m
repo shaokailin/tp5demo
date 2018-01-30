@@ -207,7 +207,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
     LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
-    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money funs:KNullTransformNumber(model.fans_count)];
     WS(ws)
     cell.photoBlock = ^(id clickCell) {
         [ws jumpSpaceView:clickCell];
@@ -272,7 +272,7 @@
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
     
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kLineMain_Color, 1.0) backgroundColor:nil];
-    LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 486)];
+    LCHomeHeaderView *headerView = [[LCHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 500)];
     self.headerView = headerView;
     
     mainTableView.tableHeaderView = headerView;
@@ -285,7 +285,7 @@
     [headerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(mainTableView);
         make.right.equalTo(ws.view);
-        make.height.mas_equalTo(486);
+        make.height.mas_equalTo(500);
     }];
     [mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(ws.view);

@@ -18,7 +18,7 @@
     if (self = [super initWithFrame:frame]) {
         self.userInteractionEnabled = YES;
         _placeHolderImage = placeHolderImage;
-        self.contentMode = UIViewContentModeScaleAspectFill;
+        self.contentMode = UIViewContentModeScaleToFill;
         isHasSucess = NO;
     }
     return self;

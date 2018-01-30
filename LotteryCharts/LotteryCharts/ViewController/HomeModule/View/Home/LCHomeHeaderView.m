@@ -71,7 +71,7 @@
         make.left.top.right.equalTo(ws);
         make.height.mas_equalTo(40);
     }];
-    LSKBarnerScrollView *bannerView = [[LSKBarnerScrollView alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 127) placeHolderImage:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
+    LSKBarnerScrollView *bannerView = [[LSKBarnerScrollView alloc]initWithFrame:CGRectMake(0, 40, SCREEN_WIDTH, 141) placeHolderImage:nil imageDidSelectedBlock:^(NSInteger selectedIndex) {
         [ws bannerViewClick:selectedIndex];
     }];
     self.bannerView = bannerView;

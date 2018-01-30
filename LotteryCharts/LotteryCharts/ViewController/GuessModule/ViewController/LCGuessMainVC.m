@@ -68,29 +68,35 @@
     [popoverView showToView:btn withActions:[self neumActions]];
 }
 - (void)cellClick:(id)cell {
-    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
-    LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
-    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
-    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
-    detail.guessModel = model;
-    detail.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detail animated:YES];
+    if ([self isCanJumpViewForLogin:YES]) {
+        NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+        LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+        LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+        LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+        detail.guessModel = model;
+        detail.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
 - (void)photoClick:(id)cell {
-    NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
-    LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
-    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
-    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
-    detail.userId = model.user_id;
-    detail.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detail animated:YES];
+    if ([self isCanJumpViewForLogin:YES]) {
+        NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
+        LCMySpaceMainVC *detail = [[LCMySpaceMainVC alloc]init];
+        LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+        LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+        detail.userId = model.user_id;
+        detail.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
 - (void)moreClick:(NSInteger)index {
-    LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:index - 200];
-    LCGuessListMoreVC *more = [[LCGuessListMoreVC alloc]init];
-    more.period_id = model.period_id;
-    more.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:more animated:YES];
+    if ([self isCanJumpViewForLogin:YES]) {
+        LCGuessMainModel *model = [_viewModel.guessArray objectAtIndex:index - 200];
+        LCGuessListMoreVC *more = [[LCGuessListMoreVC alloc]init];
+        more.period_id = model.period_id;
+        more.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:more animated:YES];
+    }
 }
 #pragma mark delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -145,12 +151,14 @@
     return [UIView new];
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
-    LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
-    LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
-    detail.guessModel = model;
-    detail.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:detail animated:YES];
+    if ([self isCanJumpViewForLogin:YES]) {
+        LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+        LCGuessMainModel *listModel = [_viewModel.guessArray objectAtIndex:indexPath.section];
+        LCGuessModel *model = [listModel.quiz_list objectAtIndex:indexPath.row];
+        detail.guessModel = model;
+        detail.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:detail animated:YES];
+    }
 }
 - (NSArray<PopoverAction *> *)neumActions {
     @weakify(self)
