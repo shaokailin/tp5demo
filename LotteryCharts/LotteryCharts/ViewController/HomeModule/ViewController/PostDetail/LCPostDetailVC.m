@@ -228,7 +228,7 @@
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostHeaderTableViewCell];
     LCPostDetailHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"LCPostDetailHeaderView" owner:self options:nil] lastObject];
     self.headerView = headerView;
-    CGFloat height = self.type == 0 ? 272 + 80 : 80 + 200;
+    CGFloat height = self.type == 0 ? 232 + 80 : 80 + 160;
     UIView *headerBgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, height)];
     self.headerBgView = headerBgView;
     [headerBgView addSubview:headerView];

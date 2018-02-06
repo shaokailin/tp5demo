@@ -93,6 +93,8 @@
             }
             self.voiceBtn.hidden = !isVoice;
             self.voiceTimeLbl.hidden = !isVoice;
+            CGFloat contentHeight = [content calculateTextHeight:12 width:SCREEN_WIDTH - 50];
+            
             if (self.frameBlock) {
                 if (isVoice && self.shangTopHeight.constant <= 20.0) {
                     self.shangTopHeight.constant = 60;
