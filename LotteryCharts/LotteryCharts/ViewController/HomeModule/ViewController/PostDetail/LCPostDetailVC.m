@@ -20,7 +20,7 @@
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
-@property (nonatomic, weak) LCPostDetailHeaderView *headerView;
+@property (nonatomic, strong) LCPostDetailHeaderView *headerView;
 @property (nonatomic, strong) LCPostDetailViewModel *viewModel;
 @property (nonatomic, strong) UIView *headerBgView;
 @end

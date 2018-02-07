@@ -10,6 +10,7 @@
 #import "PYPhotoBrowser.h"
 #import <AVFoundation/AVFoundation.h>
 #import <AFNetworking/AFNetworking.h>
+#import "LCFefineTextView.h"
 @interface LCPostDetailHeaderView ()
 @property (weak, nonatomic) IBOutlet UIImageView *photoImage;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
@@ -19,7 +20,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLbl;
 @property (weak, nonatomic) IBOutlet UIButton *shangBtn;
 @property (weak, nonatomic) IBOutlet UILabel *shangCountLbl;
-@property (weak, nonatomic) IBOutlet UILabel *contentLbl;
+
+@property (weak, nonatomic) IBOutlet LCFefineTextView *contentTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentTVHeight;
 
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UIButton *careBtn;
@@ -42,8 +45,8 @@
     ViewBorderLayer(self.careBtn, ColorHexadecimal(0xf6a623, 1.0), 1.0);
     
     ViewRadius(self.shangBtn, 35 / 2.0);
-    
-    self.contentLbl.text = nil;
+//    self.contentTextView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+    self.contentTextView.text = nil;
     PYPhotosView *linePhotosView = [PYPhotosView photosViewWithThumbnailUrls:nil originalUrls:nil layoutType:PYPhotosViewLayoutTypeLine ];
     // 设置Frame
     linePhotosView.photosMaxCol = 3;
@@ -69,10 +72,10 @@
     self.shangCountLbl.text = NSStringFormat(@"%zd人打赏了帖主",count);
 }
 - (void)setupContent:(NSString *)content media:(NSDictionary *)mediaDict isShow:(BOOL)isCanShow {
-    self.contentLbl.text = content;
+    self.contentTextView.text = content;
     if (!isCanShow) {
     }else {
-        self.contentLbl.text = content;
+        self.contentTextView.text = content;
         if (mediaDict && [mediaDict isKindOfClass:[NSDictionary class]]) {
             NSArray *images = [mediaDict objectForKey:@"images"];
             if (KJudgeIsArrayAndHasValue(images)) {
@@ -80,8 +83,9 @@
                 self.linePhotosView.photosMaxCol = 3;
             }
             BOOL isVoice = NO;;
-            NSDictionary *voiceDict = [mediaDict objectForKey:@"record"];
-            if (voiceDict) {
+            id record = [mediaDict objectForKey:@"record"];
+            if (record && [record isKindOfClass:[NSDictionary class]]) {
+                NSDictionary *voiceDict = (NSDictionary *)record;
                 NSString *url = [voiceDict objectForKey:@"url"];
                 if (KJudgeIsNullData(url)) {
                     if (!_audioUrl || ![_audioUrl isEqualToString:url]) {
@@ -93,20 +97,40 @@
             }
             self.voiceBtn.hidden = !isVoice;
             self.voiceTimeLbl.hidden = !isVoice;
-            CGFloat contentHeight = [content calculateTextHeight:12 width:SCREEN_WIDTH - 50];
-            
-            if (self.frameBlock) {
-                if (isVoice && self.shangTopHeight.constant <= 20.0) {
-                    self.shangTopHeight.constant = 60;
-                    self.frameBlock(CGRectGetHeight(self.frame) + 40);
-                }else if (!isVoice && self.shangTopHeight.constant > 30) {
-                    self.shangTopHeight.constant = 20;
-                    self.frameBlock(CGRectGetHeight(self.frame) - 40);
+            CGFloat contentHeight = [self.contentTextView sizeThatFits:CGSizeMake(SCREEN_WIDTH - 50, MAXFLOAT)].height;
+//            CGFloat contentHeight = [content calculateTextHeight:12 width:SCREEN_WIDTH - 50] + 20;
+            if (contentHeight < 30) {
+                contentHeight = 30;
+            }
+            self.contentTVHeight.constant = contentHeight;
+            CGFloat viewHeight = contentHeight + 144;
+            viewHeight += 80;
+            viewHeight += 24;
+            if (isVoice && self.shangTopHeight.constant <= 20.0) {
+                self.shangTopHeight.constant = 60;
+            }else if (!isVoice && self.shangTopHeight.constant > 30) {
+                self.shangTopHeight.constant = 20;
+            }
+            if (isVoice) {
+                if (self.isUser) {
+                    viewHeight += (15 + 25);
+                }else {
+                    viewHeight += 60;
+                    viewHeight += 72;
                 }
+            }else {
+                if (!self.isUser) {
+                    viewHeight += 20;
+                    viewHeight += 72;
+                }
+            }
+            if (self.frameBlock) {
+                self.frameBlock(viewHeight);
             }
         }
     }
 }
+
 - (IBAction)playVoiece:(id)sender {
     if (_audioPlayer && [_audioPlayer isPlaying]) {
         _audioPlayer.currentTime = 0;
@@ -174,6 +198,7 @@
     
     self.timeLbl.text = time;
     self.shangCountLbl.text = NSStringFormat(@"%@人打赏了帖主",count);
+    self.isUser = type;
     if (type == 0) {
         self.shangBtn.hidden = NO;
         self.shangCountLbl.hidden = NO;

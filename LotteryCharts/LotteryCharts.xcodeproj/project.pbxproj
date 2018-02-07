@@ -55,6 +55,7 @@
 		95DDA6A51FBC895D00686504 /* LCWalletMoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA6A31FBC895D00686504 /* LCWalletMoneyTableViewCell.xib */; };
 		95DDA6A91FBC89A200686504 /* LCWalletTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDA6A71FBC89A200686504 /* LCWalletTitleTableViewCell.m */; };
 		95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA6A81FBC89A200686504 /* LCWalletTitleTableViewCell.xib */; };
+		A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A64D5451202AABCF0045E1CE /* LCFefineTextView.m */; };
 		E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */; };
 		E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */; };
 		E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAF1FBAC151002005E3 /* LCNameInputTableViewCell.m */; };
@@ -395,6 +396,8 @@
 		95DDA6A61FBC89A200686504 /* LCWalletTitleTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWalletTitleTableViewCell.h; sourceTree = "<group>"; };
 		95DDA6A71FBC89A200686504 /* LCWalletTitleTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWalletTitleTableViewCell.m; sourceTree = "<group>"; };
 		95DDA6A81FBC89A200686504 /* LCWalletTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCWalletTitleTableViewCell.xib; sourceTree = "<group>"; };
+		A64D5450202AABCF0045E1CE /* LCFefineTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFefineTextView.h; sourceTree = "<group>"; };
+		A64D5451202AABCF0045E1CE /* LCFefineTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFefineTextView.m; sourceTree = "<group>"; };
 		E61D2EA91FBAC13D002005E3 /* LCPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPhotoTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPhotoTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -1288,6 +1291,8 @@
 				E636A81F1FC5A71100C9460F /* LCPostHeaderTableViewCell.xib */,
 				E636A8221FC5A87A00C9460F /* LCCommentInputView.h */,
 				E636A8231FC5A87A00C9460F /* LCCommentInputView.m */,
+				A64D5450202AABCF0045E1CE /* LCFefineTextView.h */,
+				A64D5451202AABCF0045E1CE /* LCFefineTextView.m */,
 			);
 			path = PostDetail;
 			sourceTree = "<group>";
@@ -2291,6 +2296,7 @@
 				E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */,
 				E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
+				A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
 				E6D33C981FD944850036AE54 /* LCGuessMainListModel.m in Sources */,
