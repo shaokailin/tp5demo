@@ -9,9 +9,11 @@
 #import "LCRechargeMoneyViewModel.h"
 #import "LCHomeModuleAPI.h"
 #import "LCBaseResponseModel.h"
+
 @interface LCRechargeMoneyViewModel ()
 @property (nonatomic, strong) RACCommand *typeCommand;
 @property (nonatomic, strong) RACCommand *aliPayCommand;
+@property (nonatomic, strong) RACCommand *weixinPayCommand;
 @end
 @implementation LCRechargeMoneyViewModel
 - (void)getRechargeType {
@@ -51,7 +53,30 @@
         return;
     }
     [SKHUD showLoadingDotInWindow];
-    [self.aliPayCommand execute:nil];
+    if (self.payType == 0) {
+        [self.weixinPayCommand execute:nil];
+    }else {
+        [self.aliPayCommand execute:nil];
+    }
+}
+- (RACCommand *)weixinPayCommand {
+    if (!_weixinPayCommand) {
+        @weakify(self)
+        _weixinPayCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI wxPayMoney:self.jinbi]];
+        }];
+        [_weixinPayCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:20 model:model];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _weixinPayCommand;
 }
 - (RACCommand *)aliPayCommand {
     if (!_aliPayCommand) {

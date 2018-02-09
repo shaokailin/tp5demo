@@ -36,6 +36,13 @@ PODS:
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
   - TPKeyboardAvoiding (1.3.2)
+  - UMengUShare/Core (6.4.8.2):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.8.2)
+  - UMengUShare/Social/ReducedQQ (6.4.8.2):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.8.2):
+    - UMengUShare/Core
   - YYModel (1.0.4)
 
 DEPENDENCIES:
@@ -49,6 +56,8 @@ DEPENDENCIES:
   - RSKImageCropper
   - SDWebImage
   - TPKeyboardAvoiding
+  - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedWeChat
   - YYModel
 
 SPEC CHECKSUMS:
@@ -66,8 +75,9 @@ SPEC CHECKSUMS:
   RSKImageCropper: d9a1acbc0600bf8decc8f0d21895872c99a9e4cf
   SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   TPKeyboardAvoiding: cb69d5ddbe90ce0170e4bc2db1e5e41d4a3ad9a4
+  UMengUShare: 370d180101e13ee0227ae657ab119ba97243d2b3
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 069141a9aeb8b56d66ff8b01392fb03797c5ce44
+PODFILE CHECKSUM: b3b1faeea1d04e20db0b830c460040876ef95a48
 
-COCOAPODS: 1.4.0.rc.1
+COCOAPODS: 1.4.0

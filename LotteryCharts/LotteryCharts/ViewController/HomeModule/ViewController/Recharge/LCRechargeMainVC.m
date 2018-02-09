@@ -15,7 +15,9 @@
 #import "LSKActionSheetView.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "LCRechargeRecordVC.h"
-@interface LCRechargeMainVC () {
+#import "WXApi.h"
+#import "LCPayResultHandle.h"
+@interface LCRechargeMainVC ()<PayResultDelegate> {
     NSInteger _selectIndex;
 }
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
@@ -68,6 +70,7 @@
         if (seletedIndex > 0) {
             @strongify(self)
             self.typeView.payType = seletedIndex - 1;
+            self.viewModel.payType = seletedIndex - 1;
         }
     } otherButtonTitles:@"微信支付",@"支付宝支付", nil];
     [actionSheet showInView];
@@ -99,6 +102,7 @@
 }
 - (void)bindSignal {
     @weakify(self)
+    [LCPayResultHandle sharedManager].delegate = self;
     _viewModel = [[LCRechargeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
         if (identifier == 0) {
@@ -107,6 +111,8 @@
             [self.mainScrollerView.mj_header endRefreshing];
         }else if (identifier == 10) {
             [self aliPayEvent:model];
+        }else if (identifier == 20) {
+            [self wxPayEvent:model];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         if (identifier == 0) {
@@ -114,6 +120,7 @@
             [self.mainScrollerView.mj_header endRefreshing];
         }
     }];
+    self.viewModel.payType = 0;
     [self.viewModel getRechargeType];
 }
 -(void)changeHeaderViewFrame {
@@ -135,13 +142,26 @@
         if (code == 9000) {
             [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Success_Notice object:nil];
         }else {
-//            NSString *memo = [resultDic objectForKey:@"memo"];
-//            if (!KJudgeIsNullData(memo)) {
-//                memo = @"支付失败";
-//            }
             [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Fail_Notice object:nil];
         }
     }];
+}
+- (void)wxPayResultCallBlack:(BOOL)isSuccess {
+    if (isSuccess) {
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Success_Notice object:nil];
+    }else {
+        [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Fail_Notice object:nil];
+    }
+}
+- (void)wxPayEvent:(LCWeiPayOrderModel *)model {
+    PayReq *request = [[PayReq alloc] init];
+    request.partnerId = model.partnerid;
+    request.prepayId= model.prepayid;
+    request.package = model.package;
+    request.nonceStr= model.noncestr;
+    request.timeStamp = [model.timestamp intValue];
+    request.sign= model.sign;
+    [WXApi sendReq:request];
 }
 #pragma mark 界面初始化
 - (void)initializeMainView {
@@ -192,7 +212,7 @@
         make.height.mas_equalTo(275);
     }];
     contentHeight += 275;
-    self.typeView.payType = 1;
+//    self.typeView.payType = 1;
     mainScrollerView.contentSize = CGSizeMake(SCREEN_WIDTH, contentHeight);
     self.headerView.typeBlock = ^(NSInteger type) {
         [ws selectPayType:type];
@@ -208,7 +228,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+- (void)dealloc {
+    [LCPayResultHandle sharedManager].delegate = nil;
+}
 /*
 #pragma mark - Navigation
 

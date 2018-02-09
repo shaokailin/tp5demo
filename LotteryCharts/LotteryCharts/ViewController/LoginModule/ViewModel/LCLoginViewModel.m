@@ -11,8 +11,10 @@
 #import "LCLoginMainModel.h"
 #import "LCUserLoginMessageModel.h"
 #import "AppDelegate.h"
+#import "LCBaseResponseModel.h"
 @interface LCLoginViewModel ()
 @property (nonatomic, strong) RACCommand *loginCommand;
+@property (nonatomic, strong) RACCommand *loginThirdCommand;
 @property (nonatomic, strong) RACCommand *getUserMessageCommand;
 @property (nonatomic, copy) NSString *phoneString;
 @property (nonatomic, copy) NSString *passwordString;
@@ -26,6 +28,24 @@
 @property (nonatomic, strong) RACCommand *forgetStep2Command;
 @end
 @implementation LCLoginViewModel
+- (void)loginWithThird:(NSString *)userId loginName:(NSString *)loginName loginSex:(NSString *)loginSex userPhoto:(NSString *)userLogo {
+    [SKHUD showLoadingDotInView:self.currentView];
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    [dict setObject:self.loginType forKey:@"login_type"];
+    if (KJudgeIsNullData(userId)) {
+        [dict setObject:userId forKey:@"login_key"];
+    }
+    if (KJudgeIsNullData(loginName)) {
+        [dict setObject:loginName forKey:@"login_name"];
+    }
+    if (KJudgeIsNullData(loginSex)) {
+        [dict setObject:loginSex forKey:@"login_sex"];
+    }
+    if (KJudgeIsNullData(userLogo)) {
+        [dict setObject:userLogo forKey:@"login_userlogo"];
+    }
+    [self.loginThirdCommand execute:dict];
+}
 - (void)loginEventClick {
     if (![self verifyPhoneAndPwd]) {
         return;
@@ -92,6 +112,29 @@
         }];
     }
     return _loginCommand;
+}
+- (RACCommand *)loginThirdCommand {
+    if (!_loginThirdCommand) {
+        @weakify(self)
+        _loginThirdCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCLoginModuleAPI loginThirdWithParams:input]];
+        }];
+        [_loginThirdCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                if (KJudgeIsNullData(model.response)) {
+                    self.userToken = model.response;
+                    [self.getUserMessageCommand execute:nil];
+                }else {
+                    [SKHUD showMessageInView:self.currentView withMessage:@"系统出错啦~!"];
+                }
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _loginThirdCommand;
 }
 - (void)getUserMessage {
     [self.getUserMessageCommand execute:nil];

@@ -248,7 +248,7 @@
             }else {
                 LCRewardOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRewardOrderTableViewCell];
                 LCSendRecordModel *model = [self.viewModel.dataArray objectAtIndex:indexPath.row - 1];
-                [cell setupContentWithName:model.nickname userId:model.user_id index:indexPath.row photo:model.logo];
+                [cell setupContentWithName:model.nickname userId:model.user_id index:indexPath.row photo:model.logo money:model.money];
                 WS(ws)
                 cell.photoBlock = ^(id clickCell) {
                     [ws photoClick:clickCell];

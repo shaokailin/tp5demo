@@ -10,6 +10,7 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "LCRegisterMainView.h"
 #import "LCLoginViewModel.h"
+#import <UMSocialCore/UMSocialCore.h>
 @interface LCRegisterMainVC ()
 @property (nonatomic, weak) TPKeyboardAvoidingScrollView *mainScrollerView;
 @property (nonatomic, weak) LCRegisterMainView *registerView;
@@ -32,9 +33,33 @@
         [self navigationBackClick];
     }else if(type == 2) {
         [self.viewModel getCodeEvent];
-    }else {
+    }else if(type == 3) {
         [self.viewModel registerActionEvent];
+    }else if(type == 4) {
+        if ([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_WechatSession]) {
+            self.viewModel.loginType = @"weixin";
+            [self getUserInfoForPlatform:UMSocialPlatformType_WechatSession];
+        }else {
+            [SKHUD showMessageInWindowWithMessage:@"暂无条件使用微信快捷登录"];
+        }
+    }else if (type == 5) {
+        if ([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_QQ]) {
+            self.viewModel.loginType = @"qq";
+            [self getUserInfoForPlatform:UMSocialPlatformType_QQ];
+        }else {
+            [SKHUD showMessageInWindowWithMessage:@"暂无条件使用QQ快捷登录"];
+        }
     }
+}
+- (void)getUserInfoForPlatform:(UMSocialPlatformType)platformType {
+    [[UMSocialManager defaultManager] getUserInfoWithPlatform:platformType currentViewController:self completion:^(id result, NSError *error) {
+        if (!error) {
+            UMSocialUserInfoResponse *resp = result;
+            [self.viewModel loginWithThird:resp.uid loginName:resp.name loginSex:resp.unionGender userPhoto:resp.iconurl];
+        }else {
+            [SKHUD showMessageInWindowWithMessage:@"授权失败~!"];
+        }
+    }];
 }
 - (void)bindSignal {
     @weakify(self)

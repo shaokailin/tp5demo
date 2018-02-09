@@ -23,4 +23,6 @@
 - (void)forgetActionEvent;
 
 - (void)getCodeEvent;
+@property (nonatomic, assign) NSString *loginType;
+- (void)loginWithThird:(NSString *)userId loginName:(NSString *)loginName loginSex:(NSString *)loginSex userPhoto:(NSString *)userLogo;
 @end

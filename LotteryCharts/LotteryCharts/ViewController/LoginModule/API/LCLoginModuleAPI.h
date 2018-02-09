@@ -15,6 +15,8 @@
 + (LSKParamterEntity *)registerUserWithPhone:(NSString *)phone pwd:(NSString *)pwd msid:(NSString *)msid code:(NSString *)code;
 //登录
 + (LSKParamterEntity *)loginUserWithPhone:(NSString *)phone pwd:(NSString *)pwd;
+//登录
++ (LSKParamterEntity *)loginThirdWithParams:(NSDictionary *)param;
 //退出登录
 + (LSKParamterEntity *)loginOutEvent:(NSString *)token;
 //找回密码

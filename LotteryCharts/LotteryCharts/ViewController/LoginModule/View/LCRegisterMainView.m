@@ -100,6 +100,12 @@
 - (IBAction)registerClick:(id)sender {
     [self eventActionClick:3];
 }
+- (IBAction)weixinClick:(id)sender {
+    [self eventActionClick:4];
+}
+- (IBAction)qqClick:(id)sender {
+    [self eventActionClick:5];
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.

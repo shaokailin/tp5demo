@@ -10,5 +10,5 @@
 static NSString * const kLCRewardOrderTableViewCell = @"LCRewardOrderTableViewCell";
 @interface LCRewardOrderTableViewCell : UITableViewCell
 @property (nonatomic, copy) PhotoClickBlock photoBlock;
-- (void)setupContentWithName:(NSString *)name userId:(NSString *)userId index:(NSInteger)index photo:(NSString *)photo;
+- (void)setupContentWithName:(NSString *)name userId:(NSString *)userId index:(NSInteger)index photo:(NSString *)photo money:(NSString *)money;
 @end

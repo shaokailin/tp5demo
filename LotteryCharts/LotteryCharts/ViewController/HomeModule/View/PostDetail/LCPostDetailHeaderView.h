@@ -15,6 +15,7 @@ typedef void (^HeaderViewFrameBlock)(CGFloat height);
 @property (nonatomic, copy) PhotoClickBlock photoBlock;
 @property (nonatomic, assign) BOOL isUser;
 @property (nonatomic, assign) BOOL isCare;
+- (void)setupPayBtnState:(BOOL)isPay;
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type;
 - (void)setupContent:(NSString *)content media:(NSDictionary *)mediaDict isShow:(BOOL)isCanShow;
 - (void)setupRewardCount:(NSInteger)count;

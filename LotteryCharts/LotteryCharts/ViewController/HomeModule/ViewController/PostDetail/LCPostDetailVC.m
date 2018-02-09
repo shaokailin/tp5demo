@@ -63,15 +63,19 @@
                 self.headerView.isCare = detailModel.is_follow;
                 _isNeedSend = NO;
                 BOOL isCanShow = YES;
+                BOOL isPay = NO;
                 if (detailModel.return_status < 4) {
                     isCanShow  = NO;
                     if (detailModel.return_status == 3) {
                         _isNeedSend =  YES;
                         [SKHUD showMessageInView:self.view withMessage:@"请回复才能查看帖子内容！"];
                     }else if (detailModel.return_status == 2) {
-                        [self showAlterView];
+                        [SKHUD showMessageInView:self.view withMessage:@"请支付帖子才能查看帖子内容！"];
+                        isPay = YES;
+                        
                     }
                 }
+                [self.headerView setupPayBtnState:isPay];
                 [self setupHeadView:isCanShow isFirst:NO];
             }
             [self endRefreshing];
@@ -117,10 +121,8 @@
     [alterView.rac_buttonClickedSignal subscribeNext:^(NSNumber * _Nullable x) {
         @strongify(self)
         if ([x integerValue] == 1) {
-            
             [self.viewModel payForShowEvent];
         }else {
-//            [self navigationBackClick];
         }
     }];
     [alterView show];
@@ -143,8 +145,10 @@
         [self.viewModel attentionPost:self.headerView.isCare];
     }else if (type == 1){
         
-    }else {
+    }else if(type == 2) {
         [self getRewardEvent];
+    }else if (type == 3){
+        [self showAlterView];
     }
 }
 - (void)getRewardEvent {

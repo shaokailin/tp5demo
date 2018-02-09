@@ -13,4 +13,6 @@ pod 'TPKeyboardAvoiding'
 pod 'RSKImageCropper'
 pod 'Qiniu'
 pod 'PYPhotoBrowser'
+pod 'UMengUShare/Social/ReducedWeChat'
+pod 'UMengUShare/Social/ReducedQQ'
 end

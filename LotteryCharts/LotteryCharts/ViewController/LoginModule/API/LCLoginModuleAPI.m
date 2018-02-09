@@ -9,9 +9,11 @@
 #import "LCLoginModuleAPI.h"
 #import "LCLoginMainModel.h"
 #import "LCUserLoginMessageModel.h"
+#import "LCBaseResponseModel.h"
 static NSString * const kSendCodeApi = @"Public/sendCode.html";
 static NSString * const kRegisterUserApi = @"Public/reg.html";
 static NSString * const kLoginUserApi = @"Public/login.html";
+static NSString * const kLoginThirdApi = @"Public/thridLogin.html";
 static NSString * const kLoginOutApi = @"Public/logout.html";
 static NSString * const kForgetPwd = @"Public/findForgetPassword.html";
 static NSString * const kChangePwd = @"Public/updateForgetPassword.html";
@@ -37,6 +39,13 @@ static NSString * const kGetUserMessage = @"User/getUserInfo.html";
     entity.requestApi = kLoginUserApi;
     entity.responseObject = [LCLoginMainModel class];
     entity.params = @{@"mobile":phone,@"password":pwd};
+    return entity;
+}
++ (LSKParamterEntity *)loginThirdWithParams:(NSDictionary *)param {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kLoginThirdApi;
+    entity.responseObject = [LCBaseResponseModel class];
+    entity.params = param;
     return entity;
 }
 + (LSKParamterEntity *)loginOutEvent:(NSString *)token {

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleAllowMixedLocalizations</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>zh_CN</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>lotteryCharts</string>
+				<string>wx7896e36017349dfb</string>
 			</array>
 		</dict>
 		<dict>
@@ -33,7 +35,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wx33a4485684cbba53</string>
+				<string>tencent1106477215</string>
 			</array>
 		</dict>
 		<dict>
@@ -41,7 +43,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>tencent1106498102</string>
+				<string>QQ41f3809f</string>
 			</array>
 		</dict>
 		<dict>
@@ -49,7 +51,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>QQ41f3d236</string>
+				<string>shenxianyu</string>
 			</array>
 		</dict>
 	</array>
@@ -57,6 +59,8 @@
 	<string>26</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>alipay</string>
+		<string>alipayshare</string>
 		<string>timapiV1</string>
 		<string>wtlogintimV1</string>
 		<string>timopensdkdataline</string>
@@ -121,8 +125,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>CFBundleAllowMixedLocalizations</key>
-	<true/>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

@@ -20,6 +20,7 @@
 #import "LCRechargeMoneyListModel.h"
 #import "LCLotteryFiveModel.h"
 #import "LCLottery5DListModel.h"
+#import "LCWeiPayOrderModel.h"
 static NSString * kPushPostApi = @"post/add.html";
 static NSString * kLotteryFiveApi = @"Direct/getRangeOne.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
@@ -241,8 +242,8 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
 + (LSKParamterEntity *)wxPayMoney:(NSString *)jinbi {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kWXPay;
-    entity.params = @{@"token":kUserMessageManager.token,@"jinbinnum":jinbi};
-    entity.responseObject = [LCRechargeMoneyListModel class];
+    entity.params = @{@"token":kUserMessageManager.token,@"id":jinbi};
+    entity.responseObject = [LCWeiPayOrderModel class];
     return entity;
 }
 @end

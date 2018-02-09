@@ -114,13 +114,13 @@
             title = NSStringFormat(@"已完成%@%%",self.viewModel.taskModel.fish_ing);
             break;
         case 1:
-            title = self.viewModel.taskModel.today_post == 1? @"已回帖":@"未回帖";
+            title = self.viewModel.taskModel.today_post > 0? @"已完成":@"赚取100银币";
             break;
         case 2:
-            title = self.viewModel.taskModel.is_sign == 1? @"已签到":@"未签到";
+            title = self.viewModel.taskModel.is_sign > 0 ? @"已完成":@"赚取100银币";
             break;
         case 3:
-            title = NSStringFormat(@"获取%zd银币",self.viewModel.taskModel.all_sign);
+            title = self.viewModel.taskModel.all_sign > 0? @"已完成":@"赚取100银币";
             break;
         case 4:
             title = @"获取1银币";

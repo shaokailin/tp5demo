@@ -56,6 +56,11 @@
 		95DDA6A91FBC89A200686504 /* LCWalletTitleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDA6A71FBC89A200686504 /* LCWalletTitleTableViewCell.m */; };
 		95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DDA6A81FBC89A200686504 /* LCWalletTitleTableViewCell.xib */; };
 		A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A64D5451202AABCF0045E1CE /* LCFefineTextView.m */; };
+		A658A5EC202D50330091586B /* LCWeiPayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A5EB202D50330091586B /* LCWeiPayOrderModel.m */; };
+		A658A5F2202D6D480091586B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F1202D6D480091586B /* libWeChatSDK.a */; };
+		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
+		A658A5F6202D701F0091586B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F5202D701F0091586B /* Security.framework */; };
+		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
 		E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */; };
 		E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */; };
 		E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAF1FBAC151002005E3 /* LCNameInputTableViewCell.m */; };
@@ -398,6 +403,16 @@
 		95DDA6A81FBC89A200686504 /* LCWalletTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCWalletTitleTableViewCell.xib; sourceTree = "<group>"; };
 		A64D5450202AABCF0045E1CE /* LCFefineTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFefineTextView.h; sourceTree = "<group>"; };
 		A64D5451202AABCF0045E1CE /* LCFefineTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFefineTextView.m; sourceTree = "<group>"; };
+		A658A5EA202D50330091586B /* LCWeiPayOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWeiPayOrderModel.h; sourceTree = "<group>"; };
+		A658A5EB202D50330091586B /* LCWeiPayOrderModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCWeiPayOrderModel.m; sourceTree = "<group>"; };
+		A658A5EE202D6D480091586B /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		A658A5EF202D6D480091586B /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		A658A5F0202D6D480091586B /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		A658A5F1202D6D480091586B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		A658A5F3202D70120091586B /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		A658A5F5202D701F0091586B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
+		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
 		E61D2EA91FBAC13D002005E3 /* LCPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPhotoTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPhotoTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -855,6 +870,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A658A5F6202D701F0091586B /* Security.framework in Frameworks */,
+				A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */,
+				A658A5F2202D6D480091586B /* libWeChatSDK.a in Frameworks */,
 				E6618C0C1FF0E60700ACCFBC /* CFNetwork.framework in Frameworks */,
 				E6618C0A1FF0E5FE00ACCFBC /* CoreMotion.framework in Frameworks */,
 				E6618C081FF0E5F800ACCFBC /* Foundation.framework in Frameworks */,
@@ -1019,9 +1037,22 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
+		A658A5ED202D6D480091586B /* WechatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				A658A5EE202D6D480091586B /* WXApi.h */,
+				A658A5EF202D6D480091586B /* WXApiObject.h */,
+				A658A5F0202D6D480091586B /* WechatAuthSDK.h */,
+				A658A5F1202D6D480091586B /* libWeChatSDK.a */,
+			);
+			path = WechatSDK;
+			sourceTree = "<group>";
+		};
 		CCDB604C2C61D11EF89E35AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A658A5F5202D701F0091586B /* Security.framework */,
+				A658A5F3202D70120091586B /* libsqlite3.0.tbd */,
 				E6618C0B1FF0E60600ACCFBC /* CFNetwork.framework */,
 				E6618C091FF0E5FE00ACCFBC /* CoreMotion.framework */,
 				E6618C071FF0E5F800ACCFBC /* Foundation.framework */,
@@ -1323,6 +1354,7 @@
 		E6618BF21FF0E3E400ACCFBC /* SDK */ = {
 			isa = PBXGroup;
 			children = (
+				A658A5ED202D6D480091586B /* WechatSDK */,
 				E6618BF31FF0E3EB00ACCFBC /* AlipaySDK.bundle */,
 				E6618BF41FF0E3EC00ACCFBC /* AlipaySDK.framework */,
 			);
@@ -1615,6 +1647,8 @@
 				95393DDF20008A740091BF1B /* LCLotteryFiveModel.m */,
 				95393DE12000EC970091BF1B /* LCLottery5DListModel.h */,
 				95393DE22000EC970091BF1B /* LCLottery5DListModel.m */,
+				A658A5EA202D50330091586B /* LCWeiPayOrderModel.h */,
+				A658A5EB202D50330091586B /* LCWeiPayOrderModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1865,6 +1899,8 @@
 				E6E2C6F51FB00A6D00866D15 /* LCRootTabBarVC.m */,
 				E6E2C6F71FB00A8D00866D15 /* LCUserMessageManager.h */,
 				E6E2C6F81FB00A8D00866D15 /* LCUserMessageManager.m */,
+				A658A633202D74770091586B /* LCPayResultHandle.h */,
+				A658A634202D74770091586B /* LCPayResultHandle.m */,
 			);
 			path = BaseConfig;
 			sourceTree = "<group>";
@@ -2233,9 +2269,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts-resources.sh",
+				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2436,12 +2475,14 @@
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
 				95BC5E6E1FE153FD00FB5C3E /* LCCantactListModel.m in Sources */,
+				A658A5EC202D50330091586B /* LCWeiPayOrderModel.m in Sources */,
 				E641982F1FDE53B400C47713 /* LCAdBannerModel.m in Sources */,
 				E6E2C67D1FB0038600866D15 /* LSKBaseWebViewController.m in Sources */,
 				E61EA1C81FD54E0D00737327 /* LCSpacePostModel.m in Sources */,
 				E61D2EED1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.m in Sources */,
 				E694502A1FD0F55C00605793 /* LCUserAttentionViewModel.m in Sources */,
 				E69450301FD1337700605793 /* LCTeamViewModel.m in Sources */,
+				A658A635202D74770091586B /* LCPayResultHandle.m in Sources */,
 				E6C3F3D61FC059F60077D670 /* LCVipRankingTableViewCell.m in Sources */,
 				E636A81A1FC5A67400C9460F /* LCPostDetailHeaderView.m in Sources */,
 				E6C7F4A61FF5D11700479605 /* LCRechargeRecordVC.m in Sources */,
@@ -2596,13 +2637,22 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/WechatSDK",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2620,13 +2670,22 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialSDK",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/LotteryCharts/BaseConfig/LotteryCharts_PrefixHeader.pch";
 				INFOPLIST_FILE = LotteryCharts/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/WechatSDK",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK/UMSocial/SocialLibraries/WeChat/WechatSDK",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

@@ -8,6 +8,7 @@
 
 #import "LSKBaseViewModel.h"
 #import "LCRechargeMoneyListModel.h"
+#import "LCWeiPayOrderModel.h"
 @interface LCRechargeMoneyViewModel : LSKBaseViewModel
 @property (nonatomic, strong) NSArray *typeArray;
 - (void)getRechargeType;

@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *userIdLbl;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 
 @end
 @implementation LCRewardOrderTableViewCell
@@ -29,8 +30,9 @@
         self.photoBlock(self);
     }
 }
-- (void)setupContentWithName:(NSString *)name userId:(NSString *)userId index:(NSInteger)index photo:(NSString *)photo {
+- (void)setupContentWithName:(NSString *)name userId:(NSString *)userId index:(NSInteger)index photo:(NSString *)photo money:(NSString *)money {
     self.nameLbl.text = name;
+    self.moneyLbl.text = money;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.indexLbl.text = NSStringFormat(@"%zd",index);
     if (KJudgeIsNullData(photo)) {

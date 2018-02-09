@@ -11,6 +11,9 @@
 #import "LCLoginMainVC.h"
 #import "LCUserMainVC.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import <UMSocialCore/UMSocialCore.h>
+#import "WXApi.h"
+#import "LCPayResultHandle.h"
 @interface AppDelegate ()<UITabBarControllerDelegate>
 @property (nonatomic, strong) LCRootTabBarVC *rootTabBarVC;
 @end
@@ -25,7 +28,15 @@
     [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
     [self windowRootController];
     [self.window makeKeyAndVisible];
+    [self setupUmengConfig];
     return YES;
+}
+- (void)setupUmengConfig {
+    /* 设置友盟appkey */
+    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a7cf6f7b27b0a5ff9000609"];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession appKey:@"wx7896e36017349dfb" appSecret:@"0c8bbf3f22537e87367539f1e16b238b" redirectURL:nil];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_QQ appKey:@"1106477215"/*设置QQ平台的appID*/  appSecret:nil redirectURL:@"http://mobile.umeng.com/social"];
+    [WXApi registerApp:@"wx7896e36017349dfb"];
 }
 - (void)windowRootController {
     self.window.rootViewController = self.rootTabBarVC;
@@ -72,8 +83,20 @@
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
+            LSKLog(@"result = %@",resultDic);
+            NSInteger code = [[resultDic objectForKey:@"resultStatus"]integerValue];
+            if (code == 9000) {
+                [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Success_Notice object:nil];
+            }else {
+                [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Fail_Notice object:nil];
+            }
         }];
+    }else {
+        BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url sourceApplication:sourceApplication annotation:annotation];
+        if (!result) {
+            return [WXApi handleOpenURL:url delegate:[LCPayResultHandle sharedManager]];
+        }
+        return result;
     }
     return YES;
 }
@@ -84,7 +107,7 @@
     if ([url.host isEqualToString:@"safepay"]) {
         //跳转支付宝钱包进行支付，处理支付结果
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
-            NSLog(@"result = %@",resultDic);
+            LSKLog(@"result = %@",resultDic);
             NSInteger code = [[resultDic objectForKey:@"resultStatus"]integerValue];
             if (code == 9000) {
                 [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Success_Notice object:nil];
@@ -92,6 +115,12 @@
                 [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kPay_Fail_Notice object:nil];
             }
         }];
+    }else{
+        BOOL result = [[UMSocialManager defaultManager]  handleOpenURL:url options:options];
+        if (!result) {
+            return [WXApi handleOpenURL:url delegate:[LCPayResultHandle sharedManager]];
+        }
+        return result;
     }
     return YES;
 }

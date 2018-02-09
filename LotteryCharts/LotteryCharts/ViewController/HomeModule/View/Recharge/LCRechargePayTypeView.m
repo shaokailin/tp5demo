@@ -19,7 +19,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     _payType = 0;
-    _moreBtn.hidden = YES;
+    _moreBtn.hidden = NO;
 }
 - (IBAction)moerPayClick:(id)sender {
     if (self.typeBlock) {
