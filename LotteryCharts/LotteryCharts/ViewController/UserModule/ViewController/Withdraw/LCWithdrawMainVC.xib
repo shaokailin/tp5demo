@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -161,12 +161,19 @@
                         <action selector="contactServiceClick:" destination="-1" eventType="touchUpInside" id="Fxb-pZ-vvJ"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提交后联系客服(14:00-21:00)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5v-re-0i5">
+                    <rect key="frame" x="20" y="531" width="189.5" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fde-0u-iBE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2D9-YT-Hhy"/>
                 <constraint firstAttribute="trailing" secondItem="kK5-IJ-hCZ" secondAttribute="trailing" id="508-bK-ude"/>
                 <constraint firstItem="ZYq-fZ-OtS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="60h-Iu-7Tl"/>
+                <constraint firstItem="Shb-GI-IEE" firstAttribute="top" secondItem="j5v-re-0i5" secondAttribute="bottom" constant="10" id="8KG-zz-Z32"/>
                 <constraint firstItem="FD3-5C-Z88" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="8cp-cM-fhc"/>
                 <constraint firstItem="kK5-IJ-hCZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GLC-lu-AVm"/>
                 <constraint firstAttribute="trailing" secondItem="ZYq-fZ-OtS" secondAttribute="trailing" constant="20" id="HNx-sl-ljX"/>
@@ -175,6 +182,7 @@
                 <constraint firstAttribute="trailing" secondItem="fde-0u-iBE" secondAttribute="trailing" id="WvI-Gg-MlU"/>
                 <constraint firstItem="ZYq-fZ-OtS" firstAttribute="top" secondItem="fde-0u-iBE" secondAttribute="bottom" constant="10" id="WzP-Gi-XqV"/>
                 <constraint firstAttribute="bottom" secondItem="Shb-GI-IEE" secondAttribute="bottom" id="Zl4-WE-qdG"/>
+                <constraint firstItem="j5v-re-0i5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="aRz-MA-uD3"/>
                 <constraint firstItem="FD3-5C-Z88" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cGa-4U-QL2"/>
                 <constraint firstAttribute="trailing" secondItem="Shb-GI-IEE" secondAttribute="trailing" id="jX4-ro-k2L"/>
                 <constraint firstAttribute="trailing" secondItem="FD3-5C-Z88" secondAttribute="trailing" id="uhW-wj-n3H"/>

@@ -14,7 +14,7 @@
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = ColorHexadecimal(0xa0a0a0, 1.0);
+        self.backgroundColor = ColorHexadecimal(0xf6a623, 1.0);
         [self _layoutMainView];
     }
     return self;

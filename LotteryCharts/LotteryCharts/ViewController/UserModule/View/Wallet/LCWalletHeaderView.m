@@ -50,15 +50,15 @@
         make.bottom.equalTo(moneyLbl.mas_bottom).with.offset(-2);
     }];
     
-    UIButton *withdrawBtn = [LSKViewFactory initializeButtonWithTitle:@"去提现" nornalImage:@"arrow_white" selectedImage:@"arrow_white" target:self action:@selector(withdrawEvent) textfont:12 textColor:ColorRGBA(255, 255, 255, 0.5) backgroundColor:nil backgroundImage:nil];
+    UIButton *withdrawBtn = [LSKViewFactory initializeButtonWithTitle:@"去提现" nornalImage:@"arrow_white" selectedImage:@"arrow_white" target:self action:@selector(withdrawEvent) textfont:20 textColor:ColorRGBA(255, 255, 255, 0.5) backgroundColor:nil backgroundImage:nil];
     withdrawBtn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-    withdrawBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 12);
-    withdrawBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -38);
+    withdrawBtn.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 24);
+    withdrawBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -55);
     [self addSubview:withdrawBtn];
     [withdrawBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(moneyLbl.mas_top);
         make.right.equalTo(ws).with.offset(-10);
-        make.size.mas_equalTo(CGSizeMake(60, 40));
+        make.size.mas_equalTo(CGSizeMake(110, 40));
     }];
     
 }

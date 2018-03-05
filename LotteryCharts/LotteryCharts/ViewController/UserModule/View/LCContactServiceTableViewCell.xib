@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,10 +26,14 @@
                             <constraint firstAttribute="height" constant="40" id="pZb-Hd-B4P"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wxicon" translatesAutoresizingMaskIntoConstraints="NO" id="c3o-Gp-7DJ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wxpay" translatesAutoresizingMaskIntoConstraints="NO" id="c3o-Gp-7DJ">
                         <rect key="frame" x="20" y="102.5" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="QcU-dE-fTO"/>
+                            <constraint firstAttribute="width" constant="25" id="Y0n-AH-yqO"/>
+                        </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginqq" translatesAutoresizingMaskIntoConstraints="NO" id="FSB-Nx-aYJ">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qqpay" translatesAutoresizingMaskIntoConstraints="NO" id="FSB-Nx-aYJ">
                         <rect key="frame" x="97" y="102.5" width="25" height="25"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="25" id="K2H-ZD-3Gf"/>
@@ -109,7 +113,7 @@
     </objects>
     <resources>
         <image name="contactphone" width="15" height="15"/>
-        <image name="loginqq" width="25" height="25"/>
-        <image name="wxicon" width="25" height="25"/>
+        <image name="qqpay" width="42" height="42"/>
+        <image name="wxpay" width="30" height="30"/>
     </resources>
 </document>
