@@ -7,8 +7,10 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
+    Button,
   Text,
-  View
+  View,
+    ActivityIndicator,
 } from 'react-native';
 
 const instructions = Platform.select({
@@ -16,13 +18,28 @@ const instructions = Platform.select({
   android: 'kailinshao',
 });
 
+const TimerMini = require('react-timer-mixin');
+
+
+
+
+
 type Props = {};
 export default class App extends Component<Props> {
-
+  static navigationOptions = {
+    title:'kai'
+  };
   render() {
+      const {goBack} = this.props.navigation;
     return (
       <View style={styles.container}>
-
+        <Text style={styles.instructions}>
+            {this.props.name}
+        </Text>
+        <Button title='返回' onPress={()=>{
+            goBack();
+        }}/>
+          <ActivityIndicator animating='true' size='small' color='red'/>
       </View>
     );
   }

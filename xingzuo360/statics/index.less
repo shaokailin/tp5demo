@@ -1,0 +1,522 @@
+@charset "utf-8";
+@import "common";
+/*右侧栏公共标题*/
+.public_right_title{height: @h40;line-height: @h40; color: @color1;.ta_c;.fs18;}
+/*右侧公共列表*/
+.public_right_list{
+  padding:0 20px 10px;
+  .ov_h;
+  a{
+    .fs16;
+    .db;
+    height: @h30;
+    line-height: @h30;
+    .ell;
+    margin-bottom: 5px;
+  }
+  a:hover{color: @color1;}
+}
+
+
+/*轮播图*/
+.main_scroll{ width:@w680; height: 400px; background-color: #ddd;
+  .swiper-pagination{ text-align: right; color: #fff; .fs18;}
+  .swiper-pagination-total{ padding-right:10px;}
+  .swiper-pagination-current{ font-size: 30px;}
+  .swiper-slide a{.db;}
+  .swiper-slide img{ .db; width: 100%;}
+  .swiper-slide p{ .pos_a; left: 0; bottom:0;@h:60px; height: @h;line-height: @h; background-color: rgba(0,0,0,.5); width: 100%; box-sizing: border-box; color: #fff;
+    padding-left: 10px;font-size: 22px;}
+  .swiper-button-prev{background:url("images/icon_arrow.png") no-repeat; width: 30px; height: 49px; overflow: hidden}
+  .swiper-button-next{background:url("images/icon_arrow.png") no-repeat -30px 0; width: 30px; height: 49px; overflow: hidden}
+  //.swiper-container .swiper-pagination-progress{top:auto; bottom:0}
+}
+/*推荐位4个*/
+.main_item{
+  .ov_h;
+  background-color: @bg_white;
+  margin-top:10px;
+  ul{width: 682px;}
+  li{
+    .fl;
+    @border:1px solid #ebebeb;
+    border-right:@border;
+    border-bottom:@border;
+    width: 340px;
+    height: 155px;
+    .ov_h;
+  }
+  .f{
+    .fs18;
+    color: @color1;
+    margin:35px 0 0 20px;
+  }
+  .f a{ color:@color1; }
+  .f span{  width: 16px; height: 30px;.ta_c;  .ov_h; .border-radius(3px);.d_ib; font-size: 12px; line-height: 14px; vertical-align: middle; margin-right: 5px;}
+  .f .i_1{color: @color1;border:1px solid @color1;}
+  .f .i_2{color: @color2;border:1px solid @color2;}
+  .f .i_3{color: @color3;border:1px solid @color3;}
+  .f .i_4{color: @color4;border:1px solid @color4;}
+  .c{ margin:5px 40px 0 50px; .ov_h;}
+  .c a{
+    .fs16;
+    height: @h30;
+    line-height: @h30;
+    .db;
+    .ell;
+  }
+  .c a:hover{ color: @color1;}
+}
+
+/*左侧每个大模块 公共标题*/
+.main_box{
+  .ov_h;
+  &_top{ .ov_h; height: @h35; line-height: @h35;
+    margin: 10px 0;.fs16;}
+  &_top .l{ font-size: 28px;  display: block;.fl; @w:115px; width: @w;}
+  &_t1 .l{color: @color1;}
+  &_t2 .l{color: @color2;}
+  &_t3 .l{color: @color3;}
+  &_t4 .l{color: @color4;}
+  &_t5 .l{color: @color5;}
+  &_top .r{.fl;@w:565px; width: @w; text-align: right;}
+  &_top .r a{ .d_ib;padding:0 3px;
+    margin: 12px 0 0 4px; height: @h20; line-height: @h20;}
+  &_top .r a:hover{  .border-radius(3px); color: #fff;}
+  &_t1 .r a:hover{ background-color: @color1}
+  &_t2 .r a:hover{ background-color: @color2}
+  &_t3 .r a:hover{ background-color: @color3}
+  &_t4 .r a:hover{ background-color: @color4}
+  &_t5 .r a:hover{ background-color: @color5}
+}
+/*十二星座*/
+.main_box_xz{ background-color: @bg_white; padding:0 15px 15px;.ov_h;}
+.mbx_list{
+  @h:150px;
+  width: @w200;
+  .fl;
+  .ov_h;
+  a{
+    .db;
+    .ta_c;
+    margin-top:15px;
+  }
+  a .pic{ width: @w200; height: @h;.ov_h;}
+  a img{ .db; width: 100%;}
+  a .t{ height: @h35; line-height: @h35; .ell;}
+  a .t:hover{ color: @color1;}
+}
+.mbx_right{
+  .fr;
+  @w:430px;
+  width: @w;
+}
+.mbx_right_see{
+  .ov_h;
+  @bg:#ff6699;
+  .t{
+    @w:40px;
+    width: @w;
+    color: #fff;
+    font-size: 22px;
+    line-height: 40px;
+    .ta_c;
+    .fl;
+    margin-top: 15px;
+
+  }
+  .t span{@h:130px;height: @h;background-color: @bg;.db; padding-top:10px; line-height: 32px;}
+  i{.db; width: 0; height: 0; width:0;
+    height:0;
+    border-left:20px solid transparent;
+    border-right:20px solid transparent;
+    border-top:10px solid @bg;
+  }
+}
+.mbx_right_ui {
+  .fr;
+  width: 371px;
+  margin-top: 5px;
+  li{
+    margin-top: 10px;}
+  select {
+    height: @h30;
+    line-height: @h30;
+    width: 125px;
+    background-color: #f4f4f4;
+    border:1px solid #e8e8e8;
+    margin-right: 10px;
+  }
+  .btn{ height: @h30; line-height: @h30; width: 90px; background-color: #ff6699; border:1px solid #f25489; .d_ib; .ta_c; color: #fff;}
+
+}
+.mbx_right_list {
+  .ov_h;
+  margin-top:36px;
+  dl{ .ov_h;
+    margin-bottom: 5px;}
+  @h:20px;
+  dt{
+    height: @h;
+    border:1px solid @color1;
+    color: @color1;
+    .border-radius(3px);
+    .d_ib;
+    .fl;
+    .ta_c;
+    width: 40px;
+    margin-top:5px;
+  }
+  dt a{.db; color: @color1}
+  dd{
+    .ov_h;
+    .fr;
+    height: @h30;
+    line-height: @h30;
+    width: 388px;
+  }
+  dd a{ width: 182px; .ell;margin-left: 10px;.db;.fl;.fs16;}
+  dd a:hover{ color: @color1;}
+}
+
+/*十二生肖*/
+.main_box_sx{
+  background-color: @bg_white; padding:15px 0 0 15px;.ov_h;
+}
+.mbs_top{
+  .ov_h;
+  li{
+    .fl;
+    span{.d_ib;}
+    select {
+      height: @h30;
+      line-height: @h30;
+      width: 120px;
+      background-color: #f4f4f4;
+      border:1px solid #e8e8e8;
+      margin-right: 5px;
+    }
+    .btn{ @h:28px; background-color: @color2; color: #fff;height: @h;
+      line-height: @h;.d_ib;padding:0 10px; border:1px solid #f25489;}
+  }
+  .sxpd{margin-left:47px;}
+}
+.mbs_content{
+  .ov_h;
+  .list_l{
+    @h:150px;
+    width: @w200;
+    .fl;
+    .ov_h;
+    a{
+      .db;
+      .ta_c;
+      margin-top:15px;
+    }
+    a .pic{ width: @w200; height: @h;.ov_h;}
+    a img{ .db; width: 100%;}
+    a .t{ height: @h35; line-height: @h35; .ell;}
+    a .t:hover{ color: @color1;}
+  }
+  .list_r{
+    .ov_h;
+    @w:458px;
+    width: @w;
+    .fr;
+    margin-top: 15px;
+  }
+  .list_r_sort{ width: 206px;.fl; margin:0 0 20px 15px;.ov_h}
+  .words{ font-size: 20px; color: @color2; height: @h30; line-height: @h30; .ell;}
+  .l{.ov_h;margin-top: 5px;}
+  .l a{.ov_h; height: @h35;line-height: @h35;.ell;.db;.fs16}
+  .l a:hover{ color: @color2;}
+}
+.bordered {
+  border-right: solid 1px #ebebeb;
+  border-bottom: solid 1px #ebebeb;
+}
+.main_box_sm{
+  background-color: @bg_white;
+  .ov_h;
+}
+.mbsm_list{
+  .ov_h;
+  width: 685px;
+ a{
+  .db;@w:113px;@h:46px;line-height: @h; width: @w; height: @h;.ta_c;.bordered;.fl;.fs16;}
+  a:hover{ color: @color1;}
+}
+
+
+/*在线算命模块*/
+.scroll_sm{.ov_h; padding:20px 0;border-top: solid 1px #ebebeb;margin-top: 5px;}
+.scroll_sm span{.db; width: 70px; height: 80px; border:1px solid #faead6; .border-radius(3px);.fl; color: @color3; font-size: 24px;.ta_c;margin-left:20px; line-height: @h30; padding-top:15px;}
+/*多张无缝滚动*/
+.scroll_sm_right {.pos_r;width: 570px; margin-left:100px;}
+.scroll_sr_pic {margin-left: 20px;width: 500px; height: 95px; }
+.scroll_sr_pic ul {.pos_r; width: 2800px;}
+.scroll_sr_pic li {width:95px;.fl; height: 95px; .ov_h; margin:0 5px;}
+.scroll_sr_pic a{.db;}
+.scroll_sr_pic img{.db; width: 100%;}
+.scroll_sm_right .prev{.pos_a; left:0;  top: 0;width: 20px; .db; height: 95px;}
+.scroll_sm_right .next{.pos_a; right:0;  top: 0;width: 20px; .db;  height: 95px;}
+.scroll_sm_right .prev i{ background: url("images/small_left_arrow.png") no-repeat; width: 8px; height: 14px; .d_ib; text-indent: -999em;.pos_a; top:50%;margin-top:-7px;left: 4px;}
+.scroll_sm_right .next i{ background: url("images/small_right_arrow.png") no-repeat; width: 8px; height: 14px; .d_ib; text-indent: -999em;.pos_a; top:50%;margin-top:-7px;left: 4px;}
+
+/*算命、民俗、风水*/
+.public_box{
+  .ov_h; background-color: @bg_white; padding:15px 0 7px;
+}
+.public_box_pic {
+  .ov_h;
+  margin:2px 0 0 5px;
+  li{
+    .fl;
+    width: @w200;
+    .ta_c;
+    margin:0 12px;
+  }
+  a{.db;}
+  a:hover{ color: @color1;}
+  img{
+    .db;
+    width: @bfb;
+  }
+  .words{
+    height: @h30;
+    line-height: @h30;
+    .ell;
+  }
+}
+
+.public_box_list{.ov_h;padding:20px 8px 0 12px;
+  li{
+    @w:320px;
+    width: @w;
+    .fl;
+    margin: 0 5px 10px;
+    height: @h30;
+    line-height: @h30;
+  }
+  a{ .db;.fl;}
+  .l{
+    height: @h20;
+    line-height: @h20;
+    @w:60px;
+    width: @w;
+    .ta_c;
+    border:1px solid @color4;
+    color: @color4;
+    .border-radius(3px);
+    margin-right:10px;
+  }
+
+  .r{
+    @h:22px;
+    width: 248px;
+    height: @h;
+    line-height: @h;
+    .db;
+    .fl;
+    .ell;
+    .fs16;
+  }
+  a:hover{ color: @color1; border-color: @color1}
+  .r:hover{ color: @color4}
+}
+.mb_fengshui .l{
+  border: 1px solid @color5;
+  color: @color5;
+}
+.mb_fengshui .r:hover{
+   color: @color5;
+}
+.mbsm_ui .l{
+  border: 1px solid @color3;
+  color: @color3;
+}
+.mbsm_ui .r:hover{
+  color: @color3;
+}
+
+/*心理测试*/
+.mb_test{.ov_h; background-color: @bg_white;padding:15px}
+.mb_test_left{
+  width: @w200;
+  .fl;
+  .ta_c;
+  a{.db;}
+  img{.db; width: @bfb;}
+  p{ height: @h30;line-height: @h30;.ell;}
+}
+.mb_test_right{
+  .ov_h;
+  .fr;
+  width: 440px;
+  li{ width:200px; height: @h35; line-height: @h35; .ell;.fl;margin-left: 15px;}
+  a{.db;.fs16;.ell;}
+  a:hover{color: @color1}
+}
+/*右侧栏*/
+
+/*生肖*/
+.mr_sx{
+  width: @w300;
+  .public_r;
+  ul{
+    .ov_h;
+  }
+  li{
+    .fl;
+    width: 100px;
+    height: 100px;
+  }
+  a{
+    .db;
+    .border_tr;
+    background: url("images/icon_sx.png") no-repeat;
+    text-indent: -999em;
+    width: 99px;
+    height: 99px;
+  }
+  a:hover{ background-image: url("images/icon_sx_hover.png")}
+  li:nth-child(3n) a{border-right: 0;}
+  .shu{ background-position: 0 0;}
+  .niu{ background-position:-100px 0;}
+  .hu{ background-position:-200px 0;}
+  .tu{ background-position:0 -100px ;}
+  .long{ background-position: -100px -100px;}
+  .she{ background-position:-200px -100px ;}
+  .ma{ background-position: 0 -200px;}
+  .yang{ background-position: -100px -200px ;}
+  .hou{ background-position:-200px -200px;}
+  .ji{ background-position:0 -300px;}
+  .gou{ background-position:-100px -300px;}
+  .zhu{ background-position:-200px -300px;}
+}
+
+/*2018年星座运势*/
+.mr_ys{
+  .public_r;
+}
+/*情书大全*/
+.mr_daquan{
+  .public_r;
+  a:hover{ color: @color1;}
+}
+
+.mr_daquan_list{
+  .ov_h;
+  margin:0 15px;
+  padding-bottom: 10px;
+  li{
+    .ov_h;
+    height: @h30;
+    line-height: @h30;
+    margin-bottom: 10px;
+  }
+  a{
+    .db;
+    .fl;
+  }
+  .l{
+    height: @h20;
+    line-height: @h20;
+    @w:60px;
+    width: @w;
+    .ta_c;
+    border:1px solid @color1;
+    color: @color1;
+    .border-radius(3px);
+    margin:5px 10px 0 0;
+  }
+  .r{
+    width: 195px;
+    .db;
+    .fl;
+    .ell;
+    .fs16;
+  }
+}
+/*周公解梦*/
+.mr_dream{
+  .public_r;
+}
+.mr_dream_search{
+  .ov_h;
+  margin-left:20px;
+  .inpt{
+    height: @h30;
+    line-height: @h30;
+    background-color: #f4f4f4;
+    border:1px solid #e8e8e8;
+    width: 165px;
+    padding:0 5px;
+    margin-right: 5px;
+    box-sizing: border-box;
+    .fl;
+  }
+  .btn{
+    height: @h30;
+    line-height: @h30;
+    .ta_c;
+    .fl;
+    color: #fff;
+    width: 84px;
+    background-color: #ff6699;
+    border:1px solid #f25489;
+  }
+}
+.mr_dream_list{
+  .ov_h;
+  margin-top: 15px;
+  a{
+    .border_tr;
+    @h:40px;
+    height: @h;
+    line-height: @h;
+    width: 99px;
+    .ta_c;
+    .fl;
+    .fs16;
+  }
+  a:nth-child(3n){
+    border-right:0;
+  }
+  a:hover{color: @color1; background-color: #f4f4f4}
+}
+/*血型*/
+.mr_blood{
+  .public_r;
+}
+/*星座明人*/
+.mr_xz_star{
+  .public_r;
+}
+/*最新更新*/
+.mr_new{
+  .ov_h;
+  background-color: @bg_white;
+}
+
+/*友情链接*/
+.link{
+  .ov_h;
+  width: @w1000;
+  margin: 15px auto 0;
+  background-color: @bg_white;
+  .title{ color: @color1; height: @h35; line-height: @h35;
+    border-bottom: 1px solid #eae8e9;font-size: 20px;
+    padding-left: 10px;}
+  .content{
+    padding:10px;
+    .ov_h;
+    a{
+      .db;
+      .fl;
+      margin:0 10px 10px;
+    }
+    a:hover{ color: @color1;}
+  }
+}
+

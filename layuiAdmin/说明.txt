@@ -1,0 +1,6 @@
+
+【layuiAdmin 套餐版】
+
+内含：
+> layuiAdmin.std：常规版
+> layuiAdmin.pro: 专业版

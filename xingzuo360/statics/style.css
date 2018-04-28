@@ -1,0 +1,2313 @@
+@charset "utf-8";
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+textarea {
+  margin: 0;
+  padding: 0;
+}
+address,
+cite,
+dfn,
+em,
+var,
+i {
+  font-style: normal;
+}
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  font-family: 'Microsoft Yahei', 'simsun', 'arial', 'tahoma';
+  color: #434343;
+  background-color: #ebebeb;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
+  font-size: 100%;
+  font-weight: normal;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+fieldset,
+img {
+  border: 0;
+}
+a {
+  text-decoration: none;
+  color: #666;
+  background: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+:focus {
+  outline: none;
+}
+/*原子类*/
+.mt10 {
+  margin-top: 10px;
+}
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+.db {
+  display: block;
+}
+.d_ib {
+  display: inline-block;
+}
+.fs16 {
+  font-size: 16px;
+}
+.fs18 {
+  font-size: 18px;
+}
+.ov_h {
+  overflow: hidden;
+}
+.ta_c {
+  text-align: center;
+}
+.pos_r {
+  position: relative;
+}
+.pos_a {
+  position: absolute;
+}
+.ell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.ell_2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.border_tr {
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+}
+.border_rb {
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.public_r {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+/*头部*/
+.head {
+  border-top: solid #ff6699 4px;
+  border-bottom: solid #ebebeb 1px;
+  width: 100%;
+  height: 100px;
+  background-color: #fff;
+}
+.head_content {
+  position: relative;
+  width: 1000px;
+  margin: 0 auto;
+  height: 100px;
+  overflow: hidden;
+}
+.head_logo {
+  position: absolute;
+  left: 0;
+  top: 24px;
+  display: block;
+  width: 172px;
+  height: 41px;
+}
+.head_logo img {
+  display: block;
+  width: 100%;
+}
+.head_search {
+  position: absolute;
+  left: 240px;
+  top: 24px;
+  width: 472px;
+  overflow: hidden;
+}
+.head_search_con {
+  overflow: hidden;
+}
+.head_search_con .input {
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+  height: 35px;
+  line-height: 35px;
+  float: left;
+  width: 380px;
+  border: 1px solid #e8e8e8;
+  border-right: 0;
+  display: block;
+  padding: 0 5px;
+}
+.head_search_con .btn {
+  background-color: #ff6699;
+  height: 35px;
+  line-height: 35px;
+  float: left;
+  color: #fff;
+  width: 80px;
+  border: 1px solid #f25489;
+  display: block;
+  font-size: 18px;
+  cursor: pointer;
+}
+.head_search_hot {
+  overflow: hidden;
+  margin-top: 10px;
+}
+.head_search_hot span {
+  display: block;
+  float: left;
+}
+.head_search_hot .words {
+  float: left;
+}
+.head_search_hot a {
+  display: block;
+  margin-left: 10px;
+  float: left;
+}
+.head_search_hot a:hover {
+  color: #ee4e84;
+}
+.head_right {
+  float: right;
+  margin-top: 30px;
+  font-size: 16px;
+}
+.head_right a {
+  margin-right: 20px;
+  display: inline-block;
+}
+.head_right a:hover {
+  color: #ee4e84;
+}
+.head_right i {
+  display: inline-block;
+  background: url("images/icon.png") no-repeat;
+  vertical-align: top;
+  margin: 3px 10px 0 0;
+}
+.head_right .icon_m {
+  background-position: 0 0;
+  width: 13px;
+  height: 18px;
+  overflow: hidden;
+}
+.head_right .icon_s {
+  background-position: 0 -19px;
+  width: 21px;
+  height: 17px;
+  overflow: hidden;
+}
+.nav_wrap {
+  overflow: hidden;
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+.nav_wrap_content {
+  width: 1000px;
+  margin: 0 auto;
+}
+.nav_wrap_content dl {
+  width: 199px;
+  margin-right: 1px;
+  float: left;
+}
+.nav_wrap_content dt {
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  font-size: 18px;
+}
+.nav_wrap_content dt a {
+  display: block;
+}
+.nav_wrap_content dt a:hover {
+  color: #fff;
+}
+.nav_wrap_content .nav_1 a {
+  color: #ee4e84;
+  border-bottom: 3px solid #ee4e84;
+}
+.nav_wrap_content .nav_1 a:hover {
+  background-color: #ee4e84;
+}
+.nav_wrap_content .nav_2 a {
+  color: #e64a55;
+  border-bottom: 3px solid #e64a55;
+}
+.nav_wrap_content .nav_2 a:hover {
+  background-color: #e64a55;
+}
+.nav_wrap_content .nav_3 a {
+  color: #58b5d7;
+  border-bottom: 3px solid #58b5d7;
+}
+.nav_wrap_content .nav_3 a:hover {
+  background-color: #58b5d7;
+}
+.nav_wrap_content .nav_4 a {
+  color: #e59732;
+  border-bottom: 3px solid #e59732;
+}
+.nav_wrap_content .nav_4 a:hover {
+  background-color: #e59732;
+}
+.nav_wrap_content .nav_5 a {
+  color: #8dc13b;
+  border-bottom: 3px solid #8dc13b;
+}
+.nav_wrap_content .nav_5 a:hover {
+  background-color: #8dc13b;
+}
+.nav_wrap_content dd {
+  margin: 10px 10px 0;
+}
+.nav_wrap_content dd a {
+  line-height: 25px;
+  float: left;
+  font-size: 16px;
+  margin: 0 5px;
+}
+.nav_wrap_content dd a:hover {
+  color: #ee4e84;
+}
+.footer {
+  color: #969696;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px 0 70px;
+  margin-top: 15px;
+  text-align: center;
+}
+.footer_content {
+  width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.footer_content .links {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.footer_content .links a {
+  display: inline-block;
+  color: #797979;
+}
+.footer_content span {
+  display: inline-block;
+  color: #e0e0e0;
+  margin: 0 5px 0 10px;
+}
+.footer_content .words {
+  position: relative;
+}
+.footer_content .words:after {
+  position: absolute;
+  content: "";
+  background: url("images/icon.png") no-repeat 0 -35px;
+  width: 20px;
+  height: 22px;
+}
+.main {
+  width: 1000px;
+  margin: 20px auto 0;
+  overflow: hidden;
+}
+.main_left {
+  overflow: hidden;
+  width: 680px;
+  float: left;
+}
+.main_right {
+  width: 300px;
+  float: right;
+  overflow: hidden;
+}
+/*公共左侧有小标题 */
+.public_box_list {
+  overflow: hidden;
+  padding: 20px 8px 0 12px;
+}
+.public_box_list li {
+  width: 320px;
+  float: left;
+  margin: 0 5px 10px;
+  height: 30px;
+  line-height: 30px;
+}
+.public_box_list a {
+  display: block;
+  float: left;
+}
+.public_box_list .l {
+  height: 20px;
+  line-height: 20px;
+  width: 60px;
+  text-align: center;
+  border: 1px solid #58b5d7;
+  color: #58b5d7;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  margin-right: 10px;
+}
+.public_box_list .r {
+  width: 248px;
+  height: 22px;
+  line-height: 22px;
+  display: block;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+.public_box_list a:hover {
+  color: #ee4e84;
+  border-color: #ee4e84;
+}
+.public_box_list .r:hover {
+  color: #58b5d7;
+}
+/*右侧公共列表带图的*/
+.public_right_pic {
+  overflow: hidden;
+  margin: 10px 0 5px;
+  padding: 0 10px;
+}
+.public_right_pic a {
+  display: block;
+  width: 130px;
+  overflow: hidden;
+  text-align: center;
+  float: left;
+  margin: 0 5px 5px;
+}
+.public_right_pic a:hover {
+  color: #ee4e84;
+}
+.public_right_pic img {
+  display: block;
+  width: 100%;
+}
+.public_right_pic p {
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/*右侧公共列表*/
+.public_right_list {
+  padding: 0 20px 10px;
+  overflow: hidden;
+}
+.public_right_list a {
+  font-size: 16px;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 5px;
+}
+.public_right_list a:hover {
+  color: #ee4e84;
+}
+/*公共右侧黄历*/
+.public_r_date {
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 15px 15px 5px;
+}
+.public_r_date .lhl {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  color: #ee4e84;
+}
+.public_r_date .lhl:hover {
+  text-decoration: underline;
+}
+.public_rd_top .l {
+  width: 100px;
+  overflow: hidden;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+}
+.public_rd_top .l_t {
+  background-color: #ee4e84;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+}
+.public_rd_top .l_c {
+  background-color: #f9f9f9;
+  color: #ee4e84;
+  height: 90px;
+}
+.public_rd_top .l_c span {
+  font-size: 48px;
+  line-height: 60px;
+}
+.public_rd_top .r {
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: middle;
+  width: 80px;
+  line-height: 30px;
+  font-size: 16px;
+}
+.public_rd_con {
+  padding-top: 15px;
+  overflow: hidden;
+}
+.public_rd_con li {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.public_rd_con span {
+  background: url("images/icon.png") no-repeat;
+  width: 31px;
+  height: 30px;
+  display: block;
+  overflow: hidden;
+  float: left;
+}
+.public_rd_con span.yi {
+  background-position: 0 -57px;
+}
+.public_rd_con span.ji {
+  background-position: 0 -87px;
+}
+.public_rd_con .info {
+  width: 230px;
+  float: right;
+}
+/*公共右侧2018星座运势*/
+.public_mr_xzys {
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+}
+.public_mr_xzys a {
+  display: block;
+  float: left;
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  text-align: center;
+  height: 35px;
+  line-height: 35px;
+  color: #ee4e84;
+  width: 99px;
+  font-size: 16px;
+}
+.public_mr_xzys a:nth-child(3n) {
+  border-right: 0;
+}
+.public_mr_xzys a:hover {
+  background-color: #ee4e84;
+  color: #fff;
+}
+/*公共右侧大师*/
+.public_mr_master {
+  overflow: hidden;
+  padding: 10px;
+}
+.public_mr_master a {
+  display: block;
+  float: left;
+  width: 120px;
+  height: 35px;
+  line-height: 35px;
+  margin: 0 10px 10px;
+}
+.public_mr_master a:hover {
+  color: #ee4e84;
+}
+.public_mr_master span {
+  background: url("images/icon_master.png") no-repeat;
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.public_mr_master .master_01 {
+  background-position: 0 0;
+}
+.public_mr_master .master_02 {
+  background-position: -35px 0;
+}
+.public_mr_master .master_03 {
+  background-position: 0 -35px;
+}
+.public_mr_master .master_04 {
+  background-position: -35px -35px;
+}
+.public_mr_master .master_05 {
+  background-position: 0 -70px;
+}
+.public_mr_master .master_06 {
+  background-position: -35px -70px;
+}
+.public_mr_master .master_07 {
+  background-position: 0 -105px;
+}
+.public_mr_master .master_08 {
+  background-position: -35px -105px;
+}
+.public_mr_master .su {
+  background-position: 0 0 ;
+}
+.public_mr_master .alex {
+  background-position: 0 -140px;
+}
+.public_mr_master .jiduo {
+  background-position: -35px -140px;
+}
+.public_mr_master .asha {
+  background-position: 0 -105px;
+}
+.public_mr_master .mafa {
+  background-position: 0 -175px;
+}
+.public_mr_master .zhanxing {
+  background-position: -35px -105px;
+}
+.public_mr_master .xingba {
+  background-position: 0 -70px;
+}
+.public_mr_master .haibaihe {
+  background-position: -35px -175px;
+}
+.public_mr_master .zhang {
+  background-position: 0 -210px;
+}
+.public_mr_master .xiaoguai {
+  background-position: -35px -210px;
+}
+.public_mr_master .peini {
+  background-position: -35px -35px;
+}
+.public_mr_master .julia {
+  background-position: 0 -245px;
+}
+.public_mr_master .lvke {
+  background-position: -35px -245px;
+}
+.public_mr_master .ruoye {
+  background-position: 0 -280px;
+}
+.public_mr_master .eskey {
+  background-position: -35px -280px;
+}
+/*公共面包屑*/
+.public_crumbs {
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  padding-left: 10px;
+}
+.public_crumbs a {
+  position: relative;
+  display: inline-block;
+  padding-right: 20px;
+}
+.public_crumbs a:after {
+  content: '>';
+  position: absolute;
+  width: 20px;
+  text-align: center;
+  font-family: simsun;
+}
+.public_crumbs a:last-child:after {
+  content: '';
+}
+/*公共分页public_page*/
+.public_page {
+  text-align: center;
+  overflow: hidden;
+  margin: 15px 0 40px;
+  line-height: 30px;
+}
+.public_page .pageindex {
+  margin-right: 15px;
+}
+.public_page a,
+.public_page .current {
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  margin-right: -5px;
+  background-color: #fff;
+}
+.public_page .current,
+.public_page a:hover {
+  background-color: #ff6699;
+  color: #fff;
+  border-color: #f25489;
+}
+.public_page .first a,
+.public_page .last a {
+  display: none;
+}
+.public_page .next {
+  margin-left: -1px;
+}
+.public_page .prev a,
+.public_page .next a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  display: inline-block;
+  font-family: 'simsun';
+  font-size: 18px;
+  color: #000;
+}
+.public_page .prev a:hover,
+.public_page .next a:hover {
+  background: #ff6699;
+  color: #fff;
+}
+.public_page span {
+  display: inline-block;
+  vertical-align: top;
+}
+/*公共右侧标题*/
+.public_rn_title {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  color: #ee4e84;
+  font-size: 18px;
+}
+/*公共右侧下拉框*/
+.public_r_select {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_r_select ul {
+  overflow: hidden;
+  padding: 10px;
+}
+.public_r_select li {
+  margin-top: 10px;
+}
+.public_r_select select {
+  height: 30px;
+  line-height: 30px;
+  width: 90px;
+  background-color: #f4f4f4;
+  border: 1px solid #e8e8e8;
+  margin-right: 5px;
+}
+.public_r_select .btn {
+  height: 30px;
+  line-height: 30px;
+  width: 79px;
+  background-color: #ff6699;
+  border: 1px solid #f25489;
+  display: inline-block;
+  text-align: center;
+  color: #fff;
+  vertical-align: top;
+  cursor: pointer;
+}
+.public_r_select .sel {
+  width: 190px;
+}
+.public_r_select .small_sel {
+  width: 60px;
+  margin-right: 2px;
+}
+/*公共右侧推荐测算*/
+.public_r_cesuan {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_r_cesuan .list {
+  overflow: hidden;
+}
+.public_r_cesuan li {
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  padding: 10px;
+}
+.public_r_cesuan .pic {
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
+  float: left;
+}
+.public_r_cesuan .pic img {
+  display: block;
+  width: 100%;
+}
+.public_r_cesuan .info {
+  float: right;
+  width: 180px;
+}
+.public_r_cesuan .info_top {
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 35px;
+  margin-bottom: 5px;
+}
+.public_r_cesuan .info_top span {
+  font-size: 14px;
+  float: right;
+}
+.public_r_cesuan .info_top a:hover {
+  color: #ee4e84;
+}
+.public_r_cesuan .info_txt {
+  color: #a3a3a3;
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/*公共右侧热门文章*/
+.public_r_box {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_r_box .mt15 {
+  margin-top: 15px;
+}
+/*公共右侧最新更新*/
+.public_r_news {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_r_news .public_right_list {
+  padding-top: 10px;
+}
+/*公共右侧栏目推荐*/
+.public_r_column {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_r_column .list {
+  overflow: hidden;
+}
+.public_r_column .list a {
+  height: 40px;
+  line-height: 40px;
+  width: 99px;
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  text-align: center;
+  float: left;
+  font-size: 16px;
+  color: #ee4e84;
+}
+.public_r_column .list a:nth-child(3n) {
+  border-right: 0;
+}
+.public_r_column .list a:hover {
+  color: #fff;
+  background-color: #ee4e84;
+}
+/*公共左侧栏标题*/
+.public_l_title {
+  overflow: hidden;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  padding: 0 15px;
+  color: #ee4e84;
+  font-size: 18px;
+}
+.public_l_title .l {
+  float: left;
+  width: 115px;
+  color: #ee4e84;
+}
+.public_l_title .r {
+  width: 525px;
+  text-align: right;
+  float: right;
+  font-size: 16px;
+}
+.public_l_title .r a {
+  display: inline-block;
+  margin-left: 20px;
+}
+.public_l_title .r a:hover {
+  color: #ee4e84;
+}
+/*公共 小列表*/
+.public_menu {
+  overflow: hidden;
+  width: 690px;
+}
+.public_menu a {
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  float: left;
+  height: 46px;
+  line-height: 46px;
+  width: 113px;
+  font-size: 16px;
+  text-align: center;
+}
+.public_menu a:hover {
+  color: #ee4e84;
+}
+/*列表栏目页  星座查询*/
+.xz_see {
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+.xz_see_con {
+  overflow: hidden;
+}
+.xz_see_con .title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ee4e84;
+  height: 50px;
+  line-height: 50px;
+}
+/*列表*/
+.column_list {
+  background-color: #fff;
+  overflow: hidden;
+}
+.column_list li {
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0 15px 15px;
+}
+.column_list .pic {
+  overflow: hidden;
+  display: block;
+  float: left;
+  width: 130px;
+  height: 100px;
+  margin-top: 15px;
+}
+.column_list .pic img {
+  display: block;
+  width: 100%;
+}
+.column_list .info {
+  float: right;
+  width: 505px;
+}
+.column_list .info_title {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  margin-top: 6px;
+}
+.column_list .info_title:hover {
+  color: #ee4e84;
+}
+.column_list .info_txt {
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #a3a3a3;
+  margin-bottom: 10px;
+}
+.column_list .info_label {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ee4e84;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #ee4e84;
+  margin: 0 5px 5px 0;
+  padding: 0 2px;
+}
+/*详情页*/
+.detail {
+  overflow: hidden;
+  background-color: #fff;
+}
+.detail_content {
+  overflow: hidden;
+  margin: 25px 40px;
+}
+.dc_title {
+  font-size: 24px;
+  font-weight: 700;
+}
+.dc_source {
+  margin: 15px 0;
+}
+.dc_txt {
+  border-top: 1px solid #ebebeb;
+  padding: 15px 0;
+  line-height: 24px;
+  font-size: 16px;
+}
+.detail_page {
+  font-size: 16px;
+  overflow: hidden;
+}
+.detail_page li {
+  height: 65px;
+  line-height: 65px;
+  border-top: 1px solid #ebebeb;
+  padding: 0 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.detail_page span {
+  color: #e64a55;
+  display: inline-block;
+}
+.detail_page a {
+  display: inline-block;
+}
+.detail_page a:hover {
+  color: #ee4e84;
+}
+/*相关阅读*/
+.related_reading {
+  overflow: hidden;
+  background-color: #fff;
+  margin-top: 15px;
+}
+.rr_list {
+  overflow: hidden;
+  font-size: 16px;
+  padding: 10px 0;
+}
+.rr_list a {
+  float: left;
+  height: 35px;
+  line-height: 35px;
+  width: 315px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 20px;
+}
+.rr_list a:hover {
+  color: #ee4e84;
+}
+/*为您推荐*/
+.recommend {
+  overflow: hidden;
+  margin-top: 15px;
+  background-color: #fff;
+}
+.recommend_list {
+  background-color: #fff;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.recommend_list li {
+  overflow: hidden;
+  border-bottom: 1px solid #ebebeb;
+  padding: 0 15px 15px;
+}
+.recommend_list .pic {
+  overflow: hidden;
+  display: block;
+  float: left;
+  width: 130px;
+  height: 100px;
+  margin-top: 15px;
+}
+.recommend_list .pic img {
+  display: block;
+  width: 100%;
+}
+.recommend_list .info {
+  float: right;
+  width: 505px;
+}
+.recommend_list .info_title {
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  margin-top: 6px;
+}
+.recommend_list .info_title:hover {
+  color: #ee4e84;
+}
+.recommend_list .info_tag {
+  overflow: hidden;
+  height: 40px;
+  line-height: 20px;
+  margin-bottom: 5px;
+}
+.recommend_list .info_tag a {
+  display: inline-block;
+  margin-right: 10px;
+}
+.recommend_list .info_tag a:hover {
+  text-decoration: underline;
+  color: #ee4e84;
+}
+.recommend_list .info_label {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid #ee4e84;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  color: #ee4e84;
+  margin: 0 5px 5px 0;
+  padding: 0 2px;
+}
+/*星座频道页*/
+.xz_nav {
+  overflow: hidden;
+  width: 1000px;
+  height: 126px;
+  margin: 20px auto 0;
+}
+.xz_nav a {
+  background: #fff url("images/icon_xz.png") no-repeat;
+  float: left;
+  overflow: hidden;
+  width: 82px;
+  height: 126px;
+  text-indent: -999em;
+  border-right: 1px solid #ebebeb;
+}
+.xz_nav .baiyang {
+  background-position: 0 0;
+}
+.xz_nav .jinniu {
+  background-position: -83px 0;
+}
+.xz_nav .shuangzi {
+  background-position: -166px 0;
+}
+.xz_nav .juxie {
+  background-position: -249px 0;
+}
+.xz_nav .shizi {
+  background-position: -332px 0;
+}
+.xz_nav .chunv {
+  background-position: -415px 0;
+}
+.xz_nav .tiancheng {
+  background-position: -498px 0;
+}
+.xz_nav .tianxie {
+  background-position: -581px 0;
+}
+.xz_nav .sheshou {
+  background-position: -664px 0;
+}
+.xz_nav .mojie {
+  background-position: -747px 0;
+}
+.xz_nav .shuiping {
+  background-position: -830px 0;
+}
+.xz_nav .shuangyu {
+  background-position: -913px 0;
+}
+.xz_nav a:hover {
+  background-color: #f6f6f6;
+}
+.box_recom {
+  overflow: hidden;
+  padding: 15px 10px 15px 15px;
+  background-color: #fff;
+  margin-bottom: 15px;
+}
+.br_left {
+  overflow: hidden;
+  float: left;
+  width: 230px;
+  height: 330px;
+  background-color: #ddd;
+}
+.br_left .swiper-pagination {
+  text-align: right;
+  color: #fff;
+}
+.br_left .swiper-pagination-total {
+  padding-right: 10px;
+}
+.br_left .swiper-pagination-current {
+  font-size: 18px;
+}
+.br_left .swiper-slide a {
+  display: block;
+}
+.br_left .swiper-slide img {
+  display: block;
+  width: 100%;
+}
+.br_left .swiper-slide p {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  line-height: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 16px;
+  padding: 5px 0 5px 10px;
+}
+.br_left .swiper-button-prev {
+  background: url("images/icon_arrow.png") no-repeat;
+  width: 30px;
+  height: 49px;
+  overflow: hidden;
+}
+.br_left .swiper-button-next {
+  background: url("images/icon_arrow.png") no-repeat -30px 0;
+  width: 30px;
+  height: 49px;
+  overflow: hidden;
+}
+.br_right {
+  overflow: hidden;
+  float: right;
+  width: 406px;
+}
+.br_right_top {
+  overflow: hidden;
+}
+.br_right_top li {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.br_right_top a {
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  display: block;
+}
+.br_right_top a:hover {
+  color: #ee4e84;
+}
+.br_right_top p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 48px;
+  line-height: 24px;
+  color: #a3a3a3;
+}
+/*星座频道 公共栏目小列表*/
+.public_l_list {
+  overflow: hidden;
+}
+.public_l_list .a_l {
+  float: left;
+  width: 200px;
+  overflow: hidden;
+  margin-left: 3px;
+}
+.public_l_list a {
+  display: block;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+.public_l_list a:hover {
+  color: #ee4e84;
+}
+/*星座运势*/
+.xzys {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.xzys_content {
+  overflow: hidden;
+}
+.xc_left {
+  width: 510px;
+  float: left;
+}
+.xc_left_top {
+  padding: 10px 10px 0;
+  overflow: hidden;
+}
+.xc_left_top .pic {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f6f6f6;
+  border: 2px solid #ebebeb;
+}
+.xc_left_top .pic img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  display: block;
+}
+.xc_left_top .info {
+  float: right;
+  width: 370px;
+}
+.xc_left_top .info_title {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  display: block;
+  color: #ee4e84;
+}
+.xc_left_top .info_txt {
+  color: #666;
+  line-height: 24px;
+  height: 80px;
+  overflow: hidden;
+}
+.xc_left_top .info_txt a {
+  color: #ee4e84;
+  display: inline-block;
+}
+.xc_left_top a:hover {
+  text-decoration: underline;
+}
+.xc_left_list {
+  overflow: hidden;
+}
+.xc_left_list li {
+  width: 235px;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  float: left;
+  margin: 0 10px;
+}
+.xc_left_list a:hover {
+  color: #ee4e84;
+}
+.xc_left_list span {
+  color: #ee4e84;
+}
+.xc_right {
+  background-color: #f6f6f6;
+  float: right;
+  border-left: 1px solid #ebebeb;
+  width: 168px;
+}
+.xc_right a {
+  float: left;
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  text-align: center;
+  width: 83px;
+  height: 40px;
+  line-height: 40px;
+}
+.xc_right a:hover,
+.xc_right .current {
+  background-color: #ee4e84;
+  color: #fff;
+}
+/*星座爱情*/
+.xzaq {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.xzaq_content {
+  overflow: hidden;
+  padding: 15px 0 10px 15px;
+}
+.xzaq_left {
+  width: 200px;
+  float: left;
+}
+.xzaq_left .pic {
+  width: 200px;
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  margin-bottom: 15px;
+}
+.xzaq_left img {
+  display: block;
+  width: 100%;
+}
+.xzaq_left p {
+  height: 35px;
+  line-height: 35px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 16px;
+  padding-left: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.xzaq_left .peidui {
+  overflow: hidden;
+  border-left: 1px solid #ebebeb;
+}
+.xzaq_left .peidui a {
+  float: left;
+  border-top: 1px solid #ebebeb;
+  border-right: 1px solid #ebebeb;
+  text-align: center;
+  width: 98px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  font-size: 16px;
+}
+.xzaq_left .peidui a:hover {
+  background-color: #ee4e84;
+  color: #fff;
+}
+.xzaq_right {
+  overflow: hidden;
+  float: right;
+  width: 430px;
+  margin-right: 10px;
+}
+.xzaq_right .public_l_list {
+  margin-bottom: 10px;
+}
+.xzaq_right_top {
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+.xzaq_right_top a {
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 20px;
+  display: block;
+  margin-bottom: 5px;
+}
+.xzaq_right_top a:hover {
+  color: #ee4e84;
+}
+.xzaq_right_top p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  height: 48px;
+  line-height: 24px;
+  color: #a3a3a3;
+}
+/*公共星座分析和生肖分析*/
+.public_analysis {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.public_analysis_content {
+  overflow: hidden;
+  padding: 0 0 10px 15px;
+}
+.public_analysis_content .list_l {
+  width: 200px;
+  float: left;
+  overflow: hidden;
+}
+.public_analysis_content .list_l a {
+  display: block;
+  text-align: center;
+  margin-top: 15px;
+  position: relative;
+  height: 150px;
+}
+.public_analysis_content .list_l img {
+  display: block;
+  width: 100%;
+}
+.public_analysis_content .list_l p {
+  height: 35px;
+  line-height: 35px;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #fff;
+  font-size: 16px;
+  padding-left: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.public_analysis_content .list_r {
+  overflow: hidden;
+  width: 458px;
+  float: right;
+  margin-top: 15px;
+}
+.public_analysis_content .list_r_sort {
+  width: 206px;
+  float: left;
+  margin: 0 0 5px 15px;
+  overflow: hidden;
+}
+.public_analysis_content .words {
+  font-size: 18px;
+  color: #ee4e84;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  margin-bottom: 5px;
+}
+.public_analysis_content .words:hover {
+  text-decoration: underline;
+}
+.public_analysis_content .l a {
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  font-size: 16px;
+}
+.public_analysis_content .l a:hover {
+  color: #ee4e84;
+}
+/*星座详情页  白羊座*/
+.xz_info {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+  padding: 15px;
+}
+.xz_info_left {
+  width: 144px;
+  float: left;
+}
+.xz_info_left .t {
+  color: #ee4e84;
+  font-size: 16px;
+}
+.xz_info_left .pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f6f6f6;
+  border: 2px solid #ebebeb;
+  overflow: hidden;
+  margin: 10px auto;
+}
+.xz_info_left .pic img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  display: block;
+}
+.xz_info_left .words {
+  height: 40px;
+  line-height: 40px;
+  background-color: #f6f6f6;
+  text-align: center;
+  font-size: 16px;
+  color: #ee4e84;
+}
+.xz_info_left .master {
+  overflow: hidden;
+}
+.xz_info_left .master a {
+  height: 40px;
+  line-height: 40px;
+  display: block;
+  margin-top: 10px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.xz_info_left .master a:hover {
+  color: #ee4e84;
+  background-color: #f6f6f6;
+}
+.xz_info_left .master span {
+  display: inline-block;
+  background: url("images/icon_master.png") no-repeat;
+  width: 35px;
+  height: 35px;
+  overflow: hidden;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+.xz_info_left .master .master_01 {
+  background-position: 0 0;
+}
+.xz_info_left .master .master_02 {
+  background-position: 0 -35px;
+}
+.xz_info_left .master .master_03 {
+  background-position: -35px 0;
+}
+.xz_info_right {
+  overflow: hidden;
+  float: right;
+  width: 502px;
+}
+.xz_ir_top {
+  overflow: hidden;
+  width: 492px;
+  border-left: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e8e8;
+  margin-left: 10px;
+}
+.xz_ir_top li {
+  float: left;
+  width: 122px;
+  height: 62px;
+  overflow: hidden;
+  border-top: 1px solid #e8e8e8;
+  border-right: 1px solid #e8e8e8;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+.xz_ir_top li p {
+  padding-top: 10px;
+}
+.xz_ir_top li span {
+  font-size: 16px;
+  color: #ee4e84;
+}
+.xz_ir_txt {
+  overflow: hidden;
+  padding: 20px 0 10px 0;
+  margin-left: 10px;
+  border-bottom: 1px solid #ebebeb;
+}
+.xz_ir_txt strong {
+  color: #ee4e84;
+}
+.xz_ir_txt a {
+  color: #ee4e84;
+}
+.xz_ir_txt a:hover {
+  text-decoration: underline;
+}
+.xz_ir_list {
+  overflow: hidden;
+}
+.xz_ir_list .t {
+  padding: 5px 0 0 10px;
+  font-weight: 700;
+  color: #ee4e84;
+}
+.xz_ir_list .c {
+  overflow: hidden;
+}
+.xz_ir_list a {
+  width: 240px;
+  float: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  margin-left: 10px;
+}
+.xz_ir_list a:hover {
+  color: #ee4e84;
+}
+/*右侧2018年星座运势*/
+.xz_r_ys {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+/*生肖频道页*/
+.sx_nav {
+  overflow: hidden;
+  width: 1000px;
+  height: 126px;
+  margin: 20px auto 0;
+}
+.sx_nav a {
+  background: #fff url("images/icon_nav_sx.png") no-repeat;
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  width: 82px;
+  height: 126px;
+  border-right: 1px solid #ebebeb;
+}
+.sx_nav span {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  display: block;
+  margin-top: 80px;
+}
+.sx_nav .shu {
+  background-position: 0 0;
+}
+.sx_nav .niu {
+  background-position: -83px 0;
+}
+.sx_nav .hu {
+  background-position: -166px 0;
+}
+.sx_nav .tu {
+  background-position: -249px 0;
+}
+.sx_nav .long {
+  background-position: -332px 0;
+}
+.sx_nav .she {
+  background-position: -415px 0;
+}
+.sx_nav .ma {
+  background-position: -498px 0;
+}
+.sx_nav .yang {
+  background-position: -581px 0;
+}
+.sx_nav .hou {
+  background-position: -664px 0;
+}
+.sx_nav .ji {
+  background-position: -747px 0;
+}
+.sx_nav .gou {
+  background-position: -830px 0;
+}
+.sx_nav .zhu {
+  background-position: -913px 0;
+}
+.sx_nav a:hover,
+.sx_nav .current {
+  background-color: #f6f6f6;
+  background-image: url("images/icon_navhover_sx.png");
+  color: #e64a55;
+}
+.br_sx_top a:hover {
+  color: #e64a55;
+}
+.br_right_list {
+  overflow: hidden;
+}
+.br_right_list a {
+  float: left;
+  width: 200px;
+  margin-left: 3px;
+  height: 35px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 16px;
+}
+.br_right_list a:hover {
+  color: #e64a55;
+}
+/*生肖分析*/
+.sxfx .public_l_title .l,
+.sxfx .public_analysis_content .words,
+.sxfx .l a:hover {
+  color: #e64a55;
+}
+/*生肖运程*/
+.sxyc {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.sxyc_tab {
+  border-bottom: 1px solid #ebebeb;
+}
+.sxyc_tab a:hover,
+.sxyc_tab .current {
+  color: #e64a55;
+  color: #fff;
+  background-color: #e64a55;
+}
+.sxyc_content {
+  overflow: hidden;
+}
+.sxyc_top {
+  overflow: hidden;
+  padding: 10px 15px 15px;
+  border-bottom: 1px solid #ebebeb;
+}
+.sxyc_top .l {
+  float: left;
+  width: 150px;
+}
+.sxyc_top .l .pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f6f6f6;
+  border: 2px solid #ebebeb;
+  margin: 5px auto 10px;
+}
+.sxyc_top .l img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  display: block;
+}
+.sxyc_top .l .ys {
+  overflow: hidden;
+}
+.sxyc_top .l a {
+  float: left;
+  height: 30px;
+  line-height: 30px;
+  color: #e64a55;
+  font-size: 16px;
+  width: 75px;
+  text-align: center;
+}
+.sxyc_top .l a:hover {
+  text-decoration: underline;
+}
+.sxyc_top .info {
+  float: right;
+  width: 485px;
+}
+.sxyc_top .info_title {
+  height: 40px;
+  line-height: 40px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  display: block;
+  color: #e64a55;
+}
+.sxyc_top .info_txt {
+  color: #666;
+  line-height: 24px;
+  height: 75px;
+  overflow: hidden;
+}
+.sxyc_top .info_txt strong,
+.sxyc_top .info_txt a {
+  color: #e64a55;
+  display: inline-block;
+}
+.sxyc_top .info_ui {
+  overflow: hidden;
+  margin-top: 7px;
+}
+.sxyc_top li {
+  float: left;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+.sxyc_top li span {
+  display: inline-block;
+  color: #e64a55;
+}
+.sxyc_top li a {
+  display: inline-block;
+}
+.sxyc_top li a:hover {
+  text-decoration: none;
+  color: #e64a55;
+}
+.sxyc_list {
+  padding-bottom: 15px;
+}
+.sxyc_list li {
+  margin-bottom: 0;
+}
+.sxyc_list .l {
+  border: 1px solid #e64a55;
+  color: #e64a55;
+}
+.sxyc_list .r:hover {
+  color: #e64a55;
+}
+/*生肖爱情*/
+.sxaq {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.sxaq_content .public_menu {
+  border-bottom: 1px solid #ebebeb;
+}
+/*生肖鼠页*/
+.sx_detail {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.sx_detail_info {
+  overflow: hidden;
+  padding: 15px 14px 15px 15px;
+}
+.sx_detail_info .l {
+  float: left;
+  width: 150px;
+}
+.sx_detail_info .l .t {
+  font-size: 16px;
+  color: #e64a55;
+}
+.sx_detail_info .l .pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f6f6f6;
+  border: 2px solid #ebebeb;
+  margin: 5px auto 0;
+}
+.sx_detail_info .l img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  display: block;
+}
+.sx_detail_info .r {
+  width: 500px;
+  background-color: #f4f4f4;
+  font-size: 16px;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  border-right: 0;
+}
+.sx_detail_info li {
+  float: left;
+  width: 124px;
+  border-right: 1px solid #e8e8e8;
+  text-align: center;
+}
+.sx_detail_info .r_th p {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+}
+.sx_detail_info .r_th span {
+  height: 30px;
+  line-height: 30px;
+  color: #e64a55;
+}
+.sx_detail_info .r_td {
+  height: 30px;
+  line-height: 30px;
+  border-top: 1px solid #e8e8e8;
+}
+.sx_detail_txt {
+  margin: 0 15px;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 15px;
+}
+.sx_detail_txt strong,
+.sx_detail_txt a {
+  color: #e64a55;
+}
+.sx_detail_txt a:hover {
+  text-decoration: underline;
+}
+.sx_detail_list {
+  padding-bottom: 15px;
+  overflow: hidden;
+}
+.sx_detail_list .t {
+  font-weight: 700;
+  padding: 10px 15px 0;
+  color: #e64a55;
+}
+.sx_detail_list a {
+  float: left;
+  width: 206px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-left: 15px;
+}
+.sx_detail_list a:hover {
+  color: #e64a55;
+}
+/*右侧今日运势*/
+.mr_yunshi {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.mr_yunshi i {
+  background: url("images/icon.png") no-repeat;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.mr_yunshi .icon_ys_01 {
+  background-position: 0 -117px;
+}
+.mr_yunshi .icon_ys_02 {
+  background-position: 0 -137px;
+}
+.mr_yunshi .icon_ys_03 {
+  background-position: 0 -157px;
+}
+.mr_yunshi .icon_ys_04 {
+  background-position: 0 -177px;
+}
+.mr_yunshi_txt {
+  padding: 15px;
+  overflow: hidden;
+}
+.mr_yunshi_txt a {
+  color: #e64a55;
+}
+.mr_yunshi_txt a:hover {
+  text-decoration: underline;
+}
+/*生肖运势页*/
+.sxys_menu {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.sxys_menu .title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #e64a55;
+  height: 50px;
+  line-height: 50px;
+}
+.sxys_menu .public_menu a:hover {
+  background-color: #e64a55;
+  color: #fff;
+}
+.yunshi_box {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.yb_th {
+  overflow: hidden;
+}
+.yb_th a {
+  float: left;
+  width: 135px;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.yb_th a:hover,
+.yb_th .current {
+  color: #e64a55;
+  border-bottom: 2px solid #e64a55;
+}
+.yb_con {
+  overflow: hidden;
+  padding: 15px;
+}
+.yb_con_top {
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.yb_con_top .pic {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  background-color: #f6f6f6;
+  border: 2px solid #ebebeb;
+}
+.yb_con_top img {
+  width: 80px;
+  height: 80px;
+  margin: 10px auto 0;
+  display: block;
+}
+.yb_con_top .scroll_bar {
+  float: right;
+  width: 525px;
+  overflow: hidden;
+}
+.yb_con_top ul {
+  overflow: hidden;
+  margin-top: 10px;
+  width: 540px;
+}
+.yb_con_top li {
+  width: 250px;
+  overflow: hidden;
+  float: left;
+  height: 40px;
+  text-align: center;
+  margin-right: 20px;
+}
+.yb_con_top .sb_l {
+  color: #e64a55;
+  float: left;
+  width: 40px;
+}
+.yb_con_top .sb_c {
+  width: 204px;
+  height: 10px;
+  background-color: #ebebeb;
+  position: relative;
+  margin: 5px 0 0 45px;
+}
+.yb_con_top .sb_c .v {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #e64a55;
+  display: block;
+  height: 10px;
+}
+.yb_con_bottom {
+  color: #666;
+  overflow: hidden;
+}
+.yb_con_bottom strong {
+  color: #e64a55;
+}
+.yb_con_bottom a {
+  color: #e64a55;
+}
+.yb_con_bottom a:hover {
+  text-decoration: underline;
+}
+/*八字测算*/
+.bzcs {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.bzcs_content ul {
+  overflow: hidden;
+  width: 685px;
+}
+.bzcs_content li {
+  overflow: hidden;
+  border-right: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+  padding: 15px;
+  float: left;
+  width: 310px;
+}
+.bzcs_content .pic {
+  overflow: hidden;
+  width: 90px;
+  height: 90px;
+  float: left;
+}
+.bzcs_content .pic img {
+  display: block;
+  width: 100%;
+}
+.bzcs_content .info {
+  float: right;
+  width: 210px;
+}
+.bzcs_content .info_top {
+  overflow: hidden;
+  font-size: 18px;
+  line-height: 35px;
+  margin-bottom: 5px;
+}
+.bzcs_content .info_top span {
+  font-size: 14px;
+  float: right;
+}
+.bzcs_content .info_top a:hover {
+  color: #ee4e84;
+}
+.bzcs_content .info_txt {
+  color: #a3a3a3;
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+/*简易测算*/
+.jycs {
+  overflow: hidden;
+  margin-bottom: 15px;
+  background-color: #fff;
+}
+.jycs_content {
+  overflow: hidden;
+}
+.jycs_content ul {
+  overflow: hidden;
+}
+.jycs_content li {
+  float: left;
+  width: 300px;
+  overflow: hidden;
+}

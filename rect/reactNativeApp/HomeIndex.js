@@ -38,23 +38,6 @@ export default class HomeIndex extends Component {
                 justifyContent: 'space-around',
                 alignItems: 'flex-start',
                 backgroundColor:'red'}}>
-                {/*<Image source={pic} style={styles.imgStyle}/>*/}
-                {/*<Text>*/}
-                    {/*{instroll}*/}
-                {/*</Text>*/}
-                {/*<HomeIndex2 name={this.props.name}/>*/}
-                {/*<View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />*/}
-                {/*<View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />*/}
-                {/*<View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />*/}
-                <TextInput
-                    style={{height: 40}}
-                    placeholder="Type here to translate!"
-                    onChangeText={(text) => this.setState({text})}
-                />
-                <Text style={{padding: 10, fontSize: 42}}>
-                    {console.log(this.state.text.split())}
-                    {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-                </Text>
 
             </View>
         );
