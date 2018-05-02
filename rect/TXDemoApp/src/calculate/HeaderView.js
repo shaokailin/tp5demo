@@ -3,7 +3,6 @@ import {
     View,
     StyleSheet,
     Dimensions,
-    Button,
     Text
 } from 'react-native'
 import Classify from './Classify/ClassifyNavigator';
@@ -23,7 +22,7 @@ export default class HeaderView extends Component {
     };
     render(){
         return(
-            <View style={{flex:1}}>
+            <View style={{flex:1,marginBottom:1}}>
                 {this.state.bannerArr.length > 0?<Banner style={{width:windowWidth,height:bannerHeight}} data={this.state.bannerArr}  bannerEvent={(index)=>this.bannerClick(index)}/>:null}
                 <Classify data={this.state.classifyArr}/>
                 <Today data={this.state.todayArr} eventClick={(index)=>this.todayEvent(index)}/>
@@ -33,17 +32,6 @@ export default class HeaderView extends Component {
                         热门资讯
                     </Text>
                 </View>
-                <Button style={{width:200, height:40}} title='button' onPress={()=>{
-                    if (Banner == null) {
-                        Banner = require('./AdBanner/BannerView').default;
-                    }
-                    this.setState({
-                        bannerArr : [1,2,3,4],
-                        classifyArr:[1,2,3,4,5,6,18],
-                        todayArr:['11231231231231231231231231231313131231312','11231231231231231231231231231313131231313']
-                    });
-                }}/>
-
             </View>
         );
     }
@@ -53,6 +41,15 @@ export default class HeaderView extends Component {
     todayEvent(index){
         console.log(index);
     }
+
+//     if (Banner == null) {
+//     Banner = require('./AdBanner/BannerView').default;
+// }
+// this.setState({
+//     bannerArr : [1,2,3,4],
+//     classifyArr:[1,2,3,4,5,6,18],
+//     todayArr:['11231231231231231231231231231313131231312','11231231231231231231231231231313131231313']
+// });
 }
 const styles = StyleSheet.create({
     fourContainer:{
@@ -63,6 +60,15 @@ const styles = StyleSheet.create({
         backgroundColor:'white'
     },
     hotTextStyle:{
-
+        width:213,
+        height:35,
+        borderWidth:1,
+        color:'#323232',
+        fontSize:14,
+        lineHeight:35,
+        textAlign:'center',
+        marginVertical:17.5,
+        borderColor:'#323232',
+        alignSelf:'center',
     }
 })

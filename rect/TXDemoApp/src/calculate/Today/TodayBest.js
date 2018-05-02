@@ -12,7 +12,7 @@ export default class TodayBest extends Component {
     render(){
       return (
           <View style={styles.container}>
-            <Image style={styles.imageIconStyle} source={require('../../imgs/todaynotice.png')}/>
+            <Image style={styles.imageIconStyle} source={require('../../../imgs/todaynotice.png')}/>
               <View style={styles.lineStyle}></View>
               <View style={{flexDirection:'column',}}>
                   <View style={styles.iconViewStyle_new}>

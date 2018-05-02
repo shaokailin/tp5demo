@@ -38,23 +38,25 @@ export default class Cal_Home extends Component {
         return (<Cell data={item.key}/>);
     }
     _header = ()=> {
-        return (<HeaderView />);
+        return (<HeaderView ref={(headerView)=> this._headerView = headerView} />);
     }
     _separator = ()=>{
         return <View style={{backgroundColor:'#ededed', height:1,marginHorizontal:5}}></View>;
     }
     _onRefresh = ()=>{
-        alert('正在刷新...');
+        this.getNetData();
     }
     _layoutHeight(data,index) {
         return { length: 87, offset:88 * index, index }
     }
 
     componentDidMount() {
+        this.getNetData();
+    }
+    getNetData(){
+
     }
 
-    componentWillUnmount() {
-    }
 }
 const styles = StyleSheet.create({
 })

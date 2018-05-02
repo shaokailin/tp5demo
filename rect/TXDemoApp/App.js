@@ -6,9 +6,9 @@ import {
 } from 'react-native';
 
 import {StackNavigator,TabNavigator,TabBarBottom} from 'react-navigation';
-import cal_Home from './calculate/Home';
-import for_Home from './fortune/Home';
-import news_Home from './news/Home';
+import cal_Home from './src/calculate/Home';
+import for_Home from './src/fortune/Home';
+import news_Home from './src/news/Home';
 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
@@ -63,7 +63,7 @@ const TabTouteConfigs = {
         navigationOptions:({navigation,screenProps}) => ({
             tabBarLabel:'运势',
             tabBarIcon:({tintColor,focused}) => (
-                focused?<Image  source={require('./imgs/tabbars1.png')}/>:<Image  source={require('./imgs/tabbarn1.png')}/>
+                focused?<Image  source={require('./imgs/tabbars1.png')}/>:<Image source={require('./imgs/tabbarn1.png')}/>
             ),
         }),
     },
@@ -72,7 +72,7 @@ const TabTouteConfigs = {
         navigationOptions:({navigation}) => ({
             tabBarLabel:'资讯',
             tabBarIcon:({tintColor,focused}) => (
-                focused? <Image  source={require('./imgs/tabbars2.png')}/>:<Image  source={require('./imgs/tabbarn2.png')}/>
+                focused? <Image  source={require('./imgs/tabbars2.png')}/>:<Image source={require('./imgs/tabbarn2.png')}/>
             ),
         }),
     }
