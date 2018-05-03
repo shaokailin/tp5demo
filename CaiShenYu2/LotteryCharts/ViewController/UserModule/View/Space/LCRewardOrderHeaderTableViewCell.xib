@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LCRewardOrderHeaderTableViewCell" id="KGk-i7-Jjw" customClass="LCRewardOrderHeaderTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="29.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全部帖子(共0则)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaj-7f-c1f">
+                        <rect key="frame" x="22" y="8.5" width="76" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vta-5S-aBP">
+                        <rect key="frame" x="258" y="0.0" width="40" height="29.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="mB8-kN-8Zw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="排行">
+                            <color key="titleColor" red="0.49019607843137253" green="0.49019607843137253" blue="0.49019607843137253" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="clickEvent:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oPX-M7-jlM"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtI-9W-bSy">
+                        <rect key="frame" x="257" y="10" width="1" height="10"/>
+                        <color key="backgroundColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="1" id="oeo-JF-GSh"/>
+                            <constraint firstAttribute="height" constant="10" id="qR5-Ol-tc9"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R8e-am-iCl">
+                        <rect key="frame" x="217" y="0.0" width="40" height="29.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="YRc-nR-ezw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="记录">
+                            <color key="titleColor" red="0.49019607840000001" green="0.49019607840000001" blue="0.49019607840000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <state key="selected">
+                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="clickEvent:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="zJ6-Gt-6oX"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="YtI-9W-bSy" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DMf-kZ-ISr"/>
+                    <constraint firstItem="jaj-7f-c1f" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="22" id="GJn-uj-KBD"/>
+                    <constraint firstAttribute="trailing" secondItem="Vta-5S-aBP" secondAttribute="trailing" constant="22" id="L0g-Wv-lwZ"/>
+                    <constraint firstItem="Vta-5S-aBP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="MLY-6s-txf"/>
+                    <constraint firstAttribute="bottom" secondItem="Vta-5S-aBP" secondAttribute="bottom" id="TG1-hq-xaA"/>
+                    <constraint firstItem="YtI-9W-bSy" firstAttribute="leading" secondItem="R8e-am-iCl" secondAttribute="trailing" id="fwI-d0-oxr"/>
+                    <constraint firstItem="jaj-7f-c1f" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="geY-Hh-pkV"/>
+                    <constraint firstItem="Vta-5S-aBP" firstAttribute="leading" secondItem="YtI-9W-bSy" secondAttribute="trailing" id="nlq-CK-LS9"/>
+                    <constraint firstAttribute="bottom" secondItem="R8e-am-iCl" secondAttribute="bottom" id="ptE-1X-KgG"/>
+                    <constraint firstItem="R8e-am-iCl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="xLD-vm-Qsj"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
+            <connections>
+                <outlet property="countLbl" destination="jaj-7f-c1f" id="iui-2E-aqh"/>
+                <outlet property="orderBtn" destination="Vta-5S-aBP" id="47G-5l-a8E"/>
+                <outlet property="recordBtn" destination="R8e-am-iCl" id="Q3S-PT-c0T"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

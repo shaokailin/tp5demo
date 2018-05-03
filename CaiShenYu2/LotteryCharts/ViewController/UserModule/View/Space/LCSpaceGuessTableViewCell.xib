@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LCSpaceGuessTableViewCell" id="KGk-i7-Jjw" customClass="LCSpaceGuessTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kp0-Ew-ZGS">
+                        <rect key="frame" x="20" y="18" width="31" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.0039215686269999999" green="0.72549019609999998" blue="0.99215686270000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZX-Ot-y8F">
+                        <rect key="frame" x="269" y="18" width="31" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.74901960779999999" green="0.74901960779999999" blue="0.74901960779999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hOW-ad-72O">
+                        <rect key="frame" x="20" y="45.5" width="280" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.2627450980392157" green="0.2627450980392157" blue="0.2627450980392157" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="fZX-Ot-y8F" secondAttribute="trailing" constant="20" id="17P-U7-H2T"/>
+                    <constraint firstItem="hOW-ad-72O" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="AuY-fy-dvK"/>
+                    <constraint firstItem="fZX-Ot-y8F" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="W0f-B6-P3C"/>
+                    <constraint firstItem="Kp0-Ew-ZGS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="WUY-Ln-eAA"/>
+                    <constraint firstAttribute="trailing" secondItem="hOW-ad-72O" secondAttribute="trailing" constant="20" id="azM-zF-n3N"/>
+                    <constraint firstItem="Kp0-Ew-ZGS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="fcg-SW-hQq"/>
+                    <constraint firstAttribute="bottom" secondItem="hOW-ad-72O" secondAttribute="bottom" constant="16" id="wVm-lK-9Fs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="postIdLbl" destination="Kp0-Ew-ZGS" id="e9g-Cm-W5I"/>
+                <outlet property="timeLbl" destination="fZX-Ot-y8F" id="gw7-d4-d8Z"/>
+                <outlet property="titleLbl" destination="hOW-ad-72O" id="VpY-Di-kkk"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

@@ -1,0 +1,17 @@
+platform :ios, '8.0'
+target 'LotteryCharts' do 
+    pod 'AFNetworking'
+    pod 'ReactiveObjC'
+    pod 'SDWebImage'
+    pod 'Masonry'
+    pod 'YYModel'
+    pod 'FDFullscreenPopGesture'
+    pod 'MJRefresh'
+    pod 'TPKeyboardAvoiding'
+    pod 'RSKImageCropper'
+    pod 'Qiniu'
+    pod 'PYPhotoBrowser'
+    pod 'UMengUShare/Social/ReducedWeChat'
+    pod 'UMengUShare/Social/ReducedQQ'
+    pod 'MJExtension', '~> 3.0.11'
+end
