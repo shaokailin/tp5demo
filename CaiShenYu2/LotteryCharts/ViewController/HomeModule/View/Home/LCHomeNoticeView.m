@@ -59,11 +59,18 @@
         make.left.equalTo(arrowImageView.mas_right).with.offset(5);
         make.centerY.equalTo(ws);
     }];
-    _scrollTextView = [[LMJScrollTextView2 alloc] initWithFrame:CGRectMake(65, 0, SCREEN_WIDTH - 75, 30)];
+    _scrollTextView = [[LMJScrollTextView2 alloc] initWithFrame:CGRectMake(65, 0, SCREEN_WIDTH - 115, 30)];
     _scrollTextView.delegate        = self;
     _scrollTextView.textColor       = ColorHexadecimal(0x959595, 1.0);
     _scrollTextView.textFont        = [UIFont systemFontOfSize:11.f];
     [self addSubview:_scrollTextView];
+    UIImageView *arrow = [[UIImageView alloc]initWithImage:ImageNameInit(@"arrow_right")];
+    [self addSubview:arrow];
+    [arrow mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.equalTo(self).with.offset(-10);
+        make.centerY.equalTo(self);
+        make.width.height.mas_equalTo(15);
+    }];
 }
 
 @end

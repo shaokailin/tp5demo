@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//1目录，2.搜索 3.banner 4.func 5.福彩3d more
+//1目录，2.搜索 3.banner 4.func 5.福彩3d more 6
 typedef void (^HeaderViewBlock) (NSInteger type,id actionParam);
 @interface LCHomeHeaderView : UIView
 @property (nonatomic, copy) HeaderViewBlock headerBlock;

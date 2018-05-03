@@ -99,8 +99,8 @@ static const NSInteger kMinStartYear = 2000;
         [self getCurrentDate:NO];
         self.hidden = NO;
         [UIView animateWithDuration:0.25 animations:^{
-            _bgView.alpha = 1;
-            _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 200 , SCREEN_WIDTH, 200);
+            self->_bgView.alpha = 1;
+            self->_contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 200 , SCREEN_WIDTH, 200);
         }];
     }
 }
@@ -117,8 +117,8 @@ static const NSInteger kMinStartYear = 2000;
 }
 - (void)cancleSelectedClick {
     [UIView animateWithDuration:0.25 animations:^{
-        _bgView.alpha = 0;
-        _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) , SCREEN_WIDTH, 200);
+        self->_bgView.alpha = 0;
+        self->_contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) , SCREEN_WIDTH, 200);
     }completion:^(BOOL finished) {
         self.hidden = YES;
     }];

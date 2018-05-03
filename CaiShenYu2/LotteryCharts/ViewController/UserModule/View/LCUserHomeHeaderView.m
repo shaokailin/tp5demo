@@ -38,11 +38,11 @@
                 [_bgImageView sd_setImageWithURL:[NSURL URLWithString:bgImage] completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
                     @strongify(self)
                     if (error == nil) {
-                        _isHasChange = YES;
+                        self->_isHasChange = YES;
                         [self setupBgImage:image];
                     }else {
-                        _bgLogoImage = nil;
-                        _isHasChange = NO;
+                        self->_bgLogoImage = nil;
+                        self->_isHasChange = NO;
                     }
                 }];
             }else {

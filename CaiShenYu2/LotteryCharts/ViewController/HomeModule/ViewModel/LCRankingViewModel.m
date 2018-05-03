@@ -31,8 +31,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self.page == 0 && _postArray) {
-                    [_postArray removeAllObjects];
+                if (self.page == 0 && self->_postArray) {
+                    [self->_postArray removeAllObjects];
                 }
 //                if (self.showType == 1) {
 //                    LCRankingRenListModel *ren = (LCRankingRenListModel *)model;

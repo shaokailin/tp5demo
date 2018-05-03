@@ -20,6 +20,8 @@
 #import "LCWebViewController.h"
 #import "LCMySpaceMainVC.h"
 #import "LCSearchPostVC.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import "LCPublicNoticeVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -34,16 +36,6 @@
     // Do any additional setup after loading the view.
     [self initializeMainView];
     [self bindSignal];
-}
-#pragma mark private
-- (void)showMeunView:(UIButton *)sender {
-    PopoverView *popoverView = [PopoverView popoverView];
-    popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
-    popoverView.showShade = YES;
-    [popoverView showToView:sender withActions:[self neumActions]];
-}
-- (void)searchEnumClick:(NSInteger)index {
-    self.headerView.searchIndex = index;
 }
 - (void)bindSignal {
     @weakify(self)
@@ -92,6 +84,8 @@
             [self.navigationController pushViewController:detail animated:YES];
         }else if (identifier == 80) {
             [self.headerView setup5DMessage:model];
+        }else if (identifier == 90) {
+#warning -搜索擂台帖子id
         }
         else {
             [self.headerView setupBannerData:self.viewModel.messageModel.adv_list];
@@ -123,6 +117,61 @@
 - (void)pullUpLoadMore {
     _viewModel.page += 1;
     [_viewModel getHomeMessage:YES];
+}
+#pragma mark private
+- (void)showMeunView:(UIButton *)sender {
+    PopoverView *popoverView = [PopoverView popoverView];
+    popoverView.arrowStyle = PopoverViewArrowStyleTriangle;
+    popoverView.showShade = YES;
+    [popoverView showToView:sender withActions:[self neumActions]];
+}
+//擂台帖子Id = 3
+- (void)searchEnumClick:(NSInteger)index {
+    self.headerView.searchIndex = index;
+}
+- (void)shareClick {
+    BOOL isWx = NO;
+    BOOL isQQ = NO;
+    if ([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_WechatSession]) {
+        isWx = YES;
+    }
+    if([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_QQ]) {
+        isQQ = YES;
+    }
+    if (!isWx && !isQQ) {
+        [SKHUD showMessageInWindowWithMessage:@"暂无分享的平台"];
+        return;
+    }
+    UIActionSheet *sheetView = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: nil];
+    if (isWx) {
+        [sheetView addButtonWithTitle:@"发送给微信好友"];
+        [sheetView addButtonWithTitle:@"分享到微信朋友圈"];
+    }
+    if (isQQ) {
+        [sheetView addButtonWithTitle:@"分享到QQ"];
+    }
+    @weakify(self)
+    [[sheetView rac_buttonClickedSignal ]subscribeNext:^(NSNumber * _Nullable x) {
+        @strongify(self)
+        NSInteger index = [x integerValue];
+        if (index == 1 && !isWx) {
+            index = 3;
+        }
+        [self shareEvent:index];
+    }];
+    [sheetView showInView:self.view];
+}
+- (void)shareEvent:(NSInteger)type {
+    UMSocialPlatformType platformType = UMSocialPlatformType_QQ;
+    if (type == 1) {
+        platformType = UMSocialPlatformType_WechatSession;
+    }else if (type == 2){
+        platformType = UMSocialPlatformType_WechatTimeLine;
+    }
+#warning -分享内容确定
+    [[UMSocialManager defaultManager]shareToPlatform:platformType messageObject:nil currentViewController:self completion:^(id result, NSError *error) {
+        
+    }];
 }
 - (void)headerViewActionType:(NSInteger)type actionParam:(id)actionParam {
     [self.view endEditing:YES];
@@ -188,10 +237,16 @@
         }
     }else if (type == 2){//搜索
         if ([self isCanJumpViewForLogin:YES]) {
+#warning -擂台帖子id 的搜索  3
             self.viewModel.searchType = self.headerView.searchIndex;
             [self.viewModel searchPostEvent:actionParam];
         }
-    }else {
+    }else if (type == 6) {
+        LCPublicNoticeVC *notice = [[LCPublicNoticeVC alloc]init];
+        notice.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:notice animated:YES];
+    }
+    else {
         LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
         lottery.hidesBottomBarWhenPushed = YES;
         lottery.type = type;
@@ -249,7 +304,11 @@
         PopoverAction *add1FriAction = [PopoverAction actionWithImage:nil title:@"帖子ID" handler:^(PopoverAction *action) {
             [ws searchEnumClick:2];
         }];
-        _searchArray = [NSArray arrayWithObjects:multichatAction,addFriAction,add1FriAction, nil];
+        PopoverAction *add3FriAction = [PopoverAction actionWithImage:nil title:@"擂台帖子id" handler:^(PopoverAction *action) {
+            [ws searchEnumClick:3];
+        }];
+       
+        _searchArray = [NSArray arrayWithObjects:multichatAction,addFriAction,add1FriAction,add3FriAction, nil];
     }
     return _searchArray;
 }
@@ -261,11 +320,12 @@
         postMainVcC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:postMainVcC animated:YES];
     }];
-    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
+    PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"分享" handler:^(PopoverAction *action) {
         @strongify(self)
-        LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
-        recgarge.hidesBottomBarWhenPushed = YES;
-        [self.navigationController pushViewController:recgarge animated:YES]; 
+        [self shareClick];
+//        LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
+//        recgarge.hidesBottomBarWhenPushed = YES;
+//        [self.navigationController pushViewController:recgarge animated:YES];
     }];
     return @[multichatAction, addFriAction];
 }

@@ -89,6 +89,13 @@
 		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
 		A658A5F6202D701F0091586B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F5202D701F0091586B /* Security.framework */; };
 		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
+		A6E0E6D6209B4D0C008B2FC1 /* LCPublicNoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6D5209B4D0C008B2FC1 /* LCPublicNoticeVC.m */; };
+		A6E0E6DA209B4E09008B2FC1 /* LCPublicNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6D8209B4E09008B2FC1 /* LCPublicNoticeCell.m */; };
+		A6E0E6DB209B4E09008B2FC1 /* LCPublicNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */; };
+		A6E0E6DE209B6228008B2FC1 /* LCNoticeSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */; };
+		A6E0E6E1209B624C008B2FC1 /* LCMessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */; };
+		A6E0E6E5209B6349008B2FC1 /* LCNoticeSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */; };
+		A6E0E6E6209B6349008B2FC1 /* LCNoticeSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */; };
 		D945D3A92CE6C469813EDE8D /* libPods-LotteryCharts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B336E2A04AE7237EEDF93B /* libPods-LotteryCharts.a */; };
 		E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */; };
 		E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */; };
@@ -498,6 +505,18 @@
 		A658A5F5202D701F0091586B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
 		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
+		A6E0E6D4209B4D0C008B2FC1 /* LCPublicNoticeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeVC.h; sourceTree = "<group>"; };
+		A6E0E6D5209B4D0C008B2FC1 /* LCPublicNoticeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeVC.m; sourceTree = "<group>"; };
+		A6E0E6D7209B4E09008B2FC1 /* LCPublicNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeCell.h; sourceTree = "<group>"; };
+		A6E0E6D8209B4E09008B2FC1 /* LCPublicNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeCell.m; sourceTree = "<group>"; };
+		A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPublicNoticeCell.xib; sourceTree = "<group>"; };
+		A6E0E6DC209B6228008B2FC1 /* LCNoticeSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNoticeSettingVC.h; sourceTree = "<group>"; };
+		A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNoticeSettingVC.m; sourceTree = "<group>"; };
+		A6E0E6DF209B624C008B2FC1 /* LCMessageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMessageListVC.h; sourceTree = "<group>"; };
+		A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMessageListVC.m; sourceTree = "<group>"; };
+		A6E0E6E2209B6349008B2FC1 /* LCNoticeSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNoticeSettingCell.h; sourceTree = "<group>"; };
+		A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNoticeSettingCell.m; sourceTree = "<group>"; };
+		A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCNoticeSettingCell.xib; sourceTree = "<group>"; };
 		E61D2EA91FBAC13D002005E3 /* LCPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPhotoTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPhotoTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -1906,6 +1925,11 @@
 				E6E2C6FB1FB00FAB00866D15 /* LCHomeMainVC.m */,
 				957AD3FE1FE6060C0081A91A /* LCSearchPostVC.h */,
 				957AD3FF1FE6060C0081A91A /* LCSearchPostVC.m */,
+				A6E0E6D4209B4D0C008B2FC1 /* LCPublicNoticeVC.h */,
+				A6E0E6D5209B4D0C008B2FC1 /* LCPublicNoticeVC.m */,
+				A6E0E6D7209B4E09008B2FC1 /* LCPublicNoticeCell.h */,
+				A6E0E6D8209B4E09008B2FC1 /* LCPublicNoticeCell.m */,
+				A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2096,6 +2120,13 @@
 				E61D2F3C1FBEB968002005E3 /* LCContactMainVC.m */,
 				95276E401FE02183007C22B2 /* LCUserSignVC.h */,
 				95276E411FE02183007C22B2 /* LCUserSignVC.m */,
+				A6E0E6DC209B6228008B2FC1 /* LCNoticeSettingVC.h */,
+				A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */,
+				A6E0E6DF209B624C008B2FC1 /* LCMessageListVC.h */,
+				A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */,
+				A6E0E6E2209B6349008B2FC1 /* LCNoticeSettingCell.h */,
+				A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */,
+				A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2406,6 +2437,7 @@
 				E61D2F241FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib in Resources */,
 				E6C3F3DC1FC05A030077D670 /* LCVipTableViewCell.xib in Resources */,
 				E636A7DB1FC42D3800C9460F /* LCGuessInputView.xib in Resources */,
+				A6E0E6E6209B6349008B2FC1 /* LCNoticeSettingCell.xib in Resources */,
 				E636A7F21FC5557900C9460F /* LCPostTopView.xib in Resources */,
 				435EC71F208F3A0500D1D37D /* LaunchScreen.storyboard in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
@@ -2431,6 +2463,7 @@
 				E6D9A7E81FAFF97300894BB0 /* TabBarSetting.plist in Resources */,
 				E6E2C67A1FB0038600866D15 /* webviewmore@2x.png in Resources */,
 				E61D2EFB1FBAF429002005E3 /* LCSpaceGuessTableViewCell.xib in Resources */,
+				A6E0E6DB209B4E09008B2FC1 /* LCPublicNoticeCell.xib in Resources */,
 				E6C3F3E61FC12CCE0077D670 /* LCRankingGoldTableViewCell.xib in Resources */,
 				E61D2F181FBD3EC0002005E3 /* LCWithdrawMainVC.xib in Resources */,
 				E636A7E51FC4474800C9460F /* LCSelectSizeView.xib in Resources */,
@@ -2506,7 +2539,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		87049E5AAD5832A43079E992 /* [CP] Copy Pods Resources */ = {
@@ -2516,10 +2549,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle",
+				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PYPhotosView.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2597,6 +2636,7 @@
 				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
 				95BC5E781FE1781000FB5C3E /* LCSignTableViewCell.m in Sources */,
 				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
+				A6E0E6E1209B624C008B2FC1 /* LCMessageListVC.m in Sources */,
 				E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				435EC722208F3A0500D1D37D /* CircleLayer.m in Sources */,
@@ -2616,6 +2656,7 @@
 				95DDA68B1FBB295500686504 /* LCSpacePostVoiceImageTableViewCell.m in Sources */,
 				E6C3F4271FC2C61C0077D670 /* LCRegisterMainView.m in Sources */,
 				E61EA1DA1FD5528E00737327 /* LCSendRecordModel.m in Sources */,
+				A6E0E6D6209B4D0C008B2FC1 /* LCPublicNoticeVC.m in Sources */,
 				E67FFBD81FCD4FA00045E5DF /* LCGuessModuleAPI.m in Sources */,
 				E67FFBEC1FCFDC180045E5DF /* LCPushPostViewModel.m in Sources */,
 				435EC719208F3A0500D1D37D /* HomeViewController.m in Sources */,
@@ -2660,6 +2701,7 @@
 				435EC71C208F3A0500D1D37D /* PuzzleBlockItem.m in Sources */,
 				95AE93271FE80A1600766894 /* LCRankingRenModel.m in Sources */,
 				E64198261FDE2A5600C47713 /* LCGuessHistoryViewModel.m in Sources */,
+				A6E0E6DA209B4E09008B2FC1 /* LCPublicNoticeCell.m in Sources */,
 				435EC728208F3A0500D1D37D /* ImageScale.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
@@ -2721,6 +2763,7 @@
 				959019101FB808ED00F5B0CE /* LCLottery3DView.m in Sources */,
 				E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */,
 				E66A06521FE1185F007F6891 /* LCHistoryGuessTableViewCell.m in Sources */,
+				A6E0E6E5209B6349008B2FC1 /* LCNoticeSettingCell.m in Sources */,
 				95BC5E6B1FE153D100FB5C3E /* LCContactViewModel.m in Sources */,
 				95DDA6A41FBC895D00686504 /* LCWalletMoneyTableViewCell.m in Sources */,
 				9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */,
@@ -2770,6 +2813,7 @@
 				E6E2C6621FB0038600866D15 /* NSTimer+Extend.m in Sources */,
 				E636A7E31FC4472A00C9460F /* LCSelectTwoYardsView.m in Sources */,
 				439F9B9A2068C03500FCDDDB /* LCGuessUerListCell.m in Sources */,
+				A6E0E6DE209B6228008B2FC1 /* LCNoticeSettingVC.m in Sources */,
 				E6E2C6611FB0038600866D15 /* NSString+Extend.m in Sources */,
 				E64784271FEA54D9000A3A01 /* LCRankingRenTableViewCell.m in Sources */,
 				959019121FB808ED00F5B0CE /* LCSearchBarView.m in Sources */,

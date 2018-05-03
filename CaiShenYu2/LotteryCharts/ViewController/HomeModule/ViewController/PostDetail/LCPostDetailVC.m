@@ -66,13 +66,13 @@
                 self.postModel.reply_count = detailModel.reply_count;
                 self.headerView.isCare = detailModel.is_follow;
                 self.headerView.postType = detailModel.post_type;
-                _isNeedSend = NO;
+                self->_isNeedSend = NO;
                 BOOL isCanShow = YES;
                 BOOL isPay = NO;
                 if (detailModel.return_status < 4) {
                     isCanShow  = NO;
                     if (detailModel.return_status == 3) {
-                        _isNeedSend =  YES;
+                        self->_isNeedSend =  YES;
                         [SKHUD showMessageInView:self.view withMessage:@"请回复才能查看帖子内容！"];
                     }else if (detailModel.return_status == 2) {
                         [SKHUD showMessageInView:self.view withMessage:@"请支付帖子才能查看帖子内容！"];
@@ -81,12 +81,12 @@
                 }
                 [self.headerView setupPayBtnState:isPay];
                 [self setupHeadView:isCanShow isFirst:NO];
-                [_viewModel.replyArray removeAllObjects];
+                [self->_viewModel.replyArray removeAllObjects];
             }
 
             [self endRefreshing];
             [self.mainTableView reloadData];
-            [LSKViewFactory setupFootRefresh:self.mainTableView page:_viewModel.page currentCount:2000000];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self->_viewModel.page currentCount:2000000];
         }else if (identifier == 200) {
             self.postModel = model;
             [self setupHeadView:NO isFirst:YES];

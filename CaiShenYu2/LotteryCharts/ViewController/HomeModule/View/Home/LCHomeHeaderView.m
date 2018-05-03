@@ -40,6 +40,11 @@
         self.headerBlock(3, @(index));
     }
 }
+- (void)noticeClick {
+    if (self.headerBlock) {
+        self.headerBlock(6, nil);
+    }
+}
 - (void)setupHotLineCount:(NSString *)count {
     [self.hotHeaderView setupLineCount:count];
 }
@@ -91,6 +96,8 @@
     }];
     
     LCHomeNoticeView *noticeView = [[LCHomeNoticeView alloc]init];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(noticeClick)];
+    [noticeView addGestureRecognizer:tap];
     self.noticeView = noticeView;
     [self addSubview:noticeView];
     [noticeView mas_makeConstraints:^(MASConstraintMaker *make) {
