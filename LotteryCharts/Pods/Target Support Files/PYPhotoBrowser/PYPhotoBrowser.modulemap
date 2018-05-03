@@ -1,6 +1,0 @@
-framework module PYPhotoBrowser {
-  umbrella header "PYPhotoBrowser-umbrella.h"
-
-  export *
-  module * { export * }
-}
