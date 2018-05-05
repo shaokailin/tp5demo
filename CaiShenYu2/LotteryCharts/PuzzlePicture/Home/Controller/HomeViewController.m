@@ -109,7 +109,7 @@
 
 -(void)setupNav{
     self.title = self.PuzzleTypeArr[[PuzzleInstance shareInstance].puzzleType];
-    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],UITextAttributeTextColor, nil];
+    self.navigationController.navigationBar.titleTextAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSFontAttributeName, nil];
     
     UIButton *btnLeft = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 22, 25)];
     [btnLeft setBackgroundImage:[UIImage imageNamed:@"菜单"] forState:UIControlStateNormal];

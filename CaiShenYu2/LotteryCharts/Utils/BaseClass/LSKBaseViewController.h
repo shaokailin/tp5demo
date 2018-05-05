@@ -14,12 +14,14 @@
 @property (nonatomic, readonly,assign) CGFloat tabbarBetweenHeight;
 @property (nonatomic, readonly,assign) CGFloat navibarHeight;
 @property (nonatomic, readonly, assign) CGFloat viewMainHeight;
+- (void)shareEventClick;
 - (BOOL)isCanJumpViewForLogin:(BOOL)isNeedHiden;
 - (void)backToNornalNavigationColor;
 /**
  添加返回按钮
  */
 - (void)addNavigationBackButton;
+- (void)addRedNavigationBackButton;
 /**
  重写返回按钮点击事件
  */

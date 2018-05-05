@@ -130,49 +130,9 @@
     self.headerView.searchIndex = index;
 }
 - (void)shareClick {
-    BOOL isWx = NO;
-    BOOL isQQ = NO;
-    if ([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_WechatSession]) {
-        isWx = YES;
-    }
-    if([[UMSocialManager defaultManager]isInstall:UMSocialPlatformType_QQ]) {
-        isQQ = YES;
-    }
-    if (!isWx && !isQQ) {
-        [SKHUD showMessageInWindowWithMessage:@"暂无分享的平台"];
-        return;
-    }
-    UIActionSheet *sheetView = [[UIActionSheet alloc]initWithTitle:nil delegate:nil cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles: nil];
-    if (isWx) {
-        [sheetView addButtonWithTitle:@"发送给微信好友"];
-        [sheetView addButtonWithTitle:@"分享到微信朋友圈"];
-    }
-    if (isQQ) {
-        [sheetView addButtonWithTitle:@"分享到QQ"];
-    }
-    @weakify(self)
-    [[sheetView rac_buttonClickedSignal ]subscribeNext:^(NSNumber * _Nullable x) {
-        @strongify(self)
-        NSInteger index = [x integerValue];
-        if (index == 1 && !isWx) {
-            index = 3;
-        }
-        [self shareEvent:index];
-    }];
-    [sheetView showInView:self.view];
+    [self shareEventClick];
 }
-- (void)shareEvent:(NSInteger)type {
-    UMSocialPlatformType platformType = UMSocialPlatformType_QQ;
-    if (type == 1) {
-        platformType = UMSocialPlatformType_WechatSession;
-    }else if (type == 2){
-        platformType = UMSocialPlatformType_WechatTimeLine;
-    }
-#warning -分享内容确定
-    [[UMSocialManager defaultManager]shareToPlatform:platformType messageObject:nil currentViewController:self completion:^(id result, NSError *error) {
-        
-    }];
-}
+
 - (void)headerViewActionType:(NSInteger)type actionParam:(id)actionParam {
     [self.view endEditing:YES];
     if (type == 1) {

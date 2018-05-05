@@ -1,4 +1,6 @@
 platform :ios, '8.0'
+inhibit_all_warnings!
+use_frameworks!
 target 'LotteryCharts' do 
     pod 'AFNetworking'
     pod 'ReactiveObjC'
@@ -14,4 +16,5 @@ target 'LotteryCharts' do
     pod 'UMengUShare/Social/ReducedWeChat'
     pod 'UMengUShare/Social/ReducedQQ'
     pod 'MJExtension', '~> 3.0.11'
+    pod 'JPush'
 end

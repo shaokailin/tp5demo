@@ -19,10 +19,13 @@
     UILabel *_teamLbl;
     UIButton *_punchBtn;
     NSString *_bgLogoImage;
+    UILabel *_funcLbl;
     BOOL _isHasChange;
+    BOOL _isHome;
 }
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame isHome:(BOOL)isHome {
     if (self = [super initWithFrame:frame]) {
+        _isHome = isHome;
         [self _layoutMainView];
     }
     return self;
@@ -88,6 +91,11 @@
 }
 - (void)isShowPunchCard:(BOOL)isShow {
     _punchBtn.hidden = !isShow;
+}
+- (void)punchFunsAction {
+    if (self.punchBlock) {
+        self.punchBlock(6);
+    }
 }
 - (void)punchCardAction {
     if (self.punchBlock) {
@@ -192,7 +200,14 @@
         make.width.mas_equalTo(SCREEN_WIDTH - 20);
         make.height.mas_equalTo(50);
     }];
+    if (_isHome) {
+        [self homeMessageView:view];
+    }else {
+        [self spaceHeaderView:view];
+    }
     
+}
+- (void)spaceHeaderView:(UIView *)view {
     UIView *lineView = [LSKViewFactory initializeLineView];
     [view addSubview:lineView];
     [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -246,6 +261,88 @@
         make.top.bottom.equalTo(view);
         make.left.equalTo(lineView.mas_right).with.offset(5);
         make.right.equalTo(view).with.offset(-5);
+    }];
+}
+- (void)homeMessageView:(UIView *)view {
+    UILabel *funcTitleLbl = [LSKViewFactory initializeLableWithText:@"粉丝" font:12 textColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:funcTitleLbl];
+    [funcTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(view).with.offset(8);
+        make.left.equalTo(view).with.offset(5);
+    }];
+    UIView *lineView = [LSKViewFactory initializeLineView];
+    [view addSubview:lineView];
+    [lineView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kLineView_Height, 25));
+        make.left.equalTo(funcTitleLbl.mas_right).with.offset(5);
+        make.centerY.equalTo(view);
+    }];
+    
+    UILabel *atentionTitleLbl = [LSKViewFactory initializeLableWithText:@"关注" font:12 textColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:atentionTitleLbl];
+    [atentionTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(funcTitleLbl);
+        make.left.equalTo(funcTitleLbl.mas_right).with.offset(11);
+        make.width.equalTo(funcTitleLbl);
+    }];
+    UIView *lineView1 = [LSKViewFactory initializeLineView];
+    [view addSubview:lineView1];
+    [lineView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kLineView_Height, 25));
+        make.left.equalTo(atentionTitleLbl.mas_right).with.offset(5);
+        make.centerY.equalTo(view);
+    }];
+    UILabel *teemTitleLbl = [LSKViewFactory initializeLableWithText:@"团队" font:12 textColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:teemTitleLbl];
+    [teemTitleLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(funcTitleLbl);
+        make.left.equalTo(atentionTitleLbl.mas_right).with.offset(11);
+        make.width.equalTo(atentionTitleLbl);
+        make.right.equalTo(view.mas_right).with.offset(-5);
+    }];
+    _funcLbl = [LSKViewFactory initializeLableWithText:@"0" font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:_funcLbl];
+    [_funcLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(funcTitleLbl);
+        make.top.equalTo(funcTitleLbl.mas_bottom).with.offset(6);
+    }];
+    
+    _attentionLbl = [LSKViewFactory initializeLableWithText:@"0" font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:_attentionLbl];
+    [_attentionLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(atentionTitleLbl);
+        make.top.equalTo(atentionTitleLbl.mas_bottom).with.offset(6);
+    }];
+    
+    _teamLbl = [LSKViewFactory initializeLableWithText:@"0" font:15 textColor:ColorHexadecimal(0xf6a623, 1.0) textAlignment:1 backgroundColor:nil];
+    [view addSubview:_teamLbl];
+    [_teamLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(teemTitleLbl);
+        make.top.equalTo(teemTitleLbl.mas_bottom).with.offset(6);
+    }];
+    UIButton *funsBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [funsBtn setBackgroundColor:[UIColor clearColor]];
+    [funsBtn addTarget:self action:@selector(punchFunsAction) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:funsBtn];
+    [funsBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(view);
+        make.left.right.equalTo(funcTitleLbl);
+    }];
+    UIButton *careBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [careBtn setBackgroundColor:[UIColor clearColor]];
+    [careBtn addTarget:self action:@selector(careClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:careBtn];
+    [careBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(view);
+        make.left.right.equalTo(atentionTitleLbl);
+    }];
+    UIButton *teamBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [teamBtn setBackgroundColor:[UIColor clearColor]];
+    [teamBtn addTarget:self action:@selector(teamClick) forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:teamBtn];
+    [teamBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.bottom.equalTo(view);
+        make.left.right.equalTo(teemTitleLbl);
     }];
 }
 @end

@@ -12,6 +12,14 @@
 	</dict>
 	<dict>
 		<key>controller</key>
+		<string>LCUserMessageListVC</string>
+		<key>icon</key>
+		<string>messageicon</string>
+		<key>title</key>
+		<string>我的消息</string>
+	</dict>
+	<dict>
+		<key>controller</key>
 		<string></string>
 		<key>icon</key>
 		<string>user_room_icon</string>

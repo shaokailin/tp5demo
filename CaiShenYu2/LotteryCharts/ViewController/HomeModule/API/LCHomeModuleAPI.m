@@ -247,4 +247,11 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
     entity.responseObject = [LCWeiPayOrderModel class];
     return entity;
 }
+
++ (LSKParamterEntity *)getPublicNoticeList:(NSInteger)page {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kPayTypeList;
+    entity.responseObject = [LCRechargeMoneyListModel class];
+    return entity;
+}
 @end

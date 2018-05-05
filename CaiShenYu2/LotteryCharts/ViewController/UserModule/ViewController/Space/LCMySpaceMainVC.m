@@ -26,6 +26,7 @@
 #import "LCHomePostModel.h"
 #import "LCPostDetailVC.h"
 #import "LCGuessDetailVC.h"
+#import "LCSpaceReportView.h"
 @interface LCMySpaceMainVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isChange;
@@ -84,14 +85,14 @@
         if (identifier == 100) {
             
         }else {
-            if (_showType == 0 && self.viewModel.page == 0) {
+            if (self->_showType == 0 && self.viewModel.page == 0) {
                 LCSpacePostListModel *dataModel = (LCSpacePostListModel *)model;
                 [self.headerView setupContentWithName:dataModel.user_info.nickname userid:dataModel.user_info.mch_no attention:dataModel.follow_count teem:dataModel.team_count photo:dataModel.user_info.logo];
                 self.post_list_count = dataModel.post_list_count;
                 self.quiz_count = dataModel.quiz_count;
                 self.my_mchmoney = dataModel.my_mchmoney;
                 [self.headerView changeBgImage:dataModel.user_info.bglogo];
-            }else if (_showType == 2 && self.viewModel.page == 0){
+            }else if (self->_showType == 2 && self.viewModel.page == 0){
                 LCSpaceSendRecordListModel *dataModel = (LCSpaceSendRecordListModel *)model;
                 self.moneyString = dataModel.all_money;
                 self.countString = dataModel.all_row;
@@ -141,11 +142,21 @@
         [self.navigationController pushViewController:attentionVC animated:YES];
     }
 }
-
-- (void)showMeunView:(UIButton *)sender {
+#pragma mark - 举报
+- (void)showReportView {
+    NSArray *xibs = [[NSBundle mainBundle] loadNibNamed:@"LCSpaceReportView"owner:self options:nil];
+    LCSpaceReportView *report = xibs.lastObject;
+    @weakify(self)
+    report.block = ^(NSString *postId, NSString *report) {
+      @strongify(self)
+        [self reportEvent:postId report:report];
+    };
+    report.frame = CGRectMake(0, 0, ScreenWidth, ScreenHeight);
+    [[UIApplication sharedApplication].keyWindow addSubview:report];
+}
+- (void)reportEvent:(NSString *)postId report:(NSString *)report {
     
 }
-
 - (void)changeShowClick:(NSInteger)type {
     _showType = type;
     [self getDataMessage];
@@ -358,9 +369,9 @@
 }
 - (void)initializeMainView {
     _showType = 0;
-//    if (![kUserMessageManager.userId isEqualToString:self.userId]) {
-//        [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];
-//    }
+    if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+        [self addRightNavigationButtonWithNornalImage:@"reporticon" seletedIamge:nil target:self action:@selector(showReportView)];
+    }
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardOrderTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardOrderTableViewCell];
     [tableView registerNib:[UINib nibWithNibName:kLCRewardRecordTableViewCell bundle:nil] forCellReuseIdentifier:kLCRewardRecordTableViewCell];
@@ -375,7 +386,7 @@
     
     UIView *headerMainView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 335)];
     headerMainView.backgroundColor = [UIColor whiteColor];
-    LCUserHomeHeaderView *headerView = [[LCUserHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304)];
+    LCUserHomeHeaderView *headerView = [[LCUserHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304) isHome:NO];
     [headerView changeBgImage:nil];
     [headerView isShowPunchCard:NO];
     self.headerView = headerView;

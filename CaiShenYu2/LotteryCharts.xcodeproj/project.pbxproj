@@ -89,14 +89,26 @@
 		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
 		A658A5F6202D701F0091586B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F5202D701F0091586B /* Security.framework */; };
 		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
+		A6D75A20209DB92D001C115D /* LCSpaceReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D75A1F209DB92D001C115D /* LCSpaceReportView.m */; };
+		A6D75A22209DB942001C115D /* LCSpaceReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D75A21209DB942001C115D /* LCSpaceReportView.xib */; };
+		A6D75A25209DFCA3001C115D /* UITextView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D75A24209DFCA3001C115D /* UITextView+Extend.m */; };
 		A6E0E6D6209B4D0C008B2FC1 /* LCPublicNoticeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6D5209B4D0C008B2FC1 /* LCPublicNoticeVC.m */; };
 		A6E0E6DA209B4E09008B2FC1 /* LCPublicNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6D8209B4E09008B2FC1 /* LCPublicNoticeCell.m */; };
 		A6E0E6DB209B4E09008B2FC1 /* LCPublicNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */; };
 		A6E0E6DE209B6228008B2FC1 /* LCNoticeSettingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */; };
-		A6E0E6E1209B624C008B2FC1 /* LCMessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */; };
 		A6E0E6E5209B6349008B2FC1 /* LCNoticeSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */; };
 		A6E0E6E6209B6349008B2FC1 /* LCNoticeSettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */; };
-		D945D3A92CE6C469813EDE8D /* libPods-LotteryCharts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B336E2A04AE7237EEDF93B /* libPods-LotteryCharts.a */; };
+		A6F6D2E2209C93E100BA494A /* LCPublicNoticeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2E1209C93E100BA494A /* LCPublicNoticeVM.m */; };
+		A6F6D2E6209C99BA00BA494A /* LCUserMessageListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2E5209C99BA00BA494A /* LCUserMessageListVC.m */; };
+		A6F6D2EB209CAC0200BA494A /* LCMessageForMeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2EA209CAC0200BA494A /* LCMessageForMeView.m */; };
+		A6F6D2EE209CAC1A00BA494A /* LCMessageForSystemView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2ED209CAC1A00BA494A /* LCMessageForSystemView.m */; };
+		A6F6D2F2209CB28600BA494A /* LCMeCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2F0209CB28600BA494A /* LCMeCommentCell.m */; };
+		A6F6D2F3209CB28600BA494A /* LCMeCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F6D2F1209CB28600BA494A /* LCMeCommentCell.xib */; };
+		A6F6D2F7209CB2FA00BA494A /* LCMeShangCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2F5209CB2FA00BA494A /* LCMeShangCell.m */; };
+		A6F6D2F8209CB2FA00BA494A /* LCMeShangCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F6D2F6209CB2FA00BA494A /* LCMeShangCell.xib */; };
+		A6F6D2FC209CB30900BA494A /* LCMeCareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6F6D2FA209CB30900BA494A /* LCMeCareCell.m */; };
+		A6F6D2FD209CB30900BA494A /* LCMeCareCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6F6D2FB209CB30900BA494A /* LCMeCareCell.xib */; };
+		ABA7DEA11C8FFF5DEF7AFB3C /* Pods_LotteryCharts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CEDC87F2DF46143E2E73D6 /* Pods_LotteryCharts.framework */; };
 		E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */; };
 		E61D2EAD1FBAC13D002005E3 /* LCPhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */; };
 		E61D2EB11FBAC151002005E3 /* LCNameInputTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E61D2EAF1FBAC151002005E3 /* LCNameInputTableViewCell.m */; };
@@ -352,7 +364,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		33B336E2A04AE7237EEDF93B /* libPods-LotteryCharts.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LotteryCharts.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26CEDC87F2DF46143E2E73D6 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		435EC6D1208F394F00D1D37D /* LotteryCharts_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryCharts_PrefixHeader.pch; sourceTree = "<group>"; };
 		435EC6E3208F3A0400D1D37D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
@@ -505,6 +517,11 @@
 		A658A5F5202D701F0091586B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
 		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
+		A6D75A1E209DB92D001C115D /* LCSpaceReportView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceReportView.h; sourceTree = "<group>"; };
+		A6D75A1F209DB92D001C115D /* LCSpaceReportView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceReportView.m; sourceTree = "<group>"; };
+		A6D75A21209DB942001C115D /* LCSpaceReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpaceReportView.xib; sourceTree = "<group>"; };
+		A6D75A23209DFCA3001C115D /* UITextView+Extend.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextView+Extend.h"; sourceTree = "<group>"; };
+		A6D75A24209DFCA3001C115D /* UITextView+Extend.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Extend.m"; sourceTree = "<group>"; };
 		A6E0E6D4209B4D0C008B2FC1 /* LCPublicNoticeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeVC.h; sourceTree = "<group>"; };
 		A6E0E6D5209B4D0C008B2FC1 /* LCPublicNoticeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeVC.m; sourceTree = "<group>"; };
 		A6E0E6D7209B4E09008B2FC1 /* LCPublicNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeCell.h; sourceTree = "<group>"; };
@@ -512,11 +529,26 @@
 		A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPublicNoticeCell.xib; sourceTree = "<group>"; };
 		A6E0E6DC209B6228008B2FC1 /* LCNoticeSettingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNoticeSettingVC.h; sourceTree = "<group>"; };
 		A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNoticeSettingVC.m; sourceTree = "<group>"; };
-		A6E0E6DF209B624C008B2FC1 /* LCMessageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMessageListVC.h; sourceTree = "<group>"; };
-		A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMessageListVC.m; sourceTree = "<group>"; };
 		A6E0E6E2209B6349008B2FC1 /* LCNoticeSettingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCNoticeSettingCell.h; sourceTree = "<group>"; };
 		A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCNoticeSettingCell.m; sourceTree = "<group>"; };
 		A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCNoticeSettingCell.xib; sourceTree = "<group>"; };
+		A6F6D2E0209C93E100BA494A /* LCPublicNoticeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeVM.h; sourceTree = "<group>"; };
+		A6F6D2E1209C93E100BA494A /* LCPublicNoticeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeVM.m; sourceTree = "<group>"; };
+		A6F6D2E4209C99BA00BA494A /* LCUserMessageListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageListVC.h; sourceTree = "<group>"; };
+		A6F6D2E5209C99BA00BA494A /* LCUserMessageListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageListVC.m; sourceTree = "<group>"; };
+		A6F6D2E9209CAC0200BA494A /* LCMessageForMeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMessageForMeView.h; sourceTree = "<group>"; };
+		A6F6D2EA209CAC0200BA494A /* LCMessageForMeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMessageForMeView.m; sourceTree = "<group>"; };
+		A6F6D2EC209CAC1A00BA494A /* LCMessageForSystemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMessageForSystemView.h; sourceTree = "<group>"; };
+		A6F6D2ED209CAC1A00BA494A /* LCMessageForSystemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMessageForSystemView.m; sourceTree = "<group>"; };
+		A6F6D2EF209CB28600BA494A /* LCMeCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMeCommentCell.h; sourceTree = "<group>"; };
+		A6F6D2F0209CB28600BA494A /* LCMeCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMeCommentCell.m; sourceTree = "<group>"; };
+		A6F6D2F1209CB28600BA494A /* LCMeCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCMeCommentCell.xib; sourceTree = "<group>"; };
+		A6F6D2F4209CB2FA00BA494A /* LCMeShangCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMeShangCell.h; sourceTree = "<group>"; };
+		A6F6D2F5209CB2FA00BA494A /* LCMeShangCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMeShangCell.m; sourceTree = "<group>"; };
+		A6F6D2F6209CB2FA00BA494A /* LCMeShangCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCMeShangCell.xib; sourceTree = "<group>"; };
+		A6F6D2F9209CB30900BA494A /* LCMeCareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMeCareCell.h; sourceTree = "<group>"; };
+		A6F6D2FA209CB30900BA494A /* LCMeCareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMeCareCell.m; sourceTree = "<group>"; };
+		A6F6D2FB209CB30900BA494A /* LCMeCareCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCMeCareCell.xib; sourceTree = "<group>"; };
 		E61D2EA91FBAC13D002005E3 /* LCPhotoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPhotoTableViewCell.h; sourceTree = "<group>"; };
 		E61D2EAA1FBAC13D002005E3 /* LCPhotoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPhotoTableViewCell.m; sourceTree = "<group>"; };
 		E61D2EAB1FBAC13D002005E3 /* LCPhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPhotoTableViewCell.xib; sourceTree = "<group>"; };
@@ -988,7 +1020,7 @@
 				E6618BFA1FF0E42A00ACCFBC /* libz.tbd in Frameworks */,
 				E6618BF81FF0E41600ACCFBC /* libc++.tbd in Frameworks */,
 				E6618BF61FF0E3EC00ACCFBC /* AlipaySDK.framework in Frameworks */,
-				D945D3A92CE6C469813EDE8D /* libPods-LotteryCharts.a in Frameworks */,
+				ABA7DEA11C8FFF5DEF7AFB3C /* Pods_LotteryCharts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1205,6 +1237,7 @@
 		959019281FB88F2F00F5B0CE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A6F6D2E8209C99F800BA494A /* NoticeView */,
 				E61D2F511FC01C4E002005E3 /* LCAttentionTableViewCell.h */,
 				E61D2F501FC01C4D002005E3 /* LCAttentionTableViewCell.m */,
 				E61D2F4F1FC01C4D002005E3 /* LCAttentionTableViewCell.xib */,
@@ -1298,6 +1331,40 @@
 			path = WechatSDK;
 			sourceTree = "<group>";
 		};
+		A6F6D2E3209C998C00BA494A /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				A6F6D2E4209C99BA00BA494A /* LCUserMessageListVC.h */,
+				A6F6D2E5209C99BA00BA494A /* LCUserMessageListVC.m */,
+				A6E0E6DC209B6228008B2FC1 /* LCNoticeSettingVC.h */,
+				A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */,
+				A6E0E6E2209B6349008B2FC1 /* LCNoticeSettingCell.h */,
+				A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */,
+				A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */,
+				A6F6D2E9209CAC0200BA494A /* LCMessageForMeView.h */,
+				A6F6D2EA209CAC0200BA494A /* LCMessageForMeView.m */,
+				A6F6D2EC209CAC1A00BA494A /* LCMessageForSystemView.h */,
+				A6F6D2ED209CAC1A00BA494A /* LCMessageForSystemView.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		A6F6D2E8209C99F800BA494A /* NoticeView */ = {
+			isa = PBXGroup;
+			children = (
+				A6F6D2EF209CB28600BA494A /* LCMeCommentCell.h */,
+				A6F6D2F0209CB28600BA494A /* LCMeCommentCell.m */,
+				A6F6D2F1209CB28600BA494A /* LCMeCommentCell.xib */,
+				A6F6D2F4209CB2FA00BA494A /* LCMeShangCell.h */,
+				A6F6D2F5209CB2FA00BA494A /* LCMeShangCell.m */,
+				A6F6D2F6209CB2FA00BA494A /* LCMeShangCell.xib */,
+				A6F6D2F9209CB30900BA494A /* LCMeCareCell.h */,
+				A6F6D2FA209CB30900BA494A /* LCMeCareCell.m */,
+				A6F6D2FB209CB30900BA494A /* LCMeCareCell.xib */,
+			);
+			path = NoticeView;
+			sourceTree = "<group>";
+		};
 		CCDB604C2C61D11EF89E35AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1314,7 +1381,7 @@
 				E6618BFB1FF0E45A00ACCFBC /* SystemConfiguration.framework */,
 				E6618BF91FF0E42A00ACCFBC /* libz.tbd */,
 				E6618BF71FF0E41600ACCFBC /* libc++.tbd */,
-				33B336E2A04AE7237EEDF93B /* libPods-LotteryCharts.a */,
+				26CEDC87F2DF46143E2E73D6 /* Pods_LotteryCharts.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1395,6 +1462,9 @@
 				95DDA68F1FBB307100686504 /* LCSpacePostTitleTableViewCell.xib */,
 				E61D2EFC1FBC239B002005E3 /* LCSpaceMyOrderView.h */,
 				E61D2EFD1FBC239B002005E3 /* LCSpaceMyOrderView.m */,
+				A6D75A1E209DB92D001C115D /* LCSpaceReportView.h */,
+				A6D75A1F209DB92D001C115D /* LCSpaceReportView.m */,
+				A6D75A21209DB942001C115D /* LCSpaceReportView.xib */,
 			);
 			path = Space;
 			sourceTree = "<group>";
@@ -1951,6 +2021,8 @@
 				957AD4021FE606BC0081A91A /* LCSearchPostViewModel.m */,
 				E6C086201FECED5F007F9CF2 /* LCRechargeMoneyViewModel.h */,
 				E6C086211FECED5F007F9CF2 /* LCRechargeMoneyViewModel.m */,
+				A6F6D2E0209C93E100BA494A /* LCPublicNoticeVM.h */,
+				A6F6D2E1209C93E100BA494A /* LCPublicNoticeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2098,6 +2170,7 @@
 		E6D9A7E31FAFF97300894BB0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A6F6D2E3209C998C00BA494A /* Message */,
 				E61D2F3A1FBEB92E002005E3 /* Team */,
 				E61D2F281FBE86E1002005E3 /* Task */,
 				E61D2F131FBD3E8F002005E3 /* Withdraw */,
@@ -2120,13 +2193,6 @@
 				E61D2F3C1FBEB968002005E3 /* LCContactMainVC.m */,
 				95276E401FE02183007C22B2 /* LCUserSignVC.h */,
 				95276E411FE02183007C22B2 /* LCUserSignVC.m */,
-				A6E0E6DC209B6228008B2FC1 /* LCNoticeSettingVC.h */,
-				A6E0E6DD209B6228008B2FC1 /* LCNoticeSettingVC.m */,
-				A6E0E6DF209B624C008B2FC1 /* LCMessageListVC.h */,
-				A6E0E6E0209B624C008B2FC1 /* LCMessageListVC.m */,
-				A6E0E6E2209B6349008B2FC1 /* LCNoticeSettingCell.h */,
-				A6E0E6E3209B6349008B2FC1 /* LCNoticeSettingCell.m */,
-				A6E0E6E4209B6349008B2FC1 /* LCNoticeSettingCell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2231,6 +2297,8 @@
 				E6E2C6191FB0038600866D15 /* UITableView+Extend.m */,
 				E6E2C61A1FB0038600866D15 /* UIViewController+Extend.h */,
 				E6E2C61B1FB0038600866D15 /* UIViewController+Extend.m */,
+				A6D75A23209DFCA3001C115D /* UITextView+Extend.h */,
+				A6D75A24209DFCA3001C115D /* UITextView+Extend.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2417,6 +2485,7 @@
 				959019201FB82D6200F5B0CE /* LCRechargePayTypeView.xib in Resources */,
 				E636A7FE1FC593CB00C9460F /* LCPostVoiceView.xib in Resources */,
 				E636A7F91FC5931200C9460F /* LCPostAlertView.xib in Resources */,
+				A6D75A22209DB942001C115D /* LCSpaceReportView.xib in Resources */,
 				E6C3F3F21FC155420077D670 /* LCHistoryLotteryTableViewCell.xib in Resources */,
 				95DDA6AA1FBC89A200686504 /* LCWalletTitleTableViewCell.xib in Resources */,
 				E6C3F4241FC2C6060077D670 /* LCRegisterMainView.xib in Resources */,
@@ -2457,6 +2526,7 @@
 				E636A80D1FC5A60800C9460F /* LCGuessHeaderView.xib in Resources */,
 				E66A06531FE1185F007F6891 /* LCHistoryGuessTableViewCell.xib in Resources */,
 				95BC5E791FE1781000FB5C3E /* LCSignTableViewCell.xib in Resources */,
+				A6F6D2F3209CB28600BA494A /* LCMeCommentCell.xib in Resources */,
 				E6C3F40C1FC18B340077D670 /* LCGuessMainTableViewCell.xib in Resources */,
 				E636A8171FC5A65800C9460F /* LCPostCommentTableViewCell.xib in Resources */,
 				E61D2EDA1FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.xib in Resources */,
@@ -2469,9 +2539,11 @@
 				E636A7E51FC4474800C9460F /* LCSelectSizeView.xib in Resources */,
 				E61D2EEE1FBAF3DC002005E3 /* LCRewardOrderTableViewCell.xib in Resources */,
 				95DDA6A51FBC895D00686504 /* LCWalletMoneyTableViewCell.xib in Resources */,
+				A6F6D2F8209CB2FA00BA494A /* LCMeShangCell.xib in Resources */,
 				E6C3F3D71FC059F60077D670 /* LCVipRankingTableViewCell.xib in Resources */,
 				E6E2C67B1FB0038600866D15 /* webviewmore@3x.png in Resources */,
 				E61D2F341FBE87D4002005E3 /* LCTaskTableViewCell.xib in Resources */,
+				A6F6D2FD209CB30900BA494A /* LCMeCareCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2491,6 +2563,7 @@
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/HappyDNS/HappyDNS.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/PYPhotoBrowser/PYPhotoBrowser.framework",
@@ -2509,6 +2582,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HappyDNS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PYPhotoBrowser.framework",
@@ -2549,16 +2623,10 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts-resources.sh",
-				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
-				"${PODS_ROOT}/PYPhotoBrowser/PYPhotoBrowser/PYPhotosView.bundle",
-				"${PODS_ROOT}/RSKImageCropper/RSKImageCropper/RSKImageCropperStrings.bundle",
 				"${PODS_ROOT}/UMengUShare/UShareSDK/UMSocialSDK/UMSocialSDKPromptResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PYPhotosView.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RSKImageCropperStrings.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/UMSocialSDKPromptResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2603,6 +2671,7 @@
 				E6C3F4161FC2C5A30077D670 /* LCRegisterMainVC.m in Sources */,
 				E636A7ED1FC5553000C9460F /* LCPostShowTypeView.m in Sources */,
 				E66BA52A1FC6A91E00FE4FCF /* LCLoginModuleAPI.m in Sources */,
+				A6D75A20209DB92D001C115D /* LCSpaceReportView.m in Sources */,
 				E6E2C6FF1FB00FDC00866D15 /* LCLoginMainVC.m in Sources */,
 				E61EA1CB1FD550DE00737327 /* LCGuessModel.m in Sources */,
 				95DDA6861FBB294700686504 /* LCSpacePostVoiceTableViewCell.m in Sources */,
@@ -2626,6 +2695,7 @@
 				435EC71B208F3A0500D1D37D /* PuzzleItemCtrlModel.m in Sources */,
 				E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
+				A6F6D2F2209CB28600BA494A /* LCMeCommentCell.m in Sources */,
 				A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
@@ -2636,7 +2706,6 @@
 				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
 				95BC5E781FE1781000FB5C3E /* LCSignTableViewCell.m in Sources */,
 				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
-				A6E0E6E1209B624C008B2FC1 /* LCMessageListVC.m in Sources */,
 				E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				435EC722208F3A0500D1D37D /* CircleLayer.m in Sources */,
@@ -2686,6 +2755,7 @@
 				E6E2C65E1FB0038600866D15 /* NSArray+Extend.m in Sources */,
 				E636A8241FC5A87A00C9460F /* LCCommentInputView.m in Sources */,
 				E64198501FDE8B1B00C47713 /* LCHistoryLotteryViewModel.m in Sources */,
+				A6D75A25209DFCA3001C115D /* UITextView+Extend.m in Sources */,
 				95DDA6981FBC88B400686504 /* LCWalletMainVC.m in Sources */,
 				E66BA52D1FC6ABC700FE4FCF /* LCLoginMainModel.m in Sources */,
 				E61EA1D41FD5525800737327 /* LCSpaceSendRecrdMoreListModel.m in Sources */,
@@ -2693,6 +2763,7 @@
 				E6D9A5E31FAFF4A400894BB0 /* main.m in Sources */,
 				E66A064B1FE10924007F6891 /* LCHistoryOrderViewModel.m in Sources */,
 				E67FFBCE1FCCFAB70045E5DF /* LCUserMianViewModel.m in Sources */,
+				A6F6D2E6209C99BA00BA494A /* LCUserMessageListVC.m in Sources */,
 				435EC72B208F3A0500D1D37D /* PublicMethod.m in Sources */,
 				E6A6F7551FEBBE860008351B /* LCGuessRuleVC.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
@@ -2712,6 +2783,7 @@
 				95393DE32000EC970091BF1B /* LCLottery5DListModel.m in Sources */,
 				435EC725208F3A0500D1D37D /* WelcomeView.m in Sources */,
 				E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */,
+				A6F6D2F7209CB2FA00BA494A /* LCMeShangCell.m in Sources */,
 				E636A7E01FC446BD00C9460F /* LCSelectSizeView.m in Sources */,
 				E61D2F231FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.m in Sources */,
 				E636A7F01FC5554A00C9460F /* LCPostTopView.m in Sources */,
@@ -2725,6 +2797,7 @@
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
 				E6C3F3E51FC12CCE0077D670 /* LCRankingGoldTableViewCell.m in Sources */,
 				E636A80B1FC5A5F800C9460F /* LCGuessHeaderView.m in Sources */,
+				A6F6D2E2209C93E100BA494A /* LCPublicNoticeVM.m in Sources */,
 				E6E2C6601FB0038600866D15 /* NSNotificationCenter+Extend.m in Sources */,
 				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
 				E636A7F71FC5930200C9460F /* LCPostAlertView.m in Sources */,
@@ -2733,11 +2806,13 @@
 				439F9B9E2068D35400FCDDDB /* LCGuessUserModel.m in Sources */,
 				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,
 				E6C3F42A1FC2C62F0077D670 /* LCForgetPWDView.m in Sources */,
+				A6F6D2FC209CB30900BA494A /* LCMeCareCell.m in Sources */,
 				95DDA6941FBC6EE500686504 /* LCOderSearchBarView.m in Sources */,
 				E69450451FD2487100605793 /* LCExchangeMoneyViewModel.m in Sources */,
 				E6E2C6791FB0038600866D15 /* LSKLineTableView.m in Sources */,
 				E6E2C65B1FB0038600866D15 /* LSKBaseTabBarController.m in Sources */,
 				95BC5E711FE15A1400FB5C3E /* LCUserSignViewModel.m in Sources */,
+				A6F6D2EE209CAC1A00BA494A /* LCMessageForSystemView.m in Sources */,
 				E67FFBF21FD002F00045E5DF /* LCUserHomeMessageModel.m in Sources */,
 				E641984A1FDE6D1200C47713 /* LCRankingRenListModel.m in Sources */,
 				E6D33C951FD9301F0036AE54 /* LCGuessMainViewModel.m in Sources */,
@@ -2776,6 +2851,7 @@
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
 				E61EA1C21FD549EE00737327 /* LCSpacePostListModel.m in Sources */,
 				E61D2F441FBEBB4E002005E3 /* LCTeamHeaderView.m in Sources */,
+				A6F6D2EB209CAC0200BA494A /* LCMessageForMeView.m in Sources */,
 				E641983B1FDE55FF00C47713 /* LCHomeHotListModel.m in Sources */,
 				435EC729208F3A0500D1D37D /* UIColor+Hex.m in Sources */,
 				E6C3F3DB1FC05A030077D670 /* LCVipTableViewCell.m in Sources */,

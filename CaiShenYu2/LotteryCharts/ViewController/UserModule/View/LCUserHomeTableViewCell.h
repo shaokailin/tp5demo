@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCUserHomeTableViewCell = @"LCUserHomeTableViewCell";
 @interface LCUserHomeTableViewCell : UITableViewCell
-- (void)setupContentTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon;
+- (void)setupContentTitle:(NSString *)title detail:(NSString *)detail icon:(NSString *)icon count:(NSInteger)count;
 @end

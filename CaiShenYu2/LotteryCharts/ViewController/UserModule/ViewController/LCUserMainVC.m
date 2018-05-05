@@ -24,6 +24,7 @@
 #import "LCAttentionMainVC.h"
 #import "LCUserMianViewModel.h"
 #import "LCUserSignVC.h"
+#import "LCUserMessageListVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
@@ -51,10 +52,6 @@ static NSString * const kSettingName = @"UserHomeSetting";
     [self addNotificationWithSelector:@selector(loginOutChange) name:kLoginOutChange_Notice];
 }
 
-- (BOOL)fd_prefersNavigationBarHidden {
-    return YES;
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     if (!_isHasLoad) {
@@ -74,6 +71,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.translucent = YES;
     [self.navigationController.navigationBar setBackgroundImage:self.homeNaviBgImage forBarMetrics:UIBarMetricsDefault];
 }
@@ -96,7 +94,9 @@ static NSString * const kSettingName = @"UserHomeSetting";
     }];
     [alter show];
 }
-
+- (void)shareClick {
+    [self shareEventClick];
+}
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCUserMianViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, LCUserHomeMessageModel *model) {
@@ -108,7 +108,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
         }else {
             [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count];
             [self updateUserMessage];
-            if (_jumpViewType != -1) {
+            if (self->_jumpViewType != -1) {
                 [self jumpEvent];
             }
             [self.mainTableView.mj_header endRefreshing];
@@ -148,6 +148,8 @@ static NSString * const kSettingName = @"UserHomeSetting";
         LCTeamMainVC *teamVC = [[LCTeamMainVC alloc]init];
         teamVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:teamVC animated:YES];
+    }else if (type == 6) {
+        
     }
 }
 - (void)pullDownRefresh {
@@ -158,25 +160,29 @@ static NSString * const kSettingName = @"UserHomeSetting";
     return _settingArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
+    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
     }else {
         LCUserHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCUserHomeTableViewCell];
         NSDictionary *dict = [_settingArray objectAtIndex:indexPath.row];
-        [cell setupContentTitle:[dict objectForKey:@"title"] detail:[dict objectForKey:@"detail"] icon:[dict objectForKey:@"icon"]];
+        NSInteger count = 0;
+        if(indexPath.row == 1) {
+            count = 100;
+        }
+        [cell setupContentTitle:[dict objectForKey:@"title"] detail:[dict objectForKey:@"detail"] icon:[dict objectForKey:@"icon"] count:count];
         return cell;
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
+    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
         return 10;
     }else {
         return 44;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 4 || indexPath.row == 8 || indexPath.row == 11) {
+    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
     }else {
         UIViewController *controller = nil;
         switch (indexPath.row) {
@@ -188,47 +194,53 @@ static NSString * const kSettingName = @"UserHomeSetting";
             }
             case 1:
             {
+                LCUserMessageListVC *messageList = [[LCUserMessageListVC alloc]init];
+                controller = messageList;
+                break;
+            }
+            case 2:
+            {
                 LCMySpaceMainVC *spaceVC = [[LCMySpaceMainVC alloc]init];
                 spaceVC.userId = kUserMessageManager.userId;
                 controller = spaceVC;
                 break;
             }
-            case 2:
+            case 3:
             {
                 LCOrderHistoryVC *historyVC = [[LCOrderHistoryVC alloc]init];
                 controller = historyVC;
                 break;
             }
-            case 3:
+            case 4:
             {
                 LCUserSignVC *signVC = [[LCUserSignVC alloc]init];
                 controller = signVC;
                 break;
             }
-            case 5:
+            case 6:
             {
                 LCWalletMainVC *historyVC = [[LCWalletMainVC alloc]init];
                 controller = historyVC;
                 break;
             }
-            case 6:
+            case 7:
             {
                 LCTaskMainVC *taskVC = [[LCTaskMainVC alloc]init];
                 controller = taskVC;
                 break;
             }
-            case 7:
+            case 8:
             {
                 [self headerViewClickEvent:5];
                 break;
             }
-            case 9:
+            case 10:
             {
                 LCAboutUsVC *aboutVC = [[LCAboutUsVC alloc]init];
                 controller = aboutVC;
                 break;
             }
-            case 10:
+            case 11:
             {
                 LCContactMainVC *attentionVC = [[LCContactMainVC alloc]init];
                 controller = attentionVC;
@@ -246,12 +258,13 @@ static NSString * const kSettingName = @"UserHomeSetting";
 }
 #pragma mark view
 - (void)initializeMainView {
+    [self addRightNavigationButtonWithNornalImage:@"shareIcon" seletedIamge:nil target:self action:@selector(shareClick)];
     _settingArray = [NSArray arrayWithPlist:kSettingName];
     UITableView *tableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:nil separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     tableView.separatorInset = UIEdgeInsetsMake(0, 20, 0, 0);
     [tableView registerNib:[UINib nibWithNibName:kLCUserHomeTableViewCell bundle:nil] forCellReuseIdentifier:kLCUserHomeTableViewCell];
     [tableView registerClass:[LCSpaceTableViewCell class] forCellReuseIdentifier:kLCSpaceTableViewCell];
-    LCUserHomeHeaderView *headerView = [[LCUserHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304)];
+    LCUserHomeHeaderView *headerView = [[LCUserHomeHeaderView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 304) isHome:YES];
    
     
     self.headerView = headerView;

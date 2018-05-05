@@ -8,7 +8,11 @@
 
 #import "LCPublicNoticeVC.h"
 #import "LCPublicNoticeCell.h"
+#import "LCPublicNoticeVM.h"
 @interface LCPublicNoticeVC ()<UITableViewDelegate,UITableViewDataSource>
+{
+    LCPublicNoticeVM *_viewModel;
+}
 @property (nonatomic, weak) UITableView *mainTable;
 @end
 
@@ -18,26 +22,49 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"公告";
+    [self addNavigationBackButton];
     [self initializeMainView];
+    [self bindSignal];
+}
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCPublicNoticeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTable reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTable page:self->_viewModel.page currentCount:self->_viewModel.listArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self->_viewModel.page == 0) {
+            [self.mainTable reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [_viewModel getPublicData:NO];
 }
 - (void)pullUpLoadMore {
-    
+    _viewModel.page ++;
+    [_viewModel getPublicData:YES];
 }
 - (void)pullDownRefresh {
-    
+    _viewModel.page = 0;
+    [_viewModel getPublicData:YES];
 }
 - (void)endRefreshing {
-//    if (_viewModel.page == 0) {
-//        [self.mainTableView.mj_header endRefreshing];
-//    }else {
-//        [self.mainTableView.mj_footer endRefreshing];
-//    }
+    if (_viewModel.page == 0) {
+        [self.mainTable.mj_header endRefreshing];
+    }else {
+        [self.mainTable.mj_footer endRefreshing];
+    }
 }
 - (void)detailClick:(LCPublicNoticeCell *)cell {
     NSIndexPath *indexPath = [self.mainTable indexPathForCell:cell];
     LSKLog(@"%ld",indexPath.row);
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (_viewModel && KJudgeIsArrayAndHasValue(_viewModel.listArray)) {
+        return _viewModel.listArray.count;
+    }
     return 10;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -56,7 +83,6 @@
     }else {
         return 86 + 80 + 47;
     }
-    
 }
 - (void)initializeMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];

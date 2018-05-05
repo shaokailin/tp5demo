@@ -45,6 +45,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.payLab.hidden = YES;
     ViewBoundsRadius(self.photoImage, 28);
     ViewRadius(self.careBtn, 5.0);
     ViewBorderLayer(self.careBtn, ColorHexadecimal(0xf6a623, 1.0), 1.0);
@@ -80,7 +81,7 @@
 - (void)setupPayBtnState:(BOOL)isPay {
     self.payBtn.hidden = !isPay;
     self.countLbl.hidden = !isPay;
-    self.payLab.hidden = !isPay;
+//    self.payLab.hidden = !isPay;
     self.comentLab.hidden = isPay;
     
 }

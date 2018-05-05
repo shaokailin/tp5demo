@@ -38,4 +38,6 @@
 
 + (LSKParamterEntity *)aliPayMoney:(NSString *)jinbi;
 + (LSKParamterEntity *)wxPayMoney:(NSString *)jinbi;
+
++ (LSKParamterEntity *)getPublicNoticeList:(NSInteger)page;
 @end

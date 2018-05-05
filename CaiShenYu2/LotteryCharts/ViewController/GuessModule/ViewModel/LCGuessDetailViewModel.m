@@ -47,7 +47,7 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self->_replyArray && _page == 0) {
+                if (self->_replyArray && self.page == 0) {
                     [self->_replyArray removeAllObjects];
                 }
                 NSArray *data = nil;

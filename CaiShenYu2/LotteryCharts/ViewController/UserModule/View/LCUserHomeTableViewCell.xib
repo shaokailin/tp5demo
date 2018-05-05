@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -32,21 +32,34 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="WAF-Sp-fi5">
-                        <rect key="frame" x="300" y="14" width="10" height="15"/>
+                        <rect key="frame" x="295" y="14" width="15" height="15"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ouS-0k-36z">
-                        <rect key="frame" x="263.5" y="15.5" width="26.5" height="12"/>
+                        <rect key="frame" x="258.5" y="15.5" width="26.5" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gd-ha-g2T">
+                        <rect key="frame" x="263" y="10.5" width="23" height="23"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="23" id="OWL-kX-SLW"/>
+                            <constraint firstAttribute="height" constant="23" id="b9E-Jz-roW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="WAF-Sp-fi5" firstAttribute="leading" secondItem="ouS-0k-36z" secondAttribute="trailing" constant="10" id="Hca-0y-ME8"/>
                     <constraint firstItem="WAF-Sp-fi5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JG4-gC-OGh"/>
+                    <constraint firstItem="7gd-ha-g2T" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="JPe-lP-zgW"/>
                     <constraint firstItem="ouS-0k-36z" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="MKT-DN-nVQ"/>
                     <constraint firstItem="0cY-hC-lUv" firstAttribute="leading" secondItem="gjs-f0-aFD" secondAttribute="trailing" constant="11" id="Oge-IK-gW7"/>
                     <constraint firstItem="gjs-f0-aFD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Uob-b8-akK"/>
+                    <constraint firstItem="WAF-Sp-fi5" firstAttribute="leading" secondItem="7gd-ha-g2T" secondAttribute="trailing" constant="9" id="VKx-66-yTc"/>
                     <constraint firstItem="gjs-f0-aFD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="gBt-9U-6MH"/>
                     <constraint firstAttribute="trailing" secondItem="WAF-Sp-fi5" secondAttribute="trailing" constant="10" id="loQ-1V-7ob"/>
                     <constraint firstItem="0cY-hC-lUv" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="lrM-Xl-rJC"/>
@@ -55,11 +68,13 @@
             <connections>
                 <outlet property="detailLbl" destination="ouS-0k-36z" id="8za-jd-gg1"/>
                 <outlet property="iconImageView" destination="gjs-f0-aFD" id="zfn-N3-GCF"/>
+                <outlet property="redLable" destination="7gd-ha-g2T" id="I3S-KI-9Rf"/>
+                <outlet property="redWidth" destination="OWL-kX-SLW" id="HI0-WK-mlH"/>
                 <outlet property="titleLbl" destination="0cY-hC-lUv" id="2fv-Hj-whi"/>
             </connections>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_right" width="10" height="15"/>
+        <image name="arrow_right" width="15" height="15"/>
     </resources>
 </document>
