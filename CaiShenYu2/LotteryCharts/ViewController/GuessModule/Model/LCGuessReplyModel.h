@@ -19,4 +19,5 @@
 @property (nonatomic, copy) NSString *update_time;
 @property (nonatomic, copy) NSString *user_id;
 @property (nonatomic, copy) NSString *mch_no;
+@property (nonatomic, assign) CGFloat height;
 @end

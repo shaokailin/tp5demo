@@ -8,7 +8,7 @@
 
 #import "LCGuessDetailVC.h"
 #import "LCPostHeaderTableViewCell.h"
-#import "LCPostCommentTableViewCell.h"
+#import "LCGuessCommentTableViewCell.h"
 #import "LCCommentInputView.h"
 #import "LCGuessHeaderView.h"
 #import "LCGuessDetailViewModel.h"
@@ -32,7 +32,6 @@
     
     [self addNavigationBackButton];
     [self initializeMainView];
-    [self.inputToolbar removeFromSuperview];
     [self bindSignal];
 }
 - (void)bindSignal {
@@ -43,16 +42,16 @@
             if (self.viewModel.page == 0) {
                 LCGuessDetailModel *model1 = (LCGuessDetailModel *)model;
                 self.guessModel = model1.response;
-                _viewModel.period_id = self.guessModel.period_id;
+                self->_viewModel.period_id = self.guessModel.period_id;
                 [self setupHeadViewContent];
-                [_viewModel.replyArray removeAllObjects];
+                [self->_viewModel.replyArray removeAllObjects];
             }
             [self endRefreshing];
             [self.mainTableView reloadData];
             [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:2000];
             
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                if (_viewModel.page == 0) {
+                if (self->_viewModel.page == 0) {
                     [self pullUpLoadMore];
                 }
             });
@@ -126,7 +125,7 @@
         [cell setupCount:self.guessModel.reply_count type:0];
         return cell;
     }else {
-        LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
+        LCGuessCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCGuessCommentTableViewCell];
         LCGuessReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
         [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no index:indexPath.row time:model.create_time content:model.message];
         WS(ws)
@@ -159,17 +158,8 @@
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"规则" target:self action:@selector(showRule)];
      WS(ws)
-    LCCommentInputView *inputView = [[LCCommentInputView alloc]init];
-    inputView.frame = CGRectMake(0, self.viewMainHeight - 44 - self.tabbarBetweenHeight, SCREEN_WIDTH, 44);
-    inputView.sendBlock = ^(NSString *text) {
-        [ws sendCommentClick:text];
-    };
-    self.inputToolbar = inputView;
-    [self.view addSubview:inputView];
-   
-    
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
-    [mainTableView registerNib:[UINib nibWithNibName:kLCPostCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostCommentTableViewCell];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCGuessCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCGuessCommentTableViewCell];
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostHeaderTableViewCell];
     LCGuessHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"LCGuessHeaderView" owner:self options:nil] lastObject];
     self.headerView = headerView;
@@ -208,7 +198,15 @@
         [self.navigationController pushViewController:lcuserListVC animated:YES];
     }];
     
-    
+    LCCommentInputView *inputView = [[LCCommentInputView alloc]init];
+    inputView.frame = CGRectMake(0, self.viewMainHeight - 44 - self.tabbarBetweenHeight, SCREEN_WIDTH, 44);
+    inputView.placeholdString = @"请输入评论内容...";
+    inputView.StatusNav_Height = self.tabbarBetweenHeight + self.navibarHeight + STATUSBAR_HEIGHT;
+    inputView.sendBlock = ^(NSString *text) {
+        [ws sendCommentClick:text];
+    };
+    self.inputToolbar = inputView;
+    [self.view addSubview:inputView];
     [self setupHeadViewContent];
 }
 - (void)changeHeaderFrame:(CGFloat)height {
@@ -247,12 +245,6 @@
 }
 - (BOOL)canBecomeFirstResponder {
     return YES;
-}
-- (UIView *)inputAccessoryView {
-    if (self.headerView.isBecome) {
-        return nil;
-    }
-    return self.inputToolbar;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     if (self.headerView.isBecome) {

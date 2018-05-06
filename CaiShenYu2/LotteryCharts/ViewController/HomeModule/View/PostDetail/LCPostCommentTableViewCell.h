@@ -10,5 +10,5 @@
 static NSString * const kLCPostCommentTableViewCell = @"LCPostCommentTableViewCell";
 @interface LCPostCommentTableViewCell : UITableViewCell
 @property (nonatomic, copy) PhotoClickBlock photoBlock;
-- (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId index:(NSInteger)index time:(NSString *)time content:(NSString *)content;
+- (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId count:(NSInteger)count time:(NSString *)time content:(NSString *)content isHiden:(BOOL)isHiden;
 @end

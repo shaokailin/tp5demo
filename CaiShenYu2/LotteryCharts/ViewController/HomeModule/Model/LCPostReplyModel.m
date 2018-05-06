@@ -23,4 +23,12 @@
     }
     return NO;
 }
+- (void)setMessage:(NSString *)message {
+    _message = message;
+    CGFloat height = [message calculateTextHeight:11 width:ScreenWidth - 162];
+    if (height < 14) {
+        height = 14;
+    }
+    self.height = 54 + height;
+}
 @end

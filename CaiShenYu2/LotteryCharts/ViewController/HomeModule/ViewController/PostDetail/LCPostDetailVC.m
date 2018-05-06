@@ -14,8 +14,8 @@
 #import "LCPostDetailViewModel.h"
 #import "LCMySpaceMainVC.h"
 #import "NewWorkingRequestManage.h"
-
-
+#import "LCRepeatUserVC.h"
+#import "LCPostReplyModel.h"
 @interface LCPostDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     BOOL _isNeedSend;
@@ -39,11 +39,9 @@
     self.type = [self.postModel.user_id isEqualToString:kUserMessageManager.userId]? 1:0;
     _isNeedSend = [self.postModel.post_type integerValue] == 2? YES:NO;
     [self initializeMainView];
-    [self.inputToolbar removeFromSuperview];
     [self bindSignal];
 }
 - (void)bindSignal {
-
     @weakify(self)
     _viewModel = [[LCPostDetailViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         if (identifier == 0 || identifier == 1) {
@@ -204,7 +202,7 @@
     }else {
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
         LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
-        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no index:indexPath.row time:model.create_time content:model.message];
+        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:[model.reply_count integerValue] time:model.create_time content:model.message  isHiden:NO];
         WS(ws)
         cell.photoBlock = ^(id clickCell) {
             [ws photoClick:clickCell];
@@ -226,25 +224,26 @@
     if (indexPath.row == 0) {
         return 50;
     }else {
-        return 60;
+        LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        return model.height;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.view endEditing: YES];
     [self.inputToolbar.inputField resignFirstResponder];
+    if (indexPath.row != 0) {
+        LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        LCRepeatUserVC *repeat = [[LCRepeatUserVC alloc]init];
+        repeat.postId = self.postModel.post_id;
+        repeat.model = model;
+        [self.navigationController pushViewController:repeat animated:YES];
+        
+    }
 }
 
 - (void)initializeMainView {
     WS(ws)
-    LCCommentInputView *inputView = [[LCCommentInputView alloc]init];
-    inputView.frame = CGRectMake(0, self.viewMainHeight - 44 - self.tabbarBetweenHeight, SCREEN_WIDTH, 44);
-    inputView.sendBlock = ^(NSString *text) {
-        [ws sendCommentClick:text];
-    };
-    self.inputToolbar = inputView;
-    [self.view addSubview:inputView];
-    
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostCommentTableViewCell];
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostHeaderTableViewCell];
@@ -281,6 +280,16 @@
     headerView.photoBlock = ^(id clickCell) {
         [ws messagePhotoClick:nil];
     };
+    
+    LCCommentInputView *inputView = [[LCCommentInputView alloc]init];
+    inputView.frame = CGRectMake(0, self.viewMainHeight - 44 - self.tabbarBetweenHeight, SCREEN_WIDTH, 44);
+    inputView.placeholdString = @"请输入评论内容...";
+    inputView.StatusNav_Height = self.tabbarBetweenHeight + self.navibarHeight + STATUSBAR_HEIGHT;
+    inputView.sendBlock = ^(NSString *text) {
+        [ws sendCommentClick:text];
+    };
+    self.inputToolbar = inputView;
+    [self.view addSubview:inputView];
 }
 - (void)setupHeadView:(BOOL)isShow isFirst:(BOOL)isFirst {
     [self.headerView setupContentWithPhoto:self.postModel.logo name:self.postModel.nickname userId:self.postModel.mch_no money:self.postModel.post_money title:self.postModel.post_title content:nil postId:self.postModel.post_id time:self.postModel.create_time count:self.postModel.reward_count type:self.type];
@@ -318,20 +327,8 @@
     _isViewAppear = NO;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [self.inputToolbar.inputField resignFirstResponder];
+//    [self.inputToolbar.inputField resignFirstResponder];
 }
-
-- (UIView *)inputAccessoryView {
-//    if (self.headerView.isBecome) {
-//        return nil;
-//    }
-    return self.inputToolbar;
-}
-//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-//    if (self.headerView.isBecome) {
-//        [self.view endEditing:YES];
-//    }
-//}
 /*
 #pragma mark - Navigation
 
