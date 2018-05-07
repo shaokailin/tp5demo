@@ -7,7 +7,7 @@
 //
 
 #import "LCPublicNoticeVC.h"
-#import "LCPublicNoticeCell.h"
+#import "LCPublicNotice1Cell.h"
 #import "LCPublicNoticeVM.h"
 @interface LCPublicNoticeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
@@ -57,37 +57,28 @@
         [self.mainTable.mj_footer endRefreshing];
     }
 }
-- (void)detailClick:(LCPublicNoticeCell *)cell {
-    NSIndexPath *indexPath = [self.mainTable indexPathForCell:cell];
-    LSKLog(@"%ld",indexPath.row);
-}
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (_viewModel && KJudgeIsArrayAndHasValue(_viewModel.listArray)) {
         return _viewModel.listArray.count;
     }
-    return 10;
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCPublicNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPublicNoticeCell];
-    [cell setupCellContent:@"哈哈" detail:@"凯凯" isShowDetail:indexPath.row % 2];
-    @weakify(self)
-    [cell setBlock:^(id clickDetail) {
-        @strongify(self)
-        [self detailClick:clickDetail];
-    }];
+    LCPublicNotice1Cell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPublicNotice1Cell];
+    LCPublicNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    [cell setupCellContent:model.title detail:model.content time:model.update_time];;
+
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
-        return 86 + 80;
-    }else {
-        return 86 + 80 + 47;
-    }
+   LCPublicNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    return model.height + 96;
 }
 - (void)initializeMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];
     self.mainTable = tableVIew;
-    [tableVIew registerNib:[UINib nibWithNibName:kLCPublicNoticeCell bundle:nil] forCellReuseIdentifier:kLCPublicNoticeCell];
+    [tableVIew registerNib:[UINib nibWithNibName:kLCPublicNotice1Cell bundle:nil] forCellReuseIdentifier:kLCPublicNotice1Cell];
     [self.view addSubview:tableVIew];
     [tableVIew mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, self.tabbarBetweenHeight, 0));

@@ -8,36 +8,74 @@
 
 #import "LCMessageForSystemView.h"
 #import "LCPublicNoticeCell.h"
+#import "LCUserNoticeVM.h"
 @interface LCMessageForSystemView()<UITableViewDelegate,UITableViewDataSource>
+{
+    BOOL _isLoading;
+}
 @property (nonatomic, weak) UITableView *mainTableView;
+@property (nonatomic, strong) LCUserNoticeVM *viewModel;
 @end
 @implementation LCMessageForSystemView
 
 - (instancetype)init {
     if(self = [super init]) {
         [self _layoutMainView];
+        [self bindSignal];
     }
     return self;
 }
-- (void)loadFirstData {
-    
-}
-- (void)pullDownRefresh {
-    
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCUserNoticeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self endRefreshing];
+        [self.mainTableView reloadData];
+        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.listArray.count];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        @strongify(self)
+        if (self.viewModel.page == 0) {
+            self->_isLoading = NO;
+            [self.mainTableView reloadData];
+        }
+        [self endRefreshing];
+    }];
+    [_viewModel getSystemNoticeList:NO];
 }
 - (void)pullUpLoadMore {
-    
+    _viewModel.page ++;
+    [_viewModel getSystemNoticeList:YES];
+}
+- (void)pullDownRefresh {
+    _viewModel.page = 0;
+    [_viewModel getSystemNoticeList:YES];
+}
+- (void)loadFirstData {
+    if (!_isLoading) {
+        [_viewModel getSystemNoticeList:NO];
+    }
+}
+- (void)endRefreshing {
+    if (_viewModel.page == 0) {
+        [self.mainTableView.mj_header endRefreshing];
+    }else {
+        [self.mainTableView.mj_footer endRefreshing];
+    }
 }
 - (void)detailClick:(LCPublicNoticeCell *)cell {
     NSIndexPath *indexPath = [self.mainTableView indexPathForCell:cell];
     LSKLog(@"%ld",indexPath.row);
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    if (_viewModel && KJudgeIsArrayAndHasValue(_viewModel.listArray)) {
+        return _viewModel.listArray.count;
+    }
+    return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCPublicNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPublicNoticeCell];
-    [cell setupCellContent:@"哈哈" detail:@"凯凯" isShowDetail:indexPath.row % 2];
+    LCUserNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    [cell setupCellContent:model.title detail:model.content time:model.create_time isShowRed:[model.is_read floatValue] isShowDetail:NO];
     @weakify(self)
     [cell setBlock:^(id clickDetail) {
         @strongify(self)
@@ -46,11 +84,11 @@
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row % 2 == 0) {
+//    if (indexPath.row % 2 == 0) {
         return 86 + 80;
-    }else {
-        return 86 + 80 + 47;
-    }
+//    }else {
+//        return 86 + 80 + 47;
+//    }
 }
 - (void)_layoutMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];

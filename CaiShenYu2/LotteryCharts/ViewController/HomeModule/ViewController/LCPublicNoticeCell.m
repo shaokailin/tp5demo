@@ -26,10 +26,13 @@
     ViewBoundsRadius(self.timeLbl, 10);
     ViewRadius(self.redCircle, 5.5);
 }
-- (void)setupCellContent:(NSString *)title detail:(NSString *)detail isShowDetail:(BOOL)isShow {
+- (void)setupCellContent:(NSString *)title detail:(NSString *)detail time:(NSString *)time isShowRed:(BOOL)isRed isShowDetail:(BOOL)isShow {
     self.titleLbl.text = title;
     self.contentLbl.text = detail;
+    self.timeLbl.text = NSStringFormat(@"   %@   ",time);
+    self.redCircle.hidden = !isRed;
     self.buttonViewHeight.constant = isShow?47:0;
+    self.bottonView.hidden = !isShow;
 }
 - (void)showDetailClick {
     if (self.block) {

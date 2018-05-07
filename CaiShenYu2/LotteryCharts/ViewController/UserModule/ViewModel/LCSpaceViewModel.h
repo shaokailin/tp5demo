@@ -18,4 +18,7 @@
 @property (nonatomic, assign) BOOL isCare;
 - (void)attentionUserClick;
 - (void)getSpaceData:(BOOL)isPull;
+@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *postId;
+- (void)reportUserMessage;
 @end

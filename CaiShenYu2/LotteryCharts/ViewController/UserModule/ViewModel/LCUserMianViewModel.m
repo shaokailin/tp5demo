@@ -24,6 +24,7 @@
 @property (nonatomic, strong) RACCommand *userMessageCommand;
 @property (nonatomic, strong) RACCommand *signCommand;
 @property (nonatomic, strong) RACCommand *updateBgImageCommand;
+@property (nonatomic, strong) RACCommand *noticeCommand;
 @end
 @implementation LCUserMianViewModel
 - (void)getUserMessage {
@@ -183,4 +184,31 @@
     return _updateBgImageCommand;
 }
 
+- (void)getNoticeCount {
+    [self.noticeCommand execute:nil];
+}
+- (RACCommand *)noticeCommand {
+    if (!_noticeCommand) {
+        @weakify(self)
+        _noticeCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getNoticeCount]];
+        }];
+        [_noticeCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                self.count = [[model.response objectForKey:@"count"] integerValue];
+                [self sendSuccessResult:300 model:nil];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:@""];
+                [self sendFailureResult:300 error:nil];
+            }
+        }];
+        [_noticeCommand.errors subscribeNext:^(NSError * _Nullable x) {
+            @strongify(self)
+             [self sendFailureResult:300 error:nil];
+        }];
+    }
+    return _noticeCommand;
+}
 @end

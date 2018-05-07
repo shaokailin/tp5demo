@@ -96,6 +96,13 @@
 		A6D25758209EB40C001886C4 /* LCRepeatUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D25757209EB40C001886C4 /* LCRepeatUserVC.m */; };
 		A6D2575C209EB97C001886C4 /* LCGuessCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D25759209EB97B001886C4 /* LCGuessCommentTableViewCell.xib */; };
 		A6D2575D209EB97C001886C4 /* LCGuessCommentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D2575B209EB97C001886C4 /* LCGuessCommentTableViewCell.m */; };
+		A6D5D8ED20A080990010D7AC /* LCPublicNoticeListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D5D8EC20A080990010D7AC /* LCPublicNoticeListModel.m */; };
+		A6D5D8F120A087140010D7AC /* LCPublicNotice1Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D5D8EF20A087140010D7AC /* LCPublicNotice1Cell.m */; };
+		A6D5D8F220A087140010D7AC /* LCPublicNotice1Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D5D8F020A087140010D7AC /* LCPublicNotice1Cell.xib */; };
+		A6D5D8F520A08C1F0010D7AC /* LCUserNoticeVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D5D8F420A08C1F0010D7AC /* LCUserNoticeVM.m */; };
+		A6D5D8F820A091B80010D7AC /* LCUserMessageListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D5D8F720A091B80010D7AC /* LCUserMessageListModel.m */; };
+		A6D5D8FC20A0A02D0010D7AC /* LCMePostNoticeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D5D8FA20A0A02D0010D7AC /* LCMePostNoticeCell.m */; };
+		A6D5D8FD20A0A02D0010D7AC /* LCMePostNoticeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D5D8FB20A0A02D0010D7AC /* LCMePostNoticeCell.xib */; };
 		A6D75A20209DB92D001C115D /* LCSpaceReportView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D75A1F209DB92D001C115D /* LCSpaceReportView.m */; };
 		A6D75A22209DB942001C115D /* LCSpaceReportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D75A21209DB942001C115D /* LCSpaceReportView.xib */; };
 		A6D75A25209DFCA3001C115D /* UITextView+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D75A24209DFCA3001C115D /* UITextView+Extend.m */; };
@@ -536,6 +543,18 @@
 		A6D25759209EB97B001886C4 /* LCGuessCommentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LCGuessCommentTableViewCell.xib; sourceTree = "<group>"; };
 		A6D2575A209EB97C001886C4 /* LCGuessCommentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LCGuessCommentTableViewCell.h; sourceTree = "<group>"; };
 		A6D2575B209EB97C001886C4 /* LCGuessCommentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LCGuessCommentTableViewCell.m; sourceTree = "<group>"; };
+		A6D5D8EB20A080990010D7AC /* LCPublicNoticeListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeListModel.h; sourceTree = "<group>"; };
+		A6D5D8EC20A080990010D7AC /* LCPublicNoticeListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeListModel.m; sourceTree = "<group>"; };
+		A6D5D8EE20A087140010D7AC /* LCPublicNotice1Cell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNotice1Cell.h; sourceTree = "<group>"; };
+		A6D5D8EF20A087140010D7AC /* LCPublicNotice1Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNotice1Cell.m; sourceTree = "<group>"; };
+		A6D5D8F020A087140010D7AC /* LCPublicNotice1Cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCPublicNotice1Cell.xib; sourceTree = "<group>"; };
+		A6D5D8F320A08C1F0010D7AC /* LCUserNoticeVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserNoticeVM.h; sourceTree = "<group>"; };
+		A6D5D8F420A08C1F0010D7AC /* LCUserNoticeVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserNoticeVM.m; sourceTree = "<group>"; };
+		A6D5D8F620A091B80010D7AC /* LCUserMessageListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserMessageListModel.h; sourceTree = "<group>"; };
+		A6D5D8F720A091B80010D7AC /* LCUserMessageListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserMessageListModel.m; sourceTree = "<group>"; };
+		A6D5D8F920A0A02D0010D7AC /* LCMePostNoticeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMePostNoticeCell.h; sourceTree = "<group>"; };
+		A6D5D8FA20A0A02D0010D7AC /* LCMePostNoticeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMePostNoticeCell.m; sourceTree = "<group>"; };
+		A6D5D8FB20A0A02D0010D7AC /* LCMePostNoticeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCMePostNoticeCell.xib; sourceTree = "<group>"; };
 		A6D75A1E209DB92D001C115D /* LCSpaceReportView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSpaceReportView.h; sourceTree = "<group>"; };
 		A6D75A1F209DB92D001C115D /* LCSpaceReportView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSpaceReportView.m; sourceTree = "<group>"; };
 		A6D75A21209DB942001C115D /* LCSpaceReportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LCSpaceReportView.xib; sourceTree = "<group>"; };
@@ -1380,6 +1399,9 @@
 				A6F6D2F9209CB30900BA494A /* LCMeCareCell.h */,
 				A6F6D2FA209CB30900BA494A /* LCMeCareCell.m */,
 				A6F6D2FB209CB30900BA494A /* LCMeCareCell.xib */,
+				A6D5D8F920A0A02D0010D7AC /* LCMePostNoticeCell.h */,
+				A6D5D8FA20A0A02D0010D7AC /* LCMePostNoticeCell.m */,
+				A6D5D8FB20A0A02D0010D7AC /* LCMePostNoticeCell.xib */,
 			);
 			path = NoticeView;
 			sourceTree = "<group>";
@@ -2010,6 +2032,8 @@
 				95393DE22000EC970091BF1B /* LCLottery5DListModel.m */,
 				A658A5EA202D50330091586B /* LCWeiPayOrderModel.h */,
 				A658A5EB202D50330091586B /* LCWeiPayOrderModel.m */,
+				A6D5D8EB20A080990010D7AC /* LCPublicNoticeListModel.h */,
+				A6D5D8EC20A080990010D7AC /* LCPublicNoticeListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2031,6 +2055,9 @@
 				A6E0E6D7209B4E09008B2FC1 /* LCPublicNoticeCell.h */,
 				A6E0E6D8209B4E09008B2FC1 /* LCPublicNoticeCell.m */,
 				A6E0E6D9209B4E09008B2FC1 /* LCPublicNoticeCell.xib */,
+				A6D5D8EE20A087140010D7AC /* LCPublicNotice1Cell.h */,
+				A6D5D8EF20A087140010D7AC /* LCPublicNotice1Cell.m */,
+				A6D5D8F020A087140010D7AC /* LCPublicNotice1Cell.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2194,6 +2221,8 @@
 				E66A065D1FE20D31007F6891 /* LCUserSignMessageModel.m */,
 				E6618C0D1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.h */,
 				E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */,
+				A6D5D8F620A091B80010D7AC /* LCUserMessageListModel.h */,
+				A6D5D8F720A091B80010D7AC /* LCUserMessageListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2253,6 +2282,8 @@
 				95BC5E6A1FE153D100FB5C3E /* LCContactViewModel.m */,
 				95BC5E6F1FE15A1400FB5C3E /* LCUserSignViewModel.h */,
 				95BC5E701FE15A1400FB5C3E /* LCUserSignViewModel.m */,
+				A6D5D8F320A08C1F0010D7AC /* LCUserNoticeVM.h */,
+				A6D5D8F420A08C1F0010D7AC /* LCUserNoticeVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2545,6 +2576,7 @@
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
 				E6C3F3CA1FC0350C0077D670 /* LCContactServiceTableViewCell.xib in Resources */,
 				E636A8211FC5A71200C9460F /* LCPostHeaderTableViewCell.xib in Resources */,
+				A6D5D8F220A087140010D7AC /* LCPublicNotice1Cell.xib in Resources */,
 				E66A06581FE11881007F6891 /* LCHistoryVipTableViewCell.xib in Resources */,
 				95DDA6A01FBC894F00686504 /* LCWalletIconTableViewCell.xib in Resources */,
 				E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */,
@@ -2557,6 +2589,7 @@
 				E6618BF51FF0E3EC00ACCFBC /* AlipaySDK.bundle in Resources */,
 				E61D2EDF1FBAF3A2002005E3 /* LCRewardRecordHeaderTableViewCell.xib in Resources */,
 				E636A80D1FC5A60800C9460F /* LCGuessHeaderView.xib in Resources */,
+				A6D5D8FD20A0A02D0010D7AC /* LCMePostNoticeCell.xib in Resources */,
 				E66A06531FE1185F007F6891 /* LCHistoryGuessTableViewCell.xib in Resources */,
 				95BC5E791FE1781000FB5C3E /* LCSignTableViewCell.xib in Resources */,
 				A6F6D2F3209CB28600BA494A /* LCMeCommentCell.xib in Resources */,
@@ -2689,6 +2722,7 @@
 				439F9BA12068D6B100FCDDDB /* UserListModel.m in Sources */,
 				E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */,
 				E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */,
+				A6D5D8F120A087140010D7AC /* LCPublicNotice1Cell.m in Sources */,
 				E69450391FD1422D00605793 /* LCTeamCountModel.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,
 				E64198201FDBE0DA00C47713 /* LCGuessDetailViewModel.m in Sources */,
@@ -2733,6 +2767,7 @@
 				A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */,
 				E6E2C65D1FB0038600866D15 /* LSKBaseViewModel.m in Sources */,
 				E61D2ED91FBAF373002005E3 /* LCRewardOrderHeaderTableViewCell.m in Sources */,
+				A6D5D8F520A08C1F0010D7AC /* LCUserNoticeVM.m in Sources */,
 				E6D33C981FD944850036AE54 /* LCGuessMainListModel.m in Sources */,
 				E6E2C6F61FB00A6D00866D15 /* LCRootTabBarVC.m in Sources */,
 				E636A7CD1FC40D6200C9460F /* LCPushPostMainVC.m in Sources */,
@@ -2746,6 +2781,7 @@
 				435EC721208F3A0500D1D37D /* RectangleLayer.m in Sources */,
 				435EC723208F3A0500D1D37D /* TriangleLayer.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
+				A6D5D8ED20A080990010D7AC /* LCPublicNoticeListModel.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
 				E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */,
 				E66A06701FE268B5007F6891 /* LCPostDetailMessageModel.m in Sources */,
@@ -2816,6 +2852,7 @@
 				E61D2F0A1FBC3970002005E3 /* LCHistoryOrderTableViewCell.m in Sources */,
 				9590190B1FB808ED00F5B0CE /* LCHomeHeaderView.m in Sources */,
 				E641981D1FDBDCE900C47713 /* LCReplySuccessModel.m in Sources */,
+				A6D5D8FC20A0A02D0010D7AC /* LCMePostNoticeCell.m in Sources */,
 				95393DE32000EC970091BF1B /* LCLottery5DListModel.m in Sources */,
 				435EC725208F3A0500D1D37D /* WelcomeView.m in Sources */,
 				E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */,
@@ -2878,6 +2915,7 @@
 				A6E0E6E5209B6349008B2FC1 /* LCNoticeSettingCell.m in Sources */,
 				95BC5E6B1FE153D100FB5C3E /* LCContactViewModel.m in Sources */,
 				95DDA6A41FBC895D00686504 /* LCWalletMoneyTableViewCell.m in Sources */,
+				A6D5D8F820A091B80010D7AC /* LCUserMessageListModel.m in Sources */,
 				9590190A1FB808ED00F5B0CE /* LCHomeFuncView.m in Sources */,
 				E6E2C6661FB0038600866D15 /* UITableView+Extend.m in Sources */,
 				E61D2F031FBC37ED002005E3 /* LCOrderHistoryVC.m in Sources */,

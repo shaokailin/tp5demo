@@ -21,6 +21,7 @@
 #import "LCLotteryFiveModel.h"
 #import "LCLottery5DListModel.h"
 #import "LCWeiPayOrderModel.h"
+#import "LCPublicNoticeListModel.h"
 static NSString * kPushPostApi = @"post/add.html";
 static NSString * kLotteryFiveApi = @"Direct/getRangeOne.html";
 static NSString * kOnlineAllApi = @"Direct/getOnlineNum.html";
@@ -52,6 +53,8 @@ static NSString * kUpPostVip = @"post/up_pay.html";
 static NSString * kPayTypeList = @"Direct/getPaySet.html";
 static NSString * kAliPay = @"Alipay/setPay.html";
 static NSString * kWXPay = @"Wxpay/getWxpayData.html";
+static NSString * kPublicNoticeList = @"index/noticelist.html";
+
 @implementation LCHomeModuleAPI
 + (LSKParamterEntity *)pushPostEvent:(NSString *)title content:(NSString *)content media:(NSString *)media type:(NSInteger)type money:(NSString *)money vipMoney:(NSString *)vipMoney {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -250,8 +253,9 @@ static NSString * kWXPay = @"Wxpay/getWxpayData.html";
 
 + (LSKParamterEntity *)getPublicNoticeList:(NSInteger)page {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
-    entity.requestApi = kPayTypeList;
-    entity.responseObject = [LCRechargeMoneyListModel class];
+    entity.requestApi = kPublicNoticeList;
+    entity.params = @{@"p":@(page),@"page_size":@(PAGE_SIZE_NUMBER)};
+    entity.responseObject = [LCPublicNoticeListModel class];
     return entity;
 }
 @end

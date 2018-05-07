@@ -42,4 +42,10 @@
 
 + (LSKParamterEntity *)getlistUserModel:(NSInteger)page userId:(NSString *)userId;
 
++ (LSKParamterEntity *)reportOtherUser:(NSString *)uesrId content:(NSString *)content postId:(NSString *)postId;
+
++ (LSKParamterEntity *)getUserAndSystemNoticeList:(NSInteger)page type:(NSInteger)type;
+
++ (LSKParamterEntity *)getNoticeCount;
++ (LSKParamterEntity *)changeNoticeShow:(NSString *)msgId;
 @end

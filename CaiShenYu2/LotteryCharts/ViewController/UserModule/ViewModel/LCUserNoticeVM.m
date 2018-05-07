@@ -1,23 +1,28 @@
 //
-//  LCPublicNoticeVM.m
+//  LCUserNoticeVM.m
 //  LotteryCharts
 //
-//  Created by shaokai lin on 2018/5/4.
+//  Created by shaokai lin on 2018/5/7.
 //  Copyright © 2018年 林少凯. All rights reserved.
 //
 
-#import "LCPublicNoticeVM.h"
-#import "LCHomeModuleAPI.h"
-#import "LSKBaseResponseModel.h"
-@interface LCPublicNoticeVM ()
+#import "LCUserNoticeVM.h"
+#import "LCUserModuleAPI.h"
+@interface LCUserNoticeVM ()
 @property (nonatomic, strong) RACCommand *noticeListCommand;
 @end
-@implementation LCPublicNoticeVM
-- (void)getPublicData:(BOOL)isPull {
+@implementation LCUserNoticeVM
+- (void)getUserNoticeList:(BOOL)isPull {
     if (!isPull) {
-        [SKHUD showLoadingDotInView:self.currentView];
+        [SKHUD showLoadingDotInWindow];
     }
-    [self.noticeListCommand execute:nil ];
+    [self.noticeListCommand execute:@(1) ];
+}
+- (void)getSystemNoticeList:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInWindow];
+    }
+    [self.noticeListCommand execute:@(0)];
 }
 - (RACCommand *)noticeListCommand {
     if (!_noticeListCommand) {
@@ -25,9 +30,9 @@
         _page = 0;
         _noticeListCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCHomeModuleAPI getPublicNoticeList:self.page]];
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getUserAndSystemNoticeList:self.page type:[input integerValue]]];
         }];
-        [_noticeListCommand.executionSignals.flatten subscribeNext:^(LCPublicNoticeListModel *model) {
+        [_noticeListCommand.executionSignals.flatten subscribeNext:^(LCUserMessageListModel *model) {
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];

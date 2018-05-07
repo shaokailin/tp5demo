@@ -25,7 +25,7 @@
 #import "LCUserSignMessageModel.h"
 #import "LCOrderHistoryGuessModel.h"
 #import "UserListModel.h"
-
+#import "LCUserMessageListModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -63,7 +63,10 @@ static NSString * const kWithdrawMoney = @"User/tiQian.html";
 static NSString * const kWithdrawMoneyList = @"User/getTiQianLog.html";
 static NSString * const kRechargeMoneyList = @"User/getPayLog.html";
 static NSString * const KchallengeList = @"quiz/challengeList";
-
+static NSString * const kReportUser = @"user/compliant.html";
+static NSString * const kMessageList = @"message/messagelist.html";
+static NSString * const kMessageCount = @"message/unreadCount.html";
+static NSString * const kMessageShow = @"message/read.html";
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -286,6 +289,40 @@ static NSString * const KchallengeList = @"quiz/challengeList";
     entity.requestApi = KchallengeList;
     entity.params = @{@"quiz_id":userId,@"p":@(page),@"token":kUserMessageManager.token};
     entity.responseObject = [UserListModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)reportOtherUser:(NSString *)uesrId content:(NSString *)content postId:(NSString *)postId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kReportUser;
+    entity.requestType = 1;
+    entity.params =  @{@"complaint_from_userid":kUserMessageManager.userId,@"complaint_to_userid":uesrId,@"content":content,@"post_id":postId,@"token":kUserMessageManager.token};;
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)getUserAndSystemNoticeList:(NSInteger)page type:(NSInteger)type {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMessageList;
+    entity.params = @{@"page_size":@(PAGE_SIZE_NUMBER),@"p":@(page),@"type":@(type),@"token":kUserMessageManager.token};
+    entity.responseObject = [LCUserMessageListModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)getNoticeCount {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMessageCount;
+    entity.requestType = 1;
+    entity.params =  @{@"token":kUserMessageManager.token};;
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)changeNoticeShow:(NSString *)msgId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMessageShow;
+    entity.requestType = 1;
+    entity.params =  @{@"msg_id":msgId,@"token":kUserMessageManager.token};;
+    entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
 @end

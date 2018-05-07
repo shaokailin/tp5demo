@@ -11,5 +11,5 @@ static NSString * const kLCPublicNoticeCell = @"LCPublicNoticeCell";
 typedef void (^detailBlock)(id clickDetail);
 @interface LCPublicNoticeCell : UITableViewCell
 @property (nonatomic, copy) detailBlock block;
-- (void)setupCellContent:(NSString *)title detail:(NSString *)detail isShowDetail:(BOOL)isShow;
+- (void)setupCellContent:(NSString *)title detail:(NSString *)detail time:(NSString *)time isShowRed:(BOOL)isRed isShowDetail:(BOOL)isShow;
 @end

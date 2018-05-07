@@ -32,6 +32,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     NSInteger _editImageType;
     NSInteger _jumpViewType;
     BOOL _isHasLoad;
+    BOOL _isLoadNotice;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
@@ -57,6 +58,10 @@ static NSString * const kSettingName = @"UserHomeSetting";
     if (!_isHasLoad) {
         _isHasLoad = YES;
         [self.viewModel getUserMessage];
+    }
+    if (!_isLoadNotice) {
+        _isLoadNotice = YES;
+        [self.viewModel getNoticeCount];
     }
 }
 
@@ -105,7 +110,11 @@ static NSString * const kSettingName = @"UserHomeSetting";
             [self.headerView changeUserPhoto:self.viewModel.photoImage];
         }else if (identifier == 10){
              [self.headerView changeBgImage:self.viewModel.photoImage];
-        }else {
+        }else if(identifier == 300){
+            self->_isLoadNotice = NO;
+            [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+        }
+        else{
             [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count];
             [self updateUserMessage];
             if (self->_jumpViewType != -1) {
@@ -115,8 +124,12 @@ static NSString * const kSettingName = @"UserHomeSetting";
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
+        if (identifier == 300) {
+            self->_isLoadNotice = NO;
+        }
         [self.mainTableView.mj_header endRefreshing];
     }];
+    _viewModel.count = 0;
 }
 
 - (void)jumpEvent {
@@ -168,7 +181,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
         NSDictionary *dict = [_settingArray objectAtIndex:indexPath.row];
         NSInteger count = 0;
         if(indexPath.row == 1) {
-            count = 100;
+            count = self.viewModel.count;
         }
         [cell setupContentTitle:[dict objectForKey:@"title"] detail:[dict objectForKey:@"detail"] icon:[dict objectForKey:@"icon"] count:count];
         return cell;

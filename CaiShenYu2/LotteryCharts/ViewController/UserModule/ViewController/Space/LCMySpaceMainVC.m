@@ -155,7 +155,9 @@
     [[UIApplication sharedApplication].keyWindow addSubview:report];
 }
 - (void)reportEvent:(NSString *)postId report:(NSString *)report {
-    
+    _viewModel.content = report;
+    _viewModel.postId = postId;
+    [_viewModel reportUserMessage];
 }
 - (void)changeShowClick:(NSInteger)type {
     _showType = type;

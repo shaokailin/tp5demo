@@ -12,6 +12,7 @@
 @interface LCSpaceViewModel ()
 @property (nonatomic, strong) RACCommand *attentionCommand;
 @property (nonatomic, strong) RACCommand *spaceCommand;
+@property (nonatomic, strong) RACCommand *reportCommand;
 @end
 @implementation LCSpaceViewModel
 - (void)getSpaceData:(BOOL)isPull {
@@ -95,5 +96,28 @@
         }];
     }
     return _attentionCommand;
+}
+
+- (void)reportUserMessage {
+    [SKHUD showLoadingDotInWindow];
+    [self.reportCommand execute:nil];
+}
+- (RACCommand *)reportCommand {
+    if (!_reportCommand) {
+        @weakify(self)
+        _reportCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI reportOtherUser:self.uid content:self.content postId:self.postId]];
+        }];
+        [_reportCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD showMessageInView:self.currentView withMessage:@"举报成功"];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _reportCommand;
 }
 @end

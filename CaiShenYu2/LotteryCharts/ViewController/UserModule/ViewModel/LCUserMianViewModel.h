@@ -16,4 +16,6 @@
 - (void)loginOutClickEvent;
 @property (nonatomic, strong) UIImage *photoImage;
 - (void)updateUserPhoto;
+@property (nonatomic, assign) NSInteger count;
+- (void)getNoticeCount;
 @end
