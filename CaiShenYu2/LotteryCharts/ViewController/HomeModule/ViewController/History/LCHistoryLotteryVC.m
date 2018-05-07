@@ -78,23 +78,6 @@
         }
         [self endRefreshing];
     }];
-  
-//    NSString *url = [NSString stringWithFormat:@"%@%@", HeadUrl, @"Period/index.html"];
-//    NSDictionary *pram = @{@"limitrow":@"0",
-//                           @"p": @(_viewModel.page)
-//                           };
-//    [NewWorkingRequestManage requestPostWith:url parDic:pram finish:^(id responseObject) {
-//        @strongify(self)
-//        [self endRefreshing];
-//        [self.mainTableView reloadData];
-//        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.historyArray.count];
-//    } error:^(NSError *error) {
-//        @strongify(self)
-//        if (self.viewModel.page == 0) {
-//            [self.mainTableView reloadData];
-//        }
-//        [self endRefreshing];
-//    }];
     
     _viewModel.type = self.type;
     if (KJudgeIsNullData(self.searchText)) {

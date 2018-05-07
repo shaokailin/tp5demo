@@ -28,7 +28,7 @@ View.layer.borderColor = (Color).CGColor\
 
 #define MyLog(...) NSLog(__VA_ARGS__)
 
-#define HeadUrl @"http://scb.czsen.com/api.php/"
+
 
 static NSString * const kUserModule_HomeChangeMessageNotice = @"HomeChangeMessageNotice";
 static NSString * const kPushPost_Alter = @"PushPost_Alter";
