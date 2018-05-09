@@ -31,7 +31,7 @@
     return NO;
 }
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{ @"reply" : [LCGuessReplyModel class]
+    return @{ @"reply" : [LCPostReplyModel class]
               };
 }
 - (NSInteger)hasCount {

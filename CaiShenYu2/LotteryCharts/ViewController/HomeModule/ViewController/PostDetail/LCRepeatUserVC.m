@@ -14,10 +14,6 @@
 #import "LCMySpaceMainVC.h"
 #import "LCRepeatHeaderCell.h"
 @interface LCRepeatUserVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
-{
-    BOOL _isNeedSend;
-    BOOL _isViewAppear;
-}
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
 @property (nonatomic, strong) LCPostDetailViewModel *viewModel;
@@ -39,18 +35,15 @@
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCPostDetailViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-        if (identifier == 0 || identifier == 1) {
-            @strongify(self)
-            if (identifier == 10){
+        @strongify(self)
+        if (identifier == 10){
             [self.inputToolbar cleanText];
-//            self.postModel.reply_count += 1;
-            [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Reload indexPathStart:0 indexPathEnd:0 section:0 animation:UITableViewRowAnimationNone];
-            [self.mainTableView exitTableViewWithType:LSKTableViewExitType_Insert indexPathStart:1 indexPathEnd:1 section:0 animation:UITableViewRowAnimationBottom];
-            }else {
-                [self endRefreshing];
-                [self.mainTableView reloadData];
-                [LSKViewFactory setupFootRefresh:self.mainTableView page:self->_viewModel.page currentCount:self->_viewModel.replyArray.count];
-            }
+            self.model.reply_count += 1;
+            [self.mainTableView reloadData];
+        }else {
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self->_viewModel.page currentCount:self->_viewModel.replyArray.count];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
@@ -61,9 +54,12 @@
             [self endRefreshing];
         }
     }];
+    _viewModel.replyType = self.type;
+    _viewModel.type = 1;
+    _viewModel.target = self.model.reply_id;
     _viewModel.postId = self.postId;
     _viewModel.userId = self.model.user_id;
-   [_viewModel getReplyList];
+   [_viewModel getCommentReplyList:NO];
 }
 - (void)endRefreshing {
     if (_viewModel.page == 0) {
@@ -73,37 +69,38 @@
     }
 }
 - (void)pullDownRefresh {
-    [_viewModel getReplyList];
+    _viewModel.page = 0;
+   [_viewModel getCommentReplyList:YES];
 }
 - (void)pullUpLoadMore {
-    [_viewModel getReplyList];
+    _viewModel.page += 1;
+    [_viewModel getCommentReplyList:YES];
 }
 - (void)sendCommentClick:(NSString *)text {
     [self.view endEditing:YES];
-    self.viewModel.isNeedSend = _isNeedSend;
     [self.viewModel sendReplyText:text];
 }
 
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-//    if (_viewModel) {
-//        return _viewModel.replyArray.count + 2;
-//    }
+    if (_viewModel) {
+        return _viewModel.replyArray.count + 2;
+    }
     return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 1) {
         LCRepeatHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCRepeatHeaderCell];
-        cell.countLbl.text = NSStringFormat(@"%d条回复",12);
+        cell.countLbl.text = NSStringFormat(@"%ld条回复",self.model.reply_count);
         return cell;
     }else {
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
         if (indexPath.row == 0) {
-            [cell setupPhoto:self.model.logo name:self.model.nickname userId:self.model.mch_no count:[self.model.reply_count integerValue] time:self.model.create_time content:self.model.message  isHiden:YES];
+            [cell setupPhoto:self.model.logo name:self.model.nickname userId:self.model.mch_no count:self.model.reply_count time:self.model.create_time content:self.model.message  isHiden:YES];
         }else {
-            LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
-            [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:[model.reply_count integerValue] time:model.create_time content:model.message isHiden:NO];
+            LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 2];
+            [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:model.reply_count  time:model.create_time content:model.message isHiden:NO];
         }
         WS(ws)
         cell.photoBlock = ^(id clickCell) {
@@ -135,7 +132,7 @@
         if (indexPath.row == 0) {
             model = self.model;
         }else {
-            [self.viewModel.replyArray objectAtIndex:indexPath.row - 2];
+            model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 2];
         }
         return model.height;
     }
@@ -147,6 +144,7 @@
     if (indexPath.row > 1) {
         LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 2];
         LCRepeatUserVC *repeat = [[LCRepeatUserVC alloc]init];
+        repeat.type = 0;
         repeat.postId = self.postId;
         repeat.model = model;
         [self.navigationController pushViewController:repeat animated:YES];

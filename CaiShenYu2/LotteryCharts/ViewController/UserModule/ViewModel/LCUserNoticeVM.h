@@ -13,4 +13,5 @@
 @property (nonatomic, strong) NSMutableArray *listArray;
 -(void)getUserNoticeList:(BOOL)isPull;
 - (void)getSystemNoticeList:(BOOL)isPull;
+- (void)changeNoticeRead:(NSString *)noticeId;
 @end

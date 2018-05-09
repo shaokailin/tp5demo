@@ -10,6 +10,7 @@
 #import "LCUserModuleAPI.h"
 @interface LCUserNoticeVM ()
 @property (nonatomic, strong) RACCommand *noticeListCommand;
+@property (nonatomic, strong) RACCommand *noticeShowCommand;
 @end
 @implementation LCUserNoticeVM
 - (void)getUserNoticeList:(BOOL)isPull {
@@ -69,5 +70,24 @@
         _listArray = [NSMutableArray array];
     }
     return _listArray;
+}
+- (void)changeNoticeRead:(NSString *)noticeId {
+    [self.noticeShowCommand execute:noticeId];
+}
+- (RACCommand *)noticeShowCommand {
+    if (!_noticeShowCommand) {
+        @weakify(self)
+        _noticeShowCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI changeNoticeShow:input]];
+        }];
+        [_noticeShowCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [self sendSuccessResult:10 model:nil];
+            }
+        }];
+    }
+    return _noticeShowCommand;
 }
 @end

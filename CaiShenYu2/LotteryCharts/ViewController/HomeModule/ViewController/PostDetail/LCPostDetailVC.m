@@ -110,6 +110,8 @@
             [self performSelector:@selector(navigationBackClick) withObject:nil afterDelay:1.0];
         }
     }];
+    _viewModel.type = 0;
+    _viewModel.target = self.postModel.post_id;
     _viewModel.postId = self.postModel.post_id;
     _viewModel.userId = self.postModel.user_id;
     [_viewModel getPostDetail:NO];
@@ -202,7 +204,7 @@
     }else {
         LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
         LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
-        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:[model.reply_count integerValue] time:model.create_time content:model.message  isHiden:NO];
+        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:model.reply_count time:model.create_time content:model.message  isHiden:NO];
         WS(ws)
         cell.photoBlock = ^(id clickCell) {
             [ws photoClick:clickCell];
@@ -235,6 +237,7 @@
     if (indexPath.row != 0) {
         LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
         LCRepeatUserVC *repeat = [[LCRepeatUserVC alloc]init];
+        repeat.type = 0;
         repeat.postId = self.postModel.post_id;
         repeat.model = model;
         [self.navigationController pushViewController:repeat animated:YES];

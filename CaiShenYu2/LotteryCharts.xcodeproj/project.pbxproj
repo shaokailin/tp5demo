@@ -217,7 +217,6 @@
 		E64197FD1FDA766A00C47713 /* LCGuessListMoreVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E64197FC1FDA766A00C47713 /* LCGuessListMoreVC.m */; };
 		E64198001FDA7E0300C47713 /* LCGuessMainMoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64197FF1FDA7E0300C47713 /* LCGuessMainMoreModel.m */; };
 		E641980B1FDA8FB000C47713 /* JSQMessagesComposerTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198091FDA8FB000C47713 /* JSQMessagesComposerTextView.m */; };
-		E64198141FDBCEB500C47713 /* LCGuessReplyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198131FDBCEB500C47713 /* LCGuessReplyModel.m */; };
 		E64198171FDBCEFB00C47713 /* LCGuessDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198161FDBCEFB00C47713 /* LCGuessDetailModel.m */; };
 		E641981A1FDBCF6900C47713 /* LCGuessReplyListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E64198191FDBCF6900C47713 /* LCGuessReplyListModel.m */; };
 		E641981D1FDBDCE900C47713 /* LCReplySuccessModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E641981C1FDBDCE900C47713 /* LCReplySuccessModel.m */; };
@@ -534,6 +533,7 @@
 		A658A5F5202D701F0091586B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
 		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
+		A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LotteryCharts.entitlements; sourceTree = "<group>"; };
 		A6D25751209E9A11001886C4 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		A6D25752209E9A11001886C4 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A6D25753209E9A11001886C4 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -746,8 +746,6 @@
 		E64197FF1FDA7E0300C47713 /* LCGuessMainMoreModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessMainMoreModel.m; sourceTree = "<group>"; };
 		E64198091FDA8FB000C47713 /* JSQMessagesComposerTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSQMessagesComposerTextView.m; sourceTree = "<group>"; };
 		E641980A1FDA8FB000C47713 /* JSQMessagesComposerTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSQMessagesComposerTextView.h; sourceTree = "<group>"; };
-		E64198121FDBCEB500C47713 /* LCGuessReplyModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessReplyModel.h; sourceTree = "<group>"; };
-		E64198131FDBCEB500C47713 /* LCGuessReplyModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessReplyModel.m; sourceTree = "<group>"; };
 		E64198151FDBCEFB00C47713 /* LCGuessDetailModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessDetailModel.h; sourceTree = "<group>"; };
 		E64198161FDBCEFB00C47713 /* LCGuessDetailModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessDetailModel.m; sourceTree = "<group>"; };
 		E64198181FDBCF6900C47713 /* LCGuessReplyListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessReplyListModel.h; sourceTree = "<group>"; };
@@ -1838,6 +1836,7 @@
 		E6D9A5D21FAFF4A400894BB0 /* LotteryCharts */ = {
 			isa = PBXGroup;
 			children = (
+				A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */,
 				435EC6E0208F3A0400D1D37D /* PuzzlePicture */,
 				E6D9A7E51FAFF97300894BB0 /* BaseConfig */,
 				E6D9A7CC1FAFF97300894BB0 /* ViewController */,
@@ -1911,8 +1910,6 @@
 				E6D33C971FD944850036AE54 /* LCGuessMainListModel.m */,
 				E64197FE1FDA7E0300C47713 /* LCGuessMainMoreModel.h */,
 				E64197FF1FDA7E0300C47713 /* LCGuessMainMoreModel.m */,
-				E64198121FDBCEB500C47713 /* LCGuessReplyModel.h */,
-				E64198131FDBCEB500C47713 /* LCGuessReplyModel.m */,
 				E64198151FDBCEFB00C47713 /* LCGuessDetailModel.h */,
 				E64198161FDBCEFB00C47713 /* LCGuessDetailModel.m */,
 				E64198181FDBCF6900C47713 /* LCGuessReplyListModel.h */,
@@ -2509,6 +2506,11 @@
 					E6D9A5CF1FAFF4A400894BB0 = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -2709,7 +2711,6 @@
 			files = (
 				E61D2F531FC01C4E002005E3 /* LCAttentionTableViewCell.m in Sources */,
 				E6C086251FECF15E007F9CF2 /* LCRechargeMoneyListModel.m in Sources */,
-				E64198141FDBCEB500C47713 /* LCGuessReplyModel.m in Sources */,
 				E6E2C6781FB0038600866D15 /* SKHUD.m in Sources */,
 				E61EA1C51FD54A1E00737327 /* LCPostModel.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
@@ -3104,6 +3105,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8NZ6HF8AH;
@@ -3134,6 +3136,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W8NZ6HF8AH;

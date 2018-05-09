@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseResponseModel.h"
-#import "LCGuessReplyModel.h"
+#import "LCPostReplyModel.h"
 @interface LCGuessReplyListModel : LSKBaseResponseModel
 @property (nonatomic, strong) NSArray *reply;
 @end

@@ -16,6 +16,10 @@
 
 + (LSKParamterEntity *)getGuessDetail:(NSString *)quiz_id;
 + (LSKParamterEntity *)getGuessDetail:(NSString *)quiz_id page:(NSInteger)page;
-+ (LSKParamterEntity *)sendGuessComment:(NSString *)quiz_id message:(NSString *)message;
++ (LSKParamterEntity *)getReplyGuessList:(NSInteger)page commentId:(NSString *)commentId;
+
++ (LSKParamterEntity *)sendGuessComment:(NSString *)quiz_id target_id:(NSString *)target_id target_type:(NSInteger)target_type message:(NSString *)message
+;
+
 + (LSKParamterEntity *)betGuessMessage:(NSString *)quiz_id period_id:(NSString *)period_id betting_num:(NSString *)betting_num;
 @end

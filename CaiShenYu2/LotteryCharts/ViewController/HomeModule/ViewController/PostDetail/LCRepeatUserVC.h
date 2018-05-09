@@ -10,5 +10,6 @@
 @class LCPostReplyModel;
 @interface LCRepeatUserVC : LSKBaseViewController
 @property (nonatomic, copy) NSString *postId;
+@property (nonatomic, assign) NSInteger type;
 @property (nonatomic, strong) LCPostReplyModel *model;
 @end

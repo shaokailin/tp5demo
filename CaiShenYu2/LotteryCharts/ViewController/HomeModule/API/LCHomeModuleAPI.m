@@ -36,6 +36,8 @@ static NSString * kLottery5DListApi = @"Direct/getRangeList.html";
 
 static NSString * kPostReply = @"post/reply.html";
 static NSString * kPostReplyList = @"post/replypage.html";
+static NSString * kGetReplyList = @"post/commentReplyList.html";
+
 static NSString * kPostDetail = @"post/showNew.html";
 static NSString * kPayPost = @"post/show_payorder.html";
 static NSString * kAllPost = @"post/lists.html";
@@ -145,13 +147,22 @@ static NSString * kPublicNoticeList = @"index/noticelist.html";
     return entity;
 }
 
-+ (LSKParamterEntity *)sendPostReply:(NSString *)content postId:(NSString *)postId {
++ (LSKParamterEntity *)sendPostReply:(NSString *)content type:(NSInteger)type targetId:(NSString *)targetId postId:(NSString *)postId {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kPostReply;
-    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"message":content};
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":postId,@"message":content,@"target_type":@(type),@"target_id":targetId};
     entity.responseObject = [LCPostReplySuccessModel class];
     return entity;
 }
+
++ (LSKParamterEntity *)getReplyList:(NSInteger)page commentId:(NSString *)commentId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kGetReplyList;
+    entity.params = @{@"page_size":@(PAGE_SIZE_NUMBER),@"token":kUserMessageManager.token,@"comment_id":commentId,@"p":@(page)};
+    entity.responseObject = [LCPostReplyListModel class];
+    return entity;
+}
+
 + (LSKParamterEntity *)getPostReplyList:(NSInteger)page postId:(NSString *)postId {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kPostReplyList;

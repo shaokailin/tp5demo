@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LCGuessReplyModel.h"
+#import "LCPostReplyModel.h"
 @interface LCGuessModel : NSObject
 
 @property (nonatomic, copy) NSString *quiz_id;

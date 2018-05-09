@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseResponseModel.h"
-#import "LCGuessReplyModel.h"
+#import "LCPostReplyModel.h"
 @interface LCReplySuccessModel : LSKBaseResponseModel
-@property (nonatomic, strong) LCGuessReplyModel *response;
+@property (nonatomic, strong) LCPostReplyModel *response;
 @end

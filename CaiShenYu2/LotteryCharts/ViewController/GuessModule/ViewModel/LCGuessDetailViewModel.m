@@ -98,7 +98,7 @@
         @weakify(self)
         _sendReplyCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCGuessModuleAPI sendGuessComment:self.quiz_id message:input]];
+            return [self requestWithPropertyEntity:[LCGuessModuleAPI sendGuessComment:self.quiz_id target_id:self.target target_type:self.type message:input]];
         }];
         [_sendReplyCommand.executionSignals.flatten subscribeNext:^(LCReplySuccessModel *model) {
             @strongify(self)

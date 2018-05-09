@@ -89,8 +89,8 @@
     if (!isShow) {
         self.hidden = NO;
         [UIView animateWithDuration:0.25 animations:^{
-            _bgView.alpha = 1;
-            _contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 200 , SCREEN_WIDTH, 200);
+            self->_bgView.alpha = 1;
+            self->_contentView.frame = CGRectMake(0, CGRectGetHeight(self.frame) - 200 , SCREEN_WIDTH, 200);
         }];
     }
 }

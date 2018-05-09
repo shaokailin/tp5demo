@@ -10,7 +10,7 @@
 
 @implementation LCGuessReplyListModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"reply" : [LCGuessReplyModel class],
+    return @{@"reply" : [LCPostReplyModel class],
              };
     
 }

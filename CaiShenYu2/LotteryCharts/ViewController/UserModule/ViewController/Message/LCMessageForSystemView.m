@@ -12,6 +12,7 @@
 @interface LCMessageForSystemView()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isLoading;
+    NSInteger _selectedRow;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCUserNoticeVM *viewModel;
@@ -29,9 +30,18 @@
     @weakify(self)
     _viewModel = [[LCUserNoticeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
-        [self endRefreshing];
-        [self.mainTableView reloadData];
-        [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.listArray.count];
+        if (identifier == 0) {
+            [self endRefreshing];
+            [self.mainTableView reloadData];
+            [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.listArray.count];
+        }else {
+            if (self->_selectedRow != -1 && self->_selectedRow < self.viewModel.listArray.count) {
+                LCUserNoticeModel *model = [self.viewModel.listArray objectAtIndex:self->_selectedRow];
+                model.is_read = @"0";
+                [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self->_selectedRow inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+                self->_selectedRow = -1;
+            }
+        }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
         if (self.viewModel.page == 0) {
@@ -85,10 +95,18 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 //    if (indexPath.row % 2 == 0) {
-        return 86 + 80;
+    LCUserNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+        return 86 + 15 + model.height;
 //    }else {
 //        return 86 + 80 + 47;
 //    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCUserNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    if ([model.is_read integerValue] == 1) {
+        _selectedRow = indexPath.row;
+        [self.viewModel changeNoticeRead:model.noticeId];
+    }
 }
 - (void)_layoutMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];

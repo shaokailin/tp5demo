@@ -99,10 +99,10 @@
 }
 - (void)hidenViewClick {
     [UIView animateWithDuration:0.25 animations:^{
-        _bgView.alpha = 0;
-        _contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, CGRectGetHeight(_contentView.frame));
+        self->_bgView.alpha = 0;
+        self->_contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, CGRectGetHeight(self->_contentView.frame));
     } completion:^(BOOL finished) {
-        for (UIView *subView in _contentView.subviews) {
+        for (UIView *subView in self->_contentView.subviews) {
             [subView removeFromSuperview];
         }
         [self removeFromSuperview];

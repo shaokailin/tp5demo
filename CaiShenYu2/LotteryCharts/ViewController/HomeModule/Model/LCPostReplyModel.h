@@ -10,8 +10,10 @@
 
 @interface LCPostReplyModel : NSObject
 @property (nonatomic, copy) NSString *reply_id;
+@property (nonatomic, copy) NSString *quiz_id;
+
 @property (nonatomic, copy) NSString *user_id;
-@property (nonatomic, copy) NSString *reply_count;
+@property (nonatomic, assign) NSInteger reply_count;
 @property (nonatomic, copy) NSString *message;
 @property (nonatomic, copy) NSString *nickname;
 @property (nonatomic, copy) NSString *logo;

@@ -25,4 +25,9 @@
 - (void)rewardPostMoney:(NSString *)money;
 - (void)attentionPost:(BOOL)isAttention;
 
+@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, copy) NSString *target;
+@property (nonatomic, assign) NSInteger replyType;
+- (void)getCommentReplyList:(BOOL)isPull;
+
 @end

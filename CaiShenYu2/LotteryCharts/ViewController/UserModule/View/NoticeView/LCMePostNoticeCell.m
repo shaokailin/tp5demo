@@ -24,6 +24,8 @@
 - (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image content:(NSString *)content {
     if (KJudgeIsNullData(image)) {
         [self.userPhoto sd_setImageWithURL:[NSURL URLWithString:image]];
+    }else {
+        self.userPhoto.image = nil;
     }
     self.nameLbl.text = name;
     self.timeLbl.text = time;

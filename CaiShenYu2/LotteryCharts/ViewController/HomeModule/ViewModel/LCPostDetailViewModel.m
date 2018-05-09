@@ -17,6 +17,7 @@
 @property (nonatomic, strong) RACCommand *rewardCommand;
 @property (nonatomic, strong) RACCommand *attentionCommand;
 @property (nonatomic, strong) RACCommand *payCommand;
+@property (nonatomic, strong) RACCommand *commentCommand;
 @property (nonatomic, assign) BOOL flag;
 
 @end
@@ -87,8 +88,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_replyArray && _replyArray.count > 0) {
-                    [_replyArray removeAllObjects];
+                if (self->_replyArray && self->_replyArray.count > 0) {
+                    [self->_replyArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.reply_list)) {
                     [self.replyArray addObjectsFromArray:model.reply_list];
@@ -149,7 +150,7 @@
         @weakify(self)
         _sendReplyCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCHomeModuleAPI sendPostReply:input postId:self.postId]];
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI sendPostReply:input type:self.type targetId:self.target postId:self.postId]];
         }];
         [_sendReplyCommand.executionSignals.flatten subscribeNext:^(LCPostReplySuccessModel *model) {
             @strongify(self)
@@ -159,9 +160,13 @@
                 }else {
                     [SKHUD dismiss];
                 }
-                //                [self.replyArray insertObject:model.response atIndex:0];
-                //                [self sendSuccessResult:10 model:nil];
-                [self getPostDetail:YES];
+                if (self.type == 0) {
+                     [self getPostDetail:YES];
+                }else {
+                    [self.replyArray addObject:model.response];
+                    [self sendSuccessResult:10 model:nil];
+                }
+               
 
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:model.message];
@@ -230,5 +235,46 @@
         }];
     }
     return _payCommand;
+}
+
+- (void)getCommentReplyList:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInView:self.currentView];
+    }
+    [self.commentCommand execute:nil];
+}
+- (RACCommand *)commentCommand {
+    if (!_commentCommand) {
+        @weakify(self)
+        _page = 0;
+        _commentCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCHomeModuleAPI getReplyList:self.page commentId:self.postId]];
+        }];
+        [_commentCommand.executionSignals.flatten subscribeNext:^(LCPostReplyListModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                if (KJudgeIsArrayAndHasValue(model.response)) {
+                    [self.replyArray addObjectsFromArray:model.response];
+                }
+                [self sendSuccessResult:1 model:nil];
+                
+            }else {
+                if (self.page != 0) {
+                    self.page --;
+                }
+                [self sendFailureResult:1 error:nil];
+            }
+        }];
+        [_commentCommand.errors subscribeNext:^(NSError * _Nullable x) {
+            @strongify(self)
+            if (self.page != 0) {
+                self.page --;
+            }
+            [self sendFailureResult:1 error:nil];
+        }];
+    }
+    return _commentCommand;
 }
 @end

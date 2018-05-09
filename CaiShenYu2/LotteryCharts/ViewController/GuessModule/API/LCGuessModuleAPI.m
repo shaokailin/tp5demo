@@ -19,6 +19,8 @@ static NSString * const kGuessMainApi = @"Direct/getQuizList.html";
 static NSString * const kGuessMainMoreApi = @"Direct/getQuiz.html";
 static NSString * const kGuessDetailApi = @"Quiz/challengeKill.html";
 static NSString * const kGuessReplyApi = @"quiz/reply.html";
+static NSString * const kReplyGuessListApi = @"quiz/commentReplyList.html";
+
 static NSString * const kGuessReplyListApi = @"Quiz/challengeReply.html";
 static NSString * const kBetGuessApi = @"Quiz/challengeData.html";
 static NSString * const kGuessListApi = @"Direct/getOldQuizList.html";
@@ -64,11 +66,19 @@ static NSString * const kGuessListApi = @"Direct/getOldQuizList.html";
     return entity;
 }
 
-+ (LSKParamterEntity *)sendGuessComment:(NSString *)quiz_id message:(NSString *)message {
++ (LSKParamterEntity *)sendGuessComment:(NSString *)quiz_id target_id:(NSString *)target_id target_type:(NSInteger)target_type message:(NSString *)message {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kGuessReplyApi;
-    entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"message":message};
+    entity.params = @{@"target_type":@(target_type),@"target_id":target_id,@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"message":message};
     entity.responseObject = [LCReplySuccessModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)getReplyGuessList:(NSInteger)page commentId:(NSString *)commentId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kReplyGuessListApi;
+    entity.params = @{@"page_size":@(PAGE_SIZE_NUMBER),@"token":kUserMessageManager.token,@"comment_id":commentId,@"p":@(page)};
+    entity.responseObject = [LCGuessReplyListModel class];
     return entity;
 }
 

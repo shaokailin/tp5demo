@@ -30,6 +30,8 @@
     }
     if (KJudgeIsNullData(image)) {
         [self.photoImg sd_setImageWithURL:[NSURL URLWithString:image]];
+    }else {
+        self.photoImg.image = nil;
     }
     self.contentLbl.text = content;
     self.nameLbl.text = name;

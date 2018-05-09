@@ -25,6 +25,8 @@
 - (void)setupCellContent:(NSString *)name money:(NSString *)money time:(NSString *)time img:(NSString *)image{
     if (KJudgeIsNullData(image)) {
         [self.photoImg sd_setImageWithURL:[NSURL URLWithString:image]];
+    }else {
+        self.photoImg.image = nil;
     }
     self.nameLbl.text = name;
     self.timeLbl.text = time;
