@@ -27,10 +27,10 @@
     if (!isHasSucess && KJudgeIsNullData(_imageWebUrl)) {
         [self sd_setImageWithURL:[NSURL URLWithString:_imageWebUrl] placeholderImage:_placeHolderImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if (!error && image) {
-                isHasSucess = YES;
+                self->isHasSucess = YES;
             }else
             {
-                isHasSucess = NO;
+                self->isHasSucess = NO;
             }
         }];
     }

@@ -223,13 +223,13 @@
 
 - (IBAction)btnReStart:(id)sender {
     [UIView animateWithDuration:1.0 animations:^{
-        _lblTime.text = [NSString stringWithFormat:@"时间：0"];
-        _lblStep.text = [NSString stringWithFormat:@"步数：0"];
+        self->_lblTime.text = [NSString stringWithFormat:@"时间：0"];
+        self->_lblStep.text = [NSString stringWithFormat:@"步数：0"];
         self.originalImage.transform = CGAffineTransformMakeScale(1.1, 1.1);
         
     } completion:^(BOOL finished) {
-        _lblTime.transform=CGAffineTransformIdentity;
-        _lblStep.transform=CGAffineTransformIdentity;
+        self->_lblTime.transform=CGAffineTransformIdentity;
+        self->_lblStep.transform=CGAffineTransformIdentity;
         self.originalImage.transform = CGAffineTransformIdentity;
 
     }];

@@ -116,25 +116,25 @@
         
         [UIView animateWithDuration:ScrollTime animations:^{
             
-            _scrollLabel.frame = CGRectMake(0, 0, _scrollLabel.frame.size.width, _scrollLabel.frame.size.height);
+            self->_scrollLabel.frame = CGRectMake(0, 0, self->_scrollLabel.frame.size.width, self->_scrollLabel.frame.size.height);
             
         } completion:^(BOOL finished) {
             
             [UIView animateWithDuration:ScrollTime delay:ScrollTime options:0 animations:^{
                 
-                _scrollLabel.frame = CGRectMake(0, -self.frame.size.height, _scrollLabel.frame.size.width, _scrollLabel.frame.size.height);
+                self->_scrollLabel.frame = CGRectMake(0, -self.frame.size.height, self->_scrollLabel.frame.size.width, self->_scrollLabel.frame.size.height);
                 
             } completion:^(BOOL finished) {
                 
-                _index ++;
-                if (_index == _textDataArr.count) {
-                    _index = 0;
+                self->_index ++;
+                if (self->_index == self->_textDataArr.count) {
+                    self->_index = 0;
                 }
                 
-                if (_needStop == NO) {
+                if (self->_needStop == NO) {
                     [self scrollBottomToTop];
                 }else{
-                    _isRunning = NO;
+                    self->_isRunning = NO;
                 }
             }];
         }];
@@ -160,25 +160,25 @@
         
         [UIView animateWithDuration:ScrollTime animations:^{
             
-            _scrollLabel.frame = CGRectMake(0, 0, _scrollLabel.frame.size.width, _scrollLabel.frame.size.height);
+            self->_scrollLabel.frame = CGRectMake(0, 0, self->_scrollLabel.frame.size.width, self->_scrollLabel.frame.size.height);
             
         } completion:^(BOOL finished) {
             
             [UIView animateWithDuration:ScrollTime delay:ScrollTime options:0 animations:^{
                 
-                _scrollLabel.frame = CGRectMake(0, self.frame.size.height, _scrollLabel.frame.size.width, _scrollLabel.frame.size.height);
+                self->_scrollLabel.frame = CGRectMake(0, self.frame.size.height, self->_scrollLabel.frame.size.width,self-> _scrollLabel.frame.size.height);
                 
             } completion:^(BOOL finished) {
                 
-                _index ++;
-                if (_index == _textDataArr.count) {
-                    _index = 0;
+                self->_index ++;
+                if (self->_index == self->_textDataArr.count) {
+                    self->_index = 0;
                 }
                 
-                if (_needStop == NO) {
+                if (self->_needStop == NO) {
                     [self scrollTopToBottom];
                 }else{
-                    _isRunning = NO;
+                    self->_isRunning = NO;
                 }
             }];
         }];

@@ -82,6 +82,9 @@
             case 2:
                 _searchField.placeholder = @"帖子ID";
                 break;
+            case 3:
+                _searchField.placeholder = @"擂台帖子ID";
+                break;
             default:
                 break;
         }

@@ -32,8 +32,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self.page == 0 && _historyArray) {
-                    [_historyArray removeAllObjects];
+                if (self.page == 0 && self->_historyArray) {
+                    [self->_historyArray removeAllObjects];
                 }
                 NSArray *array = nil;
                 if (self.showType == 0) {

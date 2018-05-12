@@ -9,5 +9,5 @@
 #import "LSKBaseResponseModel.h"
 #import "LCPostReplyModel.h"
 @interface LCGuessReplyListModel : LSKBaseResponseModel
-@property (nonatomic, strong) NSArray *reply;
+@property (nonatomic, strong) NSArray *response;
 @end

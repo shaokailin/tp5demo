@@ -26,8 +26,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self.page == 0 && _searchArray) {
-                    [_searchArray removeAllObjects];
+                if (self.page == 0 && self->_searchArray) {
+                    [self->_searchArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.searchArray addObjectsFromArray:model.response];

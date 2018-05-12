@@ -41,8 +41,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self.page == 0 && _historyArray) {
-                    [_historyArray removeAllObjects];
+                if (self.page == 0 && self->_historyArray) {
+                    [self->_historyArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.historyArray addObjectsFromArray:model.response];
@@ -75,8 +75,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (self.page == 0 && _historyArray) {
-                    [_historyArray removeAllObjects];
+                if (self.page == 0 && self->_historyArray) {
+                    [self->_historyArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.historyArray addObjectsFromArray:model.response];

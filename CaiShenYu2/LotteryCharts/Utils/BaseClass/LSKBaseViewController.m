@@ -113,9 +113,22 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     }else if (type == 2){
         platformType = UMSocialPlatformType_WechatTimeLine;
     }
-#warning -分享内容确定
-    [[UMSocialManager defaultManager]shareToPlatform:platformType messageObject:nil currentViewController:self completion:^(id result, NSError *error) {
-        
+    //创建分享消息对象
+    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    //创建网页内容对象
+    NSString* thumbURL =  @"http://www.09041.com/logo.jpg";
+    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"神仙鱼" descr:@"神仙鱼APP是一款可以发布3D推荐号码，云集各路3D高手精英。每天发布最新最精准最全面的3D推荐号，有效提高3D命中率，造福各地各路广大彩民的共享交流平台。" thumImage:thumbURL];
+    //设置网页地址
+    shareObject.webpageUrl = @"http://www.09041.com/ ";
+    
+    //分享消息对象设置分享内容对象
+    messageObject.shareObject = shareObject;
+    [[UMSocialManager defaultManager]shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id result, NSError *error) {
+        if (error) {
+            [SKHUD showMessageInWindowWithMessage:@"分享失败"];
+        }else {
+            [SKHUD showMessageInWindowWithMessage:@"分享成功"];
+        }
     }];
 }
 #pragma mark 添加导航栏按钮

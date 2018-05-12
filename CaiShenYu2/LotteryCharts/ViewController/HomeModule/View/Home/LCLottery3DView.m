@@ -39,7 +39,6 @@
         if (open1.count >= 3) {
             [self.thirdNumBtn setTitle:[open1 objectAtIndex:2] forState:UIControlStateNormal];
         }
-#warning
         NSString *str =  [currentModel.test_number stringByReplacingOccurrencesOfString:@"," withString:@""];
         self.currentOpenLbl.text = str;//[open1 componentsJoinedByString:@""];
     }

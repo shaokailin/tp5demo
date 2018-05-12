@@ -110,6 +110,7 @@
             [self performSelector:@selector(navigationBackClick) withObject:nil afterDelay:1.0];
         }
     }];
+    _viewModel.replyType = 0;
     _viewModel.type = 0;
     _viewModel.target = self.postModel.post_id;
     _viewModel.postId = self.postModel.post_id;

@@ -42,8 +42,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_attentionArray && _page == 0) {
-                    [_attentionArray removeAllObjects];
+                if (self->_attentionArray && self->_page == 0) {
+                    [self->_attentionArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.attentionArray addObjectsFromArray:model.response];

@@ -9,6 +9,7 @@
 #import "LCPostDetailViewModel.h"
 #import "LCHomeModuleAPI.h"
 #import "LCUserModuleAPI.h"
+#import "LCGuessModuleAPI.h"
 @interface LCPostDetailViewModel ()
 @property (nonatomic, strong) RACCommand *isPayCommand;
 @property (nonatomic, strong) RACCommand *postDetailCommand;
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) RACCommand *attentionCommand;
 @property (nonatomic, strong) RACCommand *payCommand;
 @property (nonatomic, strong) RACCommand *commentCommand;
+@property (nonatomic, strong) RACCommand *guessSendReplyConmand;
 @property (nonatomic, assign) BOOL flag;
 
 @end
@@ -48,7 +50,12 @@
         return;
     }
     [SKHUD showLoadingDotInView:self.currentView];
-    [self.sendReplyCommand execute:message];
+    if (self.replyType == 0) {
+        [self.sendReplyCommand execute:message];
+    }else {
+        [self.guessSendReplyConmand execute:message];
+    }
+    
 }
 - (void)rewardPostMoney:(NSString *)money {
     if (!KJudgeIsNullData(money) || [money integerValue] <= 0) {
@@ -249,7 +256,12 @@
         _page = 0;
         _commentCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCHomeModuleAPI getReplyList:self.page commentId:self.postId]];
+            if (self.replyType == 0) {
+                return [self requestWithPropertyEntity:[LCHomeModuleAPI getReplyList:self.page commentId:self.target]];
+            }else {
+                return [self requestWithPropertyEntity:[LCGuessModuleAPI getReplyGuessList:self.page commentId:self.target]];
+            }
+            
         }];
         [_commentCommand.executionSignals.flatten subscribeNext:^(LCPostReplyListModel *model) {
             @strongify(self)
@@ -276,5 +288,27 @@
         }];
     }
     return _commentCommand;
+}
+
+- (RACCommand *)guessSendReplyConmand {
+    if (!_guessSendReplyConmand) {
+        @weakify(self)
+        _guessSendReplyConmand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCGuessModuleAPI sendGuessComment:self.postId target_id:self.target target_type:self.type message:input]];
+        }];
+        [_guessSendReplyConmand.executionSignals.flatten subscribeNext:^(LCPostReplySuccessModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                [self.replyArray addObject:model.response];
+                [self sendSuccessResult:10 model:nil];
+                
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _guessSendReplyConmand;
 }
 @end

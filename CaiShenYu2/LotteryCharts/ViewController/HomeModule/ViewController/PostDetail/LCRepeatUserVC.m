@@ -57,7 +57,7 @@
     _viewModel.replyType = self.type;
     _viewModel.type = 1;
     _viewModel.target = self.model.reply_id;
-    _viewModel.postId = self.model.reply_id;
+    _viewModel.postId = self.postId;
     _viewModel.userId = self.model.user_id;
    [_viewModel getCommentReplyList:NO];
 }

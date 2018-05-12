@@ -11,7 +11,7 @@
 #import "LCGuessMainListModel.h"
 #import "LCGuessMainMoreModel.h"
 #import "LCGuessDetailModel.h"
-#import "LCGuessReplyListModel.h"
+#import "LCPostReplyListModel.h"
 #import "LCReplySuccessModel.h"
 
 static NSString * const kPushGuessApi = @"quiz/add.html";
@@ -78,7 +78,7 @@ static NSString * const kGuessListApi = @"Direct/getOldQuizList.html";
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kReplyGuessListApi;
     entity.params = @{@"page_size":@(PAGE_SIZE_NUMBER),@"token":kUserMessageManager.token,@"comment_id":commentId,@"p":@(page)};
-    entity.responseObject = [LCGuessReplyListModel class];
+    entity.responseObject = [LCPostReplyListModel class];
     return entity;
 }
 
@@ -89,7 +89,7 @@ static NSString * const kGuessListApi = @"Direct/getOldQuizList.html";
     }else {
         entity.requestApi = kGuessReplyListApi;
         entity.params = @{@"token":kUserMessageManager.token,@"quiz_id":quiz_id,@"p":@(page- 1)};
-        entity.responseObject = [LCGuessReplyListModel class];
+        entity.responseObject = [LCPostReplyListModel class];
     }
     return entity;
 }

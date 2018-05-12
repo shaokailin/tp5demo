@@ -295,7 +295,7 @@ float PopoverViewDegreesToRadians(float angle)
     self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
     [UIView animateWithDuration:0.25f animations:^{
         self.transform = CGAffineTransformIdentity;
-        _shadeView.alpha = 1.f;
+        self->_shadeView.alpha = 1.f;
     }];
 }
 
@@ -357,10 +357,10 @@ float PopoverViewDegreesToRadians(float angle)
 {
     [UIView animateWithDuration:0.25f animations:^{
         self.alpha = 0.f;
-        _shadeView.alpha = 0.f;
+        self->_shadeView.alpha = 0.f;
         self.transform = CGAffineTransformMakeScale(0.01f, 0.01f);
     } completion:^(BOOL finished) {
-        [_shadeView removeFromSuperview];
+        [self->_shadeView removeFromSuperview];
         [self removeFromSuperview];
     }];
 }
@@ -446,15 +446,15 @@ float PopoverViewDegreesToRadians(float angle)
 {
     [UIView animateWithDuration:0.25f animations:^{
         self.alpha = 0.f;
-        _shadeView.alpha = 0.f;
+        self->_shadeView.alpha = 0.f;
     } completion:^(BOOL finished) {
-        PopoverAction *action = _actions[indexPath.row];
+        PopoverAction *action = self->_actions[indexPath.row];
         action.handler ? action.handler(action) : NULL;
-        _actions = nil;
+        self->_actions = nil;
 //        if (self.myBlock) {
 //            self.myBlock(indexPath.row);
 //        }
-        [_shadeView removeFromSuperview];
+        [self->_shadeView removeFromSuperview];
         [self removeFromSuperview];
     }];
 }

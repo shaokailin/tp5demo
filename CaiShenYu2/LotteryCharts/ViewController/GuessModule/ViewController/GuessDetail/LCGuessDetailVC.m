@@ -8,14 +8,15 @@
 
 #import "LCGuessDetailVC.h"
 #import "LCPostHeaderTableViewCell.h"
-#import "LCGuessCommentTableViewCell.h"
+#import "LCPostCommentTableViewCell.h"
 #import "LCCommentInputView.h"
 #import "LCGuessHeaderView.h"
 #import "LCGuessDetailViewModel.h"
 #import "LCMySpaceMainVC.h"
 #import "LCGuessRuleVC.h"
 #import "LCGuessUerListVC.h"
-
+#import "LCRepeatUserVC.h"
+#import "LCPostReplyModel.h"
 @interface LCGuessDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCGuessHeaderView *headerView;
@@ -125,9 +126,9 @@
         [cell setupCount:self.guessModel.reply_count type:0];
         return cell;
     }else {
-        LCGuessCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCGuessCommentTableViewCell];
-        LCPostReplyModel *model = [_viewModel.replyArray objectAtIndex:indexPath.row - 1];
-        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no index:indexPath.row time:model.create_time content:model.message];
+        LCPostCommentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPostCommentTableViewCell];
+        LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        [cell setupPhoto:model.logo name:model.nickname userId:model.mch_no count:model.reply_count time:model.create_time content:model.message  isHiden:NO];
         WS(ws)
         cell.photoBlock = ^(id clickCell) {
             [ws photoClick:clickCell];
@@ -147,19 +148,29 @@
     if (indexPath.row == 0) {
         return 50;
     }else {
-        return 60;
+        LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        return model.height;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.inputToolbar.inputField resignFirstResponder];
     [self.view endEditing:YES];
+    if (indexPath.row != 0) {
+        LCPostReplyModel *model = [self.viewModel.replyArray objectAtIndex:indexPath.row - 1];
+        LCRepeatUserVC *repeat = [[LCRepeatUserVC alloc]init];
+        repeat.type = 1;
+        repeat.postId = self.guessModel.quiz_id;
+        repeat.model = model;
+        [self.navigationController pushViewController:repeat animated:YES];
+        
+    }
 }
 
 - (void)initializeMainView {
     [self addRightNavigationButtonWithTitle:@"规则" target:self action:@selector(showRule)];
      WS(ws)
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:2 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorRGBA(213, 213, 215, 1.0) backgroundColor:nil];
-    [mainTableView registerNib:[UINib nibWithNibName:kLCGuessCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCGuessCommentTableViewCell];
+    [mainTableView registerNib:[UINib nibWithNibName:kLCPostCommentTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostCommentTableViewCell];
     [mainTableView registerNib:[UINib nibWithNibName:kLCPostHeaderTableViewCell bundle:nil] forCellReuseIdentifier:kLCPostHeaderTableViewCell];
     LCGuessHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"LCGuessHeaderView" owner:self options:nil] lastObject];
     self.headerView = headerView;

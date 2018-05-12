@@ -30,8 +30,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_contactArray && _page == 0) {
-                    [_contactArray removeAllObjects];
+                if (self->_contactArray && self->_page == 0) {
+                    [self->_contactArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.contactArray addObjectsFromArray:model.response];

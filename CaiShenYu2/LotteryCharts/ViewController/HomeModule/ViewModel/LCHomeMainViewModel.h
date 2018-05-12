@@ -10,6 +10,7 @@
 #import "LCHomeHotListModel.h"
 #import "LCHomeHeaderMessageModel.h"
 #import "LCPostDetailModel.h"
+#import "LCGuessDetailModel.h"
 @interface LCHomeMainViewModel : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *hotPostArray;

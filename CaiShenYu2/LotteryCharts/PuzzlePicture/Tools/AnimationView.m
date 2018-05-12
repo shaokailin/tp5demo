@@ -133,8 +133,8 @@
         self.frame = self.parentFrame;
         
     } completion:^(BOOL finished) {
-        if (_delegate && [_delegate respondsToSelector:@selector(completeAnimation)]) {
-            [_delegate completeAnimation];
+        if (self->_delegate && [self->_delegate respondsToSelector:@selector(completeAnimation)]) {
+            [self->_delegate completeAnimation];
         }
     }];
 }

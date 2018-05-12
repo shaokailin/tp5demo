@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewModel.h"
-#import "LCGuessReplyListModel.h"
+#import "LCPostReplyListModel.h"
 #import "LCGuessDetailModel.h"
 #import "LCReplySuccessModel.h"
 @interface LCGuessDetailViewModel : LSKBaseViewModel

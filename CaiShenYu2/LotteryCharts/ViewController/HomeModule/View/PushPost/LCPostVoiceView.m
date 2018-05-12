@@ -105,8 +105,7 @@
 - (NSTimer *)audioTimer {
     if (!_audioTimer) {
         _audioTimer = [NSTimer initTimerWithTimeInterval:1.0 block:^(NSTimer *timer) {
-            _timeString ++;
-            LSKLog(@"11111");
+            self->_timeString ++;
         } repeats:YES runModel:NSRunLoopCommonModes];
     }
     return _audioTimer;

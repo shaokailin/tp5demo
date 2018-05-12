@@ -10,13 +10,9 @@
 
 @implementation LCGuessReplyListModel
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{@"reply" : [LCPostReplyModel class],
+    return @{@"response" : [LCPostReplyModel class],
              };
     
 }
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{
-             @"reply" : @"response",
-             };
-}
+
 @end

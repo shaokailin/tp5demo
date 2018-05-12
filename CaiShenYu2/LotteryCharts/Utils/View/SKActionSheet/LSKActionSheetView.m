@@ -111,8 +111,8 @@
 - (void)showInView {
     [[[UIApplication sharedApplication].windows objectAtIndex:0] addSubview:self];
     [UIView animateWithDuration:0.25 animations:^{
-        _bgView.alpha = 1.0;
-        _contentView.frame = CGRectMake(0, SCREEN_HEIGHT - CGRectGetHeight(_contentView.frame), SCREEN_WIDTH,CGRectGetHeight(_contentView.frame));
+        self->_bgView.alpha = 1.0;
+        self->_contentView.frame = CGRectMake(0, SCREEN_HEIGHT - CGRectGetHeight(self->_contentView.frame), SCREEN_WIDTH,CGRectGetHeight(self->_contentView.frame));
     }];
 }
 @end

@@ -25,7 +25,6 @@
         _nameString = kUserMessageManager.nickName;
         _sexString = [[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Sex] isEqualToString:@"男"] == YES ? 0:1;
         _birthday = [[NSDate dateWithTimeIntervalSince1970:[[kUserMessageManager getMessageManagerForObjectWithKey:kUserMessage_Birthday]floatValue]]dateTransformToString:@"yyyy/MM/dd"];
-#warning 还没有弄好
         NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
         _mchnoString = [userDefaults objectForKey:@"user_Mchid2"];
@@ -103,7 +102,7 @@
         @weakify(self)
         _updateMessageCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             @strongify(self)
-            return [self requestWithPropertyEntity:[LCUserModuleAPI updateUserMessage:self.mediaUrl sex:self.sexString == 1?@"女":@"男" nickname:self.nameString birthday:[[NSDate stringTransToDate:self.birthday withFormat:@"yyyy/MM/dd"]timeIntervalSince1970] machid:_mchnoString]];
+            return [self requestWithPropertyEntity:[LCUserModuleAPI updateUserMessage:self.mediaUrl sex:self.sexString == 1?@"女":@"男" nickname:self.nameString birthday:[[NSDate stringTransToDate:self.birthday withFormat:@"yyyy/MM/dd"]timeIntervalSince1970] machid:self->_mchnoString]];
         }];
         [_updateMessageCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
             if (model.code == 200) {
@@ -114,7 +113,7 @@
                 [kUserMessageManager setMessageManagerForObjectWithKey:kUserMessage_Sex value:self.sexString == 1?@"女":@"男"];
                 NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
                 
-                [userDefaults setObject:_mchnoString forKey:@"user_Mchid2"];
+                [userDefaults setObject:self->_mchnoString forKey:@"user_Mchid2"];
                 
                 [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kUserModule_HomeChangeMessageNotice object:nil];
                 [[NSNotificationCenter defaultCenter]postNotificationOnMainThreadWithName:kSign_Change_Notice object:nil];

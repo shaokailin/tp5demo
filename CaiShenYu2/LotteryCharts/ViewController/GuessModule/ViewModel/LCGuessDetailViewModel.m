@@ -55,8 +55,8 @@
                     LCGuessDetailModel *model1 = (LCGuessDetailModel *)model;
                     data = model1.response.reply;
                 }else {
-                    LCGuessReplyListModel *model1 = (LCGuessReplyListModel *)model;
-                    data = model1.reply;
+                    LCPostReplyListModel *model1 = (LCPostReplyListModel *)model;
+                    data = model1.response;
                 }
                 if (KJudgeIsArrayAndHasValue(data)) {
                     [self.replyArray addObjectsFromArray:data];

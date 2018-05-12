@@ -22,6 +22,7 @@
 #import "LCSearchPostVC.h"
 #import <UMSocialCore/UMSocialCore.h>
 #import "LCPublicNoticeVC.h"
+#import "LCGuessDetailVC.h"
 @interface LCHomeMainVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, weak) LCHomeHeaderView *headerView;
@@ -85,7 +86,10 @@
         }else if (identifier == 80) {
             [self.headerView setup5DMessage:model];
         }else if (identifier == 90) {
-#warning -搜索擂台帖子id
+            LCGuessDetailVC *detail = [[LCGuessDetailVC alloc]init];
+            detail.guessModel = model;
+            detail.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:detail animated:YES];
         }
         else {
             [self.headerView setupBannerData:self.viewModel.messageModel.adv_list];
@@ -197,7 +201,6 @@
         }
     }else if (type == 2){//搜索
         if ([self isCanJumpViewForLogin:YES]) {
-#warning -擂台帖子id 的搜索  3
             self.viewModel.searchType = self.headerView.searchIndex;
             [self.viewModel searchPostEvent:actionParam];
         }

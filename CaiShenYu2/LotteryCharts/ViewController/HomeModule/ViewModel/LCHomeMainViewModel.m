@@ -11,6 +11,7 @@
 #import "LCBaseResponseModel.h"
 #import "LCHomeHotListModel.h"
 #import "LCLotteryFiveModel.h"
+#import "LCGuessModuleAPI.h"
 @interface LCHomeMainViewModel ()
 @property (nonatomic, strong) RACCommand *onlineCommand;
 @property (nonatomic, strong) RACCommand *headerMessageCommand;
@@ -20,6 +21,7 @@
 @property (nonatomic, strong) RACCommand *searchCommand;
 @property (nonatomic, strong) RACCommand *searchUserId;
 @property (nonatomic, strong) RACCommand *searchPost;
+@property (nonatomic, strong) RACCommand *searchGuess;
 @end
 @implementation LCHomeMainViewModel
 - (void)getHomeMessage:(BOOL)isPull {
@@ -50,8 +52,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_hotPostArray && _page == 0) {
-                    [_hotPostArray removeAllObjects];
+                if (self->_hotPostArray && self->_page == 0) {
+                    [self->_hotPostArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.hotPostArray addObjectsFromArray:model.response];
@@ -147,8 +149,10 @@
         [self.searchCommand execute:nil];
     }else if (self.searchType == 1){
         [self.searchUserId execute:nil];
-    }else {
+    }else if(self.searchType == 2) {
         [self.searchPost execute:nil];
+    }else {
+        [self.searchGuess execute:nil];
     }
 }
 - (RACCommand *)searchPost {
@@ -169,6 +173,25 @@
         }];
     }
     return _searchPost;
+}
+- (RACCommand *)searchGuess {
+    if (!_searchGuess) {
+        @weakify(self)
+        _searchGuess = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCGuessModuleAPI getGuessDetail:self.searchText]];
+        }];
+        [_searchGuess.executionSignals.flatten subscribeNext:^(LCGuessDetailModel *model) {
+            @strongify(self)
+            if (model.code == 200 && KJudgeIsNullData(model.response.quiz_id)) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:90 model:model.response];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:@"查无数据"];
+            }
+        }];
+    }
+    return _searchGuess;
 }
 - (RACCommand *)searchCommand {
     if (!_searchCommand) {
