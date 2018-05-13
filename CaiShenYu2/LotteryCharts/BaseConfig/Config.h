@@ -41,6 +41,11 @@ static NSString * const kPay_Success_Notice = @"Pay_Success_Notice";
 static NSString * const kPay_Fail_Notice = @"Pay_Fail_Notice";
 static NSString * const KLIVE_BROADCAST = @"http://lottery.sina.com.cn/video/fcopen/";
 static NSString * const KJIE_MENG = @"http://www.sosuo.name/jiemeng/";
+
+static NSString * const kNoticeSettingReply = @"settingReplyNotice";
+static NSString * const kNoticeSettingShange = @"settingShangNotice";
+static NSString * const kNoticeSettingCare = @"settingCareNotice";
+static NSString * const kNoticeSettingSystem = @"settingSystemNotice";
 //头像点击
 typedef void (^PhotoClickBlock)(id clickCell);
 #endif /* Config_h */

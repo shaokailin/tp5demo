@@ -19,6 +19,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"消息设置";
+    [self addRedNavigationBackButton];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [self initializeMainView];
 }
@@ -28,7 +29,8 @@
 }
 - (void)changeNoticeClick:(LCNoticeSettingCell *)cell state:(BOOL)state {
     NSInteger index = [self.mainTable indexPathForCell:cell].row;
-    LSKLog(@"%ld---%d",index,state);
+    [self returnSetValue:index value:!state];
+    [self.mainTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -40,7 +42,7 @@
         return cell;
     }else {
         LCNoticeSettingCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCNoticeSettingCell];
-        [cell setupCellContent:[self returnTitleString:indexPath.row] state:indexPath.row % 2 == 0];
+        [cell setupCellContent:[self returnTitleString:indexPath.row] state:[self returnValue:indexPath.row]];
         @weakify(self)
         cell.clickBlock = ^(id clickCell,BOOL state) {
             @strongify(self)
@@ -55,6 +57,46 @@
         return 10;
     }else {
         return 46;
+    }
+}
+- (BOOL)returnValue:(NSInteger)index {
+    BOOL value = YES;
+    switch (index) {
+        case 0:
+            value = kUserMessageManager.isShowReply;
+            break;
+        case 1:
+            value = kUserMessageManager.isShowShang;;
+            break;
+        case 2:
+            value = kUserMessageManager.isShowCare;;
+            break;
+        case 4:
+            value = kUserMessageManager.isShowSystem;
+            break;
+            
+        default:
+            break;
+    }
+    return value;
+}
+- (void)returnSetValue:(NSInteger)index  value:(BOOL)value{
+    switch (index) {
+        case 0:
+            kUserMessageManager.isShowReply = value;
+            break;
+        case 1:
+            kUserMessageManager.isShowShang = value;
+            break;
+        case 2:
+            kUserMessageManager.isShowCare = value;
+            break;
+        case 4:
+            kUserMessageManager.isShowSystem = value;
+            break;
+            
+        default:
+            break;
     }
 }
 - (NSString *)returnTitleString:(NSInteger)index {

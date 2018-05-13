@@ -28,6 +28,11 @@ static NSString * const kUserMessage_Mobile = @"user_Mobile";
 - (void)removeUserMessage;
 - (void)saveUserMessage:(LCUserMessageModel *)model isLogin:(BOOL)isLogin;
 
+@property (nonatomic, assign) BOOL isShowReply;
+@property (nonatomic, assign) BOOL isShowShang;
+@property (nonatomic, assign) BOOL isShowCare;
+@property (nonatomic, assign) BOOL isShowSystem;
+
 // 短信倒计时
 @property(nonatomic, assign) NSInteger loginCodeTime;
 @property(nonatomic, assign) NSInteger forgetCodeTime;

@@ -50,11 +50,31 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _sMoney = [self getMessageManagerForObjectWithKey:kUserMessage_SMoney];
         _bglogo = [self getMessageManagerForObjectWithKey:kUserMessage_bgLogo];
         _mch_no = [self getMessageManagerForObjectWithKey:kUserMessage_mchno];
+        _isShowCare = ![self getMessageManagerForBoolWithKey:kNoticeSettingCare];
+        _isShowReply = ![self getMessageManagerForBoolWithKey:kNoticeSettingReply];
+        _isShowShang = ![self getMessageManagerForBoolWithKey:kNoticeSettingShange];
+        _isShowSystem = ![self getMessageManagerForBoolWithKey:kNoticeSettingSystem];
     }
 }
 - (void)setToken:(NSString *)token {
     _token = token;
     [self setMessageManagerForObjectWithKey:kUserMessage_Token value:token];
+}
+- (void)setIsShowCare:(BOOL)isShowCare {
+    _isShowCare = isShowCare;
+    [self setMessageManagerForBoolWithKey:kNoticeSettingCare value:!_isShowCare];
+}
+- (void)setIsShowReply:(BOOL)isShowReply {
+    _isShowReply = isShowReply;
+    [self setMessageManagerForBoolWithKey:kNoticeSettingReply value:!isShowReply];
+}
+- (void)setIsShowShang:(BOOL)isShowShang {
+    _isShowShang = isShowShang;
+    [self setMessageManagerForBoolWithKey:kNoticeSettingShange value:!isShowShang];
+}
+- (void)setIsShowSystem:(BOOL)isShowSystem {
+    _isShowSystem = isShowSystem;
+    [self setMessageManagerForBoolWithKey:kNoticeSettingSystem value:!isShowSystem];
 }
 - (void)setMoney:(NSString *)money {
     _money = money;
