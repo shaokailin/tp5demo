@@ -15,15 +15,15 @@
     NSNumber *updateTime = dic[@"update_time"];
     BOOL isUpdateTime = ([updateTime isKindOfClass:[NSNumber class]] || [updateTime isKindOfClass:[NSString class]]);
     if (isStartTime || isUpdateTime) {
-        NSString *formar = @"MM-dd HH:mm";
+//        NSString *formar = @"MM-dd HH:mm";
         BOOL result = NO;;
         if (isStartTime) {
-            _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:formar];
+            _create_time = [LSKPublicMethodUtil timeStr:[createTime floatValue]];
             result = YES;
         }
         if (isUpdateTime) {
-            NSString *formar1 = @"MM月dd日 HH:mm";
-            _update_time = [[NSDate dateWithTimeIntervalSince1970:[updateTime integerValue]]dateTransformToString:formar1];
+//            NSString *formar1 = @"MM月dd日 HH:mm";
+            _update_time = [LSKPublicMethodUtil timeStr:[updateTime floatValue]];
             result = YES;
         }
         return result;

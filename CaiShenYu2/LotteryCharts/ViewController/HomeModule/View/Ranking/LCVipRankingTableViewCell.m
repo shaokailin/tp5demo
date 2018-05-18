@@ -60,6 +60,8 @@
     self.timeLbl.text =time;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     if (index < 4) {
         self.indexLbl.textColor = ColorHexadecimal(0xffffff, 1.0);
@@ -95,6 +97,8 @@
     self.timeLbl.text =time;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     if (index < 4) {
         self.indexLbl.textColor = ColorHexadecimal(0xffffff, 1.0);
@@ -124,6 +128,8 @@
     self.timeLbl.text =time;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        
     }
     if (index < 4) {
         self.indexLbl.textColor = ColorHexadecimal(0xffffff, 1.0);

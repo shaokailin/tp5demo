@@ -22,7 +22,7 @@
              @"data" : @"response.post_list",
              @"quiz_count" : @"response.quiz_count",
              @"post_list_count" : @"response.post_list_count",
-             
+             @"fans_count" : @"response.fans_count",
              };
 }
 @end

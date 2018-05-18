@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UIImageView *userPhoto;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UIView *redView;
 @property (weak, nonatomic) IBOutlet UILabel *contentLbl;
 @end
 @implementation LCMePostNoticeCell
@@ -20,13 +21,15 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.userPhoto, 17.0);
+    ViewRadius(self.redView, 5.0);
 }
-- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image content:(NSString *)content {
+- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image content:(NSString *)content isRead:(BOOL)isRead {
     if (KJudgeIsNullData(image)) {
         [self.userPhoto sd_setImageWithURL:[NSURL URLWithString:image]];
     }else {
         self.userPhoto.image = nil;
     }
+    self.redView.hidden = isRead;
     self.nameLbl.text = name;
     self.timeLbl.text = time;
     self.contentLbl.text = content;

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCMePostNoticeCell = @"LCMePostNoticeCell";
 @interface LCMePostNoticeCell : UITableViewCell
-- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image content:(NSString *)content;
+- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image content:(NSString *)content isRead:(BOOL)isRead;
 @end

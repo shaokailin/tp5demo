@@ -53,10 +53,19 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MrI-7B-EJ4">
+                        <rect key="frame" x="5" y="5" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="97K-FJ-cWe"/>
+                            <constraint firstAttribute="height" constant="10" id="QEH-Is-xjj"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="phM-QD-Iyj" secondAttribute="trailing" constant="10" id="Bma-lb-387"/>
                     <constraint firstItem="pPI-yS-1fr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="JKo-a7-rYh"/>
+                    <constraint firstItem="MrI-7B-EJ4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="U9b-eS-Owz"/>
                     <constraint firstItem="phM-QD-Iyj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="Uzg-lQ-rFc"/>
                     <constraint firstItem="fkA-Y3-iX5" firstAttribute="top" secondItem="pPI-yS-1fr" secondAttribute="bottom" constant="8" id="Xev-7I-0ZD"/>
                     <constraint firstItem="pPI-yS-1fr" firstAttribute="leading" secondItem="0EY-Ew-j4e" secondAttribute="trailing" constant="7" id="Xrf-if-tgF"/>
@@ -66,12 +75,14 @@
                     <constraint firstItem="0EY-Ew-j4e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="otz-P2-3PU"/>
                     <constraint firstItem="Pug-ZS-Lm9" firstAttribute="leading" secondItem="pPI-yS-1fr" secondAttribute="trailing" constant="8" id="tvb-QW-cEx"/>
                     <constraint firstAttribute="trailing" secondItem="fkA-Y3-iX5" secondAttribute="trailing" constant="15" id="zBv-f7-2UW"/>
+                    <constraint firstItem="MrI-7B-EJ4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="zCF-z9-hnd"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="contentLbl" destination="fkA-Y3-iX5" id="1ag-KO-Q9F"/>
                 <outlet property="nameLbl" destination="pPI-yS-1fr" id="A1i-C9-Nlf"/>
                 <outlet property="photoImg" destination="0EY-Ew-j4e" id="vJN-tk-dgT"/>
+                <outlet property="redView" destination="MrI-7B-EJ4" id="BvX-tW-oLT"/>
                 <outlet property="timeLbl" destination="phM-QD-Iyj" id="3fb-sy-ZG9"/>
                 <outlet property="tyleLbl" destination="Pug-ZS-Lm9" id="uL1-jR-eMg"/>
             </connections>

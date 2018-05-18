@@ -29,14 +29,26 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     if (KJudgeIsNullData(self.userId)) {
-        if (![kUserMessageManager.userId isEqualToString:self.userId]) {
-            self.title = @"他的关注";
-        } else {
-            self.title = @"我的关注";
+        if (self.isFans) {
+            if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+                self.title = @"他的粉丝";
+            } else {
+                self.title = @"我的粉丝";
+            }
+        }else {
+            if (![kUserMessageManager.userId isEqualToString:self.userId]) {
+                self.title = @"他的关注";
+            } else {
+                self.title = @"我的关注";
+            }
         }
     } else{
-        self.title = @"我的关注";
-        [self addNotificationWithSelector:@selector(changeUserAttention) name:kAttenttion_Change_Notice];
+        if (self.isFans) {
+            self.title = @"我的粉丝";
+        }else {
+            self.title = @"我的关注";
+            [self addNotificationWithSelector:@selector(changeUserAttention) name:kAttenttion_Change_Notice];
+        }
     }
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
@@ -58,11 +70,19 @@
 }
 - (void)pullDownRefresh {
     _viewModel.page = 0;
-    [_viewModel getUserAttentionList:YES];
+    if (self.isFans) {
+        [_viewModel getUserFansList:YES];
+    }else {
+        [_viewModel getUserAttentionList:YES];
+    }
 }
 - (void)pullUpLoadMore {
     _viewModel.page += 1;
-    [_viewModel getUserAttentionList:YES];
+    if (self.isFans) {
+        [_viewModel getUserFansList:YES];
+    }else {
+        [_viewModel getUserAttentionList:YES];
+    }
 }
 - (void)bindSignal {
     @weakify(self)
@@ -76,7 +96,12 @@
         [self endRefreshing];
     }];
     _viewModel.userId = self.userId;
-    [_viewModel getUserAttentionList:NO];
+    if (self.isFans) {
+        [_viewModel getUserFansList:NO];
+    }else {
+        [_viewModel getUserAttentionList:NO];
+    }
+    
 }
 - (void)endRefreshing {
     if (_viewModel.page == 0) {
@@ -95,12 +120,11 @@
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-   
     LCAttentionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCAttentionTableViewCell];
     LCAttentionModel *model = [self.viewModel.attentionArray objectAtIndex:indexPath.row];
-    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no glodCount:model.money yinbiCount:model.ymoney];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no glodCount:model.money yinbiCount:model.ymoney isShow:!self.isFans];
    
-   if (KJudgeIsNullData(self.userId)){
+   if (KJudgeIsNullData(self.userId) || self.isFans){
         cell.atentionBtn.hidden = YES;
 
     }else {

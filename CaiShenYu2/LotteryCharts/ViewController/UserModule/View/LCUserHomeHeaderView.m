@@ -60,6 +60,8 @@
         _userPhotoImageView.image = photo;
     }else if (KJudgeIsNullData(photo)){
         [_userPhotoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        _userPhotoImageView.image = nil;
     }
 }
 - (void)setupBgImage:(UIImage *)image {
@@ -70,18 +72,22 @@
     }
 }
 
-- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo {
+- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo fans:(NSString *)fans {
     if (KJudgeIsNullData(photo)){
         [_userPhotoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        _userPhotoImageView.image = nil;
     }
     _nameLbl.text = name;
     _userIdLbl.text = [kUserMessageManager.mch_no isEqualToString:userId]?NSStringFormat(@"我的ID:%@",userId):NSStringFormat(@"他的ID:%@",userId);
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
+    _funcLbl.text = fans;
 }
-- (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem {
+- (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem fans:(NSString *)fans {
     _attentionLbl.text = attention;
     _teamLbl.text = teem;
+    _funcLbl.text = fans;
 }
 - (void)updateUserMessage {
     _nameLbl.text = kUserMessageManager.nickName;

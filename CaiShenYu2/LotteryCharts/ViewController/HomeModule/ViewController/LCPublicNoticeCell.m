@@ -30,7 +30,7 @@
     self.titleLbl.text = title;
     self.contentLbl.text = detail;
     self.timeLbl.text = NSStringFormat(@"   %@   ",time);
-    self.redCircle.hidden = !isRed;
+    self.redCircle.hidden = isRed;
     self.buttonViewHeight.constant = isShow?47:0;
     self.bottonView.hidden = !isShow;
 }

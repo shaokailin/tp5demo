@@ -26,6 +26,10 @@
     [self initializeMainView];
     [self bindSignal];
 }
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self backToNornalNavigationColor];
+}
 - (void)bindSignal {
     @weakify(self)
     _viewModel = [[LCPublicNoticeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {

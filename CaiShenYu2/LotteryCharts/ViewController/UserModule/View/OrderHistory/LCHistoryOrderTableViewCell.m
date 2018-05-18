@@ -38,6 +38,8 @@
     self.pushTimeLbl.text = pushTime;
     if (KJudgeIsNullData(photoImage)) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photoImage] placeholderImage:nil];
+    }else {
+        self.photoImageView.image = nil;
     }
     self.nameLbl.text = name;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);;

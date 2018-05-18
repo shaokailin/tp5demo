@@ -50,10 +50,19 @@
                         <color key="textColor" red="0.69803921570000005" green="0.69803921570000005" blue="0.69803921570000005" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxs-dp-amr">
+                        <rect key="frame" x="5" y="5" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="agE-C1-nWg"/>
+                            <constraint firstAttribute="height" constant="10" id="qws-tv-x9e"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Nal-rU-G4v" firstAttribute="leading" secondItem="yI1-Jb-bvS" secondAttribute="trailing" constant="18" id="2Dn-hP-pHA"/>
                     <constraint firstItem="yI1-Jb-bvS" firstAttribute="leading" secondItem="gN5-sy-qgM" secondAttribute="trailing" constant="8" id="7e9-27-tbD"/>
+                    <constraint firstItem="hxs-dp-amr" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="CRa-on-Xfz"/>
                     <constraint firstItem="89U-Bd-UgD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DAc-N1-mjc"/>
                     <constraint firstItem="yI1-Jb-bvS" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="DHo-sW-9Yv"/>
                     <constraint firstItem="gN5-sy-qgM" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="FdE-qY-f1j"/>
@@ -61,6 +70,7 @@
                     <constraint firstAttribute="trailing" secondItem="3AK-Xf-ldk" secondAttribute="trailing" constant="10" id="XdL-yl-5km"/>
                     <constraint firstItem="Nal-rU-G4v" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hK4-xO-mpZ"/>
                     <constraint firstItem="3AK-Xf-ldk" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="rRZ-5v-jd3"/>
+                    <constraint firstItem="hxs-dp-amr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="xF4-VJ-yPC"/>
                     <constraint firstItem="89U-Bd-UgD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zV2-df-BwO"/>
                 </constraints>
             </tableViewCellContentView>
@@ -68,6 +78,7 @@
                 <outlet property="moneyLbl" destination="Nal-rU-G4v" id="rjD-St-ueX"/>
                 <outlet property="nameLbl" destination="gN5-sy-qgM" id="1mG-D1-uU8"/>
                 <outlet property="photoImg" destination="89U-Bd-UgD" id="sIy-MN-NZ2"/>
+                <outlet property="redView" destination="hxs-dp-amr" id="XA0-KR-0ZZ"/>
                 <outlet property="timeLbl" destination="3AK-Xf-ldk" id="07B-vW-iIf"/>
             </connections>
         </tableViewCell>

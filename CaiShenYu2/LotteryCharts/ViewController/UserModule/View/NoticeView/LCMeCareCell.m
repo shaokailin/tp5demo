@@ -11,6 +11,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *photoImg;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
+@property (weak, nonatomic) IBOutlet UIView *redView;
 
 @end
 @implementation LCMeCareCell
@@ -19,13 +20,15 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.photoImg, 17.0);
+    ViewRadius(self.redView, 5.0);
 }
-- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image {
+- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image isRead:(BOOL)isRead {
     if (KJudgeIsNullData(image)) {
         [self.photoImg sd_setImageWithURL:[NSURL URLWithString:image]];
     }else {
         self.photoImg.image = nil;
     }
+    self.redView.hidden = isRead;
     self.nameLbl.text = name;
     self.timeLbl.text = time;
 }

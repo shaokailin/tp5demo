@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger , LSKiOSiPhoneType) {
     LSKiOSiPhoneType_iPhone8P = 5,
 };
 @interface LSKPublicMethodUtil : NSObject
++ (NSString *)timeStr:(long long)timestamp;
 /**
  获取当前的版本号
  

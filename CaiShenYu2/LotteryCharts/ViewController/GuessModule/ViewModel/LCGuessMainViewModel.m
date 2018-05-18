@@ -31,8 +31,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_guessArray && _page == 0) {
-                    [_guessArray removeAllObjects];
+                if (self->_guessArray && self->_page == 0) {
+                    [self->_guessArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.guessArray addObjectsFromArray:model.response];

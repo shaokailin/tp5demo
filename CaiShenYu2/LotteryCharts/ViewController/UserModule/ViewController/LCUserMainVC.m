@@ -115,7 +115,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
             [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }
         else{
-            [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count];
+            [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count fans:self.viewModel.messageModel.fans_count];
             [self updateUserMessage];
             if (self->_jumpViewType != -1) {
                 [self jumpEvent];
@@ -162,7 +162,10 @@ static NSString * const kSettingName = @"UserHomeSetting";
         teamVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:teamVC animated:YES];
     }else if (type == 6) {
-        
+        LCAttentionMainVC *attentionVC = [[LCAttentionMainVC alloc]init];
+        attentionVC.isFans = YES;
+        attentionVC.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:attentionVC animated:YES];
     }
 }
 - (void)pullDownRefresh {

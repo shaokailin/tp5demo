@@ -9,6 +9,8 @@
 #import "LCUserMessageManager.h"
 #import "SynthesizeSingleton.h"
 #import "LCUserMessageModel.h"
+#import <JPUSHService.h>
+#import <AFNetworking/AFNetworking.h>
 static NSString * const kUserMessage_Token = @"User_TOKENToken2";
 static NSString * const kUserMessage_Mchid = @"user_Mchid2";
 static NSString * const kUserMessage_Uid = @"user_Uid";
@@ -19,6 +21,10 @@ static NSString * const kUserMessage_YMoney = @"user_YMoney2";
 static NSString * const kUserMessage_SMoney = @"user_SMoney2";
 static NSString * const kUserMessage_bgLogo = @"user_bgLogo2";
 static NSString * const kUserMessage_mchno = @"user_mchno2";
+
+static NSString * const kNoticeIsOpen = @"NoticeIsOpen";
+static NSInteger req = 1000;
+
 @interface LCUserMessageManager ()
 {
     NSTimer *_codeTimer;
@@ -27,6 +33,8 @@ static NSString * const kUserMessage_mchno = @"user_mchno2";
     BOOL _alterCount;
 }
 @property (nonatomic, strong) NSMutableArray *alertListArray;
+@property (nonatomic, assign) NSInteger currentType;//1.添加失败，2.删除失败
+@property (nonatomic, strong) AFNetworkReachabilityManager *reachabilityManager;
 @end
 @implementation LCUserMessageManager
 SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
@@ -40,6 +48,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     return self;
 }
 - (void)getUserMessage {
+    _isRegisterAlia = [self getMessageManagerForBoolWithKey:kNoticeIsOpen];
     _token = [self getMessageManagerForObjectWithKey:kUserMessage_Token];
     if ([self isLogin]) {
         _logo = [self getMessageManagerForObjectWithKey:kUserMessage_Photo];
@@ -104,6 +113,9 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     return KJudgeIsNullData(self.token);
 }
 - (void)saveUserMessage:(LCUserMessageModel *)model isLogin:(BOOL)isLogin {
+    if (isLogin) {
+        [self loginPushWithAlias:model.userId];
+    }
     _token = model.token;
     _userId = model.userId;
     _logo = model.logo;
@@ -133,6 +145,7 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
     
 }
 - (void)removeUserMessage {
+    [self loginOutPushWithAlias];
     _token = nil;
     _userId = nil;
     _logo = nil;
@@ -265,5 +278,100 @@ SYNTHESIZE_SINGLETON_CLASS(LCUserMessageManager);
         _alertListArray = [NSMutableArray arrayWithObjects:@"",@"",@"",@"", nil];
     }
     return _alertListArray;
+}
+
+
+#pragma mark 设置别名
+- (void)setIsRegisterAlia:(BOOL)isRegisterAlia {
+    _isRegisterAlia = isRegisterAlia;
+    [self setMessageManagerForBoolWithKey:kNoticeIsOpen value:isRegisterAlia];
+}
+- (void)loginPushWithAlias:(NSString *)userId {
+    @weakify(self)
+    self.isRegisterAlia = YES;
+    [JPUSHService setAlias:userId completion:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        @strongify(self)
+        if (iResCode != 0) {
+            if (self.currentType != 0) {
+                self.currentType --;
+            }
+            self.currentType += 1;
+            [self monitorNetChange];
+        }else if(self.currentType > 0) {
+            self.currentType --;
+        }else {
+            if (self->_reachabilityManager) {
+                [self.reachabilityManager stopMonitoring];
+            }
+        }
+    } seq:req++];
+}
+- (void)loginOutPushWithAlias {
+    self.isRegisterAlia = NO;
+    WS(ws)
+    [JPUSHService deleteAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+        if (iResCode != 0) {
+            if (ws.currentType != 0) {
+                ws.currentType -= 2;
+            }
+            ws.currentType += 2;
+            [ws monitorNetChange];
+        }else if(self.currentType > 0) {
+            ws.currentType -= 2;
+        }else {
+            if (self->_reachabilityManager) {
+                [self.reachabilityManager stopMonitoring];
+            }
+        }
+    } seq:req++];
+}
+- (void)monitorNetChange {
+    if (self.currentType > 0) {
+        [self.reachabilityManager startMonitoring];
+    }else {
+        [self.reachabilityManager stopMonitoring];
+    }
+}
+- (AFNetworkReachabilityManager *)reachabilityManager {
+    if (!_reachabilityManager) {
+        _reachabilityManager = [AFNetworkReachabilityManager sharedManager];
+        @weakify(self)
+        [_reachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+            if (status == AFNetworkReachabilityStatusReachableViaWWAN || status == AFNetworkReachabilityStatusReachableViaWiFi) {
+                @strongify(self)
+                if (self.currentType % 2 == 1) {
+                    [self loginPushWithAlias:self.userId];
+                }else if (self.currentType % 2 == 0 || self.currentType > 1){
+                    [self loginOutPushWithAlias];
+                }
+            }
+        }];
+    }
+    return _reachabilityManager;
+}
+- (void)cleanAlias {
+    @weakify(self)
+    if (!self.isRegisterAlia) {
+        [JPUSHService getAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+            if (iResCode == 0 && KJudgeIsNullData(iAlias)) {
+                @strongify(self)
+                [self loginOutPushWithAlias];
+            }
+        } seq:req++];
+    }
+}
+- (void)isHasRegisterAlias {
+    if (self.isRegisterAlia || (!self.isRegisterAlia && [self isLogin])) {
+        @weakify(self)
+        [JPUSHService getAlias:^(NSInteger iResCode, NSString *iAlias, NSInteger seq) {
+            if (iResCode == 0 && !KJudgeIsNullData(iAlias)) {
+                @strongify(self)
+                [self loginPushWithAlias:self.userId];
+            }else if(![iAlias isEqualToString:self.userId] && iResCode == 0) {
+                [self loginOutPushWithAlias];
+                [self loginPushWithAlias:self.userId];
+            }
+        } seq:req++];
+    }
 }
 @end

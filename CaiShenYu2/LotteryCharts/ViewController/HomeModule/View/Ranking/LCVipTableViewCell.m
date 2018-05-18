@@ -36,6 +36,8 @@
     self.robMoneyLbl.text = robMoney;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.button.hidden = !isShow;

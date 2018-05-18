@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tyleLbl;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
 @property (weak, nonatomic) IBOutlet UILabel *contentLbl;
+@property (weak, nonatomic) IBOutlet UIView *redView;
 
 @end
 @implementation LCMeCommentCell
@@ -21,8 +22,9 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.photoImg, 17.0);
+    ViewRadius(self.redView, 5.0);
 }
-- (void)setupCellContent:(NSString *)name time:(NSString *)time content:(NSString *)content img:(NSString *)image type:(NSInteger)type {
+- (void)setupCellContent:(NSString *)name time:(NSString *)time content:(NSString *)content img:(NSString *)image type:(NSInteger)type isRead:(BOOL)isRead {
     if (type == 0) {
         self.tyleLbl.text = @"评论了你";
     }else {
@@ -33,6 +35,7 @@
     }else {
         self.photoImg.image = nil;
     }
+    self.redView.hidden = isRead;
     self.contentLbl.text = content;
     self.nameLbl.text = name;
     self.timeLbl.text = time;

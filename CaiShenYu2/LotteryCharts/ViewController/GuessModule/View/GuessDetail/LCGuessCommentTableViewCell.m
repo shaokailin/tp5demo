@@ -35,6 +35,8 @@
 - (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId index:(NSInteger)index time:(NSString *)time content:(NSString *)content {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.nickNameLbl.text = name;
     if (userId) {

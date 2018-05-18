@@ -11,8 +11,8 @@ typedef void (^UserHomeHeaderBlock)(NSInteger type);//1:更背景 2：更换头�
 @interface LCUserHomeHeaderView : UIView
 @property (nonatomic, copy) UserHomeHeaderBlock punchBlock;
 - (instancetype)initWithFrame:(CGRect)frame isHome:(BOOL)isHome;
-- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo;
-- (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem;
+- (void)setupContentWithName:(NSString *)name userid:(NSString *)userId attention:(NSString *)attention teem:(NSString *)teem photo:(NSString *)photo fans:(NSString *)fans;
+- (void)setupContentWithAttention:(NSString *)attention teem:(NSString *)teem fans:(NSString *)fans;
 - (void)updateUserMessage;
 - (void)isShowPunchCard:(BOOL)isShow;
 - (void)changeUserPhoto:(id)photo;

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCMeCareCell = @"LCMeCareCell";
 @interface LCMeCareCell : UITableViewCell
-- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image;
+- (void)setupCellContent:(NSString *)name time:(NSString *)time img:(NSString *)image isRead:(BOOL)isRead;
 @end

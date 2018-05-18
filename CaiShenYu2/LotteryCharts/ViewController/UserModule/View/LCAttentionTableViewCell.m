@@ -25,7 +25,10 @@
     self.photoImageView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
     [self.photoImageView addGestureRecognizer:tap];
-
+    self.atentionBtn.layer.cornerRadius = 5;
+    self.atentionBtn.layer.borderWidth = 1;
+    self.atentionBtn.layer.masksToBounds = YES;
+    self.atentionBtn.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
     
 }
 - (void)jumpUserSpace {
@@ -38,14 +41,13 @@
         self.myBlock(sender);
     }
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount{
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount isShow:(BOOL)isShow{
     if (KJudgeIsNullData(photo)) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo]];
+    }else {
+        self.photoImageView.image = nil;
     }
-    self.atentionBtn.layer.cornerRadius = 5;
-    self.atentionBtn.layer.borderWidth = 1;
-    self.atentionBtn.layer.masksToBounds = YES;
-    self.atentionBtn.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
+    
     self.nameLbl.text = name;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.glodLbl.text = NSStringFormat(@"金币:%@",glodCount);

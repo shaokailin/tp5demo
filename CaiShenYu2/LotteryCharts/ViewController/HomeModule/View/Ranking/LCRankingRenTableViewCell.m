@@ -24,6 +24,10 @@
     [super awakeFromNib];
     // Initialization code
      ViewBoundsRadius(self.photoImage, 20.0);
+    self.atentionBtn.layer.cornerRadius = 5;
+    self.atentionBtn.layer.borderWidth = 1;
+    self.atentionBtn.layer.masksToBounds = YES;
+    self.atentionBtn.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
     self.photoImage.userInteractionEnabled = YES;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(jumpUserSpace)];
     [self.photoImage addGestureRecognizer:tap];
@@ -34,18 +38,14 @@
     }
 }
 - (void)setupContent:(NSInteger)index photo:(NSString *)photo name:(NSString *)name userId:(NSString *)userId count:(NSString *)count {
-    
-    self.atentionBtn.layer.cornerRadius = 5;
-    self.atentionBtn.layer.borderWidth = 1;
-    self.atentionBtn.layer.masksToBounds = YES;
-    self.atentionBtn.layer.borderColor = ColorHexadecimal(0xf6a623, 1.0).CGColor;
-    
     self.indexLbl.text = NSStringFormat(@"%zd",index);
     self.nameLbl.text = name;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.countLbl.text = count;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     if (index < 4) {
         self.indexLbl.textColor = ColorHexadecimal(0xffffff, 1.0);

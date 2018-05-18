@@ -14,11 +14,6 @@
 #import "Config.h"
 #import "UIImageView+WebCache.h"
 
-#import "PublicMethod.h"
-#import "ImageScale.h"
-#import "PuzzleInstance.h"
-#import "UIButton+Extension.h"
-#import "UIColor+Hex.h"
 
 //应用名称
 #define APPName [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"]

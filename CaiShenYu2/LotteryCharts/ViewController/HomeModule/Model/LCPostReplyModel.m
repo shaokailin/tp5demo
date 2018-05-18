@@ -15,8 +15,9 @@
     if (isStartTime) {
         BOOL result = NO;;
         if (isStartTime) {
-            NSString *endFormar = @"MM月dd日  HH:mm";
-            _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:endFormar];
+//            NSString *endFormar = @"MM月dd日  HH:mm";
+//            _create_time = [[NSDate dateWithTimeIntervalSince1970:[createTime integerValue]]dateTransformToString:endFormar];
+            _create_time = [LSKPublicMethodUtil timeStr:[createTime floatValue]];
             result = YES;
         }
         return result;

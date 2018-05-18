@@ -14,10 +14,6 @@
 #import <UMSocialCore/UMSocialCore.h>
 #import "WXApi.h"
 #import "LCPayResultHandle.h"
-#import "FSDateTool.h"
-#import "HomeViewController.h"
-#import "LeftMenuViewController.h"
-#import "WelcomeView.h"
 #import "JPUSHService.h"
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -39,29 +35,25 @@
     //设置导航栏的全局样式
     [LSKViewFactory setupMainNavigationBgColor:KColorUtilsString(kNavigationBackground_Color) titleFont:kNavigationTitle_Font titleColor:KColorUtilsString(kNavigationTitle_Color) lineColor:KColorUtilsString(kNavigationLine_Color)];
     [self windowRootController];
+    [self registerAPNs:launchOptions];
     [self.window makeKeyAndVisible];
-    [self setupPushConfig];
     [self setupUmengConfig];
-    // Optional
-    // 获取IDFA
-    // 如需使用IDFA功能请添加此代码并在初始化方法的advertisingIdentifier参数中填写对应值
-    NSString *advertisingId = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    
-    // Required
-    // init Push
-    // notice: 2.1.5版本的SDK新增的注册方法，改成可上报IDFA，如果没有使用IDFA直接传nil
-    // 如需继续使用pushConfig.plist文件声明appKey等配置内容，请依旧使用[JPUSHService setupWithOption:launchOptions]方式初始化。
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                      selector:@selector(networkDidReceiveMessage:)
+                          name:kJPFNetworkDidReceiveMessageNotification
+                        object:nil];
+    return YES;
+}
+- (void)registerAPNs:(NSDictionary *)launchOptions {
+    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
+    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
+    //    entity.categories = [self addPushCategory];
+    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
+    NSString *advertisingIdentifer =  [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
     [JPUSHService setupWithOption:launchOptions appKey:@"127861ec22f197cf5b1bdb10"
                           channel:@"APP Store"
                  apsForProduction:NO
-            advertisingIdentifier:advertisingId];
-    return YES;
-}
-- (void)setupPushConfig {
-    JPUSHRegisterEntity * entity = [[JPUSHRegisterEntity alloc] init];
-    entity.types = JPAuthorizationOptionAlert|JPAuthorizationOptionBadge|JPAuthorizationOptionSound;
-    [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
-    
+            advertisingIdentifier:advertisingIdentifer];
 }
 - (void)setupUmengConfig {
     /* 设置友盟appkey */
@@ -71,24 +63,15 @@
     [WXApi registerApp:@"wx7896e36017349dfb"];
 }
 - (void)windowRootController {
-    NSInteger timeSort = [FSDateTool compareCurrentDateWith:@"2018-4-1 19:00:00"];
-    if (timeSort == 1) {
-        self.window.rootViewController = self.rootTabBarVC;
+    self.window.rootViewController = self.rootTabBarVC;
+    if (kUserMessageManager.login) {
+        [kUserMessageManager isHasRegisterAlias];
     }else {
-        //原生
-        //创建首页
-        HomeViewController *mainVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"HomeViewController"];
-        self.mainNavigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
-        LeftMenuViewController *leftVC = [[LeftMenuViewController alloc] init];
-        self.LeftSlideVC = [[LeftSlideViewController alloc] initWithLeftView:leftVC andMainView:self.mainNavigationController];
-        
-        //欢迎页
-        WelcomeView *welcome = [[WelcomeView alloc] init];
-        self.window.rootViewController = welcome;
+        [kUserMessageManager cleanAlias];
     }
+    
 }
 - (void)changeLoginState {
-//    [self.rootTabBarVC changeLoginWithState];
     self.rootTabBarVC.selectedIndex = 0;
 }
 - (LCRootTabBarVC *)rootTabBarVC {
@@ -184,6 +167,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
 }
 
 
@@ -203,26 +187,65 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(NSInteger))completionHandler {
     // Required
-    NSDictionary * userInfo = notification.request.content.userInfo;
-    if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+    if (@available(iOS 10.0, *)) {
+        UNNotificationRequest *request = notification.request;
+        UNNotificationContent *content = request.content; // 收到推送的消息内容
+        if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            NSDictionary *dict = content.userInfo;
+           
+//            NSInteger isSound =
+//            if (isSound != 0) {
+//                completionHandler(UNNotificationPresentationOptionBadge);
+//                return;
+//            }
+        }
+        // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+        [JPUSHService handleRemoteNotification:content.userInfo];
+        completionHandler(UNNotificationPresentationOptionBadge|UNNotificationPresentationOptionSound|UNNotificationPresentationOptionAlert);
+    } else {
+        
     }
-    completionHandler(UNNotificationPresentationOptionAlert); // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以选择设置
 }
-
+//用于后台及程序退出 指的是程序正在运行中, 用户能看见程序的界面. iOS10会出现通知横幅, 而在以前的框架中, 前台运行时, 不会出现通知的横幅.
 // iOS 10 Support
 - (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)())completionHandler {
-    // Required
-    NSDictionary * userInfo = response.notification.request.content.userInfo;
-    if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-        [JPUSHService handleRemoteNotification:userInfo];
+    if (@available(iOS 10.0, *)) {
+        UNNotificationRequest *request = response.notification.request;
+        UNNotificationContent *content = request.content; // 收到推送的消息内容
+        if([response.notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
+            [self handleRemoteNotificationForcegroundWithUserInfo:content.userInfo withCancle:@"did10"];
+        }
+        else {
+        }
+        completionHandler(UNNotificationPresentationOptionAlert); 
+    } else {
+        
     }
-    completionHandler();  // 系统要求执行这个方法
+     // 系统要求执行这个方法
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    // Required, iOS 7 Support
-    [JPUSHService handleRemoteNotification:userInfo];
+    [self handleRemoteNotificationForcegroundWithUserInfo:userInfo withCancle:@"didReceive"];
     completionHandler(UIBackgroundFetchResultNewData);
+}
+//静默推送
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [self handleRemoteNotificationForcegroundWithUserInfo:userInfo withCancle:@"did7"];
+}
+- (NSInteger)handleRemoteNotificationForcegroundWithUserInfo:(NSDictionary *)userInfo withCancle:(NSString *)cancle {
+    [JPUSHService handleRemoteNotification:userInfo];
+    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:nil message:cancle delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alter show];
+//    NSInteger type = [[userInfo objectForKey:@"type"]integerValue];
+    return NO;
+}
+- (void)networkDidReceiveMessage:(NSNotification *)notification {
+    NSDictionary *userInfo = [notification userInfo];
+    NSString *title = [userInfo valueForKey:@"content"];
+//    NSString *content = [userInfo valueForKey:@"content"];
+//    NSDictionary *extra = [userInfo valueForKey:@"extras"];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:nil message:title delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
+    [alter show];
 }
 @end

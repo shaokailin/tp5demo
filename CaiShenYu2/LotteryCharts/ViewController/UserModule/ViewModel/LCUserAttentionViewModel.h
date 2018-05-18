@@ -13,4 +13,5 @@
 @property (nonatomic, assign) NSInteger page;
 @property (nonatomic, strong) NSMutableArray *attentionArray;
 - (void)getUserAttentionList:(BOOL)isPull;
+- (void)getUserFansList:(BOOL)isPull;
 @end

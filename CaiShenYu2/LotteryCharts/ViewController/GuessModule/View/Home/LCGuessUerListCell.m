@@ -26,6 +26,8 @@
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name mashiID:(NSString *)mashiID number:(NSString *)number creattime:(NSString *)creattime money:(NSString *)money{
     if (KJudgeIsNullData(photo)) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo]];
+    }else {
+        self.photoImageView.image = nil;
     }
    
     self.nameLab.text = name;

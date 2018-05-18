@@ -14,5 +14,5 @@ static NSString * const kLCAttentionTableViewCell = @"LCAttentionTableViewCell";
 @property (nonatomic, copy) PhotoClickBlock photoBlock;
 @property (nonatomic, copy) void(^myBlock)(UIButton *sender);
 
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount;
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId glodCount:(NSString *)glodCount yinbiCount:(NSString *)ybcount isShow:(BOOL)isShow;
 @end

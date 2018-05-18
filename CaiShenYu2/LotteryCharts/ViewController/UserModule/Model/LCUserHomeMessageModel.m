@@ -18,6 +18,7 @@
              @"user_info" : @"response.user_info",
              @"follow_count" : @"response.follow_count",
              @"team_count" : @"response.team_count",
+             @"fans_count" : @"response.fans_count",
              };
 }
 @end

@@ -32,6 +32,7 @@
 
 + (LSKParamterEntity *)attentionUser:(NSString *)userId isCare:(BOOL)isCare;
 + (LSKParamterEntity *)getOtherAttention:(NSInteger)page userId:(NSString *)userId;
++ (LSKParamterEntity *)getFansList:(NSInteger)page userId:(NSString *)userId;
 + (LSKParamterEntity *)spaceMessageDataWith:(NSString *)userId page:(NSInteger)page showType:(NSInteger)showType;
 
 + (LSKParamterEntity *)getHisttoryOrderWith:(NSString *)searchId page:(NSInteger)page showType:(NSInteger)showType;

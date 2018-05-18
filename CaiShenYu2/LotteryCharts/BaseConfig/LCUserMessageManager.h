@@ -15,6 +15,8 @@ static NSString * const kUserMessage_Mobile = @"user_Mobile";
 @interface LCUserMessageManager : LSKMessageManage
 + (LCUserMessageManager *)sharedLCUserMessageManager;
 
+@property (nonatomic, assign) BOOL isRegisterAlia;
+
 @property (nonatomic, assign, readonly, getter=isLogin) BOOL login;
 @property (nonatomic, copy) NSString *token;
 @property (nonatomic, copy) NSString *logo;
@@ -42,4 +44,9 @@ static NSString * const kUserMessage_Mobile = @"user_Mobile";
 //界面是否有提示框
 - (void)showAlertView:(id)alertView weight:(NSInteger)weight;
 - (void)hidenAlertView;
+
+#pragma mark setting push Alias
+- (void)loginPushWithAlias:(NSString *)userId;
+- (void)isHasRegisterAlias;
+- (void)cleanAlias;
 @end

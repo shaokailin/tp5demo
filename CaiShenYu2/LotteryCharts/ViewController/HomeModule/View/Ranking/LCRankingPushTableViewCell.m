@@ -30,6 +30,8 @@
 - (void)setupContentWithIndex:(NSInteger)index photo:(NSString *)photo name:(NSString *)name userId:(NSString *)userId pushTime:(NSString *)pushTime postId:(NSString *)postId postTitle:(NSString *)postTitle count:(NSString *)count {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.indexLbl.text = NSStringFormat(@"%zd",index);
     self.nameLbl.text = name;

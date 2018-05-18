@@ -30,10 +30,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self addNavigationBackButton];
     [self initializeMainView];
     [self bindSignal];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+//    [self backToNornalNavigationColor];
 }
 - (void)bindSignal {
     @weakify(self)

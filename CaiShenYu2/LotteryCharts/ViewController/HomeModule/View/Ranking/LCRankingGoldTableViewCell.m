@@ -28,6 +28,8 @@
     self.nameLbl.text = name;
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);

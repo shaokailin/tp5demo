@@ -26,10 +26,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self addRedNavigationBackButton];
-    [self backToWhiteNavigationColor];
     [self addRightNavigationButtonWithNornalImage:@"settingicon" seletedIamge:nil target:self action:@selector(settingClick)];
     [self initializeMainView];
 }
+
 - (void)backToWhiteNavigationColor {
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.translucent = NO;
@@ -40,7 +40,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (!_isJumpSetting && _isChange){
+    if (!_isJumpSetting && !_isChange){
         [self backToWhiteNavigationColor];
     }
 }
@@ -48,6 +48,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     _isChange = YES;
+    _isJumpSetting = NO;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
@@ -55,8 +56,9 @@
         _isChange = NO;
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
         self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorUtilsString(kNavigationTitle_Color),NSFontAttributeName : FontNornalInit(kNavigationTitle_Font)};
+        [self backToNornalNavigationColor];
     }else {
-        _isJumpSetting = NO;
+        _isJumpSetting = YES;
     }
 }
 - (void)settingClick {

@@ -40,6 +40,8 @@
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money funs:(NSString *)funs_count {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.postNameLbl.text = name;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);

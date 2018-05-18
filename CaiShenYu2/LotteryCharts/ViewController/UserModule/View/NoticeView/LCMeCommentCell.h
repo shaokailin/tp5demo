@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCMeCommentCell = @"LCMeCommentCell";
 @interface LCMeCommentCell : UITableViewCell
-- (void)setupCellContent:(NSString *)name time:(NSString *)time content:(NSString *)content img:(NSString *)image type:(NSInteger)type;
+- (void)setupCellContent:(NSString *)name time:(NSString *)time content:(NSString *)content img:(NSString *)image type:(NSInteger)type isRead:(BOOL)isRead;
 @end

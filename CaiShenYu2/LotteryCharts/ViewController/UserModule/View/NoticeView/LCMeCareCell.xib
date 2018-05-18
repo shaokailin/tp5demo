@@ -47,14 +47,24 @@
                         <color key="textColor" red="0.84705882352941175" green="0.16862745098039217" blue="0.19607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cDF-KW-5Cs">
+                        <rect key="frame" x="5" y="5" width="10" height="10"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="Jty-6A-kL2"/>
+                            <constraint firstAttribute="height" constant="10" id="Zdh-me-Zzu"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Oag-wg-sdc" firstAttribute="leading" secondItem="V1R-Hg-8a5" secondAttribute="trailing" constant="8" id="9Vy-AW-882"/>
+                    <constraint firstItem="cDF-KW-5Cs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="FlS-qC-cAI"/>
                     <constraint firstItem="uWj-8g-pAo" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Lia-q5-KB9"/>
                     <constraint firstItem="bXA-QH-gMs" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Qk9-a9-JoV"/>
                     <constraint firstAttribute="trailing" secondItem="bXA-QH-gMs" secondAttribute="trailing" constant="10" id="SlM-pv-4eL"/>
                     <constraint firstItem="V1R-Hg-8a5" firstAttribute="leading" secondItem="uWj-8g-pAo" secondAttribute="trailing" constant="7" id="TL6-zW-PfK"/>
                     <constraint firstItem="Oag-wg-sdc" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="eR4-GZ-EaS"/>
+                    <constraint firstItem="cDF-KW-5Cs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="gfK-BT-0aX"/>
                     <constraint firstItem="V1R-Hg-8a5" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="qGl-p4-byW"/>
                     <constraint firstItem="uWj-8g-pAo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="sEm-Eo-65n"/>
                 </constraints>
@@ -62,6 +72,7 @@
             <connections>
                 <outlet property="nameLbl" destination="V1R-Hg-8a5" id="A9V-Q6-87D"/>
                 <outlet property="photoImg" destination="uWj-8g-pAo" id="uok-WK-d9O"/>
+                <outlet property="redView" destination="cDF-KW-5Cs" id="z8a-GF-k47"/>
                 <outlet property="timeLbl" destination="bXA-QH-gMs" id="Ied-yq-cuV"/>
             </connections>
         </tableViewCell>

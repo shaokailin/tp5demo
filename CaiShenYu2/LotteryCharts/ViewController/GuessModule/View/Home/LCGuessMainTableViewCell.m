@@ -48,6 +48,8 @@
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId pushTime:(NSString *)pushTime money:(NSString *)money count:(NSInteger )count openTime:(NSString *)openTime type:(NSInteger)type tieziName:(NSString *)tieziName{
     if (KJudgeIsNullData(photo)) {
         [_photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.nameLbl.text = name;
     self.userIdLbl.text = NSStringFormat(@"码师ID:%@",userId);
@@ -56,11 +58,14 @@
     self.moneyLbl.text = NSStringFormat(@"挑战：%@银币",money);
     self.countLbl.text = NSStringFormat(@"剩余：%zd份",count);
     self.tieziNameLab.text = tieziName;
-    NSRange range = [openTime rangeOfString:@"日"];
-    NSString * result = [openTime substringFromIndex:range.location]; //截取字符串
-    NSString *strUrl = [openTime stringByReplacingOccurrencesOfString:result withString:@"日 21:00"];
-    
-
+    NSRange range = [openTime rangeOfString:@" "];
+    NSString *strUrl = nil;
+    if (range.location != NSNotFound) {
+        NSString * result = [openTime substringFromIndex:range.location]; //截取字符串
+        strUrl = [openTime stringByReplacingOccurrencesOfString:result withString:@" 21:00"];
+    }else {
+        strUrl = openTime;
+    }
     self.openTimeLbl.text = strUrl ;
     self.typeName.text = type == 2?@"杀两码":@"猜大小";
 }

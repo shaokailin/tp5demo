@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 static NSString * const kLCMeShangCell = @"LCMeShangCell";
 @interface LCMeShangCell : UITableViewCell
-- (void)setupCellContent:(NSString *)name money:(NSString *)money time:(NSString *)time img:(NSString *)image;
+- (void)setupCellContent:(NSString *)name money:(NSString *)money time:(NSString *)time img:(NSString *)image isRead:(BOOL)isRead;
 @end

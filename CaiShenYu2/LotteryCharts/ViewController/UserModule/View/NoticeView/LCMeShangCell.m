@@ -12,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *moneyLbl;
 @property (weak, nonatomic) IBOutlet UILabel *timeLbl;
+@property (weak, nonatomic) IBOutlet UIView *redView;
 
 
 @end
@@ -21,13 +22,15 @@
     [super awakeFromNib];
     // Initialization code
     ViewBoundsRadius(self.photoImg, 17.0);
+    ViewRadius(self.redView, 5.0);
 }
-- (void)setupCellContent:(NSString *)name money:(NSString *)money time:(NSString *)time img:(NSString *)image{
+- (void)setupCellContent:(NSString *)name money:(NSString *)money time:(NSString *)time img:(NSString *)image isRead:(BOOL)isRead{
     if (KJudgeIsNullData(image)) {
         [self.photoImg sd_setImageWithURL:[NSURL URLWithString:image]];
     }else {
         self.photoImg.image = nil;
     }
+    self.redView.hidden = isRead;
     self.nameLbl.text = name;
     self.timeLbl.text = time;
     self.moneyLbl.text = NSStringFormat(@"%@金币",money);

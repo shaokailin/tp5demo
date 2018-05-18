@@ -19,7 +19,6 @@
 @interface LCPostDetailVC ()<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 {
     BOOL _isNeedSend;
-    BOOL _isViewAppear;
 }
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) LCCommentInputView *inputToolbar;
@@ -34,12 +33,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = @"帖子详情";
-    [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     self.type = [self.postModel.user_id isEqualToString:kUserMessageManager.userId]? 1:0;
     _isNeedSend = [self.postModel.post_type integerValue] == 2? YES:NO;
     [self initializeMainView];
     [self bindSignal];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self backToNornalNavigationColor];
 }
 - (void)bindSignal {
     @weakify(self)
@@ -316,19 +318,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (BOOL)canBecomeFirstResponder {
-    return _isViewAppear;
-}
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    _isViewAppear = YES;
-}
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
-- (void)viewWillDisappear:(BOOL)animated {
-    _isViewAppear = NO;
 }
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
 //    [self.inputToolbar.inputField resignFirstResponder];

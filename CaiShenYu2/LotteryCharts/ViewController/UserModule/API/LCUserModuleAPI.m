@@ -49,6 +49,8 @@ static NSString * const kUserAttenttion = @"Mch/follow.html";
 static NSString * const kUserUnAttenttion = @"Mch/unFollow.html";
 //被关注
 static NSString * const kOtherAttentionList = @"Mch/userBeiFollow.html";
+static NSString * const kUserFansList = @"user/fans.html";
+
 static NSString * const kUserAttenttionList = @"Mch/follow.html";
 static NSString * const kSpacePostFirstList = @"Mch/getMchPost.html";
 static NSString * const kSpacePostList = @"Mch/mchPostList.html";
@@ -203,6 +205,19 @@ static NSString * const kMessageShow = @"message/read.html";
     entity.responseObject = [LCAttentionListModel class];
     return entity;
 }
+
++ (LSKParamterEntity *)getFansList:(NSInteger)page userId:(NSString *)userId {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kUserFansList;
+    if (KJudgeIsNullData(userId)) {
+        entity.params = @{@"user_id":userId,@"p":@(page),@"token":kUserMessageManager.token};
+    }else {
+        entity.params = @{@"p":@(page),@"token":kUserMessageManager.token};
+    }
+    entity.responseObject = [LCAttentionListModel class];
+    return entity;
+}
+
 + (LSKParamterEntity *)spaceMessageDataWith:(NSString *)userId page:(NSInteger)page showType:(NSInteger)showType {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     if (showType == 0) {

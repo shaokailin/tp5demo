@@ -10,4 +10,5 @@
 
 @interface LCAttentionMainVC : LSKBaseViewController
 @property (nonatomic, copy) NSString *userId;
+@property (nonatomic, assign) BOOL isFans;
 @end

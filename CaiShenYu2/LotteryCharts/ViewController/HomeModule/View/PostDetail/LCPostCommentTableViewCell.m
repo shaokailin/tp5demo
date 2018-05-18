@@ -37,6 +37,8 @@
 - (void)setupPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId count:(NSInteger)count time:(NSString *)time content:(NSString *)content isHiden:(BOOL)isHiden {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImage.image = nil;
     }
     self.stateLbl.hidden = isHiden;
     self.nickNameLbl.text = name;

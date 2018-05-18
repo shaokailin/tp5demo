@@ -32,6 +32,8 @@
     }else {
         if (KJudgeIsNullData(photoString)) {
             [self.userPhotoImage sd_setImageWithURL:[NSURL URLWithString:photoString] placeholderImage:nil];
+        }else {
+            self.userPhotoImage.image = nil;
         }
     }
 }

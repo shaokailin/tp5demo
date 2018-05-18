@@ -37,6 +37,8 @@
     self.indexLbl.text = NSStringFormat(@"%zd",index);
     if (KJudgeIsNullData(photo)) {
         [self.userPhoto sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.userPhoto.image = nil;
     }
     
 }

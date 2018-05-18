@@ -11,6 +11,7 @@
 @interface LCUserAttentionViewModel ()
 @property (nonatomic, strong) RACCommand *attentionCommand;
 @property (nonatomic, strong) RACCommand *userAttentionCommand;
+@property (nonatomic, strong) RACCommand *fansListCommand;
 @end
 @implementation LCUserAttentionViewModel
 - (void)getUserAttentionList:(BOOL)isPull {
@@ -24,6 +25,14 @@
     }
     
 }
+
+- (void)getUserFansList:(BOOL)isPull {
+    if (!isPull) {
+        [SKHUD showLoadingDotInView:self.currentView];
+    }
+    [self.fansListCommand execute:nil];
+}
+
 - (RACCommand *)attentionCommand {
     if (!_attentionCommand) {
         @weakify(self)
@@ -36,8 +45,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_attentionArray && _page == 0) {
-                    [_attentionArray removeAllObjects];
+                if (self->_attentionArray && self->_page == 0) {
+                    [self->_attentionArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.attentionArray addObjectsFromArray:model.response];
@@ -78,8 +87,8 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
-                if (_attentionArray && _page == 0) {
-                    [_attentionArray removeAllObjects];
+                if (self->_attentionArray && self->_page == 0) {
+                    [self->_attentionArray removeAllObjects];
                 }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.attentionArray addObjectsFromArray:model.response];
@@ -101,5 +110,42 @@
         }];
     }
     return _userAttentionCommand;
+}
+
+- (RACCommand *)fansListCommand {
+    if (!_fansListCommand) {
+        @weakify(self)
+        _page = 0;
+        _fansListCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getFansList:self.page userId:self.userId]];
+        }];
+        [_fansListCommand.executionSignals.flatten subscribeNext:^(LCAttentionListModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                if (self->_attentionArray && self->_page == 0) {
+                    [self->_attentionArray removeAllObjects];
+                }
+                if (KJudgeIsArrayAndHasValue(model.response)) {
+                    [self.attentionArray addObjectsFromArray:model.response];
+                }
+                [self sendSuccessResult:0 model:nil];
+            }else {
+                if (self.page != 0) {
+                    self.page --;
+                }
+                [self sendFailureResult:0 error:nil];
+            }
+        }];
+        [_fansListCommand.errors subscribeNext:^(NSError * _Nullable x) {
+            @strongify(self)
+            if (self.page != 0) {
+                self.page --;
+            }
+            [self sendFailureResult:0 error:nil];
+        }];
+    }
+    return _fansListCommand;
 }
 @end

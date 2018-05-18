@@ -53,6 +53,8 @@
     }];
     if (KJudgeIsNullData(kUserMessageManager.logo)) {
         [photoImage sd_setImageWithURL:[NSURL URLWithString:kUserMessageManager.logo] placeholderImage:nil];
+    }else {
+        photoImage.image = nil;
     }
     
     UILabel *titleLbl = [LSKViewFactory initializeLableWithText:@"我" font:15 textColor:ColorHexadecimal(0x434343, 1.0) textAlignment:0 backgroundColor:nil];

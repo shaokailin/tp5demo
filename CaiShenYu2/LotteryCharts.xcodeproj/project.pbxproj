@@ -7,29 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		435EC719208F3A0500D1D37D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6E3208F3A0400D1D37D /* HomeViewController.m */; };
-		435EC71A208F3A0500D1D37D /* PuzzleTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6E7208F3A0400D1D37D /* PuzzleTools.m */; };
-		435EC71B208F3A0500D1D37D /* PuzzleItemCtrlModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6EA208F3A0400D1D37D /* PuzzleItemCtrlModel.m */; };
-		435EC71C208F3A0500D1D37D /* PuzzleBlockItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6EC208F3A0400D1D37D /* PuzzleBlockItem.m */; };
-		435EC71D208F3A0500D1D37D /* PuzzleInstance.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6ED208F3A0400D1D37D /* PuzzleInstance.m */; };
-		435EC71E208F3A0500D1D37D /* SliderMenuRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6F0208F3A0400D1D37D /* SliderMenuRight.m */; };
-		435EC71F208F3A0500D1D37D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435EC6F2208F3A0400D1D37D /* LaunchScreen.storyboard */; };
-		435EC720208F3A0500D1D37D /* WaveLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6F8208F3A0400D1D37D /* WaveLayer.m */; };
-		435EC721208F3A0500D1D37D /* RectangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6F9208F3A0400D1D37D /* RectangleLayer.m */; };
-		435EC722208F3A0500D1D37D /* CircleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6FA208F3A0400D1D37D /* CircleLayer.m */; };
-		435EC723208F3A0500D1D37D /* TriangleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6FB208F3A0400D1D37D /* TriangleLayer.m */; };
-		435EC724208F3A0500D1D37D /* AnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6FC208F3A0400D1D37D /* AnimationView.m */; };
-		435EC725208F3A0500D1D37D /* WelcomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6FD208F3A0400D1D37D /* WelcomeView.m */; };
-		435EC726208F3A0500D1D37D /* FSDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC6FF208F3A0400D1D37D /* FSDateTool.m */; };
-		435EC727208F3A0500D1D37D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 435EC703208F3A0400D1D37D /* Main.storyboard */; };
-		435EC728208F3A0500D1D37D /* ImageScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC706208F3A0400D1D37D /* ImageScale.m */; };
-		435EC729208F3A0500D1D37D /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC707208F3A0400D1D37D /* UIColor+Hex.m */; };
-		435EC72A208F3A0500D1D37D /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC70B208F3A0400D1D37D /* UIButton+Extension.m */; };
-		435EC72B208F3A0500D1D37D /* PublicMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC70D208F3A0400D1D37D /* PublicMethod.m */; };
-		435EC72C208F3A0500D1D37D /* UIView_extra.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC713208F3A0400D1D37D /* UIView_extra.m */; };
-		435EC72D208F3A0500D1D37D /* LeftSlideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC714208F3A0400D1D37D /* LeftSlideViewController.m */; };
-		435EC72E208F3A0500D1D37D /* LeftSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC717208F3A0400D1D37D /* LeftSliderView.m */; };
-		435EC72F208F3A0500D1D37D /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 435EC718208F3A0400D1D37D /* LeftMenuViewController.m */; };
 		439F9B9620689B9D00FCDDDB /* LCGuessUerListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 439F9B9520689B9D00FCDDDB /* LCGuessUerListVC.m */; };
 		439F9B9A2068C03500FCDDDB /* LCGuessUerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 439F9B982068C03500FCDDDB /* LCGuessUerListCell.m */; };
 		439F9B9B2068C03500FCDDDB /* LCGuessUerListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 439F9B992068C03500FCDDDB /* LCGuessUerListCell.xib */; };
@@ -380,50 +357,6 @@
 		26CEDC87F2DF46143E2E73D6 /* Pods_LotteryCharts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LotteryCharts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E10B9576454EA7392A28EEB /* Pods-LotteryCharts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LotteryCharts.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LotteryCharts/Pods-LotteryCharts.debug.xcconfig"; sourceTree = "<group>"; };
 		435EC6D1208F394F00D1D37D /* LotteryCharts_PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LotteryCharts_PrefixHeader.pch; sourceTree = "<group>"; };
-		435EC6E3208F3A0400D1D37D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		435EC6E4208F3A0400D1D37D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		435EC6E6208F3A0400D1D37D /* PuzzleItemCtrlModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleItemCtrlModel.h; sourceTree = "<group>"; };
-		435EC6E7208F3A0400D1D37D /* PuzzleTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleTools.m; sourceTree = "<group>"; };
-		435EC6E8208F3A0400D1D37D /* PuzzleInstance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleInstance.h; sourceTree = "<group>"; };
-		435EC6E9208F3A0400D1D37D /* PuzzleBlockItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleBlockItem.h; sourceTree = "<group>"; };
-		435EC6EA208F3A0400D1D37D /* PuzzleItemCtrlModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleItemCtrlModel.m; sourceTree = "<group>"; };
-		435EC6EB208F3A0400D1D37D /* PuzzleTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PuzzleTools.h; sourceTree = "<group>"; };
-		435EC6EC208F3A0400D1D37D /* PuzzleBlockItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleBlockItem.m; sourceTree = "<group>"; };
-		435EC6ED208F3A0400D1D37D /* PuzzleInstance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PuzzleInstance.m; sourceTree = "<group>"; };
-		435EC6EF208F3A0400D1D37D /* SliderMenuRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SliderMenuRight.h; sourceTree = "<group>"; };
-		435EC6F0208F3A0400D1D37D /* SliderMenuRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SliderMenuRight.m; sourceTree = "<group>"; };
-		435EC6F2208F3A0400D1D37D /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		435EC6F4208F3A0400D1D37D /* TriangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleLayer.h; sourceTree = "<group>"; };
-		435EC6F5208F3A0400D1D37D /* WelcomeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeView.h; sourceTree = "<group>"; };
-		435EC6F6208F3A0400D1D37D /* AnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationView.h; sourceTree = "<group>"; };
-		435EC6F7208F3A0400D1D37D /* FSDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSDateTool.h; sourceTree = "<group>"; };
-		435EC6F8208F3A0400D1D37D /* WaveLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveLayer.m; sourceTree = "<group>"; };
-		435EC6F9208F3A0400D1D37D /* RectangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RectangleLayer.m; sourceTree = "<group>"; };
-		435EC6FA208F3A0400D1D37D /* CircleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleLayer.m; sourceTree = "<group>"; };
-		435EC6FB208F3A0400D1D37D /* TriangleLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleLayer.m; sourceTree = "<group>"; };
-		435EC6FC208F3A0400D1D37D /* AnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimationView.m; sourceTree = "<group>"; };
-		435EC6FD208F3A0400D1D37D /* WelcomeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeView.m; sourceTree = "<group>"; };
-		435EC6FE208F3A0400D1D37D /* WaveLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveLayer.h; sourceTree = "<group>"; };
-		435EC6FF208F3A0400D1D37D /* FSDateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSDateTool.m; sourceTree = "<group>"; };
-		435EC700208F3A0400D1D37D /* CircleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleLayer.h; sourceTree = "<group>"; };
-		435EC701208F3A0400D1D37D /* RectangleLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RectangleLayer.h; sourceTree = "<group>"; };
-		435EC703208F3A0400D1D37D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		435EC706208F3A0400D1D37D /* ImageScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScale.m; sourceTree = "<group>"; };
-		435EC707208F3A0400D1D37D /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		435EC708208F3A0400D1D37D /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
-		435EC709208F3A0400D1D37D /* ImageScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScale.h; sourceTree = "<group>"; };
-		435EC70A208F3A0400D1D37D /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		435EC70B208F3A0400D1D37D /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
-		435EC70C208F3A0400D1D37D /* PublicMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublicMethod.h; sourceTree = "<group>"; };
-		435EC70D208F3A0400D1D37D /* PublicMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublicMethod.m; sourceTree = "<group>"; };
-		435EC70F208F3A0400D1D37D /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuViewController.h; sourceTree = "<group>"; };
-		435EC711208F3A0400D1D37D /* LeftSlideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSlideViewController.h; sourceTree = "<group>"; };
-		435EC712208F3A0400D1D37D /* UIView_extra.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_extra.h; sourceTree = "<group>"; };
-		435EC713208F3A0400D1D37D /* UIView_extra.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_extra.m; sourceTree = "<group>"; };
-		435EC714208F3A0400D1D37D /* LeftSlideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSlideViewController.m; sourceTree = "<group>"; };
-		435EC716208F3A0400D1D37D /* LeftSliderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftSliderView.h; sourceTree = "<group>"; };
-		435EC717208F3A0400D1D37D /* LeftSliderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftSliderView.m; sourceTree = "<group>"; };
-		435EC718208F3A0400D1D37D /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuViewController.m; sourceTree = "<group>"; };
 		439F9B9420689B9D00FCDDDB /* LCGuessUerListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessUerListVC.h; sourceTree = "<group>"; };
 		439F9B9520689B9D00FCDDDB /* LCGuessUerListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCGuessUerListVC.m; sourceTree = "<group>"; };
 		439F9B972068C03500FCDDDB /* LCGuessUerListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCGuessUerListCell.h; sourceTree = "<group>"; };
@@ -1072,153 +1005,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		435EC6E0208F3A0400D1D37D /* PuzzlePicture */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6E1208F3A0400D1D37D /* Home */,
-				435EC6F1208F3A0400D1D37D /* PuzzlePicture */,
-				435EC6F2208F3A0400D1D37D /* LaunchScreen.storyboard */,
-				435EC6F3208F3A0400D1D37D /* Tools */,
-				435EC702208F3A0400D1D37D /* Others */,
-				435EC703208F3A0400D1D37D /* Main.storyboard */,
-				435EC704208F3A0400D1D37D /* Common */,
-				435EC70E208F3A0400D1D37D /* Main */,
-			);
-			path = PuzzlePicture;
-			sourceTree = "<group>";
-		};
-		435EC6E1208F3A0400D1D37D /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6E2208F3A0400D1D37D /* Controller */,
-				435EC6E5208F3A0400D1D37D /* Model */,
-				435EC6EE208F3A0400D1D37D /* View */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		435EC6E2208F3A0400D1D37D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6E3208F3A0400D1D37D /* HomeViewController.m */,
-				435EC6E4208F3A0400D1D37D /* HomeViewController.h */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		435EC6E5208F3A0400D1D37D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6E6208F3A0400D1D37D /* PuzzleItemCtrlModel.h */,
-				435EC6E7208F3A0400D1D37D /* PuzzleTools.m */,
-				435EC6E8208F3A0400D1D37D /* PuzzleInstance.h */,
-				435EC6E9208F3A0400D1D37D /* PuzzleBlockItem.h */,
-				435EC6EA208F3A0400D1D37D /* PuzzleItemCtrlModel.m */,
-				435EC6EB208F3A0400D1D37D /* PuzzleTools.h */,
-				435EC6EC208F3A0400D1D37D /* PuzzleBlockItem.m */,
-				435EC6ED208F3A0400D1D37D /* PuzzleInstance.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		435EC6EE208F3A0400D1D37D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6EF208F3A0400D1D37D /* SliderMenuRight.h */,
-				435EC6F0208F3A0400D1D37D /* SliderMenuRight.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		435EC6F1208F3A0400D1D37D /* PuzzlePicture */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PuzzlePicture;
-			sourceTree = "<group>";
-		};
-		435EC6F3208F3A0400D1D37D /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				435EC6F4208F3A0400D1D37D /* TriangleLayer.h */,
-				435EC6F5208F3A0400D1D37D /* WelcomeView.h */,
-				435EC6F6208F3A0400D1D37D /* AnimationView.h */,
-				435EC6F7208F3A0400D1D37D /* FSDateTool.h */,
-				435EC6F8208F3A0400D1D37D /* WaveLayer.m */,
-				435EC6F9208F3A0400D1D37D /* RectangleLayer.m */,
-				435EC6FA208F3A0400D1D37D /* CircleLayer.m */,
-				435EC6FB208F3A0400D1D37D /* TriangleLayer.m */,
-				435EC6FC208F3A0400D1D37D /* AnimationView.m */,
-				435EC6FD208F3A0400D1D37D /* WelcomeView.m */,
-				435EC6FE208F3A0400D1D37D /* WaveLayer.h */,
-				435EC6FF208F3A0400D1D37D /* FSDateTool.m */,
-				435EC700208F3A0400D1D37D /* CircleLayer.h */,
-				435EC701208F3A0400D1D37D /* RectangleLayer.h */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		435EC702208F3A0400D1D37D /* Others */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Others;
-			sourceTree = "<group>";
-		};
-		435EC704208F3A0400D1D37D /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				435EC705208F3A0400D1D37D /* Extension */,
-				435EC70C208F3A0400D1D37D /* PublicMethod.h */,
-				435EC70D208F3A0400D1D37D /* PublicMethod.m */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		435EC705208F3A0400D1D37D /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				435EC706208F3A0400D1D37D /* ImageScale.m */,
-				435EC707208F3A0400D1D37D /* UIColor+Hex.m */,
-				435EC708208F3A0400D1D37D /* UIButton+Extension.h */,
-				435EC709208F3A0400D1D37D /* ImageScale.h */,
-				435EC70A208F3A0400D1D37D /* UIColor+Hex.h */,
-				435EC70B208F3A0400D1D37D /* UIButton+Extension.m */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		435EC70E208F3A0400D1D37D /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				435EC70F208F3A0400D1D37D /* LeftMenuViewController.h */,
-				435EC710208F3A0400D1D37D /* LeftSlideViewController */,
-				435EC715208F3A0400D1D37D /* View */,
-				435EC718208F3A0400D1D37D /* LeftMenuViewController.m */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		435EC710208F3A0400D1D37D /* LeftSlideViewController */ = {
-			isa = PBXGroup;
-			children = (
-				435EC711208F3A0400D1D37D /* LeftSlideViewController.h */,
-				435EC712208F3A0400D1D37D /* UIView_extra.h */,
-				435EC713208F3A0400D1D37D /* UIView_extra.m */,
-				435EC714208F3A0400D1D37D /* LeftSlideViewController.m */,
-			);
-			path = LeftSlideViewController;
-			sourceTree = "<group>";
-		};
-		435EC715208F3A0400D1D37D /* View */ = {
-			isa = PBXGroup;
-			children = (
-				435EC716208F3A0400D1D37D /* LeftSliderView.h */,
-				435EC717208F3A0400D1D37D /* LeftSliderView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		959018F81FB808ED00F5B0CE /* Recharge */ = {
 			isa = PBXGroup;
 			children = (
@@ -1837,7 +1623,6 @@
 			isa = PBXGroup;
 			children = (
 				A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */,
-				435EC6E0208F3A0400D1D37D /* PuzzlePicture */,
 				E6D9A7E51FAFF97300894BB0 /* BaseConfig */,
 				E6D9A7CC1FAFF97300894BB0 /* ViewController */,
 				E6D9A7761FAFF97300894BB0 /* Resource */,
@@ -2507,6 +2292,9 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -2565,7 +2353,6 @@
 				E61D2F521FC01C4E002005E3 /* LCAttentionTableViewCell.xib in Resources */,
 				95AF917C2006125300CC3D94 /* gif_m.gif in Resources */,
 				95DDA6911FBB307100686504 /* LCSpacePostTitleTableViewCell.xib in Resources */,
-				435EC727208F3A0500D1D37D /* Main.storyboard in Resources */,
 				E61D2EB71FBAC3C3002005E3 /* LCSexTableViewCell.xib in Resources */,
 				E61D2EF61FBAF400002005E3 /* LCRewardRecordTableViewCell.xib in Resources */,
 				E61D2F241FBD7CB1002005E3 /* LCWithdrawRecordTableViewCell.xib in Resources */,
@@ -2573,7 +2360,6 @@
 				E636A7DB1FC42D3800C9460F /* LCGuessInputView.xib in Resources */,
 				A6E0E6E6209B6349008B2FC1 /* LCNoticeSettingCell.xib in Resources */,
 				E636A7F21FC5557900C9460F /* LCPostTopView.xib in Resources */,
-				435EC71F208F3A0500D1D37D /* LaunchScreen.storyboard in Resources */,
 				A6D2575C209EB97C001886C4 /* LCGuessCommentTableViewCell.xib in Resources */,
 				E61D2EB21FBAC151002005E3 /* LCNameInputTableViewCell.xib in Resources */,
 				E6C3F3CA1FC0350C0077D670 /* LCContactServiceTableViewCell.xib in Resources */,
@@ -2715,7 +2501,6 @@
 				E61EA1C51FD54A1E00737327 /* LCPostModel.m in Sources */,
 				E6E2C7051FB0100E00866D15 /* LCGuessMainVC.m in Sources */,
 				E636A8031FC5A01200C9460F /* LCPostDetailVC.m in Sources */,
-				435EC72A208F3A0500D1D37D /* UIButton+Extension.m in Sources */,
 				E66A06571FE11881007F6891 /* LCHistoryVipTableViewCell.m in Sources */,
 				E66A06671FE25092007F6891 /* LCPostReplySuccessModel.m in Sources */,
 				E64197FD1FDA766A00C47713 /* LCGuessListMoreVC.m in Sources */,
@@ -2732,7 +2517,6 @@
 				439F9B9620689B9D00FCDDDB /* LCGuessUerListVC.m in Sources */,
 				E6E2C6F91FB00A8D00866D15 /* LCUserMessageManager.m in Sources */,
 				E6BFCC701FB96EEA00AE1FE2 /* LCUserHomeHeaderView.m in Sources */,
-				435EC72E208F3A0500D1D37D /* LeftSliderView.m in Sources */,
 				95DDA69F1FBC894F00686504 /* LCWalletIconTableViewCell.m in Sources */,
 				E61EA1CE1FD550F500737327 /* LCSpaceGuessListModel.m in Sources */,
 				9590190C1FB808ED00F5B0CE /* LCHomeHotPostHeaderView.m in Sources */,
@@ -2749,7 +2533,6 @@
 				E67FFBF51FD0030D0045E5DF /* LCUserMessageModel.m in Sources */,
 				E6E2C6631FB0038600866D15 /* UIBarButtonItem+Extend.m in Sources */,
 				95AF4EE61FB601590097B72D /* PopoverAction.m in Sources */,
-				435EC71E208F3A0500D1D37D /* SliderMenuRight.m in Sources */,
 				E61D2F481FBEBB67002005E3 /* LCTeamTableViewCell.m in Sources */,
 				E641981A1FDBCF6900C47713 /* LCGuessReplyListModel.m in Sources */,
 				E61EA1D71FD5527C00737327 /* LCSpaceSendRankingListModel.m in Sources */,
@@ -2761,7 +2544,6 @@
 				E6E2C66C1FB0038600866D15 /* LSKMessageManage.m in Sources */,
 				E61D2F2F1FBE87BD002005E3 /* LCTaskHeaderView.m in Sources */,
 				E61D2EFE1FBC239B002005E3 /* LCSpaceMyOrderView.m in Sources */,
-				435EC71B208F3A0500D1D37D /* PuzzleItemCtrlModel.m in Sources */,
 				E636A8201FC5A71200C9460F /* LCPostHeaderTableViewCell.m in Sources */,
 				E6E2C66E1FB0038600866D15 /* LSKViewFactory.m in Sources */,
 				A6F6D2F2209CB28600BA494A /* LCMeCommentCell.m in Sources */,
@@ -2778,9 +2560,6 @@
 				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
 				E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
-				435EC722208F3A0500D1D37D /* CircleLayer.m in Sources */,
-				435EC721208F3A0500D1D37D /* RectangleLayer.m in Sources */,
-				435EC723208F3A0500D1D37D /* TriangleLayer.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				A6D5D8ED20A080990010D7AC /* LCPublicNoticeListModel.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
@@ -2799,7 +2578,6 @@
 				A6E0E6D6209B4D0C008B2FC1 /* LCPublicNoticeVC.m in Sources */,
 				E67FFBD81FCD4FA00045E5DF /* LCGuessModuleAPI.m in Sources */,
 				E67FFBEC1FCFDC180045E5DF /* LCPushPostViewModel.m in Sources */,
-				435EC719208F3A0500D1D37D /* HomeViewController.m in Sources */,
 				E61EA1BC1FD5387100737327 /* LCWithdrawViewModel.m in Sources */,
 				95DDA6901FBB307100686504 /* LCSpacePostTitleTableViewCell.m in Sources */,
 				E6C3F41A1FC2C5CA0077D670 /* LCForgetPWDVC.m in Sources */,
@@ -2836,17 +2614,14 @@
 				E66A064B1FE10924007F6891 /* LCHistoryOrderViewModel.m in Sources */,
 				E67FFBCE1FCCFAB70045E5DF /* LCUserMianViewModel.m in Sources */,
 				A6F6D2E6209C99BA00BA494A /* LCUserMessageListVC.m in Sources */,
-				435EC72B208F3A0500D1D37D /* PublicMethod.m in Sources */,
 				E6A6F7551FEBBE860008351B /* LCGuessRuleVC.m in Sources */,
 				A6D2575D209EB97C001886C4 /* LCGuessCommentTableViewCell.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
 				E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */,
 				E66A066A1FE251E6007F6891 /* LCPostReplyListModel.m in Sources */,
-				435EC71C208F3A0500D1D37D /* PuzzleBlockItem.m in Sources */,
 				95AE93271FE80A1600766894 /* LCRankingRenModel.m in Sources */,
 				E64198261FDE2A5600C47713 /* LCGuessHistoryViewModel.m in Sources */,
 				A6E0E6DA209B4E09008B2FC1 /* LCPublicNoticeCell.m in Sources */,
-				435EC728208F3A0500D1D37D /* ImageScale.m in Sources */,
 				E6E2C65C1FB0038600866D15 /* LSKBaseViewController.m in Sources */,
 				E6E2C6651FB0038600866D15 /* UITabBarController+Extend.m in Sources */,
 				E66A065B1FE128E6007F6891 /* LCWithdrawRecordListModel.m in Sources */,
@@ -2855,7 +2630,6 @@
 				E641981D1FDBDCE900C47713 /* LCReplySuccessModel.m in Sources */,
 				A6D5D8FC20A0A02D0010D7AC /* LCMePostNoticeCell.m in Sources */,
 				95393DE32000EC970091BF1B /* LCLottery5DListModel.m in Sources */,
-				435EC725208F3A0500D1D37D /* WelcomeView.m in Sources */,
 				E66BA5271FC6A90100FE4FCF /* LCLoginViewModel.m in Sources */,
 				A6F6D2F7209CB2FA00BA494A /* LCMeShangCell.m in Sources */,
 				E636A7E01FC446BD00C9460F /* LCSelectSizeView.m in Sources */,
@@ -2864,8 +2638,6 @@
 				959019191FB80A1700F5B0CE /* LCRechargeMainVC.m in Sources */,
 				E66A06611FE24781007F6891 /* LCPostDetailViewModel.m in Sources */,
 				959019231FB82D7600F5B0CE /* LCRechargePaySureView.m in Sources */,
-				435EC726208F3A0500D1D37D /* FSDateTool.m in Sources */,
-				435EC720208F3A0500D1D37D /* WaveLayer.m in Sources */,
 				E6E2C67E1FB0038600866D15 /* LSKWebEventHandleManager.m in Sources */,
 				E6E2C6801FB0038600866D15 /* LSKWebView.m in Sources */,
 				E6E2C65F1FB0038600866D15 /* NSDate+Extend.m in Sources */,
@@ -2902,12 +2674,10 @@
 				E6E2C6FC1FB00FAB00866D15 /* LCHomeMainVC.m in Sources */,
 				E61D2F401FBEB97D002005E3 /* LCTeamMainVC.m in Sources */,
 				E6E2C65A1FB0038600866D15 /* LSKBaseResponseModel.m in Sources */,
-				435EC71A208F3A0500D1D37D /* PuzzleTools.m in Sources */,
 				E61D2EB61FBAC3C3002005E3 /* LCSexTableViewCell.m in Sources */,
 				E636A7D91FC4249100C9460F /* LCGuessSelectView.m in Sources */,
 				E61D2F391FBEB8DF002005E3 /* LCAttentionMainVC.m in Sources */,
 				43E695112057CFF000827397 /* NewWorkingRequestManage.m in Sources */,
-				435EC71D208F3A0500D1D37D /* PuzzleInstance.m in Sources */,
 				E61D2EAC1FBAC13D002005E3 /* LCPhotoTableViewCell.m in Sources */,
 				E61D2F3D1FBEB968002005E3 /* LCContactMainVC.m in Sources */,
 				959019101FB808ED00F5B0CE /* LCLottery3DView.m in Sources */,
@@ -2923,20 +2693,17 @@
 				9590190D1FB808ED00F5B0CE /* LCHomeHotPostTableViewCell.m in Sources */,
 				E6C3F40B1FC18B340077D670 /* LCGuessMainTableViewCell.m in Sources */,
 				E636A7D31FC41F0800C9460F /* LCPushGuessMainVC.m in Sources */,
-				435EC724208F3A0500D1D37D /* AnimationView.m in Sources */,
 				E6E2C6681FB0038600866D15 /* LSKHttpManager.m in Sources */,
 				E61EA1C21FD549EE00737327 /* LCSpacePostListModel.m in Sources */,
 				E61D2F441FBEBB4E002005E3 /* LCTeamHeaderView.m in Sources */,
 				A6F6D2EB209CAC0200BA494A /* LCMessageForMeView.m in Sources */,
 				E641983B1FDE55FF00C47713 /* LCHomeHotListModel.m in Sources */,
-				435EC729208F3A0500D1D37D /* UIColor+Hex.m in Sources */,
 				E6C3F3DB1FC05A030077D670 /* LCVipTableViewCell.m in Sources */,
 				E6D9A80E1FAFF99C00894BB0 /* AppDelegate.m in Sources */,
 				E64198351FDE540D00C47713 /* LC3DLotteryModel.m in Sources */,
 				E6C3F3EC1FC155000077D670 /* LCHistoryLotteryVC.m in Sources */,
 				E64198381FDE542100C47713 /* LCHomeHeaderMessageModel.m in Sources */,
 				E6E2C66A1FB0038600866D15 /* LSKParamterEntity.m in Sources */,
-				435EC72C208F3A0500D1D37D /* UIView_extra.m in Sources */,
 				959019151FB8099400F5B0CE /* LCRechargeHeaderView.m in Sources */,
 				95BC5E6E1FE153FD00FB5C3E /* LCCantactListModel.m in Sources */,
 				A658A5EC202D50330091586B /* LCWeiPayOrderModel.m in Sources */,
@@ -2971,11 +2738,9 @@
 				E64784271FEA54D9000A3A01 /* LCRankingRenTableViewCell.m in Sources */,
 				959019121FB808ED00F5B0CE /* LCSearchBarView.m in Sources */,
 				E61D2EE81FBAF3CE002005E3 /* LCSpacePostTableViewCell.m in Sources */,
-				435EC72D208F3A0500D1D37D /* LeftSlideViewController.m in Sources */,
 				E6E2C6641FB0038600866D15 /* UISearchBar+Extend.m in Sources */,
 				95DDA69B1FBC892200686504 /* LCWalletHeaderView.m in Sources */,
 				E67FFBDB1FCE62770045E5DF /* LCUserModuleAPI.m in Sources */,
-				435EC72F208F3A0500D1D37D /* LeftMenuViewController.m in Sources */,
 				E6C3F3E01FC1232B0077D670 /* LCRankingPushTableViewCell.m in Sources */,
 				E66A065E1FE20D31007F6891 /* LCUserSignMessageModel.m in Sources */,
 				E64198001FDA7E0300C47713 /* LCGuessMainMoreModel.m in Sources */,
@@ -3108,7 +2873,7 @@
 				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
@@ -3122,7 +2887,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/WechatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.yyyc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3139,7 +2904,7 @@
 				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W8NZ6HF8AH;
+				DEVELOPMENT_TEAM = 2J2L9G2LEH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
@@ -3153,7 +2918,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/WechatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tx.yyyc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

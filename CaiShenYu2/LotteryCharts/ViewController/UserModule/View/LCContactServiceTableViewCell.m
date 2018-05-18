@@ -27,6 +27,8 @@
 - (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name detail:(NSString *)detail wxNumber:(NSString *)wxNumber qqNumber:(NSString *)qqNumber mobile:(NSString *)mobile{
     if (KJudgeIsNullData(photo)) {
         [self.photoImageView sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
+    }else {
+        self.photoImageView.image = nil;
     }
     self.nameLbl.text = name;
     self.detailLbl.text = detail;

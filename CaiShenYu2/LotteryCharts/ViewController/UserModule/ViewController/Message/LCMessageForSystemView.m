@@ -37,7 +37,7 @@
         }else {
             if (self->_selectedRow != -1 && self->_selectedRow < self.viewModel.listArray.count) {
                 LCUserNoticeModel *model = [self.viewModel.listArray objectAtIndex:self->_selectedRow];
-                model.is_read = @"0";
+                model.is_read = @"1";
                 [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self->_selectedRow inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
                 self->_selectedRow = -1;
             }
@@ -85,7 +85,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCPublicNoticeCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCPublicNoticeCell];
     LCUserNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
-    [cell setupCellContent:model.title detail:model.content time:model.create_time isShowRed:[model.is_read floatValue] isShowDetail:NO];
+    [cell setupCellContent:model.title detail:model.content time:model.create_time isShowRed:[model.is_read boolValue] isShowDetail:NO];
     @weakify(self)
     [cell setBlock:^(id clickDetail) {
         @strongify(self)
@@ -103,7 +103,7 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     LCUserNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
-    if ([model.is_read integerValue] == 1) {
+    if ([model.is_read integerValue] == 0) {
         _selectedRow = indexPath.row;
         [self.viewModel changeNoticeRead:model.noticeId];
     }
