@@ -9,8 +9,18 @@
 #import "LCMessageListVM.h"
 #import "LCUserModuleAPI.h"
 @interface LCMessageListVM ()
-
+{
+    BOOL _laseValue;
+}
+@property (nonatomic, strong) RACCommand *settingListCommand;
+@property (nonatomic, strong) RACCommand *settingChangeCommand;
 @end
 @implementation LCMessageListVM
-
+- (void)getUserNoticeSetting {
+    [SKHUD showLoadingDotInWindow];
+    [self.settingListCommand execute:nil];
+}
+- (void)changeUserSetting {
+    
+}
 @end
