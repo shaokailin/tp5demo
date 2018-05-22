@@ -9,5 +9,7 @@
 #import "LSKBaseViewController.h"
 
 @interface LCUserMessageListVC : LSKBaseViewController
-
+@property (nonatomic, assign) NSInteger selectIndex;
+- (void)selectIndex:(NSInteger)index;
+- (void)reloadIndex;
 @end

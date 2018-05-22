@@ -40,6 +40,7 @@
     _viewModel = [[LCUserNoticeVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
         if (identifier == 0) {
+            self->_isLoading = NO;
             [self endRefreshing];
             [self.mainTableView reloadData];
             [LSKViewFactory setupFootRefresh:self.mainTableView page:self.viewModel.page currentCount:self.viewModel.listArray.count];
@@ -71,6 +72,7 @@
 }
 - (void)loadFirstData {
     if (!_isLoading) {
+        _isLoading = YES;
         [_viewModel getUserNoticeList:NO];
     }
 }

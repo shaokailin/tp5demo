@@ -49,4 +49,7 @@
 
 + (LSKParamterEntity *)getNoticeCount;
 + (LSKParamterEntity *)changeNoticeShow:(NSString *)msgId;
+
++ (LSKParamterEntity *)getNoticeSetting;
++ (LSKParamterEntity *)changeNoticeSetting:(BOOL)comment focus:(BOOL)focus reward:(BOOL)reward system:(BOOL)system;
 @end

@@ -21,7 +21,7 @@
 #endif
 // 如果需要使用idfa功能所需要引入的头文件（可选）
 #import <AdSupport/AdSupport.h>
-
+#import "LCUserMessageListVC.h"
 @interface AppDelegate ()<UITabBarControllerDelegate,JPUSHRegisterDelegate>
 @property (nonatomic, strong) LCRootTabBarVC *rootTabBarVC;
 @end
@@ -38,10 +38,6 @@
     [self registerAPNs:launchOptions];
     [self.window makeKeyAndVisible];
     [self setupUmengConfig];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                      selector:@selector(networkDidReceiveMessage:)
-                          name:kJPFNetworkDidReceiveMessageNotification
-                        object:nil];
     return YES;
 }
 - (void)registerAPNs:(NSDictionary *)launchOptions {
@@ -191,13 +187,7 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
         UNNotificationRequest *request = notification.request;
         UNNotificationContent *content = request.content; // 收到推送的消息内容
         if([notification.request.trigger isKindOfClass:[UNPushNotificationTrigger class]]) {
-            NSDictionary *dict = content.userInfo;
-           
-//            NSInteger isSound =
-//            if (isSound != 0) {
-//                completionHandler(UNNotificationPresentationOptionBadge);
-//                return;
-//            }
+//            NSDictionary *dict = content.userInfo;
         }
         // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
         [JPUSHService handleRemoteNotification:content.userInfo];
@@ -234,18 +224,31 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 }
 - (NSInteger)handleRemoteNotificationForcegroundWithUserInfo:(NSDictionary *)userInfo withCancle:(NSString *)cancle {
     [JPUSHService handleRemoteNotification:userInfo];
-    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:nil message:cancle delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-    [alter show];
-//    NSInteger type = [[userInfo objectForKey:@"type"]integerValue];
+    if (_rootTabBarVC) {
+        NSString *userId = [userInfo objectForKey:@"uid"];
+        if (KJudgeIsNullData(userId) && kUserMessageManager.isLogin && [kUserMessageManager.userId isEqualToString:userId]) {
+            NSInteger type = [[userInfo objectForKey:@"type"] integerValue];
+            NSInteger selectIndex = 0;
+            if (type >= 100) {
+                selectIndex = 1;
+            }
+            UINavigationController *navi = _rootTabBarVC.selectedViewController;
+            UIViewController *controll = navi.topViewController;
+            if (![controll isKindOfClass:[LCUserMessageListVC class]]) {
+                LCUserMessageListVC *bless = [[LCUserMessageListVC alloc]init];
+                if (navi.viewControllers.count == 1) {
+                    bless.hidesBottomBarWhenPushed = YES;
+                }
+                [bless selectIndex:1];
+                [navi pushViewController:bless animated:YES];
+            }else {
+                LCUserMessageListVC *bless = (LCUserMessageListVC *)controll;
+                [bless selectIndex:1];
+                [bless reloadIndex];
+            }
+            
+        }
+    }
     return NO;
-}
-- (void)networkDidReceiveMessage:(NSNotification *)notification {
-    NSDictionary *userInfo = [notification userInfo];
-    NSString *title = [userInfo valueForKey:@"content"];
-//    NSString *content = [userInfo valueForKey:@"content"];
-//    NSDictionary *extra = [userInfo valueForKey:@"extras"];
-//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    UIAlertView *alter = [[UIAlertView alloc]initWithTitle:nil message:title delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:nil, nil];
-    [alter show];
 }
 @end

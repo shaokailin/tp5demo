@@ -64,6 +64,7 @@
 		A6133AA6209EC4A900B460C2 /* LCRepeatHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6133AA4209EC4A900B460C2 /* LCRepeatHeaderCell.xib */; };
 		A6133AA9209F333000B460C2 /* DKSTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A6133AA8209F333000B460C2 /* DKSTextView.m */; };
 		A6133AAC209F338000B460C2 /* UIView+FrameTool.m in Sources */ = {isa = PBXBuildFile; fileRef = A6133AAB209F338000B460C2 /* UIView+FrameTool.m */; };
+		A64BAF5D20B416A2003287F6 /* LCMessageListVM.m in Sources */ = {isa = PBXBuildFile; fileRef = A64BAF5C20B416A2003287F6 /* LCMessageListVM.m */; };
 		A64D5452202AABCF0045E1CE /* LCFefineTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A64D5451202AABCF0045E1CE /* LCFefineTextView.m */; };
 		A658A5EC202D50330091586B /* LCWeiPayOrderModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A5EB202D50330091586B /* LCWeiPayOrderModel.m */; };
 		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
@@ -458,6 +459,8 @@
 		A6133AA8209F333000B460C2 /* DKSTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKSTextView.m; sourceTree = "<group>"; };
 		A6133AAA209F337F00B460C2 /* UIView+FrameTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameTool.h"; sourceTree = "<group>"; };
 		A6133AAB209F338000B460C2 /* UIView+FrameTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameTool.m"; sourceTree = "<group>"; };
+		A64BAF5B20B416A2003287F6 /* LCMessageListVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCMessageListVM.h; sourceTree = "<group>"; };
+		A64BAF5C20B416A2003287F6 /* LCMessageListVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCMessageListVM.m; sourceTree = "<group>"; };
 		A64D5450202AABCF0045E1CE /* LCFefineTextView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCFefineTextView.h; sourceTree = "<group>"; };
 		A64D5451202AABCF0045E1CE /* LCFefineTextView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCFefineTextView.m; sourceTree = "<group>"; };
 		A658A5EA202D50330091586B /* LCWeiPayOrderModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCWeiPayOrderModel.h; sourceTree = "<group>"; };
@@ -2066,6 +2069,8 @@
 				95BC5E701FE15A1400FB5C3E /* LCUserSignViewModel.m */,
 				A6D5D8F320A08C1F0010D7AC /* LCUserNoticeVM.h */,
 				A6D5D8F420A08C1F0010D7AC /* LCUserNoticeVM.m */,
+				A64BAF5B20B416A2003287F6 /* LCMessageListVM.h */,
+				A64BAF5C20B416A2003287F6 /* LCMessageListVM.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -2558,6 +2563,7 @@
 				E641984D1FDE6EC900C47713 /* LCRankingViewModel.m in Sources */,
 				95BC5E781FE1781000FB5C3E /* LCSignTableViewCell.m in Sources */,
 				E64198531FDE8E1E00C47713 /* LCHistoryLotteryListModel.m in Sources */,
+				A64BAF5D20B416A2003287F6 /* LCMessageListVM.m in Sources */,
 				E6618C0F1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m in Sources */,
 				E67FFBF81FD003B50045E5DF /* LCUserLoginMessageModel.m in Sources */,
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,

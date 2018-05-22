@@ -44,6 +44,9 @@ export default class Cal_Home extends Component {
         return <View style={{backgroundColor:'#ededed', height:1,marginHorizontal:5}}></View>;
     }
     _onRefresh = ()=>{
+        this.setState = ({
+            refreshing:true
+        });
         this.getNetData();
     }
     _layoutHeight(data,index) {
@@ -54,6 +57,10 @@ export default class Cal_Home extends Component {
         this.getNetData();
     }
     getNetData(){
+        
+        this.setState = ({
+            refreshing:false
+        });
 
     }
 

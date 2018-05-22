@@ -69,6 +69,9 @@ static NSString * const kReportUser = @"user/compliant.html";
 static NSString * const kMessageList = @"message/messagelist.html";
 static NSString * const kMessageCount = @"message/unreadCount.html";
 static NSString * const kMessageShow = @"message/read.html";
+
+static NSString * const kMessageSetting = @"message/getMessageSwitch.html";
+static NSString * const kMessageSettingChange = @"message/setMessageSwitch.html";
 @implementation LCUserModuleAPI
 + (LSKParamterEntity *)getMediaToken {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
@@ -337,6 +340,23 @@ static NSString * const kMessageShow = @"message/read.html";
     entity.requestApi = kMessageShow;
     entity.requestType = 1;
     entity.params =  @{@"msg_id":msgId,@"token":kUserMessageManager.token};;
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
+
++ (LSKParamterEntity *)getNoticeSetting {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMessageSetting;
+    entity.requestType = 1;
+    entity.params =  @{@"token":kUserMessageManager.token};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)changeNoticeSetting:(BOOL)comment focus:(BOOL)focus reward:(BOOL)reward system:(BOOL)system {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMessageSettingChange;
+    entity.requestType = 1;
+    entity.params =  @{@"token":kUserMessageManager.token,@"comment_reply":@(comment),@"focus":@(focus),@"reward":@(reward),@"system":@(system)};
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
