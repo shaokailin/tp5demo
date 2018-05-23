@@ -9,7 +9,11 @@
 #import "LCNoticeSettingVC.h"
 #import "LCNoticeSettingCell.h"
 #import "LCSpaceTableViewCell.h"
+#import "LCMessageListVM.h"
 @interface LCNoticeSettingVC ()<UITableViewDelegate, UITableViewDataSource>
+{
+    LCMessageListVM *_viewModel;
+}
 @property (nonatomic, weak) UITableView *mainTable;
 @end
 
@@ -21,16 +25,27 @@
     self.navigationItem.title = @"消息设置";
     [self addRedNavigationBackButton];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self bindSignal];
     [self initializeMainView];
 }
-
+- (void)bindSignal {
+    @weakify(self)
+    _viewModel = [[LCMessageListVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+        @strongify(self)
+        [self.mainTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:self->_viewModel.type inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    } failure:^(NSUInteger identifier, NSError *error) {
+        
+    }];
+    _viewModel.model = self.model;
+}
 - (void)pullDownRefresh {
      [self.mainTable.mj_header endRefreshing];
 }
 - (void)changeNoticeClick:(LCNoticeSettingCell *)cell state:(BOOL)state {
     NSInteger index = [self.mainTable indexPathForCell:cell].row;
-    [self returnSetValue:index value:!state];
-    [self.mainTable reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+    _viewModel.type = index;
+    _viewModel.changeValue = !state;
+    [_viewModel changeUserSetting];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -63,16 +78,16 @@
     BOOL value = YES;
     switch (index) {
         case 0:
-            value = kUserMessageManager.isShowReply;
+            value = _viewModel.model.comment_reply;
             break;
         case 1:
-            value = kUserMessageManager.isShowShang;;
+            value = _viewModel.model.reward;
             break;
         case 2:
-            value = kUserMessageManager.isShowCare;;
+            value = _viewModel.model.focus;
             break;
         case 4:
-            value = kUserMessageManager.isShowSystem;
+            value = _viewModel.model.system;
             break;
             
         default:
@@ -80,25 +95,7 @@
     }
     return value;
 }
-- (void)returnSetValue:(NSInteger)index  value:(BOOL)value{
-    switch (index) {
-        case 0:
-            kUserMessageManager.isShowReply = value;
-            break;
-        case 1:
-            kUserMessageManager.isShowShang = value;
-            break;
-        case 2:
-            kUserMessageManager.isShowCare = value;
-            break;
-        case 4:
-            kUserMessageManager.isShowSystem = value;
-            break;
-            
-        default:
-            break;
-    }
-}
+
 - (NSString *)returnTitleString:(NSInteger)index {
     NSString *title = nil;
     switch (index) {

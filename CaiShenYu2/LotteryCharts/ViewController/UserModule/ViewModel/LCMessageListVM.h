@@ -7,9 +7,11 @@
 //
 
 #import "LSKBaseViewModel.h"
-
+#import "LCUserSettingModel.h"
 @interface LCMessageListVM : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger type;
+@property (nonatomic, assign) BOOL changeValue;
+@property (nonatomic, strong) LCUserSettingModel *model;
 -(void)getUserNoticeSetting;
 - (void)changeUserSetting;
 @end

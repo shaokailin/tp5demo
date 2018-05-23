@@ -70,6 +70,7 @@
 		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
 		A658A5F6202D701F0091586B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F5202D701F0091586B /* Security.framework */; };
 		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
+		A6A90E3B20B4FC1B005CB8E2 /* LCUserSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */; };
 		A6D25755209E9A11001886C4 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D25754209E9A11001886C4 /* libWeChatSDK.a */; };
 		A6D25758209EB40C001886C4 /* LCRepeatUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D25757209EB40C001886C4 /* LCRepeatUserVC.m */; };
 		A6D2575C209EB97C001886C4 /* LCGuessCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D25759209EB97B001886C4 /* LCGuessCommentTableViewCell.xib */; };
@@ -470,6 +471,8 @@
 		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
 		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
 		A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LotteryCharts.entitlements; sourceTree = "<group>"; };
+		A6A90E3920B4FC1B005CB8E2 /* LCUserSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSettingModel.h; sourceTree = "<group>"; };
+		A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSettingModel.m; sourceTree = "<group>"; };
 		A6D25751209E9A11001886C4 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		A6D25752209E9A11001886C4 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A6D25753209E9A11001886C4 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -2008,6 +2011,8 @@
 				E6618C0E1FF1F7E900ACCFBC /* LCOrderHistoryGuessModel.m */,
 				A6D5D8F620A091B80010D7AC /* LCUserMessageListModel.h */,
 				A6D5D8F720A091B80010D7AC /* LCUserMessageListModel.m */,
+				A6A90E3920B4FC1B005CB8E2 /* LCUserSettingModel.h */,
+				A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2513,6 +2518,7 @@
 				439F9BA12068D6B100FCDDDB /* UserListModel.m in Sources */,
 				E61D2F1F1FBD7C8E002005E3 /* LCWithdrawRecordHeaderView.m in Sources */,
 				E61D2F271FBD8927002005E3 /* HSPDefineDatePickView.m in Sources */,
+				A6A90E3B20B4FC1B005CB8E2 /* LCUserSettingModel.m in Sources */,
 				A6D5D8F120A087140010D7AC /* LCPublicNotice1Cell.m in Sources */,
 				E69450391FD1422D00605793 /* LCTeamCountModel.m in Sources */,
 				E6E2C66B1FB0038600866D15 /* LSKImageManager.m in Sources */,

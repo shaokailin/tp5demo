@@ -7,7 +7,7 @@
 //
 
 #import "LSKBaseViewController.h"
-
+@class LCUserSettingModel;
 @interface LCNoticeSettingVC : LSKBaseViewController
-
+@property (nonatomic, weak) LCUserSettingModel *model;
 @end

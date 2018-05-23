@@ -211,6 +211,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
             case 1:
             {
                 LCUserMessageListVC *messageList = [[LCUserMessageListVC alloc]init];
+                messageList.selectIndex = 0;
                 controller = messageList;
                 break;
             }

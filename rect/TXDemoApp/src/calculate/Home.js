@@ -57,7 +57,7 @@ export default class Cal_Home extends Component {
         this.getNetData();
     }
     getNetData(){
-        
+
         this.setState = ({
             refreshing:false
         });

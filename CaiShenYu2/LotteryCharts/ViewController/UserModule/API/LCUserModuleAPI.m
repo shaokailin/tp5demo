@@ -26,6 +26,7 @@
 #import "LCOrderHistoryGuessModel.h"
 #import "UserListModel.h"
 #import "LCUserMessageListModel.h"
+#import "LCUserSettingModel.h"
 static NSString * const kMediaToken = @"public/getQiNiuTaken";
 static NSString * const kUpdatePhoto = @"User/updateLogo.html";
 static NSString * const kUpdateBgPhoto = @"User/updateBglogo.html";
@@ -349,7 +350,7 @@ static NSString * const kMessageSettingChange = @"message/setMessageSwitch.html"
     entity.requestApi = kMessageSetting;
     entity.requestType = 1;
     entity.params =  @{@"token":kUserMessageManager.token};
-    entity.responseObject = [LSKBaseResponseModel class];
+    entity.responseObject = [LCUserSettingModel class];
     return entity;
 }
 + (LSKParamterEntity *)changeNoticeSetting:(BOOL)comment focus:(BOOL)focus reward:(BOOL)reward system:(BOOL)system {
