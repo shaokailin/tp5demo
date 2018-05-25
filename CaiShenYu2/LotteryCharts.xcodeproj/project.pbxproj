@@ -2885,7 +2885,7 @@
 				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				DEVELOPMENT_TEAM = W8NZ6HF8AH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
@@ -2899,7 +2899,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/WechatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tx.yyyc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2916,7 +2916,7 @@
 				CODE_SIGN_ENTITLEMENTS = LotteryCharts/LotteryCharts.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2J2L9G2LEH;
+				DEVELOPMENT_TEAM = W8NZ6HF8AH;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/SDK",
@@ -2930,7 +2930,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LotteryCharts/Resource/WechatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.tx.yyyc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.caiShenRoll;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;

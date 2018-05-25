@@ -46,7 +46,7 @@
     //    entity.categories = [self addPushCategory];
     [JPUSHService registerForRemoteNotificationConfig:entity delegate:self];
     NSString *advertisingIdentifer =  [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
-    [JPUSHService setupWithOption:launchOptions appKey:@"127861ec22f197cf5b1bdb10"
+    [JPUSHService setupWithOption:launchOptions appKey:@"4c3d7c521fb6327d85f68b96"
                           channel:@"APP Store"
                  apsForProduction:NO
             advertisingIdentifier:advertisingIdentifer];
