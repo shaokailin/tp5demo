@@ -89,7 +89,7 @@ const Tab = TabNavigator(
         initialRouteName:'Calculate',
         tabBarOptions:{
             showIcon:true,
-            pressOpacity:0.8,
+            pressOpacity:1.0,
             style:{
                 height:49,
                 backgroundColor:'#ffffff',

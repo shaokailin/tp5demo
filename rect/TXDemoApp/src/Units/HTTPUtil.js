@@ -1,16 +1,14 @@
 
-import md5 from 'react-native-md5';
 var HTTPUtil = {};
 
-const SERVER_URL = "https://toolapi.d1xz.net/v2/rili/";
-const SERVER_URL_2 = "https://toolapi2.d1xz.net/v1/";
-const appId = 13;
+const SERVER_URL = "https://toolapi2.d1xz.net/v1/";
+const appId = 11;
 const TOKEN_ = '28Yojo9YqssouYQucaga7ZHGw12iZplf';
 // request_time
-HTTPUtil.get = function (api,params,isServer2){
+HTTPUtil.get = function (api,params){
     let paramsNew = HTTPUtil.editParam(params);
     let signParamString = HTTPUtil.signForGeg(paramsNew);
-    let url = (isServer2?SERVER_URL_2:SERVER_URL) + api + '?' + signParamString;
+    let url = encodeURI(SERVER_URL + api + '?' + signParamString);
     return new Promise(function(resolve,reject){
         fetch(url,{
             method:'GET',
@@ -21,20 +19,31 @@ HTTPUtil.get = function (api,params,isServer2){
             if(response.ok) {
                 return response.json();
             }else {
-                reject({status:response.status});
+                reject(null);
             }
         }).then((response)=> {
-            resolve(response);
+            console.log(response);
+            if(response.status == 0) {
+                if(response.erroe_code == 10002){
+
+                }else {
+
+                }
+                reject(null);
+            }else {
+                resolve(response.data);
+            }
+
         }).catch((err)=>{
-            reject({status:-1});
+
+            reject(null);
         })
     }) ;
-
 }
 
-HTTPUtil.post = function(api,params,isServer2) {
+HTTPUtil.post = function(api,params) {
     let paramsNew = HTTPUtil.editParam(params);
-    let url = (isServer2?SERVER_URL_2:SERVER_URL) + HTTPUtil.signForPost(api,paramsNew);
+    let url = SERVER_URL + HTTPUtil.signForPost(api,paramsNew);
     return new Promise(function(resolve,reject){
         fetch(url,{
             method:'POST',
@@ -55,10 +64,10 @@ HTTPUtil.post = function(api,params,isServer2) {
 /*
 * 添加额外的参数
 * */
-HTTPUtil.editParam = function(params){
+ HTTPUtil.editParam = function(params){
     var newParams = params == null ? {}:params;
-    newParams.append('request_time',Math.floor(new Date().getTime() / 1000.0));
-    newParams.append('app_id',appId);
+    newParams.request_time = Math.floor(new Date().getTime() / 1000.0);
+     newParams.app_id = appId;
     return newParams;
 }
 /*
@@ -70,15 +79,14 @@ HTTPUtil.signForGeg = function(params) {
         dataArray.push(key + '=' + params[key]);
     }
     dataArray.sort();
-    let content = dataArray.join().toLocaleLowerCase() + TOKEN_;
-    let md5Content = md5.str_md5(content);
-    // params.append('sign',md5Content);
-
+    let content = dataArray.join('').toLocaleLowerCase() + TOKEN_;
+    var md5 = require('crypto-js');
+    let md5Content = md5.MD5(content);
     var paramString = '';
-    for (var value in dataArray) {
-        paramString += (value + '&');
+    for (var index in dataArray) {
+        paramString += (dataArray[index] + '&');
     }
-    paramString += md5Content;
+    paramString += ('sign='+ md5Content.toString());
     return paramString;
 }
 /*
@@ -86,7 +94,8 @@ HTTPUtil.signForGeg = function(params) {
 * */
 HTTPUtil.signForPost = function(api,param) {
     let apiParams = 'app_id='+ param['app_id']+'request_time='+ param['request_time']+TOKEN_;
-    let apiParamsMd5 = md5.str_md5(apiParams);
+    var md5 = require('crypto-js');
+    let apiParamsMd5 = md5.MD5(apiParams).toString();
     return api+'?request_time='+ param['request_time'] + '&app_id=' + param['app_id'] + '&sign=' + apiParamsMd5;
 }
 
