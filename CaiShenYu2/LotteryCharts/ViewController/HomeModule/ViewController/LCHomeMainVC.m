@@ -204,7 +204,7 @@
             self.viewModel.searchType = self.headerView.searchIndex;
             [self.viewModel searchPostEvent:actionParam];
         }
-    }else if (type == 6) {
+    }else if (type == 7) {
         LCPublicNoticeVC *notice = [[LCPublicNoticeVC alloc]init];
         notice.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:notice animated:YES];
@@ -279,18 +279,27 @@
     @weakify(self)
     PopoverAction *multichatAction = [PopoverAction actionWithImage:nil title:@"发帖" handler:^(PopoverAction *action) {
         @strongify(self)
+        if (![self isCanJumpViewForLogin:YES]) {
+            return;
+        }
         LCPushPostMainVC *postMainVcC = [[LCPushPostMainVC alloc]init];
         postMainVcC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:postMainVcC animated:YES];
     }];
+    PopoverAction *rechargeAction = [PopoverAction actionWithImage:nil title:@"充值" handler:^(PopoverAction *action) {
+        @strongify(self)
+        if (![self isCanJumpViewForLogin:YES]) {
+            return;
+        }
+            LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
+            recgarge.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:recgarge animated:YES];
+    }];
     PopoverAction *addFriAction = [PopoverAction actionWithImage:nil title:@"分享" handler:^(PopoverAction *action) {
         @strongify(self)
         [self shareClick];
-//        LCRechargeMainVC *recgarge = [[LCRechargeMainVC alloc]init];
-//        recgarge.hidesBottomBarWhenPushed = YES;
-//        [self.navigationController pushViewController:recgarge animated:YES];
     }];
-    return @[multichatAction, addFriAction];
+    return @[multichatAction,rechargeAction, addFriAction];
 }
 - (void)initializeMainView {
     [self addRightNavigationButtonWithNornalImage:@"home_more" seletedIamge:@"home_more" target:self action:@selector(showMeunView:)];

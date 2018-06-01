@@ -24,11 +24,6 @@ HTTPUtil.get = function (api,params){
         }).then((response)=> {
             console.log(response);
             if(response.status == 0) {
-                if(response.erroe_code == 10002){
-
-                }else {
-
-                }
                 reject(null);
             }else {
                 resolve(response.data);
@@ -37,7 +32,7 @@ HTTPUtil.get = function (api,params){
         }).catch((err)=>{
 
             reject(null);
-        })
+        }).done();
     }) ;
 }
 

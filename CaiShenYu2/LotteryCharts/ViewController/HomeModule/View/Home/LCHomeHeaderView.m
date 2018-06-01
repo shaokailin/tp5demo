@@ -42,7 +42,7 @@
 }
 - (void)noticeClick {
     if (self.headerBlock) {
-        self.headerBlock(6, nil);
+        self.headerBlock(7, nil);
     }
 }
 - (void)setupHotLineCount:(NSString *)count {

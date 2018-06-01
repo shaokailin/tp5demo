@@ -9,6 +9,8 @@
 #import "LCMessageForSystemView.h"
 #import "LCPublicNoticeCell.h"
 #import "LCUserNoticeVM.h"
+#import "LCHistoryLotteryVC.h"
+
 @interface LCMessageForSystemView()<UITableViewDelegate,UITableViewDataSource>
 {
     BOOL _isLoading;
@@ -109,6 +111,10 @@
         _selectedRow = indexPath.row;
         [self.viewModel changeNoticeRead:model.noticeId];
     }
+    LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
+    lottery.hidesBottomBarWhenPushed = YES;
+    lottery.type = 5;//3d 6、、5d
+    [[LSKViewFactory getCurrentViewController].navigationController pushViewController:lottery animated:YES];
 }
 - (void)_layoutMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];

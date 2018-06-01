@@ -18,6 +18,39 @@ export default class Cal_Home extends Component {
             refreshing: false
         });
     };
+    getNetData(){
+        var thiz = this;
+        var params = {};
+        params.bid = '20,21,22,23,24,25,26';
+        params.limit = '5,8,4,4,4,2,3';
+        params.cache = 300;
+        var loadPromise = HTTPUtil.get("app.datablock/getlist.html",params);
+        loadPromise.then(function(model){
+            let array = model['26'];
+            let cellArray = [];
+            let i = 0;
+            array.map(function(item) {
+                cellArray.push({key:i, value:item});
+                i++;
+            });
+
+            for(let index in array){
+                cellArray.push({key:array[index]});
+            }
+            thiz.setState = ({
+                itemData:cellArray,
+                headerData:model,
+                refreshing:false
+            });
+            array = null;
+            cellArray = null;
+        },function(error){
+            thiz.setState = ({
+                refreshing:false
+            });
+        });
+    };
+
     render() {
         return (
             <View style={{flex:1}}>
@@ -37,7 +70,6 @@ export default class Cal_Home extends Component {
         );
     }
     _renderItem = ({item})=> {
-        console.log(item);
         return (<Cell data={item.key}/>);
     }
     _header = ()=> {
@@ -59,31 +91,7 @@ export default class Cal_Home extends Component {
     componentDidMount() {
         this.getNetData();
     }
-    getNetData(){
-        var params = {};
-        params.bid = '20,21,22,23,24,25,26';
-        params.limit = '5,8,4,4,4,2,3';
-        params.cache = 300;
-        var loadPromise = HTTPUtil.get("app.datablock/getlist.html",params);
-        loadPromise.then(function(model){
-            let array = model['26'];
-            var cellArray = [];
-            for(let index in array){
-                cellArray.push({key:array[index]});
-            }
-            console.log(cellArray);
-            this.setState = ({
-                itemData:cellArray,
-                headerData:model,
-                refreshing:false
-            });
-            console.log(this.state.itemData);
-        },function(error){
-            this.setState = ({
-                refreshing:false
-            });
-        });
-    }
+
 
 }
 const styles = StyleSheet.create({
