@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *moneyField;
 @property (weak, nonatomic) IBOutlet UIButton *sureBtn;
 @property (weak, nonatomic) IBOutlet UIView *payTypeBgView;
+@property (weak, nonatomic) IBOutlet UILabel *rateLbl;
 @property (strong, nonatomic) LCWithdrawViewModel *viewModel;
 @end
 
@@ -30,6 +31,7 @@
     [self backToNornalNavigationColor];
     [self addNavigationBackButton];
     [self addRightNavigationButtonWithTitle:@"记录" target:self action:@selector(showRecordVC)];
+    self.rateLbl.text = NSStringFormat(@"提现收取%.2f成手续费",self.rate);
     [self initializeMainView];
     self.payTypeBgView.hidden = YES;
     [self updateMessage];
@@ -60,7 +62,16 @@
 
 - (IBAction)surePayClick:(id)sender {
     [self.moneyField resignFirstResponder];
-    [self.viewModel widthdrawActionEvent];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:NSStringFormat(@"提现收取%.2f成手续费",self.rate) delegate:nil cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    @weakify(self)
+    [[alert rac_buttonClickedSignal]subscribeNext:^(NSNumber * _Nullable x) {
+        if ([x integerValue] == 1) {
+            @strongify(self)
+            [self.viewModel widthdrawActionEvent];
+        }
+    }];
+    [alert show];
+    
 }
 - (IBAction)contactServiceClick:(id)sender {
     [self.moneyField resignFirstResponder];

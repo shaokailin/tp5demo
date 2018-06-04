@@ -40,7 +40,7 @@ static const NSInteger kTextMarginWidth = 10;
 //提示内容的最大高度
 static const NSInteger kTextMaxHeight = 100;
 //界面隐藏的延迟时间
-static const NSInteger kHidenDelayTime = 1;
+static const NSInteger kHidenDelayTime = 1.5;
 //动画隐藏时间
 static const CGFloat kAnimalHiden = 0.5;
 //默认的加载宽度
@@ -332,7 +332,7 @@ static const BOOL kIsImageAnimal = YES;
     if (!_gifImageArray) {
         _gifImageArray = [NSMutableArray array];
         for (NSUInteger i = 1; i<=18; i++) {
-            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%zd", i]];
+            UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"loading_%lu", (unsigned long)i]];
             [_gifImageArray addObject:image];
         }
     }

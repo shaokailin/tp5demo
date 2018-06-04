@@ -45,6 +45,7 @@ static NSString * const kSignCount = @"User/getMyTeamSignCount.html";
 static NSString * const kTaskMessage = @"User/myTask.html";
 static NSString * const kExchangeSilver = @"User/jinChangeYin.html";
 static NSString * const kExchangeRate = @"direct/getUserJinBiLi";
+static NSString * const kMoneyRate = @"public/serverCharge.html";
 
 static NSString * const kUserAttenttion = @"Mch/follow.html";
 static NSString * const kUserUnAttenttion = @"Mch/unFollow.html";
@@ -186,6 +187,12 @@ static NSString * const kMessageSettingChange = @"message/setMessageSwitch.html"
 + (LSKParamterEntity *)getExchangeRate {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kExchangeRate;
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
++ (LSKParamterEntity *)getMoneyRate {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kMoneyRate;
     entity.responseObject = [LCBaseResponseModel class];
     return entity;
 }

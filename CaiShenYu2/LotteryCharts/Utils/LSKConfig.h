@@ -44,7 +44,8 @@ static NSString * const SERVER_URL = @"http://118.31.3.226/api.php";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #else
-static NSString * const SERVER_URL = @"http://www.leidian168.com/api.php/";
+//static NSString * const SERVER_URL = @"http://www.leidian168.com/api.php/";
+static NSString * const SERVER_URL = @"http://118.31.3.226/api.php";
 static NSString * const HTTPS_CA_NAME = @"";
 static NSString * const HTTPS_CA_TYPE = @"";
 #endif

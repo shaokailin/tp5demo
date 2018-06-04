@@ -12,6 +12,7 @@
 @interface LCExchangeMoneyViewModel ()
 @property (nonatomic, strong) RACCommand *exchangeCommand;
 @property (nonatomic, strong) RACCommand *exchangeRateCommand;
+@property (nonatomic, strong) RACCommand *moneyRateCommand;
 @end
 @implementation LCExchangeMoneyViewModel
 - (void)glodExchangeSilverEvent {
@@ -73,5 +74,28 @@
         }];
     }
     return _exchangeRateCommand;
+}
+- (void)getMoneyRate {
+    [SKHUD showLoadingDotInWindow];
+    [self.moneyRateCommand execute:nil];
+}
+- (RACCommand *)moneyRateCommand {
+    if (!_moneyRateCommand) {
+        @weakify(self)
+        _moneyRateCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI getMoneyRate]];
+        }];
+        [_moneyRateCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD dismiss];
+                [self sendSuccessResult:20 model:model.response];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _moneyRateCommand;
 }
 @end

@@ -29,6 +29,7 @@
 
 + (LSKParamterEntity *)glodExchangeSilver:(NSInteger)money;
 + (LSKParamterEntity *)getExchangeRate;
++ (LSKParamterEntity *)getMoneyRate;
 
 + (LSKParamterEntity *)attentionUser:(NSString *)userId isCare:(BOOL)isCare;
 + (LSKParamterEntity *)getOtherAttention:(NSInteger)page userId:(NSString *)userId;

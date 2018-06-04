@@ -9,5 +9,5 @@
 #import "LSKBaseViewController.h"
 
 @interface LCWithdrawMainVC : LSKBaseViewController
-
+@property (nonatomic, assign) CGFloat rate;
 @end

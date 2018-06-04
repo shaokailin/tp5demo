@@ -11,6 +11,8 @@
 @interface LCExchangeMoneyViewModel : LSKBaseViewModel
 @property (nonatomic, assign) NSInteger glodMoney;
 @property (nonatomic, assign) NSInteger rate;
+@property (nonatomic, assign) CGFloat moneyRate;
 - (void)glodExchangeSilverEvent;
 - (void)getExchangeRate;
+- (void)getMoneyRate;
 @end

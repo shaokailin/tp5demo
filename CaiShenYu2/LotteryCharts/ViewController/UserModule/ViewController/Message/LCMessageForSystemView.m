@@ -111,10 +111,17 @@
         _selectedRow = indexPath.row;
         [self.viewModel changeNoticeRead:model.noticeId];
     }
-    LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
-    lottery.hidesBottomBarWhenPushed = YES;
-    lottery.type = 5;//3d 6、、5d
-    [[LSKViewFactory getCurrentViewController].navigationController pushViewController:lottery animated:YES];
+    if (model.type == 201 || model.type == 202) {
+        LCHistoryLotteryVC *lottery = [[LCHistoryLotteryVC alloc]init];
+        lottery.hidesBottomBarWhenPushed = YES;
+        if (model.type == 201) {
+            lottery.type = 5;//3d 6、、5d
+        }else {
+            lottery.type = 6;
+        }
+        
+        [[LSKViewFactory getCurrentViewController].navigationController pushViewController:lottery animated:YES];
+    }
 }
 - (void)_layoutMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];

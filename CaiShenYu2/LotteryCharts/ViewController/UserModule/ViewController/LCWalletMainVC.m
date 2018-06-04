@@ -22,6 +22,7 @@
 @property (nonatomic, weak) UITableView *mainTableView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, strong) LCExchangeMoneyViewModel *viewModel;
+
 @end
 
 @implementation LCWalletMainVC
@@ -96,20 +97,34 @@
         @weakify(self)
         _viewModel = [[LCExchangeMoneyViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
             @strongify(self)
-            NSInteger rate = [model integerValue];
-            if (rate > 0) {
-                LCExchangeMainVC *exchangeVC = [[LCExchangeMainVC alloc]init];
-                exchangeVC.rate = rate;
-                [self.navigationController pushViewController:exchangeVC animated:YES];
+            if (identifier == 0) {
+                NSInteger rate = [model integerValue];
+                if (rate > 0) {
+                    LCExchangeMainVC *exchangeVC = [[LCExchangeMainVC alloc]init];
+                    exchangeVC.rate = rate;
+                    [self.navigationController pushViewController:exchangeVC animated:YES];
+                }else {
+                    [SKHUD showMessageInView:self.view withMessage:@"兑换比例出错，请重新尝试"];
+                }
             }else {
-                [SKHUD showMessageInView:self.view withMessage:@"兑换比例出错，请重新尝试"];
+                self->_viewModel.moneyRate = [model floatValue];
+                [self jumpWithdraw];
             }
         } failure:nil];
+        _viewModel.moneyRate = -1;
     }
     return _viewModel;
 }
 - (void)jumpWithdrawVC {
+    if (!_viewModel || _viewModel.moneyRate == -1) {
+        [self.viewModel getMoneyRate];
+    }else {
+        [self jumpWithdraw];
+    }
+}
+- (void)jumpWithdraw {
     LCWithdrawMainVC *withdrawVC = [[LCWithdrawMainVC alloc]init];
+    withdrawVC.rate = _viewModel.moneyRate;
     [self.navigationController pushViewController:withdrawVC animated:YES];
 }
 #pragma makr -view
