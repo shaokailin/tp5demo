@@ -10,10 +10,10 @@ export default class BannerCell extends Component {
     render(){
         return(
             <View style={styles1.container}>
-                <Image style={styles1.imgStyle}/>
+                <Image source={{uri:this.props.itemdata.image}} style={styles1.imgStyle}/>
                 <View style={{flex:1}}>
                     <Text numberOfLines={2} ellipsizeMode={'tail'} style={styles1.titleStyle}>
-                        {'1231321313123123132123131lhflasdhfalsfhlashglshgljshglksfhgksdfjhgk'}
+                        {this.props.itemdata.title}
                     </Text>
                 </View>
             </View>
@@ -29,7 +29,6 @@ const styles1 = StyleSheet.create({
     },
     imgStyle:{
         height:'100%',
-        backgroundColor:'red',
         width:87,
     },
     titleStyle:{

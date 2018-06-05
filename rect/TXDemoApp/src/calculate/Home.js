@@ -13,50 +13,49 @@ export default class Cal_Home extends Component {
     constructor (props){
         super(props);
         this.state = ({
-            itemData:[],
+            data:[],
             headerData:{},
-            refreshing: false
+            refreshing: false,
+            // 加载更多
+            isLoadMore:false
         });
     };
     getNetData(){
-        var thiz = this;
+
         var params = {};
         params.bid = '20,21,22,23,24,25,26';
         params.limit = '5,8,4,4,4,2,3';
         params.cache = 300;
-        var loadPromise = HTTPUtil.get("app.datablock/getlist.html",params);
-        loadPromise.then(function(model){
-            let array = model['26'];
-            let cellArray = [];
-            let i = 0;
-            array.map(function(item) {
-                cellArray.push({key:i, value:item});
-                i++;
-            });
-
-            for(let index in array){
-                cellArray.push({key:array[index]});
-            }
-            thiz.setState = ({
-                itemData:cellArray,
-                headerData:model,
-                refreshing:false
-            });
-            array = null;
-            cellArray = null;
-        },function(error){
-            thiz.setState = ({
-                refreshing:false
-            });
+        var loadPromise = HTTPUtil.get('app.datablock/getlist.html',params);
+        loadPromise.then(this.loadSuccess.bind(this),this.loadError.bind(this));
+    };
+    loadSuccess = function(model){
+        let array = model['26'];
+        let dataBlob = [];
+        let i = 0;
+        array.map(function (item) {
+            dataBlob.push({
+                key: 'index' + i,
+                value: item,
+            })
+            i++;
+        });
+        this.setState({ data:dataBlob,headerData:model,refreshing:false},()=>{
+        });
+        model = null;
+        dataBlob = null;
+    }
+    loadError = function(error){
+        this.setState = ({
+            refreshing:false
         });
     };
-
     render() {
         return (
             <View style={{flex:1}}>
                 <FlatList
                     ref={(flatList) => this._flatList = flatList}
-                    data={this.state.itemData}
+                    data={this.state.data}
                     renderItem={this._renderItem}
                     ListHeaderComponent={this._header()}
                     ItemSeparatorComponent={this._separator}
@@ -64,13 +63,16 @@ export default class Cal_Home extends Component {
                     getItemLayout={this._layoutHeight}
                     onRefresh={this._onRefresh}
                     numColumns ={1}
+                    //加载更多
+                    // onEndReached={() => this._onLoadMore()}
+                    // onEndReachedThreshold={0.1}
                 />
             </View>
 
         );
     }
     _renderItem = ({item})=> {
-        return (<Cell data={item.key}/>);
+        return (<Cell itemdata={item.value}/>);
     }
     _header = ()=> {
         return (<HeaderView data={this.state.headerData} ref={(headerView)=> this._headerView = headerView} />);
