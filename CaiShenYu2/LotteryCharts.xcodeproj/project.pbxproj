@@ -70,6 +70,8 @@
 		A658A5F4202D70120091586B /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F3202D70120091586B /* libsqlite3.0.tbd */; };
 		A658A5F6202D701F0091586B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A658A5F5202D701F0091586B /* Security.framework */; };
 		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
+		A67D20D620D3B0E5000A45AB /* LC5DTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A67D20D420D3B0E5000A45AB /* LC5DTableViewCell.m */; };
+		A67D20D720D3B0E5000A45AB /* LC5DTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */; };
 		A6A90E3B20B4FC1B005CB8E2 /* LCUserSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */; };
 		A6D25755209E9A11001886C4 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D25754209E9A11001886C4 /* libWeChatSDK.a */; };
 		A6D25758209EB40C001886C4 /* LCRepeatUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D25757209EB40C001886C4 /* LCRepeatUserVC.m */; };
@@ -470,6 +472,9 @@
 		A658A5F5202D701F0091586B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A658A633202D74770091586B /* LCPayResultHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPayResultHandle.h; sourceTree = "<group>"; };
 		A658A634202D74770091586B /* LCPayResultHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPayResultHandle.m; sourceTree = "<group>"; };
+		A67D20D320D3B0E5000A45AB /* LC5DTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC5DTableViewCell.h; sourceTree = "<group>"; };
+		A67D20D420D3B0E5000A45AB /* LC5DTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC5DTableViewCell.m; sourceTree = "<group>"; };
+		A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LC5DTableViewCell.xib; sourceTree = "<group>"; };
 		A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LotteryCharts.entitlements; sourceTree = "<group>"; };
 		A6A90E3920B4FC1B005CB8E2 /* LCUserSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSettingModel.h; sourceTree = "<group>"; };
 		A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSettingModel.m; sourceTree = "<group>"; };
@@ -1579,6 +1584,9 @@
 				E6C3F3EE1FC155420077D670 /* LCHistoryLotteryTableViewCell.h */,
 				E6C3F3EF1FC155420077D670 /* LCHistoryLotteryTableViewCell.m */,
 				E6C3F3F01FC155420077D670 /* LCHistoryLotteryTableViewCell.xib */,
+				A67D20D320D3B0E5000A45AB /* LC5DTableViewCell.h */,
+				A67D20D420D3B0E5000A45AB /* LC5DTableViewCell.m */,
+				A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -2378,6 +2386,7 @@
 				E66A06581FE11881007F6891 /* LCHistoryVipTableViewCell.xib in Resources */,
 				95DDA6A01FBC894F00686504 /* LCWalletIconTableViewCell.xib in Resources */,
 				E61D2F0B1FBC3970002005E3 /* LCHistoryOrderTableViewCell.xib in Resources */,
+				A67D20D720D3B0E5000A45AB /* LC5DTableViewCell.xib in Resources */,
 				E636A7E71FC4475300C9460F /* LCSelectTwoYardsView.xib in Resources */,
 				E61D2EE41FBAF3B8002005E3 /* LCSpaceHeaderTableViewCell.xib in Resources */,
 				E636A7F41FC5559300C9460F /* LCPostShowTypeView.xib in Resources */,
@@ -2660,6 +2669,7 @@
 				E61D2F171FBD3EC0002005E3 /* LCWithdrawMainVC.m in Sources */,
 				E636A7F71FC5930200C9460F /* LCPostAlertView.m in Sources */,
 				E64198321FDE53DF00C47713 /* LCHomeNoticeModel.m in Sources */,
+				A67D20D620D3B0E5000A45AB /* LC5DTableViewCell.m in Sources */,
 				E641982C1FDE361D00C47713 /* LCHomeMainViewModel.m in Sources */,
 				439F9B9E2068D35400FCDDDB /* LCGuessUserModel.m in Sources */,
 				E6C3F41D1FC2C5DD0077D670 /* LCLoginMainView.m in Sources */,

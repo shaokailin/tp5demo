@@ -49,7 +49,7 @@
         self.userIdLbl.text = NSStringFormat(@"码师ID:%@",kUserMessageManager.mch_no) ;
     }
     if (count > 0) {
-        self.stateLbl.text = @"对话列表";
+        self.stateLbl.text = NSStringFormat(@"%ld条回复",count);
     }else {
         self.stateLbl.text = @"回复";
     }

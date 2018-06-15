@@ -78,8 +78,10 @@
             [self endRefreshing];
         }
     }];
+    _viewModel.type = 0;
     _viewModel.period_id = self.guessModel.period_id;
     _viewModel.quiz_id = self.guessModel.quiz_id;
+    _viewModel.target = self.guessModel.quiz_id;
     [_viewModel getReplyList:NO];
 }
 - (void)endRefreshing {

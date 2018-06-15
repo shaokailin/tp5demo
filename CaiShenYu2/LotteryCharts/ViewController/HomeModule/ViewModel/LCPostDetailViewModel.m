@@ -267,6 +267,9 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
+                if (self.page == 0) {
+                    [self.replyArray removeAllObjects];
+                }
                 if (KJudgeIsArrayAndHasValue(model.response)) {
                     [self.replyArray addObjectsFromArray:model.response];
                 }
@@ -301,6 +304,9 @@
             @strongify(self)
             if (model.code == 200) {
                 [SKHUD dismiss];
+                if (self.page == 0) {
+                    [self.replyArray removeAllObjects];
+                }
                 [self.replyArray addObject:model.response];
                 [self sendSuccessResult:10 model:nil];
                 

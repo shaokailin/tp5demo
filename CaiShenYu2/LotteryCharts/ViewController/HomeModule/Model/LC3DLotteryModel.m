@@ -26,7 +26,16 @@
 }
 - (void)setTest_number:(NSString *)test_number {
     if (KJudgeIsNullData(test_number)) {
-        _test_number = [test_number stringByReplacingOccurrencesOfString:@"," withString:@""];
+        NSArray *numberArray = [test_number componentsSeparatedByString:@","];
+        if (numberArray.count > 0) {
+            _number4 = [numberArray objectAtIndex:0];
+        }
+        if (numberArray.count > 1) {
+            _number5 = [numberArray objectAtIndex:1];
+        }
+        if (numberArray.count > 2) {
+            _number6 = [numberArray objectAtIndex:2];
+        }
     }
 }
 - (BOOL)modelCustomTransformFromDictionary:(NSDictionary *)dic {

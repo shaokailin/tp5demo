@@ -11,5 +11,5 @@ static NSString * const kLCHomeHotPostTableViewCell = @"LCHomeHotPostTableViewCe
 
 @interface LCHomeHotPostTableViewCell : UITableViewCell
 @property (nonatomic, copy) PhotoClickBlock photoBlock;
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money funs:(NSString *)funs_count;
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money funs:(NSString *)funs_count comtent:(NSInteger)comtent;
 @end

@@ -65,7 +65,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
     LCHomePostModel *model = [self.viewModel.searchArray objectAtIndex:indexPath.row];
-    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.user_id postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money funs:KNullTransformNumber(model.fans_count)];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.user_id postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money funs:KNullTransformNumber(model.fans_count)comtent:model.reply_count];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

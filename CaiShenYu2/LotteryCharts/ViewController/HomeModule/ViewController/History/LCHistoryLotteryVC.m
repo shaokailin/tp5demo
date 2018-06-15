@@ -12,7 +12,7 @@
 #import "PopoverView.h"
 #import "LCHistoryLotteryViewModel.h"
 #import "NewWorkingRequestManage.h"
-
+#import "LC5DTableViewCell.h"
 @interface LCHistoryLotteryVC ()<UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate>
 {
     NSInteger _searchType;
@@ -111,17 +111,19 @@
     return 0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
     if (self.type == 5) {
+        LCHistoryLotteryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryLotteryTableViewCell];
         LC3DLotteryModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
-        
-        [cell setupContentWithTime:model.betting_time issue:model.period_id testRun:model.test_number number1:model.number1 number2:model.number2 number4:@"8" number3:model.number3 number5:@"8" type:self.type];
+        [cell setupContentWithTime:model.betting_time issue:model.period_id number:model.number1 number1:model.number2 number2:model.number3 number4:model.number5 number3:model.number4 number5:model.number6];
+        return cell;
     }else {
+        LC5DTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLC5DTableViewCell];
         LCLottery5DModel *model = [self.viewModel.historyArray objectAtIndex:indexPath.row];
         
-        [cell setupContentWithTime:model.create_time issue:model.p_name testRun:nil number1:model.number1 number2:model.number2 number4:model.number4 number3:model.number3 number5:model.number5 type:self.type];
+        [cell setupContentWithTime:model.create_time issue:model.p_name number1:model.number1 number2:model.number2 number4:model.number4 number3:model.number3 number5:model.number5];
+        return cell;
     }
-    return cell;
+    
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.view endEditing:YES];
@@ -147,6 +149,7 @@
     _searchType = 0;
     UITableView *mainTableView = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:1 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:ColorHexadecimal(kMainBackground_Color, 1.0) backgroundColor:nil];
     [mainTableView registerNib:[UINib nibWithNibName:kLCHistoryLotteryTableViewCell bundle:nil] forCellReuseIdentifier:kLCHistoryLotteryTableViewCell];
+    [mainTableView registerNib:[UINib nibWithNibName:kLC5DTableViewCell bundle:nil] forCellReuseIdentifier:kLC5DTableViewCell];
     mainTableView.rowHeight = 75;
     LCOderSearchBarView *searchView = [[LCOderSearchBarView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
     self.searchView = searchView;

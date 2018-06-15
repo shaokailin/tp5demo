@@ -226,7 +226,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCHomeHotPostTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHomeHotPostTableViewCell];
     LCHomePostModel *model = [self.viewModel.hotPostArray objectAtIndex:indexPath.row];
-    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money funs:KNullTransformNumber(model.fans_count)];
+    [cell setupContentWithPhoto:model.logo name:model.nickname userId:model.mch_no postId:model.post_id time:model.create_time title:model.post_title showCount:model.make_click money:model.post_money funs:KNullTransformNumber(model.fans_count)comtent:model.reply_count];
     WS(ws)
     cell.photoBlock = ^(id clickCell) {
         [ws jumpSpaceView:clickCell];

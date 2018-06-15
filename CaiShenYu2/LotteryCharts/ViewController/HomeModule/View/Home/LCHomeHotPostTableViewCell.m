@@ -37,7 +37,7 @@
         self.photoBlock(self);
     }
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money funs:(NSString *)funs_count {
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId postId:(NSString *)postId time:(NSString *)time title:(NSString *)title showCount:(NSString *)showCount money:(NSString *)money funs:(NSString *)funs_count comtent:(NSInteger)comtent {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }else {
@@ -48,7 +48,7 @@
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.sendTimeLbl.text = time;
     self.postTitleLbl.text = title;
-    self.countLbl.text = NSStringFormat(@"阅读数:%@    粉丝:%@",showCount,funs_count);
+    self.countLbl.text = NSStringFormat(@"评论数:%ld   阅读数:%@   粉丝:%@",comtent,showCount,funs_count);
     self.moneyLbl.text = money;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

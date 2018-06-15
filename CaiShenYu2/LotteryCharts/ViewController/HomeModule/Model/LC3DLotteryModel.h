@@ -19,5 +19,8 @@
 @property (nonatomic, copy) NSString *number1;
 @property (nonatomic, copy) NSString *number2;
 @property (nonatomic, copy) NSString *number3;
+@property (nonatomic, copy) NSString *number4;
+@property (nonatomic, copy) NSString *number5;
+@property (nonatomic, copy) NSString *number6;
 @property (nonatomic, copy) NSString *test_number;
 @end
