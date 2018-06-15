@@ -25,6 +25,8 @@
 #import "LCUserMianViewModel.h"
 #import "LCUserSignVC.h"
 #import "LCUserMessageListVC.h"
+#import "LCSystemMessageVC.h"
+#import "LCNoticeSettingVC.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
@@ -112,7 +114,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
              [self.headerView changeBgImage:self.viewModel.photoImage];
         }else if(identifier == 300){
             self->_isLoadNotice = NO;
-            [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
+            [self.mainTableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:1 inSection:0],[NSIndexPath indexPathForRow:2 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
         }
         else{
             [self.headerView setupContentWithAttention:self.viewModel.messageModel.follow_count teem:self.viewModel.messageModel.team_count fans:self.viewModel.messageModel.fans_count];
@@ -129,7 +131,8 @@ static NSString * const kSettingName = @"UserHomeSetting";
         }
         [self.mainTableView.mj_header endRefreshing];
     }];
-    _viewModel.count = 0;
+    _viewModel.mine_count = 0;
+    _viewModel.sys_count = 0;
 }
 
 - (void)jumpEvent {
@@ -176,7 +179,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
     return _settingArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
+    if (indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 14) {
         LCSpaceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCSpaceTableViewCell];
         return cell;
     }else {
@@ -184,21 +187,23 @@ static NSString * const kSettingName = @"UserHomeSetting";
         NSDictionary *dict = [_settingArray objectAtIndex:indexPath.row];
         NSInteger count = 0;
         if(indexPath.row == 1) {
-            count = self.viewModel.count;
+            count = self.viewModel.mine_count;
+        }else if (indexPath.row == 2){
+            count = self.viewModel.sys_count;
         }
         [cell setupContentTitle:[dict objectForKey:@"title"] detail:[dict objectForKey:@"detail"] icon:[dict objectForKey:@"icon"] count:count];
         return cell;
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
+    if (indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 14) {
         return 10;
     }else {
         return 44;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 5 || indexPath.row == 9 || indexPath.row == 12) {
+    if (indexPath.row == 7 || indexPath.row == 11 || indexPath.row == 14) {
     }else {
         UIViewController *controller = nil;
         switch (indexPath.row) {
@@ -217,47 +222,59 @@ static NSString * const kSettingName = @"UserHomeSetting";
             }
             case 2:
             {
+                LCSystemMessageVC *messageList = [[LCSystemMessageVC alloc]init];
+                controller = messageList;
+                break;
+            }
+            case 3:
+            {
+                LCNoticeSettingVC *messageList = [[LCNoticeSettingVC alloc]init];
+                controller = messageList;
+                break;
+            }
+            case 4:
+            {
                 LCMySpaceMainVC *spaceVC = [[LCMySpaceMainVC alloc]init];
                 spaceVC.userId = kUserMessageManager.userId;
                 controller = spaceVC;
                 break;
             }
-            case 3:
+            case 5:
             {
                 LCOrderHistoryVC *historyVC = [[LCOrderHistoryVC alloc]init];
                 controller = historyVC;
                 break;
             }
-            case 4:
+            case 6:
             {
                 LCUserSignVC *signVC = [[LCUserSignVC alloc]init];
                 controller = signVC;
                 break;
             }
-            case 6:
+            case 8:
             {
                 LCWalletMainVC *historyVC = [[LCWalletMainVC alloc]init];
                 controller = historyVC;
                 break;
             }
-            case 7:
+            case 9:
             {
                 LCTaskMainVC *taskVC = [[LCTaskMainVC alloc]init];
                 controller = taskVC;
                 break;
             }
-            case 8:
+            case 10:
             {
                 [self headerViewClickEvent:5];
                 break;
             }
-            case 10:
+            case 12:
             {
                 LCAboutUsVC *aboutVC = [[LCAboutUsVC alloc]init];
                 controller = aboutVC;
                 break;
             }
-            case 11:
+            case 13:
             {
                 LCContactMainVC *attentionVC = [[LCContactMainVC alloc]init];
                 controller = attentionVC;

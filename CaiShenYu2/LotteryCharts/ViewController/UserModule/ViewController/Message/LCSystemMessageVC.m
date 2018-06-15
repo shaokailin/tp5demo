@@ -1,44 +1,28 @@
 //
-//  LCMessageListVC.m
+//  LCSystemMessageVC.m
 //  LotteryCharts
 //
-//  Created by shaokai lin on 2018/5/4.
+//  Created by shaokai lin on 2018/6/15.
 //  Copyright © 2018年 林少凯. All rights reserved.
 //
 
-#import "LCUserMessageListVC.h"
-#import "LCNoticeSettingVC.h"
-#import "LCMessageForMeView.h"
+#import "LCSystemMessageVC.h"
 #import "LCMessageForSystemView.h"
-#import "LCMessageListVM.h"
-@interface LCUserMessageListVC ()
+@interface LCSystemMessageVC ()
 {
     BOOL _isChange;
 }
-@property (nonatomic, strong) LCMessageListVM *viewModel;
-
-@property (nonatomic, weak) LCMessageForMeView *meView;
+@property (nonatomic, weak) LCMessageForSystemView *systemView;
 @end
 
-@implementation LCUserMessageListVC
+@implementation LCSystemMessageVC
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"我的消息";
-    [self addRedNavigationBackButton];
+    self.navigationItem.title = @"系统消息";
+     [self addRedNavigationBackButton];
     [self initializeMainView];
-}
-- (LCMessageListVM *)viewModel {
-    if (!_viewModel) {
-        @weakify(self)
-        _viewModel = [[LCMessageListVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-            @strongify(self)
-            [self settingClick];
-        } failure:^(NSUInteger identifier, NSError *error) {
-            
-        }];
-    }
-    return _viewModel;
 }
 - (void)backToWhiteNavigationColor {
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
@@ -66,34 +50,21 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorUtilsString(kNavigationTitle_Color),NSFontAttributeName : FontNornalInit(kNavigationTitle_Font)};
     [self backToNornalNavigationColor];
 }
-- (void)settingClick {
-    if (!_viewModel || !_viewModel.model) {
-        [self.viewModel getUserNoticeSetting];
-    }else {
-        LCNoticeSettingVC *setting = [[LCNoticeSettingVC alloc]init];
-        setting.model = self.viewModel.model;
-        [self.navigationController pushViewController:setting animated:YES];
-    }
-    
-}
-
 - (void)initializeMainView {
-    self.meView.hidden = NO;
+    self.systemView.hidden = NO;
 }
-- (LCMessageForMeView *)meView {
-    if (!_meView) {
-        LCMessageForMeView *meView = [[LCMessageForMeView alloc]init];
-        _meView = meView;
-        [self.view addSubview:meView];
-        [meView mas_makeConstraints:^(MASConstraintMaker *make) {
+- (LCMessageForSystemView *)systemView {
+    if (!_systemView) {
+        LCMessageForSystemView *systemView = [[LCMessageForSystemView alloc]init];
+        _systemView = systemView;
+        [self.view addSubview:systemView];
+        [systemView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, self.tabbarBetweenHeight, 0));
         }];
-        [meView loadFirstData];
+        [systemView loadFirstData];
     }
-    return _meView;
+    return _systemView;
 }
-
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

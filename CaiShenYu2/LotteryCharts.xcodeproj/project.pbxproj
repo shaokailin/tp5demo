@@ -72,6 +72,7 @@
 		A658A635202D74770091586B /* LCPayResultHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = A658A634202D74770091586B /* LCPayResultHandle.m */; };
 		A67D20D620D3B0E5000A45AB /* LC5DTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A67D20D420D3B0E5000A45AB /* LC5DTableViewCell.m */; };
 		A67D20D720D3B0E5000A45AB /* LC5DTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */; };
+		A67D20DA20D3BA32000A45AB /* LCSystemMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A67D20D920D3BA32000A45AB /* LCSystemMessageVC.m */; };
 		A6A90E3B20B4FC1B005CB8E2 /* LCUserSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */; };
 		A6D25755209E9A11001886C4 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D25754209E9A11001886C4 /* libWeChatSDK.a */; };
 		A6D25758209EB40C001886C4 /* LCRepeatUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D25757209EB40C001886C4 /* LCRepeatUserVC.m */; };
@@ -475,6 +476,8 @@
 		A67D20D320D3B0E5000A45AB /* LC5DTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LC5DTableViewCell.h; sourceTree = "<group>"; };
 		A67D20D420D3B0E5000A45AB /* LC5DTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LC5DTableViewCell.m; sourceTree = "<group>"; };
 		A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LC5DTableViewCell.xib; sourceTree = "<group>"; };
+		A67D20D820D3BA32000A45AB /* LCSystemMessageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCSystemMessageVC.h; sourceTree = "<group>"; };
+		A67D20D920D3BA32000A45AB /* LCSystemMessageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCSystemMessageVC.m; sourceTree = "<group>"; };
 		A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LotteryCharts.entitlements; sourceTree = "<group>"; };
 		A6A90E3920B4FC1B005CB8E2 /* LCUserSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSettingModel.h; sourceTree = "<group>"; };
 		A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSettingModel.m; sourceTree = "<group>"; };
@@ -1178,6 +1181,8 @@
 				A6F6D2EA209CAC0200BA494A /* LCMessageForMeView.m */,
 				A6F6D2EC209CAC1A00BA494A /* LCMessageForSystemView.h */,
 				A6F6D2ED209CAC1A00BA494A /* LCMessageForSystemView.m */,
+				A67D20D820D3BA32000A45AB /* LCSystemMessageVC.h */,
+				A67D20D920D3BA32000A45AB /* LCSystemMessageVC.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -2584,6 +2589,7 @@
 				E636A7D61FC4246D00C9460F /* LCGuessInputView.m in Sources */,
 				A6D5D8ED20A080990010D7AC /* LCPublicNoticeListModel.m in Sources */,
 				E61D2EC81FBAD132002005E3 /* HSPDatePickView.m in Sources */,
+				A67D20DA20D3BA32000A45AB /* LCSystemMessageVC.m in Sources */,
 				E6D33C7B1FD798250036AE54 /* LCSpaceModel.m in Sources */,
 				E66A06701FE268B5007F6891 /* LCPostDetailMessageModel.m in Sources */,
 				9590191E1FB82D4D00F5B0CE /* LCRechargePayTypeView.m in Sources */,

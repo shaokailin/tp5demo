@@ -197,7 +197,8 @@
         [_noticeCommand.executionSignals.flatten subscribeNext:^(LCBaseResponseModel *model) {
             @strongify(self)
             if (model.code == 200) {
-                self.count = [[model.response objectForKey:@"count"] integerValue];
+                self.mine_count = [[model.response objectForKey:@"mine_count"] integerValue];
+                self.sys_count = [[model.response objectForKey:@"sys_count"] integerValue];
                 [self sendSuccessResult:300 model:nil];
             }else {
                 [SKHUD showMessageInView:self.currentView withMessage:@""];

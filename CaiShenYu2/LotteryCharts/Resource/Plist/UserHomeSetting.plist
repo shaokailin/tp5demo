@@ -20,6 +20,22 @@
 	</dict>
 	<dict>
 		<key>controller</key>
+		<string>LCSystemMessageVC</string>
+		<key>icon</key>
+		<string>gonggao</string>
+		<key>title</key>
+		<string>系统消息</string>
+	</dict>
+	<dict>
+		<key>controller</key>
+		<string>LCNoticeSettingVC</string>
+		<key>icon</key>
+		<string>shezhi</string>
+		<key>title</key>
+		<string>消息设置</string>
+	</dict>
+	<dict>
+		<key>controller</key>
 		<string></string>
 		<key>icon</key>
 		<string>user_room_icon</string>
