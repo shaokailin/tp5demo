@@ -59,7 +59,14 @@
     @weakify(self)
     _viewModel = [[LCTaskViewModel alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
         @strongify(self)
-        [self.headerView setupMoney:self.viewModel.taskModel.all_money];
+        if (identifier == 0) {
+            [self.headerView setupMoney:self.viewModel.taskModel.all_money];
+        }else {
+            if (self.viewModel && self.viewModel.taskModel) {
+                self.viewModel.taskModel.is_share = 1;
+            }
+            [SKHUD showMessageInView:self.view withMessage:@"分享成功！"];
+        }
         [self.mainTableView reloadData];
         [self.mainTableView.mj_header endRefreshing];
     } failure:^(NSUInteger identifier, NSError *error) {
@@ -68,12 +75,17 @@
     }];
     [_viewModel getTaskMessage];
 }
+- (void)shareSuccess {
+    if (!self.viewModel.taskModel || _viewModel.taskModel.is_share == 0) {
+        [self.viewModel sendSuccessShare];
+    }
+}
 - (void)pullDownRefresh {
     [_viewModel getTaskMessage];
 }
 #pragma mark -delegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LCTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCTaskTableViewCell];
@@ -96,7 +108,7 @@
             title = @"团队签到";
             break;
         case 4:
-            title = @"邀请好友";
+            title = @"每日分享";
             break;
             
         default:
@@ -123,7 +135,7 @@
             title = self.viewModel.taskModel.all_sign > 0? @"已完成":@"赚取100银币";
             break;
         case 4:
-            title = @"获取1银币";
+            title = self.viewModel.taskModel.is_share > 0? @"已完成":@"赚取100银币";;
             break;
             
         default:
@@ -142,9 +154,11 @@
     }else if (indexPath.row == 2){
         LCUserSignVC *sign = [[LCUserSignVC alloc]init];
         [self.navigationController pushViewController:sign animated:YES];
-    }else {
+    }else if(indexPath.row == 3) {
         LCTeamMainVC *team = [[LCTeamMainVC alloc]init];
         [self.navigationController pushViewController:team animated:YES];
+    }else {
+        [self shareEventClick];
     }
 }
 #pragma makr -view

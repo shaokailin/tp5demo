@@ -17,6 +17,7 @@
 - (void)shareEventClick;
 - (BOOL)isCanJumpViewForLogin:(BOOL)isNeedHiden;
 - (void)backToNornalNavigationColor;
+- (void)shareSuccess;
 /**
  添加返回按钮
  */

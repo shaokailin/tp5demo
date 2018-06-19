@@ -53,4 +53,6 @@
 
 + (LSKParamterEntity *)getNoticeSetting;
 + (LSKParamterEntity *)changeNoticeSetting:(BOOL)comment focus:(BOOL)focus reward:(BOOL)reward system:(BOOL)system;
+
++ (LSKParamterEntity *)sendShareSuccess;
 @end

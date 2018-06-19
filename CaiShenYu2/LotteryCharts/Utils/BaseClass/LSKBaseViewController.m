@@ -123,13 +123,19 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
+    @weakify(self)
     [[UMSocialManager defaultManager]shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id result, NSError *error) {
         if (error) {
             [SKHUD showMessageInWindowWithMessage:@"分享失败"];
         }else {
+            @strongify(self)
+            [self shareSuccess];
             [SKHUD showMessageInWindowWithMessage:@"分享成功"];
         }
     }];
+}
+- (void)shareSuccess {
+    
 }
 #pragma mark 添加导航栏按钮
 //添加导航栏左按钮

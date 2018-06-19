@@ -11,4 +11,5 @@
 @interface LCTaskViewModel : LSKBaseViewModel
 @property (nonatomic, strong) LCTaskModel *taskModel;
 - (void)getTaskMessage;
+- (void)sendSuccessShare;
 @end

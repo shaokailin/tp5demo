@@ -43,6 +43,7 @@ static NSString * const kSignList = @"User/myTeamSign.html";
 static NSString * const kTeamLineCount = @"User/getOnlineTeamCount.html";
 static NSString * const kSignCount = @"User/getMyTeamSignCount.html";
 static NSString * const kTaskMessage = @"User/myTask.html";
+static NSString * const kShareSuccess = @"user/shareSuccess.html";
 static NSString * const kExchangeSilver = @"User/jinChangeYin.html";
 static NSString * const kExchangeRate = @"direct/getUserJinBiLi";
 static NSString * const kMoneyRate = @"public/serverCharge.html";
@@ -176,6 +177,15 @@ static NSString * const kMessageSettingChange = @"message/setMessageSwitch.html"
     entity.responseObject = [LCTaskModel class];
     return entity;
 }
+
++ (LSKParamterEntity *)sendShareSuccess {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = kShareSuccess;
+    entity.params = @{@"token":kUserMessageManager.token};
+    entity.responseObject = [LCBaseResponseModel class];
+    return entity;
+}
+
 + (LSKParamterEntity *)glodExchangeSilver:(NSInteger)money {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kExchangeSilver;
