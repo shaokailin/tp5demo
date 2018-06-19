@@ -120,7 +120,7 @@
     if (_searchType == 0) {
         LCHistoryOrderModel *model = [_viewModel.historyArray objectAtIndex:indexPath.row];
         LCHistoryOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kLCHistoryOrderTableViewCell];
-        [cell setupContentWithPostId:model.post_id pushTime:model.create_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
+        [cell setupContentWithPostId:model.post_id pushTime:_viewModel.showType == 2?model.pay_time:model.create_time photoImage:model.logo name:model.nickname userId:model.mch_no detail:model.post_title money:model.award_money];
         WS(ws)
         cell.photoBlock = ^(id clickCell) {
             [ws photoClick:clickCell];

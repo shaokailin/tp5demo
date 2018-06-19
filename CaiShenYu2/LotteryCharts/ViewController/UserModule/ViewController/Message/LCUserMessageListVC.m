@@ -10,12 +10,12 @@
 #import "LCNoticeSettingVC.h"
 #import "LCMessageForMeView.h"
 #import "LCMessageForSystemView.h"
-#import "LCMessageListVM.h"
+
 @interface LCUserMessageListVC ()
 {
     BOOL _isChange;
 }
-@property (nonatomic, strong) LCMessageListVM *viewModel;
+
 
 @property (nonatomic, weak) LCMessageForMeView *meView;
 @end
@@ -28,18 +28,7 @@
     [self addRedNavigationBackButton];
     [self initializeMainView];
 }
-- (LCMessageListVM *)viewModel {
-    if (!_viewModel) {
-        @weakify(self)
-        _viewModel = [[LCMessageListVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
-            @strongify(self)
-            [self settingClick];
-        } failure:^(NSUInteger identifier, NSError *error) {
-            
-        }];
-    }
-    return _viewModel;
-}
+
 - (void)backToWhiteNavigationColor {
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     self.navigationController.navigationBar.translucent = NO;
@@ -66,16 +55,7 @@
     self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorUtilsString(kNavigationTitle_Color),NSFontAttributeName : FontNornalInit(kNavigationTitle_Font)};
     [self backToNornalNavigationColor];
 }
-- (void)settingClick {
-    if (!_viewModel || !_viewModel.model) {
-        [self.viewModel getUserNoticeSetting];
-    }else {
-        LCNoticeSettingVC *setting = [[LCNoticeSettingVC alloc]init];
-        setting.model = self.viewModel.model;
-        [self.navigationController pushViewController:setting animated:YES];
-    }
-    
-}
+
 
 - (void)initializeMainView {
     self.meView.hidden = NO;

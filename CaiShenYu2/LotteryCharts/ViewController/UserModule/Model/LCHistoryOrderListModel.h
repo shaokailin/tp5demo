@@ -9,7 +9,7 @@
 #import "LSKBaseResponseModel.h"
 @interface LCHistoryOrderModel : NSObject
 @property (nonatomic, copy) NSString *award_money;
-//@property (nonatomic, copy) NSString *add_time;
+@property (nonatomic, copy) NSString *pay_time;
 @property (nonatomic, copy) NSString *post_id;
 @property (nonatomic, copy) NSString *post_title;
 @property (nonatomic, copy) NSString *post_type;

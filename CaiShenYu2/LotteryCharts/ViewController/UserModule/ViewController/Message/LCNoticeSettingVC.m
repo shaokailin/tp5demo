@@ -13,6 +13,7 @@
 @interface LCNoticeSettingVC ()<UITableViewDelegate, UITableViewDataSource>
 {
     LCMessageListVM *_viewModel;
+    BOOL _isChange;
 }
 @property (nonatomic, weak) UITableView *mainTable;
 @end
@@ -27,6 +28,32 @@
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [self bindSignal];
     [self initializeMainView];
+}
+- (void)backToWhiteNavigationColor {
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : ColorRGBA(230, 0, 18, 1.0),NSFontAttributeName : FontNornalInit(kNavigationTitle_Font)};
+    self.navigationController.navigationBar.barTintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self.navigationController.navigationBar  setBackgroundImage:[[UIImage alloc] init] forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (!_isChange){
+        [self backToWhiteNavigationColor];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    _isChange = YES;
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    _isChange = NO;
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : KColorUtilsString(kNavigationTitle_Color),NSFontAttributeName : FontNornalInit(kNavigationTitle_Font)};
+    [self backToNornalNavigationColor];
 }
 - (void)bindSignal {
     @weakify(self)

@@ -27,6 +27,7 @@
 #import "LCUserMessageListVC.h"
 #import "LCSystemMessageVC.h"
 #import "LCNoticeSettingVC.h"
+#import "LCMessageListVM.h"
 static NSString * const kSettingName = @"UserHomeSetting";
 @interface LCUserMainVC ()<UITableViewDelegate, UITableViewDataSource,RSKImageCropViewControllerDelegate>
 {
@@ -40,6 +41,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
 @property (nonatomic, weak) LCUserHomeHeaderView *headerView;
 @property (nonatomic, strong) UIImage *homeNaviBgImage;
 @property (nonatomic, strong) LCUserMianViewModel *viewModel;
+@property (nonatomic, strong) LCMessageListVM *noticeViewModel;
 @end
 
 @implementation LCUserMainVC
@@ -134,7 +136,31 @@ static NSString * const kSettingName = @"UserHomeSetting";
     _viewModel.mine_count = 0;
     _viewModel.sys_count = 0;
 }
-
+#pragma mark - 消息设置
+- (LCMessageListVM *)noticeViewModel {
+    if (!_noticeViewModel) {
+        @weakify(self)
+        _noticeViewModel = [[LCMessageListVM alloc]initWithSuccessBlock:^(NSUInteger identifier, id model) {
+            @strongify(self)
+            [self settingClick];
+        } failure:^(NSUInteger identifier, NSError *error) {
+            
+        }];
+    }
+    return _noticeViewModel;
+}
+- (void)settingClick {
+    if (!_noticeViewModel || !_noticeViewModel.model) {
+        [self.noticeViewModel getUserNoticeSetting];
+    }else {
+        LCNoticeSettingVC *setting = [[LCNoticeSettingVC alloc]init];
+        setting.model = self.noticeViewModel.model;
+        setting.hidesBottomBarWhenPushed = YES;
+        [self.navigationController pushViewController:setting animated:YES];
+    }
+    
+}
+#pragma mark -
 - (void)jumpEvent {
     _jumpViewType = -1;
 }
@@ -228,8 +254,7 @@ static NSString * const kSettingName = @"UserHomeSetting";
             }
             case 3:
             {
-                LCNoticeSettingVC *messageList = [[LCNoticeSettingVC alloc]init];
-                controller = messageList;
+                [self settingClick];
                 break;
             }
             case 4:

@@ -22,6 +22,8 @@
 // 如果需要使用idfa功能所需要引入的头文件（可选）
 #import <AdSupport/AdSupport.h>
 #import "LCUserMessageListVC.h"
+#import "LCSystemMessageVC.h"
+#import "LCPublicNoticeVC.h"
 @interface AppDelegate ()<UITabBarControllerDelegate,JPUSHRegisterDelegate>
 @property (nonatomic, strong) LCRootTabBarVC *rootTabBarVC;
 @end
@@ -226,27 +228,38 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [JPUSHService handleRemoteNotification:userInfo];
     if (_rootTabBarVC) {
         NSString *userId = [userInfo objectForKey:@"uid"];
-        if (KJudgeIsNullData(userId) && kUserMessageManager.isLogin && [kUserMessageManager.userId isEqualToString:userId]) {
-            NSInteger type = [[userInfo objectForKey:@"type"] integerValue];
-            NSInteger selectIndex = 0;
-            if (type >= 100) {
-                selectIndex = 1;
-            }
+        NSInteger type = [[userInfo objectForKey:@"type"] integerValue];
+        if (KJudgeIsNullData(userId) && kUserMessageManager.isLogin && [kUserMessageManager.userId isEqualToString:userId] && type < 300) {
             UINavigationController *navi = _rootTabBarVC.selectedViewController;
             UIViewController *controll = navi.topViewController;
-            if (![controll isKindOfClass:[LCUserMessageListVC class]]) {
-                LCUserMessageListVC *bless = [[LCUserMessageListVC alloc]init];
+            UIViewController *messageControll = nil;
+            if (type >= 200 && type < 300){
+                if (![controll isKindOfClass:[LCSystemMessageVC class]]) {
+                    LCSystemMessageVC *bless = [[LCSystemMessageVC alloc]init];
+                    messageControll = bless;
+                }
+            }else if (type <100 && type > 0){
+                if (![controll isKindOfClass:[LCUserMessageListVC class]]) {
+                    LCUserMessageListVC *bless = [[LCUserMessageListVC alloc]init];
+                    messageControll = bless;
+                }
+            }
+            if (messageControll != nil) {
+                if (navi.viewControllers.count == 1) {
+                    messageControll.hidesBottomBarWhenPushed = YES;
+                }
+                [navi pushViewController:messageControll animated:YES];
+            }
+        }else if (type == 301){
+            UINavigationController *navi = _rootTabBarVC.selectedViewController;
+            UIViewController *controll = navi.topViewController;
+            if (![controll isKindOfClass:[LCPublicNoticeVC class]]) {
+                LCPublicNoticeVC *bless = [[LCPublicNoticeVC alloc]init];
                 if (navi.viewControllers.count == 1) {
                     bless.hidesBottomBarWhenPushed = YES;
                 }
-                [bless selectIndex:1];
                 [navi pushViewController:bless animated:YES];
-            }else {
-                LCUserMessageListVC *bless = (LCUserMessageListVC *)controll;
-                [bless selectIndex:1];
-                [bless reloadIndex];
             }
-            
         }
     }
     return NO;

@@ -116,10 +116,10 @@ static NSString * const kNavigation_BackImg = @"navi_back";
     //创建分享消息对象
     UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
     //创建网页内容对象
-    NSString* thumbURL =  @"http://www.09041.com/logo.jpg";
+    NSString* thumbURL = @"http://www.09041.com/logo.jpg";
     UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"神仙鱼" descr:@"神仙鱼APP是一款可以发布3D推荐号码，云集各路3D高手精英。每天发布最新最精准最全面的3D推荐号，有效提高3D命中率，造福各地各路广大彩民的共享交流平台。" thumImage:thumbURL];
     //设置网页地址
-    shareObject.webpageUrl = @"http://www.09041.com/ ";
+    shareObject.webpageUrl = @"http://www.09041.com/";
     
     //分享消息对象设置分享内容对象
     messageObject.shareObject = shareObject;
