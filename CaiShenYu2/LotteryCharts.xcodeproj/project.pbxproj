@@ -74,6 +74,7 @@
 		A67D20D720D3B0E5000A45AB /* LC5DTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67D20D520D3B0E5000A45AB /* LC5DTableViewCell.xib */; };
 		A67D20DA20D3BA32000A45AB /* LCSystemMessageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A67D20D920D3BA32000A45AB /* LCSystemMessageVC.m */; };
 		A6A90E3B20B4FC1B005CB8E2 /* LCUserSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */; };
+		A6BD576E20DA0274005D5B62 /* LCPublicNoticeDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BD576D20DA0274005D5B62 /* LCPublicNoticeDetailVC.m */; };
 		A6D25755209E9A11001886C4 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D25754209E9A11001886C4 /* libWeChatSDK.a */; };
 		A6D25758209EB40C001886C4 /* LCRepeatUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A6D25757209EB40C001886C4 /* LCRepeatUserVC.m */; };
 		A6D2575C209EB97C001886C4 /* LCGuessCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6D25759209EB97B001886C4 /* LCGuessCommentTableViewCell.xib */; };
@@ -481,6 +482,8 @@
 		A691BFFE20A3497600B60521 /* LotteryCharts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LotteryCharts.entitlements; sourceTree = "<group>"; };
 		A6A90E3920B4FC1B005CB8E2 /* LCUserSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCUserSettingModel.h; sourceTree = "<group>"; };
 		A6A90E3A20B4FC1B005CB8E2 /* LCUserSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCUserSettingModel.m; sourceTree = "<group>"; };
+		A6BD576C20DA0274005D5B62 /* LCPublicNoticeDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCPublicNoticeDetailVC.h; sourceTree = "<group>"; };
+		A6BD576D20DA0274005D5B62 /* LCPublicNoticeDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LCPublicNoticeDetailVC.m; sourceTree = "<group>"; };
 		A6D25751209E9A11001886C4 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		A6D25752209E9A11001886C4 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		A6D25753209E9A11001886C4 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -1859,6 +1862,8 @@
 				A6D5D8EE20A087140010D7AC /* LCPublicNotice1Cell.h */,
 				A6D5D8EF20A087140010D7AC /* LCPublicNotice1Cell.m */,
 				A6D5D8F020A087140010D7AC /* LCPublicNotice1Cell.xib */,
+				A6BD576C20DA0274005D5B62 /* LCPublicNoticeDetailVC.h */,
+				A6BD576D20DA0274005D5B62 /* LCPublicNoticeDetailVC.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -2642,6 +2647,7 @@
 				E67FFBCE1FCCFAB70045E5DF /* LCUserMianViewModel.m in Sources */,
 				A6F6D2E6209C99BA00BA494A /* LCUserMessageListVC.m in Sources */,
 				E6A6F7551FEBBE860008351B /* LCGuessRuleVC.m in Sources */,
+				A6BD576E20DA0274005D5B62 /* LCPublicNoticeDetailVC.m in Sources */,
 				A6D2575D209EB97C001886C4 /* LCGuessCommentTableViewCell.m in Sources */,
 				E6E2C6671FB0038600866D15 /* UIViewController+Extend.m in Sources */,
 				E66A064E1FE10EB9007F6891 /* LCHistoryOrderListModel.m in Sources */,

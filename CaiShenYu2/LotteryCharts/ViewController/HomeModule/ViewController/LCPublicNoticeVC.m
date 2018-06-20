@@ -9,6 +9,7 @@
 #import "LCPublicNoticeVC.h"
 #import "LCPublicNotice1Cell.h"
 #import "LCPublicNoticeVM.h"
+#import "LCPublicNoticeDetailVC.h"
 @interface LCPublicNoticeVC ()<UITableViewDelegate,UITableViewDataSource>
 {
     LCPublicNoticeVM *_viewModel;
@@ -77,7 +78,16 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
    LCPublicNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    if (model.height > 52) {
+        return 52 + 96;
+    }
     return model.height + 96;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    LCPublicNoticeModel *model = [_viewModel.listArray objectAtIndex:indexPath.row];
+    LCPublicNoticeDetailVC *detail = [[LCPublicNoticeDetailVC alloc]init];
+    detail.model = model;
+    [self.navigationController pushViewController:detail animated:YES];
 }
 - (void)initializeMainView {
     UITableView *tableVIew = [LSKViewFactory initializeTableViewWithDelegate:self tableType:UITableViewStylePlain separatorStyle:0 headRefreshAction:@selector(pullDownRefresh) footRefreshAction:@selector(pullUpLoadMore) separatorColor:nil backgroundColor:nil];
