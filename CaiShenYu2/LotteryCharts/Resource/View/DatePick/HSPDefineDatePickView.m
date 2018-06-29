@@ -168,9 +168,9 @@ static const NSInteger kMinStartYear = 2000;
     }
     NSString *string = nil;
     if (self.datePickerMode == 0) {
-        string = [NSString stringWithFormat:@"%d年",row + kMinStartYear];
+        string = [NSString stringWithFormat:@"%ld年",row + kMinStartYear];
     }else {
-        string = [NSString stringWithFormat:@"%d月",row + 1];
+        string = [NSString stringWithFormat:@"%ld月",row + 1];
     }
     //设置文字的属性
     UILabel *genderLabel = [UILabel new];
