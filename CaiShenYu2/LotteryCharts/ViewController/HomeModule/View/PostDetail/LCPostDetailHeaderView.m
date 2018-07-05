@@ -40,6 +40,12 @@
 @property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @property (nonatomic, assign) BOOL isLoading;
 @property (nonatomic, strong) NSURL *downLoadPath;
+@property (weak, nonatomic) IBOutlet UIButton *zanbtn;
+@property (weak, nonatomic) IBOutlet UILabel *zanLbl;
+@property (weak, nonatomic) IBOutlet UIView *actionView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageHeight;
+
+
 @end
 @implementation LCPostDetailHeaderView
 
@@ -55,13 +61,17 @@
     self.payBtn.hidden = YES;
 //    self.contentTextView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, 0, 0);
     self.contentTextView.text = nil;
-    PYPhotosView *linePhotosView = [PYPhotosView photosViewWithThumbnailUrls:nil originalUrls:nil layoutType:PYPhotosViewLayoutTypeLine ];
+    PYPhotosView *linePhotosView = [PYPhotosView photosViewWithThumbnailUrls:nil originalUrls:nil layoutType:PYPhotosViewLayoutTypeFlow];
     // 设置Frame
-    linePhotosView.photosMaxCol = 3;
-    linePhotosView.py_y = 0;
-    linePhotosView.py_x = PYMargin * 2;
-    linePhotosView.py_width = 80;
+    self.imageBgView.backgroundColor = [UIColor whiteColor];
+    linePhotosView.photosMaxCol = 1;
+    linePhotosView.py_y = 60;
+    linePhotosView.py_x = 36;
+    linePhotosView.photoMargin = 20;
+    linePhotosView.py_width = SCREEN_WIDTH - 36 * 2;
     linePhotosView.py_height = 80;
+    linePhotosView.photoHeight = 300;
+    linePhotosView.photoWidth = SCREEN_WIDTH - 36 * 2;
     self.voiceBtn.hidden = YES;
     self.voiceTimeLbl.hidden = YES;
     self.linePhotosView = linePhotosView;
@@ -103,16 +113,27 @@
     }
     self.contentTVHeight.constant = contentHeight;
     CGFloat viewHeight = contentHeight + 144;
-    viewHeight += 80;
-    viewHeight += 24;
+    viewHeight += 17;
     if (isCanShow) {
         if (mediaDict && [mediaDict isKindOfClass:[NSDictionary class]]) {
             NSArray *images = [mediaDict objectForKey:@"images"];
             if (KJudgeIsArrayAndHasValue(images)) {
+                CGFloat imageHeight = images.count * 300 + 20 *(images.count + 1);
+                self.linePhotosView.py_height = imageHeight;
+                viewHeight += (imageHeight);
+                self.imageHeight.constant = imageHeight;
+                self.linePhotosView.photosMaxCol = 1;
                 self.linePhotosView.originalUrls = images;
-                self.linePhotosView.photosMaxCol = 3;
+                self.imageBgView.backgroundColor = ColorHexadecimal(0xF6F6F6, 1.0);
+            }else {
+                self.linePhotosView.originalUrls = nil;
+                self.linePhotosView.photosMaxCol = 1;
+                self.imageHeight.constant = 80;
+                self.linePhotosView.py_height = 80;
+                viewHeight += 80;
+                self.imageBgView.backgroundColor = [UIColor whiteColor];
             }
-            BOOL isVoice = NO;;
+            BOOL isVoice = NO;
             id record = [mediaDict objectForKey:@"record"];
             if (record && [record isKindOfClass:[NSDictionary class]]) {
                 NSDictionary *voiceDict = (NSDictionary *)record;
@@ -127,34 +148,30 @@
             }
             self.voiceBtn.hidden = !isVoice;
             self.voiceTimeLbl.hidden = !isVoice;
-            if (isVoice && self.shangTopHeight.constant <= 20.0) {
-                self.shangTopHeight.constant = 60;
-            }else if (!isVoice && self.shangTopHeight.constant > 30) {
-                self.shangTopHeight.constant = 20;
-            }
             if (isVoice) {
-                if (self.isUser) {
-                    viewHeight += (15 + 25);
-                }else {
-                    viewHeight += 60;
-                    viewHeight += 72;
-                }
+                viewHeight += 15;
+                viewHeight += 25;
+                viewHeight += 6;
             }else {
-                if (!self.isUser) {
-                    viewHeight += 20;
-                    viewHeight += 72;
-                }
+                viewHeight += 0;
+            }
+            if (!self.isUser) {
+                viewHeight += 100;
             }
             if (self.frameBlock) {
                 self.frameBlock(viewHeight);
             }
             return;
         }
+    }else {
+        self.imageHeight.constant = 80;
+        self.linePhotosView.py_height = 80;
+        self.imageBgView.backgroundColor = [UIColor whiteColor];
+        viewHeight += 80;
+        viewHeight += 24;
     }
-    self.shangTopHeight.constant = 20;
     if (!self.isUser) {
-        viewHeight += 20;
-        viewHeight += 72;
+        viewHeight += 100;
     }
     if (self.frameBlock) {
         self.frameBlock(viewHeight);
@@ -216,7 +233,7 @@
         [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
     }
 }
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type {
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type zanshu:(NSString *)zanshu isZan:(BOOL)isZan {
     if (KJudgeIsNullData(photo)) {
         [self.photoImage sd_setImageWithURL:[NSURL URLWithString:photo] placeholderImage:nil];
     }else {
@@ -237,16 +254,22 @@
     
     self.timeLbl.text = time;
     self.shangCountLbl.text = NSStringFormat(@"%@人打赏了帖主",count);
+    self.zanbtn.selected = isZan;
+    self.zanbtn.userInteractionEnabled = !isZan;
+    self.zanLbl.text = NSStringFormat(@"%@人赞了帖主",zanshu);
     self.isUser = type;
     if (type == 0) {
-        self.shangBtn.hidden = NO;
-        self.shangCountLbl.hidden = NO;
+        self.actionView.hidden = NO;
         self.careBtn.hidden = NO;
     }else {
-        self.shangBtn.hidden = YES;
-        self.shangCountLbl.hidden = YES;
+        self.actionView.hidden = YES;
         self.careBtn.hidden = YES;
     }
+}
+- (void)changeZanCount:(NSString *)count{
+    self.zanbtn.selected = YES;
+    self.zanbtn.userInteractionEnabled = NO;
+    self.zanLbl.text = NSStringFormat(@"%@人赞了帖主",count);
 }
 - (IBAction)careClick:(id)sender {
     if (self.headerBlock) {
@@ -271,6 +294,11 @@
 - (IBAction)rewardClick:(id)sender {
     if (self.headerBlock) {
         self.headerBlock(2, 0);
+    }
+}
+- (IBAction)zanClick:(id)sender {
+    if (self.headerBlock) {
+        self.headerBlock(10, 0);
     }
 }
 - (void)setIsCare:(BOOL)isCare {

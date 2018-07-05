@@ -18,7 +18,8 @@ typedef void (^HeaderViewFrameBlock)(CGFloat height);
 
 @property (nonatomic, copy) NSString *postType;
 - (void)setupPayBtnState:(BOOL)isPay;
-- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type;
+- (void)setupContentWithPhoto:(NSString *)photo name:(NSString *)name userId:(NSString *)userId money:(NSString *)money title:(NSString *)title content:(NSString *)content postId:(NSString *)postId time:(NSString *)time count:(NSString *)count type:(NSInteger)type zanshu:(NSString *)zanshu isZan:(BOOL)isZan;
 - (void)setupContent:(NSString *)content media:(NSDictionary *)mediaDict isShow:(BOOL)isCanShow;
 - (void)setupRewardCount:(NSInteger)count;
+- (void)changeZanCount:(NSString *)count;
 @end

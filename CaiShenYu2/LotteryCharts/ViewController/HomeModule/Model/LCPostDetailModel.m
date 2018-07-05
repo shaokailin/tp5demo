@@ -41,7 +41,8 @@
              @"nickname" : @"response.nickname",
              @"logo" : @"response.logo",
              @"mch_no" : @"response.mch_no",
-             
+             @"thumbsup" : @"response.thumbsup",
+             @"thumbsup_count" : @"response.thumbsup_count",
              };
 }
 @end

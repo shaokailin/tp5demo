@@ -29,5 +29,5 @@
 @property (nonatomic, copy) NSString *target;
 @property (nonatomic, assign) NSInteger replyType;
 - (void)getCommentReplyList:(BOOL)isPull;
-
+- (void)zanClick;
 @end

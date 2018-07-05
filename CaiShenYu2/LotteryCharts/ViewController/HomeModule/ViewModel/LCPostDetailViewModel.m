@@ -20,6 +20,7 @@
 @property (nonatomic, strong) RACCommand *payCommand;
 @property (nonatomic, strong) RACCommand *commentCommand;
 @property (nonatomic, strong) RACCommand *guessSendReplyConmand;
+@property (nonatomic, strong) RACCommand *zanCommand;
 @property (nonatomic, assign) BOOL flag;
 
 @end
@@ -316,5 +317,29 @@
         }];
     }
     return _guessSendReplyConmand;
+}
+
+- (void)zanClick {
+    [SKHUD showLoadingDotInView:self.currentView];
+    [self.zanCommand execute:nil];
+}
+- (RACCommand *)zanCommand {
+    if (!_zanCommand) {
+        @weakify(self)
+        _zanCommand = [[RACCommand alloc]initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            return [self requestWithPropertyEntity:[LCUserModuleAPI zanPost:self.postId]];
+        }];
+        [_zanCommand.executionSignals.flatten subscribeNext:^(LSKBaseResponseModel *model) {
+            @strongify(self)
+            if (model.code == 200) {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+                [self sendSuccessResult:50 model:nil];
+            }else {
+                [SKHUD showMessageInView:self.currentView withMessage:model.message];
+            }
+        }];
+    }
+    return _zanCommand;
 }
 @end

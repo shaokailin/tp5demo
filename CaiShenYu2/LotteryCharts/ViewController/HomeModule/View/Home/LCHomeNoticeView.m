@@ -11,7 +11,7 @@
 @implementation LCHomeNoticeView
 {
     UILabel *_contentLbl;
-    LMJScrollTextView2 * _scrollTextView;
+//    LMJScrollTextView2 * _scrollTextView;
 }
 - (instancetype)init {
     if (self = [super init]) {
@@ -21,20 +21,25 @@
 }
 - (void)setupContent:(NSArray *)content {
 //    _dataArray = content;
-    [self.dataArray removeAllObjects];
-    [_scrollTextView stop];
+//    [self.dataArray removeAllObjects];
+//    [_scrollTextView stop];
     if (KJudgeIsArrayAndHasValue(content)) {
-        for (LCHomeNoticeModel *model in content) {
-            NSString *text = [model.content stringByReplacingOccurrencesOfString:@"&gt;" withString:@""];
-            text = [text stringByReplacingOccurrencesOfString:@"&lt;" withString:@""];
-            text = [text stringByReplacingOccurrencesOfString:@"/p" withString:@""];
-            [self.dataArray addObject:text];
-        }
+        LCHomeNoticeModel *model = [content objectAtIndex:0];
+        NSString *text = [model.content stringByReplacingOccurrencesOfString:@"&gt;" withString:@""];
+        text = [text stringByReplacingOccurrencesOfString:@"&lt;" withString:@""];
+        text = [text stringByReplacingOccurrencesOfString:@"/p" withString:@""];
+        _contentLbl.text = text;
+//        for (LCHomeNoticeModel *model in content) {
+//            NSString *text = [model.content stringByReplacingOccurrencesOfString:@"&gt;" withString:@""];
+//            text = [text stringByReplacingOccurrencesOfString:@"&lt;" withString:@""];
+//            text = [text stringByReplacingOccurrencesOfString:@"/p" withString:@""];
+//            [self.dataArray addObject:text];
+//        }
     }
-    if (self.dataArray.count > 0) {
-        _scrollTextView.textDataArr = self.dataArray;
-        [_scrollTextView startScrollBottomToTop];
-    }
+//    if (self.dataArray.count > 0) {
+//        _scrollTextView.textDataArr = self.dataArray;
+//        [_scrollTextView startScrollBottomToTop];
+//    }
     
 }
 - (NSMutableArray *)dataArray {
@@ -59,11 +64,18 @@
         make.left.equalTo(arrowImageView.mas_right).with.offset(5);
         make.centerY.equalTo(ws);
     }];
-    _scrollTextView = [[LMJScrollTextView2 alloc] initWithFrame:CGRectMake(65, 0, SCREEN_WIDTH - 115, 30)];
-    _scrollTextView.delegate        = self;
-    _scrollTextView.textColor       = ColorHexadecimal(0x959595, 1.0);
-    _scrollTextView.textFont        = [UIFont systemFontOfSize:11.f];
-    [self addSubview:_scrollTextView];
+//    _scrollTextView = [[LMJScrollTextView2 alloc] initWithFrame:CGRectMake(65, 0, SCREEN_WIDTH - 115, 30)];
+//    _scrollTextView.delegate        = self;
+//    _scrollTextView.textColor       = ColorHexadecimal(0x959595, 1.0);
+//    _scrollTextView.textFont        = [UIFont systemFontOfSize:11.f];
+//    [self addSubview:_scrollTextView];
+    _contentLbl = [LSKViewFactory initializeLableWithText:nil font:11 textColor:ColorHexadecimal(0x959595, 1.0) textAlignment:0 backgroundColor:nil];
+    [self addSubview:_contentLbl];
+    [_contentLbl mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(65);
+        make.right.equalTo(self).with.offset(-50);
+        make.centerY.equalTo(self);
+    }];
     UIImageView *arrow = [[UIImageView alloc]initWithImage:ImageNameInit(@"arrow_right")];
     [self addSubview:arrow];
     [arrow mas_makeConstraints:^(MASConstraintMaker *make) {

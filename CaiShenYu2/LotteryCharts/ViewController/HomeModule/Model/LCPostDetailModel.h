@@ -30,5 +30,7 @@
 @property (nonatomic, copy) NSString *reward_count;
 @property (nonatomic, copy) NSString *reward_money;
 @property (nonatomic, copy) NSString *fans_count;
+@property (nonatomic, copy) NSString *thumbsup_count;
+@property (nonatomic, copy) NSString *thumbsup;
 
 @end

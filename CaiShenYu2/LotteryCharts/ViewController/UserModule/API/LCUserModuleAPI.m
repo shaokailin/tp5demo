@@ -218,7 +218,13 @@ static NSString * const kMessageSettingChange = @"message/setMessageSwitch.html"
     entity.responseObject = [LSKBaseResponseModel class];
     return entity;
 }
-
++ (LSKParamterEntity *)zanPost:(NSString *)post {
+    LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
+    entity.requestApi = @"post/thumbsup.html";
+    entity.params = @{@"token":kUserMessageManager.token,@"post_id":post};
+    entity.responseObject = [LSKBaseResponseModel class];
+    return entity;
+}
 + (LSKParamterEntity *)getOtherAttention:(NSInteger)page userId:(NSString *)userId {
     LSKParamterEntity *entity = [[LSKParamterEntity alloc]init];
     entity.requestApi = kOtherAttentionList;

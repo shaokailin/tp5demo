@@ -57,6 +57,8 @@
                 self.postModel.post_upload = detailModel.post_upload;
                 self.postModel.post_type = detailModel.post_type;
                 self.postModel.mch_no = detailModel.mch_no;
+                self.postModel.thumbsup_count = detailModel.thumbsup_count;
+                self.postModel.thumbsup = detailModel.thumbsup;
                 self.postModel.post_money = detailModel.post_money;
                 self.postModel.post_vipmoney = detailModel.post_vipmoney;
                 self.postModel.user_id = detailModel.user_id;
@@ -100,6 +102,10 @@
             [self.headerView setupRewardCount:[self.postModel.reward_count integerValue] + 1];
         }else if (identifier == 30) {
             self.headerView.isCare = !self.headerView.isCare;
+        }else if (identifier == 50){
+            self.postModel.thumbsup_count = NSStringFormat(@"%ld",[self.postModel.thumbsup_count integerValue] + 1);
+            self.postModel.thumbsup = @"1";
+            [self.headerView changeZanCount:self.postModel.thumbsup_count];
         }
     } failure:^(NSUInteger identifier, NSError *error) {
         @strongify(self)
@@ -161,6 +167,8 @@
         [self getRewardEvent];
     }else if (type == 3){
         [self showAlterView];
+    }else if (type == 10){
+        [self.viewModel zanClick];
     }
 }
 - (void)getRewardEvent {
@@ -298,7 +306,7 @@
     [self.view addSubview:inputView];
 }
 - (void)setupHeadView:(BOOL)isShow isFirst:(BOOL)isFirst {
-    [self.headerView setupContentWithPhoto:self.postModel.logo name:self.postModel.nickname userId:self.postModel.mch_no money:self.postModel.post_money title:self.postModel.post_title content:nil postId:self.postModel.post_id time:self.postModel.create_time count:self.postModel.reward_count type:self.type];
+    [self.headerView setupContentWithPhoto:self.postModel.logo name:self.postModel.nickname userId:self.postModel.mch_no money:self.postModel.post_money title:self.postModel.post_title content:nil postId:self.postModel.post_id time:self.postModel.create_time count:self.postModel.reward_count type:self.type zanshu:self.postModel.thumbsup_count isZan:[self.postModel.thumbsup boolValue]];
     if (isShow) {
         if (KJudgeIsNullData(self.postModel.post_upload)) {
             NSDictionary *dict = [LSKPublicMethodUtil jsonDataTransformToDictionary:[self.postModel.post_upload dataUsingEncoding:NSUTF8StringEncoding]];

@@ -48,7 +48,7 @@
     self.postIdLbl.text = NSStringFormat(@"帖子ID:%@",postId);
     self.sendTimeLbl.text = time;
     self.postTitleLbl.text = title;
-    self.countLbl.text = NSStringFormat(@"评论数:%ld   阅读数:%@   粉丝:%@",comtent,showCount,funs_count);
+    self.countLbl.text = NSStringFormat(@"评论数:%ld   点赞数:%@   粉丝:%@",comtent,showCount,funs_count);
     self.moneyLbl.text = money;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

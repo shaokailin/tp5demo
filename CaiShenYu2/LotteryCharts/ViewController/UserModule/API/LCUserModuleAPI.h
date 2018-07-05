@@ -41,7 +41,7 @@
 + (LSKParamterEntity *)widthdrawMoney:(NSString *)money;
 + (LSKParamterEntity *)widthdrawRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year;
 + (LSKParamterEntity *)rechargeRecordList:(NSInteger)page month:(NSInteger)month year:(NSInteger)year;
-
++ (LSKParamterEntity *)zanPost:(NSString *)post;
 + (LSKParamterEntity *)getlistUserModel:(NSInteger)page userId:(NSString *)userId;
 
 + (LSKParamterEntity *)reportOtherUser:(NSString *)uesrId content:(NSString *)content postId:(NSString *)postId;

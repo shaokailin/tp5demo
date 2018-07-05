@@ -453,9 +453,10 @@ static NSInteger _photosViewCount;
     }
     // 如果图片为一张，则图片的大小和photosView一致
     if (count == 1 && self.oneImageFullFrame && !CGSizeEqualToSize(self.bounds.size, CGSizeMake(self.photoMargin, self.photoMargin))) {
-        return self.bounds.size;
+        return CGSizeMake(self.photoWidth, self.photoHeight);
     }
-    cols = (count >= maxCount) ? maxCount : count;
+//    cols = (count >= maxCount) ? maxCount : count;
+    cols = maxCount;
     rows = (count + maxCount - 1) / maxCount;
     
     photosViewW = cols * self.photoWidth + (cols - 1) * self.photoMargin;

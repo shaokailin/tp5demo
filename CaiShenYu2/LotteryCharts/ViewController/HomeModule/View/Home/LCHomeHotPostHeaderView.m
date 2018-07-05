@@ -20,7 +20,7 @@
     return self;
 }
 - (void)setupLineCount:(NSString *)count {
-    NSString *string = NSStringFormat(@"在线人数：%@",count);
+    NSString *string = NSStringFormat(@"当天发帖数：%@",count);
     _countLbl.text = string;
     CGFloat width = [string calculateTextWidth:10] + 36;
     [_countLbl mas_updateConstraints:^(MASConstraintMaker *make) {
@@ -45,7 +45,7 @@
         make.centerY.equalTo(imageView);
     }];
     
-    UILabel *countLbl = [LSKViewFactory initializeLableWithText:@"在线人数：0" font:10 textColor:[UIColor whiteColor] textAlignment:1 backgroundColor:ColorHexadecimal(0xbfbfbf, 1.0)];
+    UILabel *countLbl = [LSKViewFactory initializeLableWithText:@"当天发帖数：0" font:10 textColor:[UIColor whiteColor] textAlignment:1 backgroundColor:ColorHexadecimal(0xbfbfbf, 1.0)];
     ViewBoundsRadius(countLbl, 8);
     _countLbl = countLbl;
     [self addSubview:countLbl];

@@ -28,4 +28,6 @@
 @property (nonatomic, copy) NSString *status;
 @property (nonatomic, copy) NSString *create_time;
 @property (nonatomic, copy) NSString *update_time;
+@property (nonatomic, copy) NSString *thumbsup_count;
+@property (nonatomic, copy) NSString *thumbsup;
 @end
