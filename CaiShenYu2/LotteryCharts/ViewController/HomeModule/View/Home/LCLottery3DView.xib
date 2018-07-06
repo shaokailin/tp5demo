@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -168,7 +168,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                     <state key="normal" title="8" backgroundImage="yellowcircle">
-                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.44313725490196076" green="0.54117647058823526" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fD4-yz-Ya1">
@@ -179,7 +179,7 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                     <state key="normal" title="8" backgroundImage="yellowcircle">
-                        <color key="titleColor" red="0.96470588239999999" green="0.96470588239999999" blue="0.96470588239999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.44313725490196076" green="0.54117647058823526" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fish" translatesAutoresizingMaskIntoConstraints="NO" id="cqx-6k-wa7">
@@ -254,6 +254,6 @@
         <image name="fish" width="15" height="15"/>
         <image name="home_arrow1" width="5" height="8"/>
         <image name="home_redcircle" width="75" height="75"/>
-        <image name="yellowcircle" width="25" height="25"/>
+        <image name="yellowcircle" width="75" height="75"/>
     </resources>
 </document>

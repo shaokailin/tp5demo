@@ -70,7 +70,7 @@
                             <constraint firstAttribute="width" constant="28" id="oih-aF-CMx"/>
                         </constraints>
                         <state key="normal" title="1" backgroundImage="yellowcircle">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.4431372549" green="0.54117647059999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E3y-AB-SQQ">
@@ -80,7 +80,7 @@
                             <constraint firstAttribute="height" constant="28" id="hOC-aU-V9D"/>
                         </constraints>
                         <state key="normal" title="1" backgroundImage="yellowcircle">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.44313725490196076" green="0.54117647058823526" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SSR-yQ-Y71">
@@ -100,7 +100,7 @@
                             <constraint firstAttribute="height" constant="28" id="ach-1M-y9Z"/>
                         </constraints>
                         <state key="normal" title="1" backgroundImage="yellowcircle">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="titleColor" red="0.4431372549" green="0.54117647059999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                         </state>
                     </button>
                 </subviews>
@@ -143,6 +143,6 @@
     </objects>
     <resources>
         <image name="home_redcircle" width="75" height="75"/>
-        <image name="yellowcircle" width="25" height="25"/>
+        <image name="yellowcircle" width="75" height="75"/>
     </resources>
 </document>
