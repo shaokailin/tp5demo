@@ -63,7 +63,7 @@
                             <constraint firstAttribute="height" constant="28" id="jOn-13-h4E"/>
                         </constraints>
                         <state key="normal" title="1" backgroundImage="yellowcircle">
-                            <color key="titleColor" red="0.4431372549" green="0.54117647059999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7D-dX-Kd4">
@@ -73,7 +73,7 @@
                             <constraint firstAttribute="width" constant="28" id="jsV-RA-B2w"/>
                         </constraints>
                         <state key="normal" title="1" backgroundImage="yellowcircle">
-                            <color key="titleColor" red="0.4431372549" green="0.54117647059999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BZy-xv-vGT">

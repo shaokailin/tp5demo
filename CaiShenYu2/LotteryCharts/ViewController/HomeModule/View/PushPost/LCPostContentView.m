@@ -229,7 +229,7 @@
         make.top.equalTo(ws).with.offset(40);
     }];
     
-    UITextField *field = [LSKViewFactory initializeTextFieldWithDelegate:self text:nil placeholder:@"请输入标题" textFont:15 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:0 returnKey:UIReturnKeyDone keyBoard:UIKeyboardTypeDefault cleanModel:0];
+    UITextField *field = [LSKViewFactory initializeTextFieldWithDelegate:self text:nil placeholder:@"请输入标题" textFont:16 textColor:ColorHexadecimal(0x434343, 1.0) placeholderColor:ColorHexadecimal(0xbfbfbf, 1.0) textAlignment:0 borStyle:0 returnKey:UIReturnKeyDone keyBoard:UIKeyboardTypeDefault cleanModel:0];
     self.titleField = field;
     [self addSubview:field];
     [field mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -238,7 +238,7 @@
     }];
     UITextView *textView = [[UITextView alloc]init];
     textView.textColor = ColorHexadecimal(0x434343, 1.0);
-    textView.font = FontNornalInit(15);
+    textView.font = FontNornalInit(16);
     self.contentTextView = textView;
     [self addSubview:textView];
     [textView mas_makeConstraints:^(MASConstraintMaker *make) {
