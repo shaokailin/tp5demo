@@ -277,8 +277,8 @@ static NSInteger _photosViewCount;
     // 取出size
     CGSize size = [self sizeWithPhotoCount:self.photos.count photosState:self.photosState];
     self.contentSize = size;
-    CGFloat width = size.width + self.py_x > PYScreenW ? PYScreenW - self.py_x : size.width;
-    self.py_size = CGSizeMake(width, size.height);
+//    CGFloat width = size.width + self.py_x > PYScreenW ? PYScreenW - self.py_x : size.width;
+    self.py_size = CGSizeMake(size.width, size.height);
 }
 
 - (void)setImages:(NSMutableArray *)images
@@ -446,7 +446,7 @@ static NSInteger _photosViewCount;
     maxCount = self.photosMaxCol > 0 ? self.photosMaxCol : 1;
     if (state == PYPhotosViewStateDidCompose) { // 已经发布
         if (self.photos.count > 0 && self.layoutType == PYPhotosViewLayoutTypeFlow && self.autoLayoutWithWeChatSytle) {
-           maxCount = count == 4 ? 2 : maxCount;
+//           maxCount = count == 4 ? 2 : maxCount;
         }
     } else if (state == PYPhotosViewStateWillCompose){ // 未发布
         if (count < self.imagesMaxCountWhenWillCompose) count ++;
@@ -475,9 +475,9 @@ static NSInteger _photosViewCount;
     
     NSInteger maxCol = self.photosMaxCol;
     
-    if (self.photos.count == 4 && self.layoutType == PYPhotosViewLayoutTypeFlow && self.photosState == PYPhotosViewStateDidCompose && self.autoLayoutWithWeChatSytle) {
-        maxCol = 2;
-    }
+//    if (self.photos.count == 4 && self.layoutType == PYPhotosViewLayoutTypeFlow && self.photosState == PYPhotosViewStateDidCompose && self.autoLayoutWithWeChatSytle) {
+//        maxCol = 2;
+//    }
     // 当图片为一张时，图片大小和photosView一致
     if (self.photos.count == 1 && self.oneImageFullFrame) {
         PYPhotoView *photoView = self.subviews[0];

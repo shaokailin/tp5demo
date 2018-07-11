@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Pods/PYPhotoBrowser/PYPhotoBrowser/View/PYPhotosView.m"
-            timestampString = "552500218.036134"
+            timestampString = "552971382.439924"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "430"
@@ -64,6 +64,22 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "-setPy_centerY:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PYPhotoBrowser/PYPhotoBrowser/View/PYPhotosView.m"
+            timestampString = "552971382.4402879"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "460"
+            endingLineNumber = "460"
+            landmarkName = "-sizeWithPhotoCount:photosState:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

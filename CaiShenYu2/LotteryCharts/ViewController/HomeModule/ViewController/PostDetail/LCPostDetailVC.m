@@ -68,6 +68,7 @@
                 self.postModel.reply_count = detailModel.reply_count;
                 self.headerView.isCare = detailModel.is_follow;
                 self.headerView.postType = detailModel.post_type;
+                self.postModel.logo = detailModel.logo;
                 self->_isNeedSend = NO;
                 BOOL isCanShow = YES;
                 BOOL isPay = NO;
